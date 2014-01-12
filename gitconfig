@@ -27,11 +27,6 @@
 	default = upstream
 [rerere]
 	enabled = true
-[sendemail]
-	smtpencryption = tls
-	smtpserver = smtp.gmail.com
-	smtpuser = mdippery@gmail.com
-	smtpserverport = 587
 [alias]
 	br = branch
 	ci = commit
