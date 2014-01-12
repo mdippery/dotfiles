@@ -1,0 +1,24 @@
+[ui]
+username = Michael Dippery <michael@monkey-robot.com>
+
+[defaults]
+outgoing = -n
+pull = -u
+revert = --no-backup
+
+[extensions]
+# hgext.bookmarks =
+color =
+graphlog =
+#hggit =
+hgk =
+pager =
+progress =
+
+[pager]
+pager = less
+#ignore = heads, parents, paths, pull, push, showconfig
+attend = diff, help, log, show
+
+[alias]
+show = log -p -r
