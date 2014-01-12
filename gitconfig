@@ -1,0 +1,76 @@
+[user]
+	name = Michael Dippery
+	email = michael@monkey-robot.com
+[apply]
+	whitespace = nowarn
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[branch]
+	#autosetuprebase = always
+[diff]
+	renames = copies
+[instaweb]
+	httpd = webrick
+[interactive]
+	singlekey = true
+[log]
+	#date = local
+[merge]
+	#log = true
+	tool = ksdiff
+[pull]
+	rebase = true
+[push]
+	default = upstream
+[rerere]
+	enabled = true
+[sendemail]
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = mdippery@gmail.com
+	smtpserverport = 587
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	cp = cherry-pick
+	ds = !git --no-pager diff --stat -M -w
+	ga = log --graph --oneline --decorate --all
+	gr = log --graph --oneline --decorate
+	lf = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative --numstat
+	lm = log --no-merges
+	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative
+	ol = log --oneline --decorate
+	rb = rebase
+	ri = rebase -i
+	#rp = remote prune
+	ru = remote update
+	sb = status -sb
+	sh = show HEAD
+	st = status
+	#up = fetch
+	alias = !sh -c 'git config --get-regexp alias | cut -c 7-'
+	authors = !sh -c 'git log --format="%aN" | sort -k 2 -u'
+	deleted = log --diff-filter=D --summary
+	edits = diff --color-words
+	fix = commit -a --amend
+	hide = update-index --assume-unchanged
+	info = config --list
+	showtag = !sh -c 'git rev-parse $1 | xargs git cat-file -p' -
+	stashed = !git --no-pager stash list
+	staged = diff --cached
+	stats = !git --no-pager shortlog -ns
+	tags = tag -n1 -l
+	#touched = log --name-only
+	#unhide = update-index --no-assume-unchanged
+	who = !git --no-pager shortlog -sn --no-merges
+
+# Added by Kaleidoscope
+[difftool "ksdiff"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "ksdiff"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
