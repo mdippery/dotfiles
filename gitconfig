@@ -24,7 +24,7 @@
 [pull]
 	rebase = true
 [push]
-	default = upstream
+	default = simple
 [rerere]
 	enabled = true
 [alias]
