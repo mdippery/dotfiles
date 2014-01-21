@@ -136,6 +136,9 @@ function xexe {
 # Returns the HTTP status code for a URL
 function hstat { curl -I $1 2>/dev/null | head -1; }
 
+# Opens a man page in Preview
+function pman { man -t $1 | open -f -a /Applications/Preview.app; }
+
 # Does a reverse DNS lookup on an IP
 function rvdns { nslookup $1 | awk '/name = .*\.$/ {print $4}' | sed 's/\.$//'; }
 
