@@ -157,7 +157,7 @@ function vv {
 
 ########  ENVIRONMENT  ######################################################
 
-eval "`rbenv init -`"
+eval "$(rbenv init -)"
 source ~/.pythonbrew/etc/bashrc
 source ~/.perl5/etc/bashrc
 
@@ -168,4 +168,4 @@ export PATH="${SCALA_HOME}/bin:${PATH}"
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 source `brew --prefix`/etc/bash_completion.d/git-completion.bash
 source ~/.bash_completion.d/django_bash_completion
-eval `pip completion --bash`
+eval $(pip completion --bash)
