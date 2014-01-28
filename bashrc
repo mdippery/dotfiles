@@ -11,7 +11,6 @@ unalias -a                      # I don't want any pre-set aliases
 ########  ENVIRONMENT CONFIG  ###############################################
 
 NONE='\[\e[0m\]'    # Reset
-INV='\[\e[7m\]'     # Invert
 K='\[\e[0;30m\]'    # Black
 R='\[\e[0;31m\]'    # Red
 G='\[\e[0;32m\]'    # Green
@@ -20,6 +19,8 @@ B='\[\e[0;34m\]'    # Blue
 M='\[\e[0;35m\]'    # Magenta
 C='\[\e[0;36m\]'    # Cyan
 W='\[\e[0;37m\]'    # White
+INV='\[\e[7m\]'     # Invert
+INVB='\[\e[7;34m\]' # Invert blue
 EMK='\[\e[1;30m\]'  # Bold Black
 EMR='\[\e[1;31m\]'  # Bold Red
 EMG='\[\e[1;32m\]'  # Bold Green
