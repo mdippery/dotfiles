@@ -155,7 +155,6 @@ function vv {
 
 eval "$(rbenv init -)"
 source ~/.pythonbrew/etc/bashrc
-source ~/.perl5/etc/bashrc
 
 # TODO: Create a set of scripts to do this, like above
 export SCALA_HOME="${HOME}/.scalabrew/scalas/Current"
