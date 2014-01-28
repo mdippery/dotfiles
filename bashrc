@@ -39,7 +39,8 @@ export PS1="${PS1_TIME}${EMG}\h ${EMB}\W \$${NONE} "
 
 
 BREW=`brew --prefix`
-export PATH="${HOME}/.rbenv/bin:${HOME}/.local/bin:${HOME}/.go/bin:${BREW}/share/npm/bin:${PATH}"
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH="${PYENV_ROOT}/bin:${HOME}/.rbenv/bin:${HOME}/.local/bin:${HOME}/.go/bin:${BREW}/share/npm/bin:${PATH}"
 
 export EDITOR='vim'
 export HOMEBREW_EDITOR='mate -r'
@@ -98,7 +99,7 @@ alias myip='curl http://icanhazip.com/'
 alias o='popd'
 alias openwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 alias p='pushd'
-alias pbr='pythonbrew'
+#alias pbr='pythonbrew'
 alias pyclean="find . -name '*.pyc' | xargs rm -f"
 alias rb='rbenv'
 alias rh='runhaskell'
@@ -154,7 +155,7 @@ function vv {
 ########  ENVIRONMENT  ######################################################
 
 eval "$(rbenv init -)"
-source ~/.pythonbrew/etc/bashrc
+eval "$(pyenv init -)"
 
 # TODO: Create a set of scripts to do this, like above
 export SCALA_HOME="${HOME}/.scalabrew/scalas/Current"
