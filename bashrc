@@ -11,6 +11,7 @@ unalias -a                      # I don't want any pre-set aliases
 ########  ENVIRONMENT CONFIG  ###############################################
 
 NONE='\[\e[0m\]'    # Reset
+INV='\[\e[7m\]'     # Invert
 K='\[\e[0;30m\]'    # Black
 R='\[\e[0;31m\]'    # Red
 G='\[\e[0;32m\]'    # Green
@@ -35,7 +36,7 @@ DB='\[\e[2;34m\]'   # Dim Blue
 DM='\[\e[2;35m\]'   # Dim Magenta
 DC='\[\e[2;36m\]'   # Dim Cyan
 DW='\[\e[2;37m\]'   # Dim White
-export PS1="${PS1_TIME}${EMG}\h ${EMB}\W \$${NONE} "
+export PS1="${EMG}\h ${EMB}\W \$${NONE} "
 
 
 BREW=`brew --prefix`
