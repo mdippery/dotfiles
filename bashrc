@@ -118,7 +118,7 @@ alias which='(alias ; declare -f) | /usr/local/bin/which --tty-only --read-alias
 
 ########  FUNCTIONS  ########################################################
 
-function char { echo -n "$1" | xxd; }
+function char { echo -n "$1" | hexdump -C; }
 
 function exe {
   touch $1
