@@ -1,15 +1,11 @@
-## .bashrc - Bash configuration script
-## Michael Dippery <michael@monkey-robot.com>
-
 # TODO: Eventually figure out which of this stuff should go in
 # ~/.bash_profile, and which should stay here.
 
 
 ########  SHELL SETUP  ######################################################
 
-export HISTCONTROL=erasedups
+export HISTCONTROL=ignoredups
 unalias -a                      # I don't want any pre-set aliases
-#umask 077
 
 
 ########  ENVIRONMENT CONFIG  ###############################################
