@@ -38,7 +38,7 @@ DM='\[\e[2;35m\]'   # Dim Magenta
 DC='\[\e[2;36m\]'   # Dim Cyan
 DW='\[\e[2;37m\]'   # Dim White
 export PS1="${INVB} \W ${B}${NONE} "
-export PS2="${R}… ${NONE}"
+export PS2="   ${R}… ${NONE}"
 
 BREW=`brew --prefix`
 export PATH="${HOME}/.rbenv/bin:${HOME}/.local/bin:${HOME}/.go/bin:${BREW}/share/npm/bin:${PATH}"
