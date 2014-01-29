@@ -40,8 +40,7 @@ DW='\[\e[2;37m\]'   # Dim White
 export PS1="${INVB} \W ${B}${NONE} "
 
 BREW=`brew --prefix`
-export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="${PYENV_ROOT}/bin:${HOME}/.rbenv/bin:${HOME}/.local/bin:${HOME}/.go/bin:${BREW}/share/npm/bin:${PATH}"
+export PATH="${HOME}/.rbenv/bin:${HOME}/.local/bin:${HOME}/.go/bin:${BREW}/share/npm/bin:${PATH}"
 
 export EDITOR='vim'
 export HOMEBREW_EDITOR='mate -r'
@@ -100,7 +99,6 @@ alias myip='curl http://icanhazip.com/'
 alias o='popd'
 alias openwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 alias p='pushd'
-#alias pbr='pythonbrew'
 alias pyclean="find . -name '*.pyc' | xargs rm -f"
 alias rb='rbenv'
 alias rh='runhaskell'
@@ -156,7 +154,15 @@ function vv {
 ########  ENVIRONMENT  ######################################################
 
 eval "$(rbenv init -)"
-eval "$(pyenv init -)"
+
+if [ -d ~/.pythonbrew ]; then
+  alias pbr='pythonbrew'
+  source ~/.pythonbrew/etc/bashrc
+elif [ -d ~/.pyenv ]; then
+  export PYENV_ROOT="${HOME}/.pyenv"
+  export PATH="${PYENV_ROOT}/bin:${PATH}"
+  eval "$(pyenv init -)"
+fi
 
 # TODO: Create a set of scripts to do this, like above
 export SCALA_HOME="${HOME}/.scalabrew/scalas/Current"
