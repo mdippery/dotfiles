@@ -52,7 +52,6 @@ export LESS='R'
 #export NODE_PATH=`brew --prefix`/lib/node_modules
 
 export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
-#export SCALA_HOME=`brew --prefix scala`/libexec
 export PERLBREW_ROOT="${HOME}/.perl5"
 
 export CLICOLOR_FORCE=true
