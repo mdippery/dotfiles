@@ -10,6 +10,8 @@ unalias -a                      # I don't want any pre-set aliases
 
 ########  ENVIRONMENT CONFIG  ###############################################
 
+# TODO: Use tput set{af,ab} for these values, as shown here:
+# <http://unix.stackexchange.com/a/105932/57970>
 NONE='\[\e[0m\]'    # Reset
 K='\[\e[0;30m\]'    # Black
 R='\[\e[0;31m\]'    # Red
@@ -38,7 +40,7 @@ DM='\[\e[2;35m\]'   # Dim Magenta
 DC='\[\e[2;36m\]'   # Dim Cyan
 DW='\[\e[2;37m\]'   # Dim White
 export PS1="${INVB} \W ${B}${NONE} "
-export PS2="   ${R}… ${NONE}"
+export PS2="${R}… ${NONE}"
 
 BREW=`brew --prefix`
 export PATH="${HOME}/.rbenv/bin:${HOME}/.local/bin:${HOME}/.go/bin:${BREW}/share/npm/bin:${PATH}"
