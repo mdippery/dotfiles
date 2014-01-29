@@ -37,8 +37,7 @@ DB='\[\e[2;34m\]'   # Dim Blue
 DM='\[\e[2;35m\]'   # Dim Magenta
 DC='\[\e[2;36m\]'   # Dim Cyan
 DW='\[\e[2;37m\]'   # Dim White
-export PS1="${EMG}\h ${EMB}\W \$${NONE} "
-
+export PS1="${INVB} \W ${B}${NONE} "
 
 BREW=`brew --prefix`
 export PYENV_ROOT="${HOME}/.pyenv"
