@@ -21,7 +21,6 @@ B='\[\e[0;34m\]'    # Blue
 M='\[\e[0;35m\]'    # Magenta
 C='\[\e[0;36m\]'    # Cyan
 W='\[\e[0;37m\]'    # White
-INV='\[\e[7m\]'     # Invert
 INVB='\[\e[7;34m\]' # Invert blue
 EMK='\[\e[1;30m\]'  # Bold Black
 EMR='\[\e[1;31m\]'  # Bold Red
