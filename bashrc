@@ -61,7 +61,7 @@ export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
 export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
 export DJANGO_DEBUG=true
 
-export NYRB_VM_SHARED='../../vagrant'
+export NYRB_VM_SHARED="${HOME}/Developer/Projects/Work/nybooks/vagrant"
 
 
 ########  ALIASES  ##########################################################
