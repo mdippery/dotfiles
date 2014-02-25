@@ -151,7 +151,7 @@ function vv {
   export PS1="${DW}${venv}${NONE} ${PS1}"
 }
 
-function whois { /usr/bin/whois $1 | less; }
+function whois { /usr/bin/whois $1 | $PAGER; }
 
 
 ########  ENVIRONMENT  ######################################################
