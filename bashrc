@@ -105,6 +105,7 @@ alias rb='rbenv'
 alias rh='runhaskell'
 alias rm='rm -i'
 #alias rwhich='resolve-which'
+alias ssh-reset="printf '\e]0;\a'"
 #alias svnauthors="svn log --xml | grep author | sort -u | perl -pe 's/.>(.?)<./$1 = /'"
 alias t='type'
 alias top='top -o cpu'
