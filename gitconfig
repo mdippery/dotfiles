@@ -30,7 +30,6 @@
 [alias]
 	br = branch
 	ci = commit
-	cn = commit --no-verify
 	co = checkout
 	cp = cherry-pick
 	ds = !git --no-pager diff --stat -M -w
