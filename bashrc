@@ -175,3 +175,8 @@ source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 source `brew --prefix`/etc/bash_completion.d/git-completion.bash
 source ~/.bash_completion.d/django_bash_completion
 eval $(pip completion --bash)
+
+compleat_script="$(brew --prefix compleat)/share/compleat-1.0/compleat_setup"
+if [ -r $compleat_script ]; then
+  source $compleat_script
+fi
