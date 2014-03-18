@@ -41,8 +41,7 @@ DW='\[\e[2;37m\]'   # Dim White
 export PS1="${INVB} \W ${B}${NONE} "
 export PS2="${R}… ${NONE}"
 
-BREW=`brew --prefix`
-export PATH="${HOME}/.rbenv/bin:${HOME}/.local/bin:${HOME}/.go/bin:${HOME}/.cabal/bin:${BREW}/share/npm/bin:/usr/local/heroku/bin:${PATH}"
+export PATH="${HOME}/.rbenv/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
 
 export EDITOR='vim'
 export HOMEBREW_EDITOR='mate -r'
@@ -51,10 +50,7 @@ export LESS='R'
 #export LESSEDIT='mate -l %lm %f'
 #export TEXEDIT='mate -w -l %d "%s"'
 
-#export NODE_PATH=`brew --prefix`/lib/node_modules
-
 export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
-export PERLBREW_ROOT="${HOME}/.perl5"
 
 export CLICOLOR_FORCE=true
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
