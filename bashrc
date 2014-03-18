@@ -164,8 +164,10 @@ elif [ -d ~/.pyenv ]; then
 fi
 
 # TODO: Create a set of scripts to do this, like above
-export SCALA_HOME="${HOME}/.scalas/scalas/Current"
-export PATH="${SCALA_HOME}/bin:${PATH}"
+if [ -d "${HOME}/.scalas" ]; then
+  export SCALA_HOME="${HOME}/.scalas/scalas/Current"
+  export PATH="${SCALA_HOME}/bin:${PATH}"
+fi
 
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 source `brew --prefix`/etc/bash_completion.d/git-completion.bash
@@ -176,3 +178,4 @@ compleat_script="$(brew --prefix)/opt/compleat/share/compleat-1.0/compleat_setup
 if [ -r $compleat_script ]; then
   source $compleat_script
 fi
+unset compleat_script
