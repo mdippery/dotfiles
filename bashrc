@@ -168,7 +168,7 @@ elif [ -d ~/.pyenv ]; then
 fi
 
 # TODO: Create a set of scripts to do this, like above
-export SCALA_HOME="${HOME}/.scalabrew/scalas/Current"
+export SCALA_HOME="${HOME}/.scalas/scalas/Current"
 export PATH="${SCALA_HOME}/bin:${PATH}"
 
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
