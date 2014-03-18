@@ -42,7 +42,7 @@ export PS1="${INVB} \W ${B}${NONE} "
 export PS2="${R}… ${NONE}"
 
 BREW=`brew --prefix`
-export PATH="${HOME}/.rbenv/bin:${HOME}/.local/bin:${HOME}/.go/bin:${BREW}/share/npm/bin:/usr/local/heroku/bin:${PATH}"
+export PATH="${HOME}/.rbenv/bin:${HOME}/.local/bin:${HOME}/.go/bin:${HOME}/.cabal/bin:${BREW}/share/npm/bin:/usr/local/heroku/bin:${PATH}"
 
 export EDITOR='vim'
 export HOMEBREW_EDITOR='mate -r'
