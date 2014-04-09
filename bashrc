@@ -42,6 +42,7 @@ export PS1="${INVB} \W ${B}${NONE} "
 export PS2="${R}… ${NONE}"
 
 export PATH="${HOME}/.rbenv/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
+export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
 export EDITOR='vim'
 export HOMEBREW_EDITOR='mate -r'
