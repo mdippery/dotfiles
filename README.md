@@ -1,4 +1,4 @@
-My dotfiles organized by application. Installation requires [stow][GNU Stow].
+My dotfiles organized by application. Installation requires [GNU Stow][stow].
 To install:
 
     $ git clone https://github.com/mdippery/dotfiles.git .dotfiles
