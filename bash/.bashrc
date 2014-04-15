@@ -59,7 +59,7 @@ export NETHACKOPTIONS=''                        # MacBook doesn't have a numberp
 export DJANGO_DEBUG=true
 
 export NYRB_VM_SHARED="${HOME}/Developer/Projects/Work/nybooks/vagrant"
-#export NYRB_SEARCH_DOMAIN='192.168.0.10'
+export NYRB_SEARCH_DOMAIN='192.168.0.10'
 
 
 ########  ALIASES  ##########################################################
