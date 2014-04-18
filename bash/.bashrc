@@ -38,7 +38,7 @@ DB='\[\e[2;34m\]'   # Dim Blue
 DM='\[\e[2;35m\]'   # Dim Magenta
 DC='\[\e[2;36m\]'   # Dim Cyan
 DW='\[\e[2;37m\]'   # Dim White
-export PS1="${INVB} \W ${B}${NONE} "
+export PS1="${INVB} \W ${B}\356\202\260${NONE} "
 export PS2="${R}… ${NONE}"
 
 export PATH="${HOME}/.rbenv/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
