@@ -41,7 +41,7 @@ DW='\[\e[2;37m\]'   # Dim White
 export PS1="${INVB} \W ${B}\356\202\260${NONE} "
 export PS2="${R}… ${NONE}"
 
-export PATH="${HOME}/.rbenv/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
+export PATH="${HOME}/.rbenv/bin:${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
 export EDITOR='vim'
