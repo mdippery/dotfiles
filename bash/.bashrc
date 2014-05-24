@@ -138,6 +138,11 @@ function pman { man -t $1 | open -f -a /Applications/Preview.app; }
 # Does a reverse DNS lookup on an IP
 function rvdns { nslookup $1 | awk '/name = .*\.$/ {print $4}' | sed 's/\.$//'; }
 
+function uuid7 {
+    u=$(date | md5sum)
+    echo "${u:0:7}"
+}
+
 function vv {
   if [ ! -d .venv ]; then
     echo "No virtualenv in ${PWD}"
