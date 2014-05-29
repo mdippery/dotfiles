@@ -1,3 +1,4 @@
 --color-match=red
 --pager=less
 --ignore-dir=migrations
+--ignore-dir=.bundle
