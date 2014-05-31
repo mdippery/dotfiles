@@ -39,7 +39,8 @@ DM='\[\e[2;35m\]'   # Dim Magenta
 DC='\[\e[2;36m\]'   # Dim Cyan
 DW='\[\e[2;37m\]'   # Dim White
 PS1_SEP="\356\202\260"
-export PS1="${INVB}${PS1_SEP} \W ${B}${PS1_SEP}${NONE} "
+PS1_TAIL=" \W ${B}${PS1_SEP}${NONE} "
+export PS1="${INVB}${PS1_TAIL}"
 export PS2="${R}… ${NONE}"
 
 export PATH="${HOME}/.rbenv/bin:${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
@@ -153,7 +154,7 @@ function vv {
   #source ".venv/${venv}/bin/activate"
   vpath=$(cd .venv/$venv && pwd)
   export PATH="${vpath}/bin:${PATH}"
-  export PS1="${DW}${venv}${NONE} ${PS1}"
+  export PS1="${DW}${venv}${NONE} ${INVB}${PS1_SEP}${PS1_TAIL}"
 }
 
 function whois { /usr/bin/whois $1 | $PAGER; }
