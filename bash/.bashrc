@@ -38,11 +38,9 @@ DB='\[\e[2;34m\]'   # Dim Blue
 DM='\[\e[2;35m\]'   # Dim Magenta
 DC='\[\e[2;36m\]'   # Dim Cyan
 DW='\[\e[2;37m\]'   # Dim White
-
-PS1_BASE="${EMK}\342\235\241 ${DW}[\D{%I:%M}] ${B}\W${NONE}"
-PS1_PROMPT="${Y}\342\206\263 ${G}\$${NONE} "
-export PS1="${PS1_BASE}\n${PS1_PROMPT}"
-export PS2="  ${R}\342\200\246${NONE} "
+PS1_SEP="\356\202\260"
+export PS1="${INVB}${PS1_SEP} \W ${B}${PS1_SEP}${NONE} "
+export PS2="${R}… ${NONE}"
 
 export PATH="${HOME}/.rbenv/bin:${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
