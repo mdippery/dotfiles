@@ -185,7 +185,5 @@ source ~/.bash_completion.d/django_bash_completion
 eval $(pip completion --bash)
 
 compleat_script="$(brew --prefix)/opt/compleat/share/compleat-1.0/compleat_setup"
-if [ -r $compleat_script ]; then
-  source $compleat_script
-fi
+[ -r $compleat_script ] && source $compleat_script
 unset compleat_script
