@@ -77,14 +77,11 @@ alias du='du -sh'
 alias egrep='egrep --color'
 alias epath='echo $PATH | tr ":" "\n"'
 alias fgrep='fgrep --color'
-#alias fortune='fortune -a'
 alias fs='foreman start'
 alias fsd='foreman start -f Procfile.dev'
 alias gems='gem list | cut -d" " -f1'
 alias grep='grep --color'
 alias h='history'
-#alias hero='heroku'
-#alias hf='history | /usr/bin/grep --color'
 alias hide='SetFile -a V'
 alias i='dirs -v'
 alias ip='curl ifconfig.me'
@@ -105,15 +102,12 @@ alias pyclean="find . -name '*.pyc' | xargs rm -f"
 alias rb='rbenv'
 alias rh='runhaskell'
 alias rm='rm -i'
-#alias rwhich='resolve-which'
 alias ssh-reset="printf '\e]0;\a'"
-#alias svnauthors="svn log --xml | grep author | sort -u | perl -pe 's/.>(.?)<./$1 = /'"
 alias t='type'
 alias top='top -o cpu'
 alias uuid='/usr/bin/uuidgen'
 alias ve='virtualenv'
 alias which='(alias ; declare -f) | /usr/local/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde'
-#alias work='cd ~/Projects/neonmob/apps/neonmob'
 
 
 ########  FUNCTIONS  ########################################################
