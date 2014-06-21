@@ -13,3 +13,6 @@
 [submodule "vim/.vim/bundle/haskell-vim"]
 	path = vim/.vim/bundle/haskell-vim
 	url = https://github.com/raichoo/haskell-vim.git
+[submodule "vim/.vim/bundle/nginx.vim"]
+	path = vim/.vim/bundle/nginx.vim
+	url = https://github.com/vim-scripts/nginx.vim.git
