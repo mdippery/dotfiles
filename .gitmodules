@@ -16,3 +16,6 @@
 [submodule "vim/.vim/bundle/nginx.vim"]
 	path = vim/.vim/bundle/nginx.vim
 	url = https://github.com/vim-scripts/nginx.vim.git
+[submodule "vim/.vim/bundle/peaksea"]
+	path = vim/.vim/bundle/peaksea
+	url = https://github.com/vim-scripts/peaksea.git
