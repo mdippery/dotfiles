@@ -123,7 +123,7 @@ function exe {
 function xexe {
   touch $1
   chmod +x $1
-  mate -r $1
+  mvim $1
 }
 
 # Returns the HTTP status code for a URL
