@@ -19,3 +19,6 @@
 [submodule "vim/.vim/bundle/peaksea"]
 	path = vim/.vim/bundle/peaksea
 	url = https://github.com/vim-scripts/peaksea.git
+[submodule "vim/.vim/bundle/vim-nefertiti"]
+	path = vim/.vim/bundle/vim-nefertiti
+	url = https://github.com/jeetsukumaran/vim-nefertiti.git
