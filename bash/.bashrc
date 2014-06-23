@@ -47,7 +47,7 @@ export PATH="${HOME}/.rbenv/bin:${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
 export EDITOR='vim'
-export HOMEBREW_EDITOR='mate -r'
+export HOMEBREW_EDITOR='mvim'
 export PAGER='/usr/bin/less'
 export LESS='R'
 #export LESSEDIT='mate -l %lm %f'
