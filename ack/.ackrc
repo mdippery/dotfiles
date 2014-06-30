@@ -2,3 +2,4 @@
 --pager=less
 --ignore-dir=migrations
 --ignore-dir=.bundle
+--ignore-file=is:.tags
