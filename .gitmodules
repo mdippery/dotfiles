@@ -28,3 +28,6 @@
 [submodule "vim/.vim/bundle/vim-surround"]
 	path = vim/.vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/.vim/bundle/vim-colors-pencil"]
+	path = vim/.vim/bundle/vim-colors-pencil
+	url = https://github.com/reedes/vim-colors-pencil
