@@ -118,7 +118,7 @@ function char { echo -n "$1" | hexdump -C; }
 
 function exe {
   touch $1
-  mate -r $1
+  mvim $1
 }
 
 function xexe {
