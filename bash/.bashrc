@@ -47,7 +47,8 @@ export PATH="${HOME}/.rbenv/bin:${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
 export EDITOR='vim'
-export HOMEBREW_EDITOR='mvim'
+export GUI_EDITOR='mvim'
+export HOMEBREW_EDITOR="$GUI_EDITOR"
 export PAGER='/usr/bin/less'
 export LESS='R'
 #export LESSEDIT='mate -l %lm %f'
@@ -118,13 +119,13 @@ function char { echo -n "$1" | hexdump -C; }
 
 function exe {
   touch $1
-  mvim $1
+  $GUI_EDITOR $1
 }
 
 function xexe {
   touch $1
   chmod +x $1
-  mvim $1
+  $GUI_EDITOR $1
 }
 
 # Returns the HTTP status code for a URL
