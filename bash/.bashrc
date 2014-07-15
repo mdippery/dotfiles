@@ -41,7 +41,7 @@ DW='\[\e[2;37m\]'   # Dim White
 PS1_SEP="\356\202\260"
 PS1_TAIL=" \W ${B}${PS1_SEP}${NONE} "
 export PS1="${INVB}${PS1_TAIL}"
-export PS2="${R}… ${NONE}"
+export PS2="${R}\342\200\246 ${NONE}"
 
 export PATH="${HOME}/.rbenv/bin:${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
