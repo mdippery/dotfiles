@@ -38,10 +38,9 @@ DB='\[\e[2;34m\]'   # Dim Blue
 DM='\[\e[2;35m\]'   # Dim Magenta
 DC='\[\e[2;36m\]'   # Dim Cyan
 DW='\[\e[2;37m\]'   # Dim White
-PS1_SEP="\356\202\260"
-PS1_TAIL=" \W ${B}${PS1_SEP}${NONE} "
 export PS1="${INVB}${PS1_TAIL}"
-export PS2="${R}\342\200\246 ${NONE}"
+export PS1="${EMM}\$${NONE} "
+export PS2="${R}\342\200\246${NONE} "
 
 export PATH="${HOME}/.rbenv/bin:${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
@@ -71,6 +70,7 @@ alias be='bundle exec'
 alias bi='bundle install --path=.bundle'
 alias brm='rm -rf .bundle && bi'
 alias clj='lein repl'
+alias d='basename $(pwd)'
 alias df='df -h'
 alias dj='python manage.py'
 alias djrun='python manage.py runserver'
@@ -150,7 +150,7 @@ function vv {
   #source ".venv/${venv}/bin/activate"
   vpath=$(cd .venv/$venv && pwd)
   export PATH="${vpath}/bin:${PATH}"
-  export PS1="${DW}${venv}${NONE} ${INVB}${PS1_SEP}${PS1_TAIL}"
+  export PS1="${Y}\$${NONE} "
 }
 
 function whois { /usr/bin/whois $1 | $PAGER; }
