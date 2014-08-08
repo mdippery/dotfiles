@@ -46,7 +46,7 @@
 	sb = status -sb
 	sh = show HEAD
 	st = status
-	#up = fetch
+	up = pull --prune
 	alias = !sh -c 'git config --get-regexp alias | cut -c 7-'
 	authors = !sh -c 'git log --format="%aN" | sort -k 2 -u'
 	deleted = log --diff-filter=D --summary
