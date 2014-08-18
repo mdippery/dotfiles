@@ -185,6 +185,6 @@ compleat_script="$(brew --prefix)/opt/compleat/share/compleat-1.0/compleat_setup
 [ -r $compleat_script ] && source $compleat_script
 unset compleat_script
 
-bashrc_local="${HOME}/.bashrc.local"
+bashrc_local="${HOME}/.bash_local/bashrc"
 [ -r $bashrc_local ] && source $bashrc_local
 unset bashrc_local
