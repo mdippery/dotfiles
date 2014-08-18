@@ -10,4 +10,8 @@
 #   [2] http://michael-rushanan.blogspot.com/2013/01/os-x-bashrc-vs-profile-vs-bashprofile.html
 #   [3] http://superuser.com/questions/409186/environment-variables-in-bash-profile-or-bashrc
 
+if hash fortune 2>/dev/null && hash cowsay 2>/dev/null; then
+  fortune -a | cowsay -n
+fi
+
 [ -r ~/.bashrc ] && source ~/.bashrc
