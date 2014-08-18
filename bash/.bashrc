@@ -184,3 +184,7 @@ eval $(pip completion --bash)
 compleat_script="$(brew --prefix)/opt/compleat/share/compleat-1.0/compleat_setup"
 [ -r $compleat_script ] && source $compleat_script
 unset compleat_script
+
+bashrc_local="${HOME}/.bashrc.local"
+[ -r $bashrc_local ] && source $bashrc_local
+unset bashrc_local
