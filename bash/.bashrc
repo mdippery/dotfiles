@@ -177,9 +177,12 @@ fi
 
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 source `brew --prefix`/etc/bash_completion.d/git-completion.bash
-source `brew --prefix`/etc/bash_completion.d/npm
 source ~/.bash_completion.d/django_bash_completion
 eval $(pip completion --bash)
+
+npm_complete="$(brew --prefix)/etc/bash_completion.d/npm"
+[ -r $npm_complete ] && source $npm_complete
+unset npm_complete
 
 compleat_script="$(brew --prefix)/opt/compleat/share/compleat-1.0/compleat_setup"
 [ -r $compleat_script ] && source $compleat_script
