@@ -10,36 +10,11 @@ unalias -a                      # I don't want any pre-set aliases
 
 ########  ENVIRONMENT CONFIG  ###############################################
 
-# TODO: Use tput set{af,ab} for these values, as shown here:
-# <http://unix.stackexchange.com/a/105932/57970>
-NONE='\[\e[0m\]'    # Reset
-K='\[\e[0;30m\]'    # Black
-R='\[\e[0;31m\]'    # Red
-G='\[\e[0;32m\]'    # Green
-Y='\[\e[0;33m\]'    # Yellow
-B='\[\e[0;34m\]'    # Blue
-M='\[\e[0;35m\]'    # Magenta
-C='\[\e[0;36m\]'    # Cyan
-W='\[\e[0;37m\]'    # White
-INVB='\[\e[7;34m\]' # Invert blue
-EMK='\[\e[1;30m\]'  # Bold Black
-EMR='\[\e[1;31m\]'  # Bold Red
-EMG='\[\e[1;32m\]'  # Bold Green
-EMY='\[\e[1;33m\]'  # Bold Yellow
-EMB='\[\e[1;34m\]'  # Bold Blue
-EMM='\[\e[1;35m\]'  # Bold Magenta
-EMC='\[\e[1;36m\]'  # Bold Cyan
-EMW='\[\e[1;37m\]'  # Bold White
-DK='\[\e[2;30m\]'   # Dim Black
-DR='\[\e[2;31m\]'   # Dim Red
-DG='\[\e[2;32m\]'   # Dim Green
-DY='\[\e[2;33m\]'   # Dim Yellow
-DB='\[\e[2;34m\]'   # Dim Blue
-DM='\[\e[2;35m\]'   # Dim Magenta
-DC='\[\e[2;36m\]'   # Dim Cyan
-DW='\[\e[2;37m\]'   # Dim White
-export PS1="${EMM}\$${NONE} "
-export PS2="${R}\342\200\246${NONE} "
+# tput usage can be found here:
+#   <http://linux.101hacks.com/ps1-examples/prompt-color-using-tput/>
+#   <http://unix.stackexchange.com/a/105932/57970>
+export PS1="$(tput setaf 5)$(tput bold)\$$(tput sgr0) "
+export PS2="$(tput setaf 1)\342\200\246$(tput sgr0) "
 
 export PATH="${HOME}/.rbenv/bin:${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
@@ -150,7 +125,7 @@ function vv {
   #source ".venv/${venv}/bin/activate"
   vpath=$(cd .venv/$venv && pwd)
   export PATH="${vpath}/bin:${PATH}"
-  export PS1="${Y}\$${NONE} "
+  export PS1="$(tput setaf 3)\$$(tput sgr0) "
 }
 
 function whois { /usr/bin/whois $1 | $PAGER; }
