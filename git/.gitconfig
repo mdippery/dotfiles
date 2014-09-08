@@ -59,7 +59,9 @@
 	staged = diff --cached
 	stats = !git --no-pager shortlog -ns
 	tags = tag -n1 -l
+	toss = checkout -- .
 	#touched = log --name-only
+	undo = reset HEAD .
 	#unhide = update-index --no-assume-unchanged
 	who = !git --no-pager shortlog -sn --no-merges
 
