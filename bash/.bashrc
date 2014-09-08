@@ -5,6 +5,8 @@
 ########  SHELL SETUP  ######################################################
 
 export HISTCONTROL=ignoredups
+shopt -s histappend
+
 unalias -a                      # I don't want any pre-set aliases
 
 
