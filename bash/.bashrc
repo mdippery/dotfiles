@@ -84,7 +84,7 @@ alias ssh-reset="printf '\e]0;\a'"
 alias t='type'
 alias top='top -o cpu'
 alias uuid='/usr/bin/uuidgen'
-alias ve='virtualenv'
+alias ve='virtualenv --always-copy'
 alias vimsyn="/bin/ls /usr/share/vim/vim73/syntax/*.vim | cut -d '/' -f 7"
 alias which='(alias ; declare -f) | /usr/local/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde'
 
