@@ -146,9 +146,8 @@ elif [ -d ~/.pyenv ]; then
   eval "$(pyenv init -)"
 fi
 
-# TODO: Create a set of scripts to do this, like above
 if [ -d "${HOME}/.scalas" ]; then
-  export SCALA_HOME="${HOME}/.scalas/scalas/Current"
+  export SCALA_HOME=$(cd "${HOME}/.scalas/Current" && pwd -P)
   export PATH="${SCALA_HOME}/bin:${PATH}"
 fi
 
