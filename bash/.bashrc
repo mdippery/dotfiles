@@ -142,7 +142,9 @@ elif [ -d ~/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
-if [ -d ~/.pythonbrew ]; then
+if [ -d ~/.pythons ]; then
+  export PATH="$(cd ~/.pythons/Current && pwd -P)/bin:${PATH}"
+elif [ -d ~/.pythonbrew ]; then
   alias pbr='pythonbrew'
   source ~/.pythonbrew/etc/bashrc
 elif [ -d ~/.pyenv ]; then
