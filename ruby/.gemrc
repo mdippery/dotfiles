@@ -1,0 +1,2 @@
+install: --env-shebang
+update: --env-shebang
