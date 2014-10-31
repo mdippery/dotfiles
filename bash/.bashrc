@@ -18,7 +18,7 @@ unalias -a                      # I don't want any pre-set aliases
 export PS1="\[$(tput setaf 4)\]\$\[$(tput sgr0)\] "
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 
-export PATH="${HOME}/.rbenv/bin:${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
+export PATH="${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
 export EDITOR='vim'
@@ -135,7 +135,12 @@ function whois { /usr/bin/whois $1 | $PAGER; }
 
 ########  ENVIRONMENT  ######################################################
 
-eval "$(rbenv init -)"
+if [ -d ~/.rubies ]; then
+  source "${HOME}/.local/share/chruby/chruby.sh"
+  chruby $(cd ~/.rubies/Current && pwd -P | cut -d '/' -f 5)
+elif [ -d ~/.rbenv ]; then
+  eval "$(rbenv init -)"
+fi
 
 if [ -d ~/.pythonbrew ]; then
   alias pbr='pythonbrew'
