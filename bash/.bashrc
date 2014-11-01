@@ -138,19 +138,10 @@ function whois { /usr/bin/whois $1 | $PAGER; }
 if [ -d ~/.rubies ]; then
   source "${HOME}/.local/share/chruby/chruby.sh"
   chruby $(cd ~/.rubies/Current && pwd -P | cut -d '/' -f 5)
-elif [ -d ~/.rbenv ]; then
-  eval "$(rbenv init -)"
 fi
 
 if [ -d ~/.pythons ]; then
   export PATH="$(cd ~/.pythons/Current && pwd -P)/bin:${PATH}"
-elif [ -d ~/.pythonbrew ]; then
-  alias pbr='pythonbrew'
-  source ~/.pythonbrew/etc/bashrc
-elif [ -d ~/.pyenv ]; then
-  export PYENV_ROOT="${HOME}/.pyenv"
-  export PATH="${PYENV_ROOT}/bin:${PATH}"
-  eval "$(pyenv init -)"
 fi
 
 if [ -d "${HOME}/.scalas" ]; then
