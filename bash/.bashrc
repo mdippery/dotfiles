@@ -137,7 +137,7 @@ function whois { /usr/bin/whois $1 | $PAGER; }
 
 if [ -d ~/.rubies ]; then
   source "${HOME}/.local/share/chruby/chruby.sh"
-  chruby $(cd ~/.rubies/Current && pwd -P | cut -d '/' -f 5)
+  chruby $(/bin/ls ~/.rubies | tail -n 1)
 fi
 
 if [ -d ~/.pythons ]; then
