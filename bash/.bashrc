@@ -159,7 +159,12 @@ npm_complete="$(brew --prefix)/etc/bash_completion.d/npm"
 unset npm_complete
 
 compleat_script="$(brew --prefix)/opt/compleat/share/x86_64-osx-ghc-7.8.3/compleat-1.0/compleat_setup"
-[ -r $compleat_script ] && source $compleat_script
+if [ -r $compleat_script ]; then
+  source $compleat_script
+else
+  compleat_script="$(brew --prefix)/opt/compleat/share/compleat-1.0/compleat_setup"
+  [ -r $compleat_script ] && source $compleat_script
+fi
 unset compleat_script
 
 bashrc_local="${HOME}/.bash_local/bashrc"
