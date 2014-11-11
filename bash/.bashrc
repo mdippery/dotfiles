@@ -15,8 +15,8 @@ unalias -a                      # I don't want any pre-set aliases
 # tput usage can be found here:
 #   <http://linux.101hacks.com/ps1-examples/prompt-color-using-tput/>
 #   <http://unix.stackexchange.com/a/105932/57970>
-export PS1="\[$(tput setaf 4)\]\$\[$(tput sgr0)\] "
-export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
+export PS1="\[$(tput setaf 4)\]hello :)\[$(tput sgr0)\] "
+export PS2="\[$(tput setaf 1)\]       \342\200\246\[$(tput sgr0)\] "
 
 export PATH="${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
