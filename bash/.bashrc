@@ -141,7 +141,9 @@ if [ -d ~/.rubies ]; then
 fi
 
 if [ -d ~/.pythons ]; then
-  export PATH="$(cd ~/.pythons/Current && pwd -P)/bin:${PATH}"
+  function _python_home { echo $(cd ~/.pythons/Current && pwd -P); }
+  export PATH="$(_python_home)/bin:${PATH}"
+  export ANSIBLE_LIBRARY="$(_python_home)/share/ansible"
 fi
 
 if [ -d "${HOME}/.scalas" ]; then
