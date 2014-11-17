@@ -35,6 +35,7 @@ export CLICOLOR_FORCE=true
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
 export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
 export DJANGO_DEBUG=true
+export ANSIBLE_NOCOWS=1
 
 export NYRB_VM_SHARED="${HOME}/Developer/Projects/Work/nybooks/vagrant"
 export NYRB_SEARCH_DOMAIN='192.168.0.10'
