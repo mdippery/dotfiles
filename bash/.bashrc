@@ -36,6 +36,7 @@ export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
 export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
 export DJANGO_DEBUG=true
 export ANSIBLE_NOCOWS=1
+export HOMEBREW_NO_EMOJI=1
 
 
 ########  ALIASES  ##########################################################
