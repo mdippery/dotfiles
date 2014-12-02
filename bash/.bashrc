@@ -21,9 +21,10 @@ export PS2="\[$(tput setaf 1)\]       \342\200\246\[$(tput sgr0)\] "
 export PATH="${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
-export EDITOR='vim'
-export GUI_EDITOR='mvim'
-export HOMEBREW_EDITOR="$GUI_EDITOR"
+export EDITOR='/usr/bin/vim'
+export VISUAL='/usr/local/bin/mvim --nofork'
+export GIT_EDITOR="$EDITOR"
+export HOMEBREW_EDITOR="$VISUAL"
 export PAGER='/usr/bin/less'
 export LESS='R'
 #export LESSEDIT='mate -l %lm %f'
@@ -94,13 +95,13 @@ function char { echo -n "$1" | hexdump -C; }
 
 function exe {
   touch $1
-  $GUI_EDITOR $1
+  $VISUAL $1
 }
 
 function xexe {
   touch $1
   chmod +x $1
-  $GUI_EDITOR $1
+  $VISUAL $1
 }
 
 # Returns the HTTP status code for a URL
