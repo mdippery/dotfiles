@@ -72,6 +72,7 @@ alias ls='ls -FG'
 #alias locate='mdfind -name'
 #alias lsregister='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -dump'
 alias mate='mate -r'
+alias md='open -a /Applications/Byword.app'
 alias mongod="mongod -f $(brew --prefix)/etc/mongod.conf"
 alias o='popd'
 alias openwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
