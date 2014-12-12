@@ -145,7 +145,7 @@ if [ -d ~/.pythons ]; then
   export ANSIBLE_LIBRARY="$(_python_home)/share/ansible"
 fi
 
-if [ -d "${HOME}/.scalas" ]; then
+if [ -d ~/.scalas ]; then
   export SCALA_HOME=$(cd "${HOME}/.scalas/Current" && pwd -P)
   export PATH="${SCALA_HOME}/bin:${PATH}"
 fi
