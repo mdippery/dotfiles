@@ -77,7 +77,6 @@ alias openwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/Lau
 alias p='pushd'
 alias path='echo $PATH | tr ":" "\n"'
 alias pyclean="find . -name '*.pyc' | xargs rm -f"
-alias rb='rbenv'
 alias res="osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d, -f 3,4 | sed 's/, /x/' | tr -d ' '"
 alias rh='runhaskell'
 alias rm='rm -i'
