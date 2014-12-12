@@ -124,7 +124,6 @@ function vv {
     return 1
   fi
   venv=$(/bin/ls -1 .venv)
-  #source ".venv/${venv}/bin/activate"
   vpath=$(cd .venv/$venv && pwd)
   export PATH="${vpath}/bin:${PATH}"
   export PS1="\[$(tput setaf 3)\]\$\[$(tput sgr0)\] "
