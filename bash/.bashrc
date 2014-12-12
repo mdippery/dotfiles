@@ -27,8 +27,6 @@ export GIT_EDITOR="$EDITOR"
 export HOMEBREW_EDITOR="$VISUAL"
 export PAGER='/usr/bin/less'
 export LESS='R'
-#export LESSEDIT='mate -l %lm %f'
-#export TEXEDIT='mate -w -l %d "%s"'
 
 export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
 
