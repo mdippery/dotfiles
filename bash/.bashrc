@@ -154,8 +154,19 @@ source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 source ~/.bash_completion.d/django_bash_completion
 eval $(pip completion --bash)
 
+function __install_completions {
+  local bash_completion_d="${HOME}/.bash_completion.d"
+  local f
+  for f in $(find -H $bash_completion_d -depth 1); do
+    source $f
+  done
+}
+__install_completions
+unset -f __install_completions
+
 function __install_brew_completions {
-  bash_completion_d="$(brew --prefix)/etc/bash_completion.d"
+  local bash_completion_d="$(brew --prefix)/etc/bash_completion.d"
+  local f
   for f in $(find $bash_completion_d -depth 1); do
     # Skip git-promot.sh -- I don't want to source that
     if [ $(basename $f) != 'git-prompt.sh' ]; then
