@@ -151,19 +151,20 @@ if [ -d ~/.scalas ]; then
 fi
 
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
-source `brew --prefix`/etc/bash_completion.d/git-completion.bash
 source ~/.bash_completion.d/django_bash_completion
 eval $(pip completion --bash)
 
-npm_complete="$(brew --prefix)/etc/bash_completion.d/npm"
-[ -r $npm_complete ] && source $npm_complete
-unset npm_complete
-
-cabal_complete="$(brew --prefix)/etc/bash_completion.d/cabal"
-[ -r $cabal_complete ] && source $cabal_complete
-
-svn_complete="$(brew --prefix)/etc/bash_completion.d/subversion"
-[ -r $svn_complete ] && source $svn_complete
+function __install_brew_completions {
+  bash_completion_d="$(brew --prefix)/etc/bash_completion.d"
+  for f in $(find $bash_completion_d -depth 1); do
+    # Skip git-promot.sh -- I don't want to source that
+    if [ $(basename $f) != 'git-prompt.sh' ]; then
+      source $f
+    fi
+  done
+}
+__install_brew_completions
+unset -f __install_brew_completions
 
 compleat_script="$(brew --prefix)/opt/compleat/share/x86_64-osx-ghc-7.8.3/compleat-1.0/compleat_setup"
 if [ -r $compleat_script ]; then
