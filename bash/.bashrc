@@ -168,7 +168,7 @@ function __install_brew_completions {
   local bash_completion_d="$(brew --prefix)/etc/bash_completion.d"
   local f
   for f in $(find $bash_completion_d -depth 1); do
-    # Skip git-promot.sh -- I don't want to source that
+    # Skip git-prompt.sh -- I don't want to source that
     if [ $(basename $f) != 'git-prompt.sh' ]; then
       source $f
     fi
