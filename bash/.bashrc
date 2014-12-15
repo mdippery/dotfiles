@@ -159,6 +159,12 @@ npm_complete="$(brew --prefix)/etc/bash_completion.d/npm"
 [ -r $npm_complete ] && source $npm_complete
 unset npm_complete
 
+cabal_complete="$(brew --prefix)/etc/bash_completion.d/cabal"
+[ -r $cabal_complete ] && source $cabal_complete
+
+svn_complete="$(brew --prefix)/etc/bash_completion.d/subversion"
+[ -r $svn_complete ] && source $svn_complete
+
 compleat_script="$(brew --prefix)/opt/compleat/share/x86_64-osx-ghc-7.8.3/compleat-1.0/compleat_setup"
 if [ -r $compleat_script ]; then
   source $compleat_script
