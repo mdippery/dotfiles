@@ -104,6 +104,8 @@ function xexe {
   $VISUAL $1
 }
 
+function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
+
 # Returns the HTTP status code for a URL
 function hstat { curl -I $1 2>/dev/null | head -1; }
 
