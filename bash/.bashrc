@@ -93,6 +93,18 @@ alias which='(alias ; declare -f) | /usr/local/bin/which --tty-only --read-alias
 
 function char { echo -n "$1" | hexdump -C; }
 
+function erlp {
+  proj=$1
+  mkdir $proj
+  mkdir $proj/{ebin,include,priv,src}
+  cat > $proj/Emakefile <<EOF
+{'src/*', [debug_info,
+           {i, "src"},
+           {i, "include"},
+           {outdir, "ebin"}]}.
+EOF
+}
+
 function exe {
   touch $1
   $VISUAL $1
