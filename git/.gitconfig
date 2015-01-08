@@ -8,18 +8,13 @@
 	diff = auto
 	interactive = auto
 	status = auto
-[branch]
-	#autosetuprebase = always
 [diff]
 	renames = copies
 [instaweb]
 	httpd = webrick
 [interactive]
 	singlekey = true
-[log]
-	#date = local
 [merge]
-	#log = true
 	tool = ksdiff
 [pull]
 	rebase = true
