@@ -157,6 +157,20 @@ if [ -d ~/.pythons ]; then
   function _python_home { echo $(cd ~/.pythons/Current && pwd -P); }
   export PATH="$(_python_home)/bin:${PATH}"
   export ANSIBLE_LIBRARY="$(_python_home)/share/ansible"
+
+  function tox_paths {
+    local after=false
+    for py in $(find ~/.pythons -type d -depth 1); do
+      if $after; then
+        echo -n ':'
+      fi
+      after=true
+      echo -n $py/bin
+    done
+    echo
+  }
+  export TOX_PATH="$(tox_paths):${PATH}"
+  alias tox="PATH=${TOX_PATH} $(type tox | cut -d ' ' -f 3)"
 fi
 
 if [ -d ~/.scalas ]; then
