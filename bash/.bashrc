@@ -169,8 +169,9 @@ if [ -d ~/.pythons ]; then
     done
     echo
   }
-  export TOX_PATH="$(tox_paths):${PATH}"
-  alias tox="PATH=${TOX_PATH} $(type tox | cut -d ' ' -f 3)"
+  if hash tox 2>/dev/null; then
+    alias tox="PATH=$(tox_paths) $(type tox | cut -d ' ' -f 4 | tr -d '()')"
+  fi
 fi
 
 if [ -d ~/.scalas ]; then
