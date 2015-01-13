@@ -215,6 +215,6 @@ else
 fi
 unset compleat_script
 
-bashrc_local="${HOME}/.bash_local/bashrc"
+bashrc_local="${HOME}/.bashrc.user"
 [ -r $bashrc_local ] && source $bashrc_local
 unset bashrc_local
