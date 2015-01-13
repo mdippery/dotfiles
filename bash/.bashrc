@@ -25,6 +25,7 @@ export EDITOR='/usr/bin/vim'
 export VISUAL='/usr/local/bin/mvim --nofork'
 export GIT_EDITOR="$EDITOR"
 export HOMEBREW_EDITOR="$VISUAL"
+export HGEDITOR="$EDITOR"
 export PAGER='/usr/bin/less'
 export LESS='R'
 
