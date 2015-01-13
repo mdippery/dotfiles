@@ -18,7 +18,7 @@ unalias -a                      # I don't want any pre-set aliases
 export PS1="\[$(tput setaf 4)\]hello :)\[$(tput sgr0)\] "
 export PS2="\[$(tput setaf 1)\]       \342\200\246\[$(tput sgr0)\] "
 
-export PATH="${HOME}/.cabal/bin:${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
+export PATH="${HOME}/.local/bin:${HOME}/.cabal/bin:/usr/local/heroku/bin:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
 export EDITOR='/usr/bin/vim'
