@@ -7,17 +7,14 @@ pull = -u
 revert = --no-backup
 
 [extensions]
-# hgext.bookmarks =
 color =
 graphlog =
-#hggit =
 hgk =
 pager =
 progress =
 
 [pager]
 pager = less
-#ignore = heads, parents, paths, pull, push, showconfig
 attend = diff, help, log, show
 
 [alias]
