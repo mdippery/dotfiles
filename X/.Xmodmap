@@ -255,3 +255,9 @@ add mod2    = Num_Lock
 add mod4    = Super_L Super_R Super_L Hyper_L
 add mod5    = ISO_Level3_Shift Mode_switch
 
+! Turn Caps Lock into a Control key
+remove lock      = Caps_Lock
+remove control   = Control_L
+keysym Caps_Lock = Control_L
+add lock         = Caps_Lock
+add control      = Control_L
