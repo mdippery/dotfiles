@@ -372,9 +372,9 @@ statusbar = {
 };
 settings = {
   core = {
-    real_name = "Michael  Dippery";
-    user_name = "mdippery";
-    nick = "mdippery";
+    real_name = "mipadi";
+    user_name = "mipadi";
+    nick = "mipadi";
   };
   "fe-text" = { actlist_sort = "refnum"; };
 };
