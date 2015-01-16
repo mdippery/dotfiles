@@ -32,6 +32,10 @@ servers = (
     address = "irc.undernet.org";
     chatnet = "Undernet";
     port = "6667";
+  },
+  {
+    address = "chat.monkey-robot.com";
+    port = "6667";
   }
 );
 
@@ -371,10 +375,6 @@ statusbar = {
   };
 };
 settings = {
-  core = {
-    real_name = "mipadi";
-    user_name = "mipadi";
-    nick = "mipadi";
-  };
+  core = { real_name = "mipadi"; user_name = "mipadi"; nick = "mipadi"; };
   "fe-text" = { actlist_sort = "refnum"; };
 };
