@@ -60,6 +60,9 @@
 	#unhide = update-index --no-assume-unchanged
 	who = !git --no-pager shortlog -sn --no-merges
 
+[include]
+	path = ~/.gitconfig.user
+
 # Added by Kaleidoscope
 [difftool "ksdiff"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
