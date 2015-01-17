@@ -377,5 +377,5 @@ statusbar = {
 settings = {
   core = { real_name = "mipadi"; user_name = "mipadi"; nick = "mipadi"; };
   "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { theme = "yoda"; };
+  "fe-common/core" = { theme = "smyck"; };
 };
