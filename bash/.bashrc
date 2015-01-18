@@ -155,9 +155,10 @@ if [ -d ~/.rubies ]; then
 fi
 
 if [ -d ~/.pythons ]; then
-  function _python_home { echo $(cd ~/.pythons/Current && pwd -P); }
-  export PATH="$(_python_home)/bin:${PATH}"
-  export ANSIBLE_LIBRARY="$(_python_home)/share/ansible"
+  export PYTHON_INSTALL_HOME=$(echo $(cd ~/.pythons/Current && pwd -P))
+  export PYTHON_INSTALL_VERSION=$(basename $PYTHON_INSTALL_HOME)
+  export PATH="${PYTHON_INSTALL_HOME}/bin:${PATH}"
+  export ANSIBLE_LIBRARY="${PYTHON_INSTALL_HOME}/share/ansible"
   export TOX_PYTHONS="${HOME}/.pythons"
 fi
 
