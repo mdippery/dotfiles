@@ -157,9 +157,14 @@ fi
 if [ -d ~/.pythons ]; then
   export PYTHON_INSTALL_HOME=$(echo $(cd ~/.pythons/Current && pwd -P))
   export PYTHON_INSTALL_VERSION=$(basename $PYTHON_INSTALL_HOME)
+  export PYTHON_INSTALL_FAMILY=${PYTHON_INSTALL_VERSION:0:1}
   export PATH="${PYTHON_INSTALL_HOME}/bin:${PATH}"
   export ANSIBLE_LIBRARY="${PYTHON_INSTALL_HOME}/share/ansible"
   export TOX_PYTHONS="${HOME}/.pythons"
+
+  if [ ${PYTHON_INSTALL_FAMILY} = '3' ]; then
+    alias ve='pyvenv'
+  fi
 fi
 
 if [ -d ~/.scalas ]; then
