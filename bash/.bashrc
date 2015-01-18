@@ -163,6 +163,8 @@ if [ -d ~/.pythons ]; then
   export TOX_PYTHONS="${HOME}/.pythons"
 
   if [ ${PYTHON_INSTALL_FAMILY} = '3' ]; then
+    alias pip="${PYTHON_INSTALL_HOME}/bin/pip3"
+    alias python="${PYTHON_INSTALL_HOME}/bin/python3"
     alias ve='pyvenv'
   fi
 fi
