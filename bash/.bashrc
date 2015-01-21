@@ -88,7 +88,7 @@ alias which='(alias ; declare -f) | /usr/local/bin/which --tty-only --read-alias
 function char { echo -n "$1" | hexdump -C; }
 
 function erlp {
-  proj=$1
+  local proj=$1
   mkdir $proj
   mkdir $proj/{ebin,include,priv,src}
   cat > $proj/Emakefile <<EOF
