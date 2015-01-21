@@ -169,8 +169,7 @@ if [ -d ~/.scalas ]; then
   export PATH="${SCALA_HOME}/bin:${PATH}"
 fi
 
-source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
-source ~/.bash_completion.d/django_bash_completion
+source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
 eval $(pip completion --bash)
 
 function __install_completions {
