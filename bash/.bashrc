@@ -18,10 +18,8 @@ export PATH="${HOME}/.local/bin:${HOME}/.cabal/bin:/usr/local/heroku/bin:${PATH}
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
 export EDITOR='/usr/bin/vim'
-export VISUAL='/usr/local/bin/mvim --nofork'
-export GIT_EDITOR="$EDITOR"
-export HOMEBREW_EDITOR="$VISUAL"
-export HGEDITOR="$EDITOR"
+export GUI_EDITOR='/usr/local/bin/mvim'
+export HOMEBREW_EDITOR="$GUI_EDITOR"
 export PAGER='/usr/bin/less'
 export LESS='R'
 
@@ -103,13 +101,13 @@ EOF
 
 function exe {
   touch $1
-  $VISUAL $1
+  $GUI_EDITOR $1
 }
 
 function xexe {
   touch $1
   chmod +x $1
-  $VISUAL $1
+  $GUI_EDITOR $1
 }
 
 function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
