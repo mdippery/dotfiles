@@ -142,63 +142,54 @@ function whois { /usr/bin/whois $1 | $PAGER; }
 
 ########  ENVIRONMENT  ######################################################
 
-function __setup_environment {
+if [ -d ~/.rubies ]; then
+  source "${HOME}/.local/share/chruby/chruby.sh"
+  chruby $(/bin/ls ~/.rubies | tail -n 1)
+fi
 
-  if [ -d ~/.rubies ]; then
-    source "${HOME}/.local/share/chruby/chruby.sh"
-    chruby $(/bin/ls ~/.rubies | tail -n 1)
+if [ -d ~/.pythons ]; then
+  py_home=$(echo $(cd ~/.pythons/Current && pwd -P))
+  py_vers=$(basename $py_home)
+  py_fam=${py_vers:0:1}
+  export PATH="${py_home}/bin:${PATH}"
+  export ANSIBLE_LIBRARY="${py_home}/share/ansible"
+  export TOX_PYTHONS="${HOME}/.pythons"
+
+  if [ ${py_fam} = '3' ]; then
+    alias pip='pip3'
+    alias python='python3'
+    alias ve='pyvenv'
   fi
+fi
 
-  if [ -d ~/.pythons ]; then
-    local py_home=$(echo $(cd ~/.pythons/Current && pwd -P))
-    local py_vers=$(basename $py_home)
-    local py_fam=${py_vers:0:1}
-    export PATH="${py_home}/bin:${PATH}"
-    export ANSIBLE_LIBRARY="${py_home}/share/ansible"
-    export TOX_PYTHONS="${HOME}/.pythons"
+if [ -d ~/.scalas ]; then
+  export SCALA_HOME=$(cd "${HOME}/.scalas/Current" && pwd -P)
+  export PATH="${SCALA_HOME}/bin:${PATH}"
+fi
 
-    if [ ${py_fam} = '3' ]; then
-      alias pip='pip3'
-      alias python='python3'
-      alias ve='pyvenv'
-    fi
-  fi
+source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
+eval $(pip completion --bash)
 
-  if [ -d ~/.scalas ]; then
-    export SCALA_HOME=$(cd "${HOME}/.scalas/Current" && pwd -P)
-    export PATH="${SCALA_HOME}/bin:${PATH}"
-  fi
+bash_completion_d="${HOME}/.bash_completion.d"
+for f in $(find -H $bash_completion_d -depth 1); do
+  source $f
+done
 
-  source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
-  eval $(pip completion --bash)
-
-  local bash_completion_d="${HOME}/.bash_completion.d"
-  local f
-  for f in $(find -H $bash_completion_d -depth 1); do
+bash_completion_d="$(brew --prefix)/etc/bash_completion.d"
+for f in $(find $bash_completion_d -depth 1); do
+  # Skip git-prompt.sh -- I don't want to source that
+  if [ $(basename $f) != 'git-prompt.sh' ]; then
     source $f
-  done
-
-  local bash_completion_d="$(brew --prefix)/etc/bash_completion.d"
-  local f
-  for f in $(find $bash_completion_d -depth 1); do
-    # Skip git-prompt.sh -- I don't want to source that
-    if [ $(basename $f) != 'git-prompt.sh' ]; then
-      source $f
-    fi
-  done
-
-  local compleat_script="$(brew --prefix)/opt/compleat/share/x86_64-osx-ghc-7.8.3/compleat-1.0/compleat_setup"
-  if [ -r $compleat_script ]; then
-    source $compleat_script
-  else
-    compleat_script="$(brew --prefix)/opt/compleat/share/compleat-1.0/compleat_setup"
-    [ -r $compleat_script ] && source $compleat_script
   fi
+done
 
-  local bashrc_local="${HOME}/.bashrc.user"
-  [ -r $bashrc_local ] && source $bashrc_local
+compleat_script="$(brew --prefix)/opt/compleat/share/x86_64-osx-ghc-7.8.3/compleat-1.0/compleat_setup"
+if [ -r $compleat_script ]; then
+  source $compleat_script
+else
+  compleat_script="$(brew --prefix)/opt/compleat/share/compleat-1.0/compleat_setup"
+  [ -r $compleat_script ] && source $compleat_script
+fi
 
-}
-
-__setup_environment
-unset -f __setup_environment
+bashrc_local="${HOME}/.bashrc.user"
+[ -r $bashrc_local ] && source $bashrc_local
