@@ -1,7 +1,3 @@
-# TODO: Eventually figure out which of this stuff should go in
-# ~/.bash_profile, and which should stay here.
-
-
 ########  SHELL SETUP  ######################################################
 
 export HISTCONTROL=ignoredups
