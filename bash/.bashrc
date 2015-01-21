@@ -148,18 +148,22 @@ if [ -d ~/.rubies ]; then
 fi
 
 if [ -d ~/.pythons ]; then
-  export PYTHON_INSTALL_HOME=$(echo $(cd ~/.pythons/Current && pwd -P))
-  export PYTHON_INSTALL_VERSION=$(basename $PYTHON_INSTALL_HOME)
-  export PYTHON_INSTALL_FAMILY=${PYTHON_INSTALL_VERSION:0:1}
-  export PATH="${PYTHON_INSTALL_HOME}/bin:${PATH}"
-  export ANSIBLE_LIBRARY="${PYTHON_INSTALL_HOME}/share/ansible"
-  export TOX_PYTHONS="${HOME}/.pythons"
+  function __setup_python {
+    local py_home=$(echo $(cd ~/.pythons/Current && pwd -P))
+    local py_vers=$(basename $py_home)
+    local py_fam=${py_vers:0:1}
+    export PATH="${py_home}/bin:${PATH}"
+    export ANSIBLE_LIBRARY="${py_home}/share/ansible"
+    export TOX_PYTHONS="${HOME}/.pythons"
 
-  if [ ${PYTHON_INSTALL_FAMILY} = '3' ]; then
-    alias pip="${PYTHON_INSTALL_HOME}/bin/pip3"
-    alias python="${PYTHON_INSTALL_HOME}/bin/python3"
-    alias ve='pyvenv'
-  fi
+    if [ ${py_fam} = '3' ]; then
+      alias pip='pip3'
+      alias python='python3'
+      alias ve='pyvenv'
+    fi
+  }
+  __setup_python
+  unset -f __setup_python
 fi
 
 if [ -d ~/.scalas ]; then
