@@ -142,13 +142,14 @@ function whois { /usr/bin/whois $1 | $PAGER; }
 
 ########  ENVIRONMENT  ######################################################
 
-if [ -d ~/.rubies ]; then
-  source "${HOME}/.local/share/chruby/chruby.sh"
-  chruby $(/bin/ls ~/.rubies | tail -n 1)
-fi
+function __setup_environment {
 
-if [ -d ~/.pythons ]; then
-  function __setup_python {
+  if [ -d ~/.rubies ]; then
+    source "${HOME}/.local/share/chruby/chruby.sh"
+    chruby $(/bin/ls ~/.rubies | tail -n 1)
+  fi
+
+  if [ -d ~/.pythons ]; then
     local py_home=$(echo $(cd ~/.pythons/Current && pwd -P))
     local py_vers=$(basename $py_home)
     local py_fam=${py_vers:0:1}
@@ -161,30 +162,22 @@ if [ -d ~/.pythons ]; then
       alias python='python3'
       alias ve='pyvenv'
     fi
-  }
-  __setup_python
-  unset -f __setup_python
-fi
+  fi
 
-if [ -d ~/.scalas ]; then
-  export SCALA_HOME=$(cd "${HOME}/.scalas/Current" && pwd -P)
-  export PATH="${SCALA_HOME}/bin:${PATH}"
-fi
+  if [ -d ~/.scalas ]; then
+    export SCALA_HOME=$(cd "${HOME}/.scalas/Current" && pwd -P)
+    export PATH="${SCALA_HOME}/bin:${PATH}"
+  fi
 
-source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
-eval $(pip completion --bash)
+  source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
+  eval $(pip completion --bash)
 
-function __install_completions {
   local bash_completion_d="${HOME}/.bash_completion.d"
   local f
   for f in $(find -H $bash_completion_d -depth 1); do
     source $f
   done
-}
-__install_completions
-unset -f __install_completions
 
-function __install_brew_completions {
   local bash_completion_d="$(brew --prefix)/etc/bash_completion.d"
   local f
   for f in $(find $bash_completion_d -depth 1); do
@@ -193,19 +186,19 @@ function __install_brew_completions {
       source $f
     fi
   done
+
+  local compleat_script="$(brew --prefix)/opt/compleat/share/x86_64-osx-ghc-7.8.3/compleat-1.0/compleat_setup"
+  if [ -r $compleat_script ]; then
+    source $compleat_script
+  else
+    compleat_script="$(brew --prefix)/opt/compleat/share/compleat-1.0/compleat_setup"
+    [ -r $compleat_script ] && source $compleat_script
+  fi
+
+  local bashrc_local="${HOME}/.bashrc.user"
+  [ -r $bashrc_local ] && source $bashrc_local
+
 }
-__install_brew_completions
-unset -f __install_brew_completions
 
-compleat_script="$(brew --prefix)/opt/compleat/share/x86_64-osx-ghc-7.8.3/compleat-1.0/compleat_setup"
-if [ -r $compleat_script ]; then
-  source $compleat_script
-else
-  compleat_script="$(brew --prefix)/opt/compleat/share/compleat-1.0/compleat_setup"
-  [ -r $compleat_script ] && source $compleat_script
-fi
-unset compleat_script
-
-bashrc_local="${HOME}/.bashrc.user"
-[ -r $bashrc_local ] && source $bashrc_local
-unset bashrc_local
+__setup_environment
+unset -f __setup_environment
