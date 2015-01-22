@@ -5,8 +5,27 @@ shopt -s histappend
 
 unalias -a                      # I don't want any pre-set aliases
 
+# Parts of this script rely on `brew`, which is only installed
+# on my Macs. Instead of wrapping a lot of the logic in conditionals
+# that check for the presence of `brew`, provide a fake one if it is
+# not installed.
+if ! hash brew 2>/dev/null; then
+  function brew {
+    if [ ! -z "$OPT" ]; then
+      echo "$OPT"
+    else
+      echo "/usr/local"
+    fi
+  }
+fi
+
 
 ########  ENVIRONMENT CONFIG  ###############################################
+
+export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+if [ $OS = 'linux' ]; then
+  export USER_ENV='ilm'
+fi
 
 # tput usage can be found here:
 #   <http://linux.101hacks.com/ps1-examples/prompt-color-using-tput/>
@@ -23,7 +42,9 @@ export HOMEBREW_EDITOR="$GUI_EDITOR"
 export PAGER='/usr/bin/less'
 export LESS='R'
 
-export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
+if [ -x /usr/libexec/java_home ]; then
+  export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
+fi
 
 export CLICOLOR_FORCE=true
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
@@ -31,6 +52,20 @@ export NETHACKOPTIONS=''                        # MacBook doesn't have a numberp
 export DJANGO_DEBUG=true
 export ANSIBLE_NOCOWS=1
 export HOMEBREW_NO_EMOJI=1
+
+if [ $OS = 'linux' ]; then
+  export GUI_EDITOR='/usr/bin/gvim'
+  unset HOMEBREW_EDITOR
+fi
+
+if [ "$USER_ENV" = 'ilm' ]; then
+  PATH="/usr/local/sbin:/usr/sbin:/sbin"
+  PATH="/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:${PATH}"
+  PATH="/sww/gfx/bin:/sww/tools/bin:/sww/sand/bin:/dept/is/prodsoft/bin:${PATH}"
+  PATH="${OPT}/bin:${PATH}"
+  export PATH
+  unset MANPATH
+fi
 
 
 ########  ALIASES  ##########################################################
@@ -79,8 +114,14 @@ alias t='type'
 alias top='top -o cpu'
 alias uuid='/usr/bin/uuidgen'
 alias ve='virtualenv --always-copy'
-alias vimsyn="/bin/ls /usr/share/vim/vim73/syntax/*.vim | cut -d '/' -f 7"
+alias vimsyn="/bin/ls /usr/share/vim/vim$(vim --version | head -n 1 | /usr/bin/egrep -o '(7\.[0-9])' | tr -d '.')/syntax/*.vim | cut -d '/' -f 7"
 alias which='(alias ; declare -f) | /usr/local/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde'
+
+if [ $OS = 'linux' ]; then
+  alias mvim='gvim'
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboad -o'
+fi
 
 
 ########  FUNCTIONS  ########################################################
@@ -167,8 +208,9 @@ if [ -d ~/.scalas ]; then
   export PATH="${SCALA_HOME}/bin:${PATH}"
 fi
 
-source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
-eval $(pip completion --bash)
+brew_completion="$(brew --prefix)/Library/Contributions/brew_bash_completion.sh"
+[ -r $brew_completion ] && source $brew_completion
+hash pip 2>/dev/null && eval $(pip completion --bash)
 
 bash_completion_d="${HOME}/.bash_completion.d"
 for f in $(find -H $bash_completion_d -depth 1); do
