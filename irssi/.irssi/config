@@ -30,8 +30,8 @@ chatnets = {
 };
 
 channels = (
-  { name = "#/r/webdev"; chatnet = "Freenode"; autojoin = "Yes"; },
-  { name = "#socialcode"; chatnet = "MonkeyRobot"; autojoin = "Yes"; }
+  { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#socialcode"; chatnet = "monkeyrobot"; autojoin = "Yes"; }
 );
 
 aliases = {
