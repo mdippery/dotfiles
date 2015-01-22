@@ -213,12 +213,12 @@ brew_completion="$(brew --prefix)/Library/Contributions/brew_bash_completion.sh"
 hash pip 2>/dev/null && eval $(pip completion --bash)
 
 bash_completion_d="${HOME}/.bash_completion.d"
-for f in $(find -H $bash_completion_d -depth 1); do
+for f in $(find -H $bash_completion_d -mindepth 1); do
   source $f
 done
 
 bash_completion_d="$(brew --prefix)/etc/bash_completion.d"
-for f in $(find $bash_completion_d -depth 1); do
+for f in $(find $bash_completion_d -mindepth 1); do
   # Skip git-prompt.sh -- I don't want to source that
   if [ $(basename $f) != 'git-prompt.sh' ]; then
     source $f
