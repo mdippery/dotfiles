@@ -118,6 +118,7 @@ alias vimsyn="/bin/ls /usr/share/vim/vim$(vim --version | head -n 1 | egrep --co
 alias which='(alias ; declare -f) | /usr/local/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde'
 
 if [ $OS = 'linux' ]; then
+  alias ls='ls -F --color'
   alias mvim='gvim'
   alias pbcopy='xclip -selection clipboard'
   alias pbpaste='xclip -selection clipboad -o'
