@@ -64,7 +64,6 @@ if [ "$USER_ENV" = 'ilm' ]; then
   PATH="/sww/gfx/bin:/sww/tools/bin:/sww/sand/bin:/dept/is/prodsoft/bin:${PATH}"
   PATH="${OPT}/bin:${PATH}"
   export PATH
-  unset MANPATH
 fi
 
 
