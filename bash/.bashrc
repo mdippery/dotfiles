@@ -126,6 +126,8 @@ fi
 
 ########  FUNCTIONS  ########################################################
 
+function abspath { cd $1 && pwd -P; }
+
 function char { echo -n "$1" | hexdump -C; }
 
 function erlp {
@@ -189,7 +191,7 @@ if [ -d ~/.rubies ]; then
 fi
 
 if [ -d ~/.pythons ]; then
-  py_home=$(echo $(cd ~/.pythons/Current && pwd -P))
+  py_home=$(echo $(abspath ~/.pythons/Current))
   py_vers=$(basename $py_home)
   py_fam=${py_vers:0:1}
   export PATH="${py_home}/bin:${PATH}"
@@ -204,7 +206,7 @@ if [ -d ~/.pythons ]; then
 fi
 
 if [ -d ~/.scalas ]; then
-  export SCALA_HOME=$(cd "${HOME}/.scalas/Current" && pwd -P)
+  export SCALA_HOME=$(abspath ~/.scalas/Current)
   export PATH="${SCALA_HOME}/bin:${PATH}"
 fi
 
