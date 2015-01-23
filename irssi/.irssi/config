@@ -287,7 +287,16 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "mipadi"; user_name = "mipadi"; nick = "mipadi"; };
+  core = {
+    real_name = "mipadi";
+    user_name = "mipadi";
+    nick = "mipadi";
+    awaylog_file = "~/Logs/IRC/away.log";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { theme = "smyck"; };
+  "fe-common/core" = {
+    theme = "smyck";
+    autolog_path = "~/Logs/IRC/$tag/$0/%Y-%m-%d.log";
+    autolog = "yes";
+  };
 };
