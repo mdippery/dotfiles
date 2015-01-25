@@ -178,6 +178,7 @@ function vv {
   vpath=$(cd .venv/$venv && pwd)
   export PATH="${vpath}/bin:${PATH}"
   export PS1="\[$(tput setaf 3)\]\$\[$(tput sgr0)\] "
+  export PS2="$(echo $PS2 | tr -d ' ') "
 }
 
 function whois { /usr/bin/whois $1 | $PAGER; }
