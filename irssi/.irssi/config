@@ -329,3 +329,4 @@ settings = {
     autolog = "yes";
   };
 };
+keyboard = ( { key = "meta-q"; id = "command"; data = "window last"; } );
