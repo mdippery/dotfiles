@@ -11,10 +11,28 @@ servers = (
     address = "chat.monkey-robot.com";
     chatnet = "monkeyrobot";
     port = "6667";
+  },
+  {
+    address = "irc.foonetic.net";
+    chatnet = "foonetic";
+    port = "6697";
+    use_ssl = "yes";
+  },
+  {
+    address = "irc.snoonet.org";
+    chatnet = "snoonet";
+    port = "6697";
+    use_ssl = "yes";
   }
 );
 
 chatnets = {
+  foonetic = {
+    type = "IRC";
+    max_kicks = "1";
+    max_msgs = "4";
+    max_whois = "1";
+  };
   freenode = {
     type = "IRC";
     max_kicks = "1";
@@ -27,11 +45,22 @@ chatnets = {
     max_msgs = "4";
     max_whois = "1";
   };
+  snoonet = {
+    type = "IRC";
+    max_kicks = "1";
+    max_msgs = "4";
+    max_whois = "1";
+  };
 };
 
 channels = (
+  { name = "#xkcd"; chatnet = "foonetic"; autojoin = "No"; },
+  { name = "#xkcd-compsci"; chatnet = "foonetic"; autojoin = "Yes"; },
+  { name = "##proggit"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#reddit-photography"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#socialcode"; chatnet = "monkeyrobot"; autojoin = "Yes"; }
+  { name = "#books"; chatnet = "snoonet"; autojoin = "No"; }
 );
 
 aliases = {
