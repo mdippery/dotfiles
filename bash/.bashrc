@@ -131,6 +131,10 @@ fi
 ########  FUNCTIONS  ########################################################
 
 function abspath { cd $1 && pwd -P; }
+if [ $OS = 'linux' ]; then
+  unset -f abspath
+  alias abspath='readlink -f'
+fi
 
 function char { echo -n "$1" | hexdump -C; }
 
