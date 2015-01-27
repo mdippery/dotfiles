@@ -195,8 +195,14 @@ function whois { /usr/bin/whois $1 | $PAGER; }
 ########  ENVIRONMENT  ######################################################
 
 if [ -d ~/.rubies ]; then
-  source "${LOCAL}/share/chruby/chruby.sh"
-  chruby $(/bin/ls ~/.rubies | tail -n 1)
+  if [ "$USER_ENV" != 'ilm' ]; then
+    source "${LOCAL}/share/chruby/chruby.sh"
+    chruby $(/bin/ls ~/.rubies | tail -n 1)
+  else
+    export GEM_HOME="${SAN}/rubies/gem"
+    export GEM_SPEC_CACHE="${GEM_HOME}/specs"
+    export PATH="$(abspath ~/.rubies/Current)/bin:${PATH}"
+  fi
 fi
 
 if [ -d ~/.pythons ]; then
