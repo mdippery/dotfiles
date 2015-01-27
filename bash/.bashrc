@@ -130,10 +130,26 @@ fi
 
 ########  FUNCTIONS  ########################################################
 
-function abspath { cd $1 && pwd -P; }
-if [ $OS = 'linux' ]; then
-  unset -f abspath
-  alias abspath='readlink -f'
+# Recreate behavior of GNU `readlink` on OS X
+if [ $OS = 'darwin' ]; then
+  function readlink {
+    if [ $1 != '-f' ]; then
+      /usr/bin/readlink $*
+    else
+      shift
+      local target_file=$1
+      cd $(dirname "$target_file")
+      target_file=$(basename $target_file)
+      while [ -L "$target_file" ]; do
+        target_file=$(readlink "$target_file")
+        cd $(dirname "$target_file")
+        target_file=$(basename "$target_file")
+      done
+      local phys_dir=$(pwd -P)
+      local res="${phys_dir}/${target_file}"
+      echo $res
+    fi
+  }
 fi
 
 function char { echo -n "$1" | hexdump -C; }
@@ -206,7 +222,7 @@ if [ -d ~/.rubies ]; then
 fi
 
 if [ -d ~/.pythons ]; then
-  py_home=$(echo $(abspath ~/.pythons/Current))
+  py_home=$(echo $(readlink -f ~/.pythons/Current))
   py_vers=$(basename $py_home)
   py_fam=${py_vers:0:1}
   export PATH="${py_home}/bin:${PATH}"
@@ -221,7 +237,7 @@ if [ -d ~/.pythons ]; then
 fi
 
 if [ -d ~/.scalas ]; then
-  export SCALA_HOME=$(abspath ~/.scalas/Current)
+  export SCALA_HOME=$(readlink -f ~/.scalas/Current)
   export PATH="${SCALA_HOME}/bin:${PATH}"
 fi
 
