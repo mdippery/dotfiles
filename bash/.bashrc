@@ -46,6 +46,8 @@ if [ -x /usr/libexec/java_home ]; then
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
 fi
 
+export LOCAL="${HOME}/.local"
+
 export CLICOLOR_FORCE=true
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
 export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
@@ -64,6 +66,8 @@ if [ "$USER_ENV" = 'ilm' ]; then
   PATH="/sww/gfx/bin:/sww/tools/bin:/sww/sand/bin:/dept/is/prodsoft/bin:${PATH}"
   PATH="${OPT}/bin:${PATH}"
   export PATH
+
+  export LOCAL="$OPT"
 fi
 
 
@@ -187,7 +191,7 @@ function whois { /usr/bin/whois $1 | $PAGER; }
 ########  ENVIRONMENT  ######################################################
 
 if [ -d ~/.rubies ]; then
-  source "${HOME}/.local/share/chruby/chruby.sh"
+  source "${LOCAL}/share/chruby/chruby.sh"
   chruby $(/bin/ls ~/.rubies | tail -n 1)
 fi
 
