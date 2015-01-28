@@ -130,6 +130,10 @@ if [ $OS = 'linux' ]; then
   alias pbpaste='xclip -selection clipboad -o'
 fi
 
+if [ "$USER_ENV" = 'ilm' ]; then
+  alias sqldeveloper="$DEPT/tools/sqldeveloper.latest/sqldeveloper.sh"
+fi
+
 
 ########  FUNCTIONS  ########################################################
 
