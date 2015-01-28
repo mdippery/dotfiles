@@ -224,7 +224,7 @@ if [ -d ~/.rubies ]; then
   else
     export GEM_HOME="${SAN}/rubies/gem"
     export GEM_SPEC_CACHE="${GEM_HOME}/specs"
-    export PATH="$(abspath ~/.rubies/Current)/bin:${PATH}"
+    export PATH="$(readlink -f ~/.rubies/Current)/bin:${PATH}"
   fi
 fi
 
