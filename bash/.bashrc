@@ -42,6 +42,8 @@ export HOMEBREW_EDITOR="$GUI_EDITOR"
 export PAGER='/usr/bin/less'
 export LESS='R'
 
+export FIGNORE='DS_Store'
+
 if [ -x /usr/libexec/java_home ]; then
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
 fi
