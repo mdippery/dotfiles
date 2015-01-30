@@ -23,7 +23,7 @@ fi
 ########  ENVIRONMENT CONFIG  ###############################################
 
 export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
-if [ $OS = 'linux' ]; then
+if [ ! -z "$ILM_DISTRO" ]; then
   export USER_ENV='ilm'
 fi
 
