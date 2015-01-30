@@ -225,15 +225,15 @@ if [ -d ~/.rubies ]; then
   if [ "$USER_ENV" != 'ilm' ]; then
     source "${LOCAL}/share/chruby/chruby.sh"
     chruby $(/bin/ls ~/.rubies | tail -n 1)
-  else
+  elif [ -d ~/.rubies/Current ]; then
     export GEM_HOME="${SAN}/rubies/gem"
     export GEM_SPEC_CACHE="${GEM_HOME}/specs"
-    export PATH="$(readlink -f ~/.rubies/Current)/bin:${PATH}"
+    export PATH="${GEM_HOME}/bin:$(readlink -f ~/.rubies/Current)/bin:${PATH}"
   fi
 fi
 
-if [ -d ~/.pythons ]; then
-  py_home=$(echo $(readlink -f ~/.pythons/Current))
+if [ -d ~/.pythons/Current ]; then
+  py_home=$(readlink -f ~/.pythons/Current)
   py_vers=$(basename $py_home)
   py_fam=${py_vers:0:1}
   export PATH="${py_home}/bin:${PATH}"
@@ -247,7 +247,7 @@ if [ -d ~/.pythons ]; then
   fi
 fi
 
-if [ -d ~/.scalas ]; then
+if [ -d ~/.scalas/Current ]; then
   export SCALA_HOME=$(readlink -f ~/.scalas/Current)
   export PATH="${SCALA_HOME}/bin:${PATH}"
 fi
