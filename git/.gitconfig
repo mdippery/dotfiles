@@ -49,6 +49,7 @@
 	fix = commit -a --amend
 	hide = update-index --assume-unchanged
 	info = config --list
+	merged = diff ORIG_HEAD..
 	showtag = !sh -c 'git rev-parse $1 | xargs git cat-file -p' -
 	stashed = !git --no-pager stash list
 	staged = diff --cached
