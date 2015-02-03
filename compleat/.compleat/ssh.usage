@@ -1,2 +1,0 @@
-hosts = ! /usr/bin/grep '^Host' ~/.ssh/config | cut -d ' ' -f 2 ;
-ssh <hosts>

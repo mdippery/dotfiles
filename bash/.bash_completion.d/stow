@@ -1,0 +1,9 @@
+function _stow_completion
+{
+  local cur pkgs
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  pkgs=$(find . -maxdepth 1 -type d ! -name '.*' | sed 's/^\.\///g')
+  COMPREPLY=( $(compgen -W "${pkgs}" -- "${cur}") )
+}
+
+complete -F _stow_completion stow
