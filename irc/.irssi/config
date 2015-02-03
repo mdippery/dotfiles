@@ -219,6 +219,7 @@ aliases = {
   97 = "WINDOW GOTO 97";
   98 = "WINDOW GOTO 98";
   99 = "WINDOW GOTO 99";
+  slap = "/me slaps $0 around a bit with a large trout.";
 };
 
 statusbar = {
