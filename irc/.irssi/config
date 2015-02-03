@@ -56,6 +56,7 @@ chatnets = {
 channels = (
   { name = "#xkcd"; chatnet = "foonetic"; autojoin = "No"; },
   { name = "#xkcd-compsci"; chatnet = "foonetic"; autojoin = "Yes"; },
+  { name = "#askreddit"; chatnet = "freenode"; autojoin = "No"; },
   { name = "##proggit"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#reddit-photography"; chatnet = "freenode"; autojoin = "No"; },
