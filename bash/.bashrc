@@ -131,6 +131,7 @@ if [ $OS = 'linux' ]; then
 fi
 
 if [ "$USER_ENV" = 'ilm' ]; then
+  alias memcached='memcached -p 11211 -m 512 -c 1024 -d'
   alias sqldeveloper="$DEPT/tools/sqldeveloper.latest/sqldeveloper.sh"
 fi
 
