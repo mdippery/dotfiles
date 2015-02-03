@@ -1,0 +1,9 @@
+function _chruby_completion
+{
+  local cur rubies
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  rubies=$(/bin/ls -1 ~/.rubies)
+  COMPREPLY=( $(compgen -W "${rubies}" -- "${cur}") )
+}
+
+complete -F _chruby_completion chruby
