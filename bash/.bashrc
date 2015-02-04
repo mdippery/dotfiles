@@ -272,13 +272,5 @@ for f in $(find $bash_completion_d -mindepth 1); do
   fi
 done
 
-compleat_script="$(brew --prefix)/opt/compleat/share/x86_64-osx-ghc-7.8.3/compleat-1.0/compleat_setup"
-if [ -r $compleat_script ]; then
-  source $compleat_script
-else
-  compleat_script="$(brew --prefix)/opt/compleat/share/compleat-1.0/compleat_setup"
-  [ -r $compleat_script ] && source $compleat_script
-fi
-
 bashrc_local="${HOME}/.bashrc.user"
 [ -r $bashrc_local ] && source $bashrc_local

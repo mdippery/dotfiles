@@ -1,2 +1,0 @@
-targets = ! python setup.py --help-commands | grep '^  [a-z]' | cut -d ' ' -f 3 ;
-python setup.py <targets>
