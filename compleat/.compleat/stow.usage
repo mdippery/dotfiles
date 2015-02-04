@@ -1,2 +1,2 @@
-pkgs = ! find . -type d -depth 1 ! -name '.*' | sed s/^\.\\///g ;
+pkgs = ! find . -maxdepth 1 -type d ! -name '.*' | sed s/^\.\\///g ;
 stow <pkgs>
