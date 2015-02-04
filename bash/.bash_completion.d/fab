@@ -1,9 +1,0 @@
-function _fab_completion
-{
-  local cur targets
-  cur="${COMP_WORDS[COMP_CWORD]}"
-  targets=$(fab -l 2>/dev/null | grep '^    .' | sed 's/^ *//' | cut -d ' ' -f 1)
-  COMPREPLY=( $(compgen -W "${targets}" -- "${cur}") )
-}
-
-complete -F _fab_completion fab

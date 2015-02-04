@@ -67,7 +67,7 @@ if [ "$USER_ENV" = 'ilm' ]; then
   PATH="/usr/local/sbin:/usr/sbin:/sbin"
   PATH="/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:${PATH}"
   PATH="/sww/gfx/bin:/sww/tools/bin:/sww/sand/bin:/dept/is/prodsoft/bin:${PATH}"
-  PATH="${OPT}/bin:${PATH}"
+  PATH="${OPT}/bin:${HOME}/.cabal/bin:${PATH}"
   export PATH
 
   export LOCAL="$OPT"
@@ -269,6 +269,19 @@ for f in $(find $bash_completion_d -mindepth 1); do
   # Skip git-prompt.sh -- I don't want to source that
   if [ $(basename $f) != 'git-prompt.sh' ]; then
     source $f
+  fi
+done
+
+# XXX Better way to set/calculate these paths?
+compleat_paths=(
+  "${HOME}/.cabal/share/x86_64-linux-ghc-7.8.4/compleat-1.0"
+  "$(brew --prefix)/opt/compleat/share/x86_64-osx-ghc-7.8.3/compleat-1.0"
+  "$(brew --prefix)/opt/compleat/share/compleat-1.0"
+)
+for compleat_path in ${compleat_paths[@]}; do
+  if [ -d $compleat_path ]; then
+    source "${compleat_path}/compleat_setup"
+    break
   fi
 done
 
