@@ -1,0 +1,9 @@
+function _make_completion
+{
+  local cur targets
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  targets=$(/usr/bin/egrep '^[a-zA-Z-]+:' Makefile 2>/dev/null | cut -d : -f 1)
+  COMPREPLY=( $(compgen -W "${targets}" -- "${cur}") )
+}
+
+complete -F _make_completion make
