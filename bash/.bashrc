@@ -164,6 +164,16 @@ if [ $OS = 'darwin' ]; then
   fi
 fi
 
+function cabal-platform {
+  local arch=$(uname -m)
+  local os="$OS"
+  if [ "$OS" = 'darwin' ]; then
+    os='osx'
+  fi
+  local ghc=$(ghc --version | cut -d ',' -f 2 | cut -d ' ' -f 3)
+  echo "${arch}-${os}-ghc-${ghc}"
+}
+
 function char { echo -n "$1" | hexdump -C; }
 
 function erlp {
@@ -272,18 +282,8 @@ for f in $(find $bash_completion_d -mindepth 1); do
   fi
 done
 
-# XXX Better way to set/calculate these paths?
-compleat_paths=(
-  "${HOME}/.cabal/share/x86_64-linux-ghc-7.8.4/compleat-1.0"
-  "$(brew --prefix)/opt/compleat/share/x86_64-osx-ghc-7.8.3/compleat-1.0"
-  "$(brew --prefix)/opt/compleat/share/compleat-1.0"
-)
-for compleat_path in ${compleat_paths[@]}; do
-  if [ -d $compleat_path ]; then
-    source "${compleat_path}/compleat_setup"
-    break
-  fi
-done
+compleat_script="${HOME}/.cabal/share/$(cabal-platform)/compleat-1.0/compleat_setup"
+[ -r $compleat_script ] && source $compleat_script
 
 bashrc_local="${HOME}/.bashrc.user"
 [ -r $bashrc_local ] && source $bashrc_local
