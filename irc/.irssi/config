@@ -19,6 +19,11 @@ servers = (
     use_ssl = "yes";
   },
   {
+    address = "irc.gamesurge.net";
+    chatnet = "gamesurge";
+    port = "6667";
+  },
+  {
     address = "irc.snoonet.org";
     chatnet = "snoonet";
     port = "6697";
@@ -34,6 +39,12 @@ chatnets = {
     max_whois = "1";
   };
   freenode = {
+    type = "IRC";
+    max_kicks = "1";
+    max_msgs = "4";
+    max_whois = "1";
+  };
+  gamesurge = {
     type = "IRC";
     max_kicks = "1";
     max_msgs = "4";
@@ -57,9 +68,11 @@ channels = (
   { name = "#xkcd"; chatnet = "foonetic"; autojoin = "No"; },
   { name = "#xkcd-compsci"; chatnet = "foonetic"; autojoin = "Yes"; },
   { name = "#askreddit"; chatnet = "freenode"; autojoin = "No"; },
+  { name = "##masseffect"; chatnet = "freenode"; autojoin = "No"; },
   { name = "##proggit"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#reddit-photography"; chatnet = "freenode"; autojoin = "No"; },
+  { name = "#mecoop"; chatnet = "gamesurge"; autojoin = "No"; },
   { name = "#socialcode"; chatnet = "monkeyrobot"; autojoin = "Yes"; },
   { name = "#apple"; chatnet = "snoonet"; autojoin = "No"; },
   { name = "#books"; chatnet = "snoonet"; autojoin = "No"; }
