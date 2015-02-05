@@ -170,7 +170,7 @@ function cabal-platform {
   if [ "$OS" = 'darwin' ]; then
     os='osx'
   fi
-  local ghc=$(ghc --version | cut -d ',' -f 2 | cut -d ' ' -f 3)
+  local ghc=$(ghc --version | awk '{print $(NF)}')
   echo "${arch}-${os}-ghc-${ghc}"
 }
 
