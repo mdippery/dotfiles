@@ -71,6 +71,7 @@ if [ "$USER_ENV" = 'ilm' ]; then
   export PATH
 
   export LOCAL="$OPT"
+  export PYTHONUSERBASE="${SAN}/python"
 fi
 
 
