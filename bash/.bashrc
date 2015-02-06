@@ -229,6 +229,12 @@ function vv {
 
 function whois { /usr/bin/whois $1 | $PAGER; }
 
+if [ "$USER_ENV" = 'ilm' ]; then
+  function depot-path {
+    echo $(pwd | ruby -e "puts gets.sub('$SAN', '/')")
+  }
+fi
+
 
 ########  ENVIRONMENT  ######################################################
 
