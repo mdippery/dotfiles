@@ -216,17 +216,23 @@ function uuid7 {
     echo "${u:0:7}"
 }
 
-function vv {
-  if [ ! -d .venv ]; then
-    echo "No virtualenv in ${PWD}"
-    return 1
-  fi
-  venv=$(/bin/ls -1 .venv)
-  vpath=$(cd .venv/$venv && pwd)
-  export PATH="${vpath}/bin:${PATH}"
-  export PS1="\[$(tput setaf 3)\]\342\206\252\357\270\216\[$(tput sgr0)\]  "
-  export PS2="$(echo $PS2 | tr -d ' ')  "
-}
+if [ "$USER_ENV" != 'ilm' ]; then
+  function vv {
+    if [ ! -d .venv ]; then
+      echo "No virtualenv in ${PWD}"
+      return 1
+    fi
+    venv=$(/bin/ls -1 .venv)
+    vpath=$(cd .venv/$venv && pwd)
+    export PATH="${vpath}/bin:${PATH}"
+    export PS1="\[$(tput setaf 3)\]\342\206\252\357\270\216\[$(tput sgr0)\]  "
+    export PS2="$(echo $PS2 | tr -d ' ')  "
+  }
+else
+  function vv {
+    source "${VENV}/${1}/bin/activate_all"
+  }
+fi
 
 function whois { /usr/bin/whois $1 | $PAGER; }
 
