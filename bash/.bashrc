@@ -239,17 +239,15 @@ fi
 
 ########  ENVIRONMENT  ######################################################
 
-if [ -d ~/.rubies ]; then
-  if [ "$USER_ENV" != 'ilm' ]; then
+if [ "$USER_ENV" != 'ilm' ]; then
+  if [ -d ~/.rubies ]; then
     source "${LOCAL}/share/chruby/chruby.sh"
     chruby $(/bin/ls ~/.rubies | tail -n 1)
-  elif [ -d ~/.rubies/Current ]; then
-    ruby_home=$(readlink -f ~/.rubies/Current)
-    export GEM_HOME="${SAN}/rubies/gem"
-    export GEM_SPEC_CACHE="${GEM_HOME}/specs"
-    export PATH="${GEM_HOME}/bin:${ruby_home}/bin:${PATH}"
-    export MANPATH="${ruby_home}/share/man:${MANPATH}"
   fi
+else
+  export GEM_HOME="${SAN}/ruby"
+  export GEM_SPEC_CACHE="${GEM_HOME}/specs"
+  export PATH="${GEM_HOME}/bin:${PATH}"
 fi
 
 if [ -d ~/.pythons/Current ]; then
