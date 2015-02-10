@@ -226,6 +226,10 @@ fi
 
 function whois { /usr/bin/whois $1 | $PAGER; }
 
+function wjava {
+  grep -l "$1" *.jar
+}
+
 if [ "$USER_ENV" = 'ilm' ]; then
   function depot-path {
     echo $(pwd | ruby -e "puts gets.sub('$SAN', '/')")
