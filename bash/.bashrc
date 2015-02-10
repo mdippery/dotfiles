@@ -11,11 +11,7 @@ unalias -a                      # I don't want any pre-set aliases
 # not installed.
 if ! hash brew 2>/dev/null; then
   function brew {
-    if [ ! -z "$OPT" ]; then
-      echo "$OPT"
-    else
-      echo "/usr/local"
-    fi
+    echo "${OPT:-/usr/local}"
   }
 fi
 
