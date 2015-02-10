@@ -235,15 +235,15 @@ fi
 
 ########  ENVIRONMENT  ######################################################
 
-if [ "$USER_ENV" != 'ilm' ]; then
-  if [ -d ~/.rubies ]; then
-    source "${LOCAL}/share/chruby/chruby.sh"
-    chruby $(/bin/ls ~/.rubies | tail -n 1)
-  fi
+if [ -d ~/.rubies ]; then
+  source "${LOCAL}/share/chruby/chruby.sh"
+  chruby $(/bin/ls ~/.rubies | tail -n 1)
 else
-  export GEM_HOME="${SAN}/ruby"
-  export GEM_SPEC_CACHE="${GEM_HOME}/specs"
-  export PATH="${GEM_HOME}/bin:${PATH}"
+  if [ "$USER_ENV" = 'ilm' ]; then
+    export GEM_HOME="${SAN}/ruby"
+    export GEM_SPEC_CACHE="${GEM_HOME}/specs"
+    export PATH="${GEM_HOME}/bin:${PATH}"
+  fi
 fi
 
 if [ -d ~/.pythons/Current ]; then
@@ -264,6 +264,11 @@ fi
 if [ -d ~/.scalas/Current ]; then
   export SCALA_HOME=$(readlink -f ~/.scalas/Current)
   export PATH="${SCALA_HOME}/bin:${PATH}"
+else
+  if [ "$USER_ENV" = 'ilm' ]; then
+    scala_version=$(/bin/ls -1 $OPT/Cellar/scala | tail -n 1)
+    export SCALA_HOME="${OPT}/Cellar/scala/${scala_version}"
+  fi
 fi
 
 brew_completion="$(brew --prefix)/Library/Contributions/brew_bash_completion.sh"
