@@ -190,17 +190,6 @@ function erlp {
 EOF
 }
 
-function exe {
-  touch $1
-  $GUI_EDITOR $1
-}
-
-function xexe {
-  touch $1
-  chmod +x $1
-  $GUI_EDITOR $1
-}
-
 function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
 
 # Returns the HTTP status code for a URL
