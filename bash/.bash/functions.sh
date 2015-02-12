@@ -1,29 +1,3 @@
-# Recreate behavior of GNU `readlink` on OS X
-if [ $OS = 'darwin' ]; then
-  if hash greadlink 2>/dev/null; then
-    alias readlink='greadlink'
-  else
-    function readlink {
-      if [ $1 != '-f' ]; then
-        /usr/bin/readlink $*
-      else
-        shift
-        local target_file=$1
-        cd $(dirname "$target_file")
-        target_file=$(basename $target_file)
-        while [ -L "$target_file" ]; do
-          target_file=$(readlink "$target_file")
-          cd $(dirname "$target_file")
-          target_file=$(basename "$target_file")
-        done
-        local phys_dir=$(pwd -P)
-        local res="${phys_dir}/${target_file}"
-        echo $res
-      fi
-    }
-  fi
-fi
-
 function cabal-platform {
   local arch=$(uname -m)
   local os="$OS"
