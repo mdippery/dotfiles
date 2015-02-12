@@ -9,6 +9,8 @@ export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\]        "
 export PATH="${HOME}/.local/bin:${HOME}/.cabal/bin:/usr/local/heroku/bin:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
+export LOCAL="${HOME}/.local"
+
 export EDITOR='/usr/bin/vim'
 export GUI_EDITOR='/usr/local/bin/mvim'
 export HOMEBREW_EDITOR="$GUI_EDITOR"
@@ -21,7 +23,9 @@ if [ -x /usr/libexec/java_home ]; then
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
 fi
 
-export LOCAL="${HOME}/.local"
+if hash gradle 2>/dev/null; then
+  export GRADLE_HOME="$(dirname $(dirname $(readlink -f $(which gradle))))"
+fi
 
 export CLICOLOR_FORCE=true
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
