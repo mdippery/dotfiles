@@ -1,4 +1,5 @@
 export BASH="${HOME}/.bash"
+export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 
 export HISTCONTROL=ignoredups
 shopt -s histappend

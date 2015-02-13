@@ -1,5 +1,3 @@
-export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
-
 # tput usage can be found here:
 #   <http://linux.101hacks.com/ps1-examples/prompt-color-using-tput/>
 #   <http://unix.stackexchange.com/a/105932/57970>
