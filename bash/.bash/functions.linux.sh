@@ -1,3 +1,4 @@
+# Recreat OS X's `otool -L` on Linux
 function otool {
   if [ $# -lt 1 -o $1 != '-L' ]; then
     local cmd='ldd'
