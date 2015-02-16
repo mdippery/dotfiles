@@ -3,3 +3,4 @@
 --ignore-dir=migrations
 --ignore-dir=.bundle
 --ignore-file=is:.tags
+--type-set=mako:ext:mako
