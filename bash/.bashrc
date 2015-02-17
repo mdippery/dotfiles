@@ -2,6 +2,7 @@ export BASH="${HOME}/.bash"
 export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 
 export HISTCONTROL=ignoredups
+export PROMPT_COMMAND='history -a'
 shopt -s histappend
 
 unalias -a                      # I don't want any pre-set aliases
