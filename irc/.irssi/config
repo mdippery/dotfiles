@@ -350,6 +350,7 @@ settings = {
     autolog_path = "~/Logs/IRC/$tag/$0/%Y-%m-%d.log";
     autolog = "yes";
   };
+  "perl/core/scripts" = { hilightwin_showprivmsg = "no"; };
 };
 keyboard = ( { key = "meta-q"; id = "command"; data = "window last"; } );
 logs = { };
