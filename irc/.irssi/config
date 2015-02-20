@@ -353,3 +353,7 @@ settings = {
 };
 keyboard = ( { key = "meta-q"; id = "command"; data = "window last"; } );
 logs = { };
+hilights = (
+  { text = "mipadi"; nick = "yes"; word = "no"; },
+  { text = "python"; nick = "no"; word = "yes"; }
+);
