@@ -355,5 +355,9 @@ keyboard = ( { key = "meta-q"; id = "command"; data = "window last"; } );
 logs = { };
 hilights = (
   { text = "mipadi"; nick = "yes"; word = "no"; },
-  { text = "python"; nick = "no"; word = "yes"; }
+  { text = "python"; nick = "no"; word = "yes"; },
+  { text = "ruby"; nick = "no"; word = "yes"; },
+  { text = "erlang"; nick = "no"; word = "yes"; },
+  { text = "haskell"; nick = "no"; word = "yes"; },
+  { text = "clojure"; nick = "no"; word = "yes"; }
 );
