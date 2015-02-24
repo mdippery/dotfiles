@@ -342,7 +342,7 @@ settings = {
     user_name = "mipadi";
     nick = "mipadi";
     awaylog_file = "~/Logs/IRC/away.log";
-    quit_message = "Accidentally hit Alt-F4.";
+    quit_message = "My Apple Watch has gone to sleep. Zzz...";
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = {
