@@ -359,5 +359,6 @@ hilights = (
   { text = "ruby"; nick = "no"; word = "no"; },
   { text = "erlang"; nick = "no"; word = "no"; },
   { text = "haskell"; nick = "no"; word = "no"; },
-  { text = "clojure"; nick = "no"; word = "no"; }
+  { text = "clojure"; nick = "no"; word = "no"; },
+  { text = "vim"; nick = "yes"; word = "yes"; }
 );
