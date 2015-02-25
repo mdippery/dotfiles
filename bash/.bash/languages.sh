@@ -23,4 +23,9 @@ if [ -d ~/.scalas/Current ]; then
   export PATH="${SCALA_HOME}/bin:${PATH}"
 fi
 
+if [ -d ~/.go/Current ]; then
+  export GOPATH=$(readlink -f ~/.go/Current)
+  export PATH="${GOPATH}/bin:${PATH}"
+fi
+
 [ -r "${BASH}/languages.user.sh" ] && source "${BASH}/languages.user.sh"
