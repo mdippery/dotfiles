@@ -4,7 +4,11 @@
 export PS1="\[$(tput setaf 4)\]hello :)\[$(tput sgr0)\] "
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\]        "
 
-export PATH="${HOME}/.local/bin:/usr/local/heroku/bin:${PATH}"
+if [ -d /usr/local/heroku ]; then
+  export PATH="/usr/local/heroku/bin:${PATH}"
+fi
+
+export PATH="${HOME}/.local/bin:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
 export LOCAL="${HOME}/.local"
