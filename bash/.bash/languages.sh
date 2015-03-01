@@ -1,3 +1,7 @@
+if [ -d ~/.cabal ]; then
+  export PATH="${HOME}/.cabal/bin:${PATH}"
+fi
+
 if [ -d ~/.rubies ]; then
   source "${LOCAL}/share/chruby/chruby.sh"
   chruby $(/bin/ls ~/.rubies | tail -n 1)
