@@ -24,8 +24,9 @@ if [ -d ~/.scalas/Current ]; then
 fi
 
 if [ -d ~/.go/Current ]; then
-  export GOPATH=$(readlink -f ~/.go/Current)
-  export PATH="${GOPATH}/bin:${PATH}"
+  export GOPATH="${HOME}/.go/ws"
+  mkdir -p "$GOPATH"
+  export PATH="${GOPATH}/bin:$(readlink -f ~/.go/Current/bin):${PATH}"
 fi
 
 [ -r "${BASH}/languages.user.sh" ] && source "${BASH}/languages.user.sh"
