@@ -22,7 +22,6 @@ alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias javap='javap -classpath build'
 alias ll='ls -lh'
 alias ls='ls -FG'
-#alias locate='mdfind -name'
 alias mate='mate -r'
 alias md='open -a /Applications/Byword.app'
 alias mongod="mongod -f $(brew --prefix)/etc/mongod.conf"
