@@ -21,7 +21,6 @@ alias i='dirs -v'
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias javap='javap -classpath build'
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
-alias json="jq '.'"
 alias ll='ls -lh'
 alias ls='ls -FG'
 #alias locate='mdfind -name'
@@ -45,6 +44,12 @@ alias uuid='/usr/bin/uuidgen'
 alias ve='virtualenv --always-copy'
 alias vimsyn="/bin/ls /usr/share/vim/vim$(vim --version | head -n 1 | egrep --color=never -o '(7\.[0-9])' | tr -d '.')/syntax/*.vim | cut -d '/' -f 7"
 alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"
+
+if hash jq 2>/dev/null; then
+  alias json="jq '.'"
+else
+  alias json='python -mjson.tool'
+fi
 
 if [ $OS = 'linux' ]; then
   alias ls='ls -F --color'
