@@ -361,5 +361,6 @@ hilights = (
   { text = "erlang"; nick = "no"; word = "no"; },
   { text = "haskell"; nick = "no"; word = "no"; },
   { text = "clojure"; nick = "no"; word = "no"; },
-  { text = "vim"; nick = "yes"; word = "yes"; }
+  { text = "vim"; nick = "yes"; word = "yes"; },
+  { text = "django"; nick = "yes"; word = "yes"; }
 );
