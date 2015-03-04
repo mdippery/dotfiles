@@ -343,7 +343,7 @@ settings = {
     user_name = "mipadi";
     nick = "mipadi";
     awaylog_file = "~/Logs/IRC/away.log";
-    quit_message = "My Apple Watch has gone to sleep. Zzz...";
+    quit_message = "My Apple Watch has gone to sleep. zZzZzZ...";
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = {
