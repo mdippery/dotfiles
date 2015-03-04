@@ -70,6 +70,7 @@ channels = (
   { name = "#askreddit"; chatnet = "freenode"; autojoin = "No"; },
   { name = "##masseffect"; chatnet = "freenode"; autojoin = "No"; },
   { name = "##proggit"; chatnet = "freenode"; autojoin = "No"; },
+  { name = "#r_netsec"; chatnet = "freenode"; },
   { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
   {
     name = "#reddit-photography";
@@ -79,8 +80,7 @@ channels = (
   { name = "#mecoop"; chatnet = "gamesurge"; autojoin = "No"; },
   { name = "#socialcode"; chatnet = "monkeyrobot"; autojoin = "Yes"; },
   { name = "#apple"; chatnet = "snoonet"; autojoin = "No"; },
-  { name = "#books"; chatnet = "snoonet"; autojoin = "No"; },
-  { name = "#r_netsec"; chatnet = "freenode"; }
+  { name = "#books"; chatnet = "snoonet"; autojoin = "No"; }
 );
 
 aliases = {
@@ -361,6 +361,7 @@ hilights = (
   { text = "erlang"; nick = "no"; word = "no"; },
   { text = "haskell"; nick = "no"; word = "no"; },
   { text = "clojure"; nick = "no"; word = "no"; },
-  { text = "vim"; nick = "yes"; word = "yes"; },
-  { text = "django"; nick = "yes"; word = "yes"; }
+  { text = "vim"; nick = "no"; word = "no"; },
+  { text = "django"; nick = "no"; word = "no"; },
+  { text = "zanegort!*@*"; nick = "yes"; word = "no"; mask = "yes"; }
 );
