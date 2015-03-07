@@ -27,6 +27,21 @@ function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
 # Returns the HTTP status code for a URL
 function hstat { curl -I $1 2>/dev/null | head -1; }
 
+# Creates a go project and link in the current directory
+function mkgo {
+  if [ -z "$GOPATH" ]; then
+    echo '$GOPATH is not set' 1>&2
+    return 1
+  fi
+  if [ $# -lt 1 ]; then
+    echo 'Usage: mkgo <url>' 1>&2
+    return 2
+  fi
+  repo=$1
+  mkdir -p "$GOPATH/src/$repo"
+  ln -s "$GOPATH/src/$repo" $(basename $repo)
+}
+
 # Opens a man page in Preview
 function pman { man -t $1 | open -f -a /Applications/Preview.app; }
 
