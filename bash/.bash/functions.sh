@@ -67,6 +67,7 @@ function vv {
 
 function whois { /usr/bin/whois $1 | $PAGER; }
 
+# Finds a class file in a given JAR file
 function wjava {
   grep -l "$1" *.jar
 }
