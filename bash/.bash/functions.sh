@@ -61,7 +61,9 @@ function vv {
   venv=$(/bin/ls -1 .venv)
   vpath=$(cd .venv/$venv && pwd)
   export PATH="${vpath}/bin:${PATH}"
-  export PS1="${PS1_STATUS} under \[$(tput setaf 6)\]$venv\[$(tput sgr0)\]\n${PS1_PROMPT} "
+  export PS1_STATUS="${PS1_STATUS} under \[$(tput setaf 6)\]$1\[$(tput sgr0)\]"
+  export PS1="${PS1_STATUS}\n${PS1_PROMPT}"
+  # export PS1="\[$(tput setaf 3)\]${1}\[$(tput sgr0)\] \[$(tput setaf 0)$(tput bold)\]>\[$(tput sgr0)\] "
 }
 
 function whois { /usr/bin/whois $1 | $PAGER; }
