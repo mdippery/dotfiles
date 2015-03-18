@@ -1,3 +1,7 @@
+function binroot {
+  dirname $(dirname $(which $1))
+}
+
 function cabal-platform {
   local arch=$(uname -m)
   local os="$OS"
