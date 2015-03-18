@@ -15,7 +15,9 @@ for f in $(find $bash_completion_d -mindepth 1); do
   fi
 done
 
-compleat_script="${HOME}/.cabal/share/$(cabal-platform)/compleat-1.0/compleat_setup"
-[ -r $compleat_script ] && source $compleat_script
+if hash ghc 2>/dev/null; then
+  compleat_script="${HOME}/.cabal/share/$(cabal-platform)/compleat-1.0/compleat_setup"
+  [ -r $compleat_script ] && source $compleat_script
+fi
 
 [ -r "${BASH}/completion.user.sh" ] && source "${BASH}/completion.user.sh"
