@@ -2,7 +2,7 @@ if [ -d ~/.cabal ]; then
   export PATH="${HOME}/.cabal/bin:${PATH}"
 fi
 
-if [ -d ~/.rubies ] && ! is_ilm_server; then
+if [ -d ~/.rubies -a -d "$LOCAL" ]; then
   source "${LOCAL}/share/chruby/chruby.sh"
   chruby $(/bin/ls ~/.rubies | tail -n 1)
 fi

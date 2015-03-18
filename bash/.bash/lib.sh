@@ -10,12 +10,6 @@ if ! hash brew 2>/dev/null; then
   }
 fi
 
-# Some parts of the bash config script rely on programs that only
-# work on my ILM workstation, _not_ on any of the servers.
-function is_ilm_server {
-  [ "$USER_ENV" = 'ilm' -a $(hostname) != 'jaiger' ]
-}
-
 # Recreate behavior of GNU `readlink` on OS X
 # Some of the bash config scripts expect `readlink -f` to work on OS X
 # the same way it does on Linux.
