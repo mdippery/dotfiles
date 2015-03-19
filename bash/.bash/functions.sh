@@ -49,11 +49,18 @@ function mkgo {
 # Opens a man page in Preview
 function pman { man -t $1 | open -f -a /Applications/Preview.app; }
 
+# Repeats a character a given number of times
+function repeat {
+  local ch=$1
+  local n=$2
+  printf %${n}s | tr ' ' $ch
+}
+
 # Does a reverse DNS lookup on an IP
 function rvdns { nslookup $1 | awk '/name = .*\.$/ {print $4}' | sed 's/\.$//'; }
 
 function uuid7 {
-    u=$(date | md5sum)
+    local u=$(date | md5sum)
     echo "${u:0:7}"
 }
 
