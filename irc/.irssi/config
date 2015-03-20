@@ -239,6 +239,7 @@ aliases = {
   99 = "WINDOW GOTO 99";
   slap = "/me slaps $0 around a bit with a large trout.";
   rekt = "/say rectum? damn near killed 'im!";
+  nickserv = "/msg nickserv";
 };
 
 statusbar = {
