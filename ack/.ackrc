@@ -2,5 +2,6 @@
 --pager=less
 --ignore-dir=migrations
 --ignore-dir=.bundle
+--ignore-dir=_rel
 --ignore-file=is:.tags
 --type-set=mako:ext:mako
