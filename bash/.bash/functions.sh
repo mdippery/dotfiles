@@ -77,20 +77,7 @@ function vv {
 
 function vv_prompt {
   venv=$1
-
-  # I'm in the midst of experimenting with two different prompt
-  # styles right now: a multi-line prompt and a single-line,
-  # "minimalist" prompt style. When using the former, `vv`
-  # should append "under $venv" to the first line of the prompt;
-  # using the more minimalist form, "$venv > " is used instead.
-  # Auto-detect which form is being used and set the new virtualenv
-  # prompt accordingly.
-  if [ -z "$PS1_STATUS" ]; then
-    export PS1="\[$(tput setaf 3)\]${venv}\[$(tput sgr0)\] \[$(tput setaf 0)$(tput bold)\]>\[$(tput sgr0)\] "
-  else
-    export PS1_STATUS="${PS1_STATUS} under \[$(tput setaf 6)\]$venv\[$(tput sgr0)\]"
-    export PS1="${PS1_STATUS}\n${PS1_PROMPT}"
-  fi
+  export PS1="$(_setps1 $venv 6)"
 }
 
 function whois { /usr/bin/whois $1 | $PAGER; }

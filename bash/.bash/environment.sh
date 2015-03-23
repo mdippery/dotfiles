@@ -1,9 +1,14 @@
 # tput usage can be found here:
 #   <http://linux.101hacks.com/ps1-examples/prompt-color-using-tput/>
 #   <http://unix.stackexchange.com/a/105932/57970>
-export PS1_STATUS="\[$(tput setaf 3)\]\h\[$(tput sgr0)\] in \[$(tput setaf 2)\]\w\[$(tput sgr0)\]"
-export PS1_PROMPT="\[$(tput setaf 0)$(tput bold)\]\\$\[$(tput sgr0)\] "
-export PS1="${PS1_STATUS}\n${PS1_PROMPT}"
+
+function _setps1 {
+  local s=$1
+  local color=$2
+  echo -ne "\[$(tput setaf $color)\]$s\[\$(tput sgr0)\] \[$(tput setaf 0)$(tput bold)\]>\[$(tput sgr0)\] "
+}
+
+export PS1="$(_setps1 \\W 2)"
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3
 
