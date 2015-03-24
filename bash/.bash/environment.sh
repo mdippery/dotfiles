@@ -8,7 +8,7 @@ function _setps1 {
   echo -ne "\[$(tput setaf $color)\]$s\[\$(tput sgr0)\] \[$(tput setaf 0)$(tput bold)\]>\[$(tput sgr0)\] "
 }
 
-export PS1="$(_setps1 \\W 2)"
+export PS1="$(_setps1 \\W 4)"
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3
 
