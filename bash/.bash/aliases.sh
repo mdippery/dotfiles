@@ -30,6 +30,7 @@ alias p='pushd'
 alias path='echo $PATH | tr ":" "\n"'
 alias pyclean="find . -name '*.pyc' | xargs rm -f"
 alias pypath='python -c "import sys; print(\"\\n\".join(sys.path))" | sed "s/^$/\./g"'
+alias q='cd -'
 alias res="osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d, -f 3,4 | sed 's/, /x/' | tr -d ' '"
 alias rh='runhaskell'
 alias rm='rm -i'
