@@ -5,3 +5,4 @@
 --ignore-dir=_rel
 --ignore-file=is:.tags
 --type-set=mako:ext:mako
+--type-set=ini:ext:ini
