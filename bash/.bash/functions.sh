@@ -77,7 +77,7 @@ function vv {
 
 function vv_prompt {
   venv=$1
-  export PS1="$(_setps1 $venv 6)"
+  export PS1="\[$(tput smul)$(tput setaf 6)\]$venv\[$(tput sgr0)\] $DEFAULT_PS1"
 }
 
 function whois { /usr/bin/whois $1 | $PAGER; }
