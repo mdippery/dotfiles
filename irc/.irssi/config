@@ -71,7 +71,13 @@ channels = (
   { name = "##masseffect"; chatnet = "freenode"; autojoin = "No"; },
   { name = "##proggit"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#r_netsec"; chatnet = "freenode"; },
+  {
+    name = "#reddit-photography";
+    chatnet = "freenode";
+    autojoin = "No";
+  },
   { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
   {
     name = "#reddit-photography";
     chatnet = "freenode";
