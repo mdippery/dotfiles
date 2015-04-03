@@ -6,11 +6,7 @@
 # not installed.
 if ! hash brew 2>/dev/null; then
   function brew {
-    if [ -d /sw ]; then
-      echo /sw
-    else
-      echo /usr/local
-    fi
+    [ -d /sw ] && echo /sw || echo /usr/local
   }
 fi
 
