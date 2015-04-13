@@ -21,6 +21,8 @@ export PATH="${HOME}/.local/bin:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
 export LOCAL="${HOME}/.local"
+export DOTFILES="${HOME}/.dotfiles"
+export VIMFILES="${HOME}/.vimfiles"
 
 export EDITOR='/usr/bin/vim'
 export GUI_EDITOR='/usr/local/bin/mvim'
