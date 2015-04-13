@@ -7,6 +7,7 @@ alias d='pwd'
 alias df='df -h'
 alias dj='python manage.py'
 alias djrun='python manage.py runserver'
+alias dots="git --git-dir=${HOME}/.dotfiles/.git --work-tree=${HOME}/.dotfiles"
 alias du='du -sh'
 alias egrep='egrep --color'
 alias ffs='sudo $(history -p \!\!)'
@@ -39,6 +40,7 @@ alias t='type'
 alias top='top -o cpu'
 alias uuid='/usr/bin/uuidgen'
 alias ve='virtualenv --always-copy'
+alias vims="git --git-dir=${HOME}/.vimfiles/.git --work-tree=${HOME}/.vimfiles"
 alias vimsyn="find $(binroot vim)/share/vim/vim$(vim --version | head -n 1 | egrep --color=never -o '(7\.[0-9])' | tr -d '.')/syntax -name '*.vim' -exec basename {} \;"
 alias w='which'
 alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"
