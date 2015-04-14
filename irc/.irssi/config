@@ -77,7 +77,7 @@ channels = (
     autojoin = "No";
   },
   { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#r/webdev"; chatnet = "freenode"; autojoin = "No"; },
   {
     name = "#reddit-photography";
     chatnet = "freenode";
