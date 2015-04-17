@@ -57,4 +57,4 @@ if [ $OS = 'linux' ]; then
   alias pbpaste='xclip -selection clipboad -o'
 fi
 
-[ -r "${BASH}/aliases.user.sh" ] && source "${BASH}/aliases.user.sh"
+[ -r "${BASHRC}/aliases.user.sh" ] && source "${BASHRC}/aliases.user.sh"

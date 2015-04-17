@@ -87,5 +87,5 @@ function wjava {
   grep -l "$1" *.jar
 }
 
-[ -r "${BASH}/functions.${OS}.sh" ] && source "${BASH}/functions.${OS}.sh"
-[ -r "${BASH}/functions.user.sh" ] && source "${BASH}/functions.user.sh"
+[ -r "${BASHRC}/functions.${OS}.sh" ] && source "${BASHRC}/functions.${OS}.sh"
+[ -r "${BASHRC}/functions.user.sh" ] && source "${BASHRC}/functions.user.sh"

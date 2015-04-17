@@ -33,4 +33,4 @@ if [ -d ~/.go/Current ]; then
   export PATH="${GOPATH}/bin:$(readlink -f ~/.go/Current/bin):${PATH}"
 fi
 
-[ -r "${BASH}/languages.user.sh" ] && source "${BASH}/languages.user.sh"
+[ -r "${BASHRC}/languages.user.sh" ] && source "${BASHRC}/languages.user.sh"

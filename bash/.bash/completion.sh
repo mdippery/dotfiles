@@ -21,4 +21,4 @@ if hash ghc 2>/dev/null; then
   [ -r $compleat_script ] && source $compleat_script
 fi
 
-[ -r "${BASH}/completion.user.sh" ] && source "${BASH}/completion.user.sh"
+[ -r "${BASHRC}/completion.user.sh" ] && source "${BASHRC}/completion.user.sh"

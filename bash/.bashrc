@@ -1,4 +1,4 @@
-export BASH="${HOME}/.bash"
+export BASHRC="${HOME}/.bash"
 export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 
 export HISTCONTROL=ignoredups
@@ -7,12 +7,12 @@ shopt -s histappend
 
 unalias -a                      # I don't want any pre-set aliases
 
-source "${BASH}/lib.sh"
+source "${BASHRC}/lib.sh"
 
-source "${BASH}/environment.sh"
-source "${BASH}/functions.sh"
-source "${BASH}/aliases.sh"
-source "${BASH}/languages.sh"
-source "${BASH}/completion.sh"
+source "${BASHRC}/environment.sh"
+source "${BASHRC}/functions.sh"
+source "${BASHRC}/aliases.sh"
+source "${BASHRC}/languages.sh"
+source "${BASHRC}/completion.sh"
 
 [ -r "${HOME}/.bashrc.user" ] && source "${HOME}/.bashrc.user"
