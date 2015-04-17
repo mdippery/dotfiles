@@ -10,7 +10,7 @@ alias djrun='python manage.py runserver'
 alias dots="git --git-dir=${DOTFILES}/.git --work-tree=${DOTFILES}"
 alias du='du -sh'
 alias egrep='egrep --color'
-alias ffs='sudo $(history -p \!\!)'
+alias ffs='sudo $(fc -ln -1)'
 alias fgrep='fgrep --color'
 alias fs='foreman start'
 alias gems='gem list | cut -d" " -f1'
