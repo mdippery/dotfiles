@@ -59,6 +59,8 @@ function repeat {
 # Does a reverse DNS lookup on an IP
 function rvdns { nslookup $1 | awk '/name = .*\.$/ {print $4}' | sed 's/\.$//'; }
 
+function trim { cut -c-$(tput cols); }
+
 function uuid7 {
     local u=$(date | md5sum)
     echo "${u:0:7}"
