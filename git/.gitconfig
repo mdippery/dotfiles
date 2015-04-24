@@ -1,6 +1,8 @@
 [user]
 	name = Michael Dippery
 	email = michael@monkey-robot.com
+[core]
+        excludesfile = ~/.gitexclude
 [apply]
 	whitespace = nowarn
 [color]
