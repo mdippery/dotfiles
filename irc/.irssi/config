@@ -246,6 +246,7 @@ aliases = {
   slap = "/me slaps $0 around a bit with a large trout.";
   rekt = "/say rectum? damn near killed 'im!";
   nickserv = "/msg nickserv";
+  ocean = "/say https://www.digitalocean.com/?refcode=5039910abfe9";
 };
 
 statusbar = {
