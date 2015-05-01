@@ -53,4 +53,4 @@ if [ $OS = 'linux' ]; then
   unset HOMEBREW_EDITOR
 fi
 
-[ -r "${BASHRC}/environment.user.sh" ] && source "${BASHRC}/environment.user.sh"
+[ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
