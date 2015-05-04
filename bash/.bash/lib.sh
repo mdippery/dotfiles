@@ -6,7 +6,7 @@
 # not installed.
 if ! hash brew 2>/dev/null; then
   function brew {
-    [ -d /sw ] && echo /sw || echo /usr/local
+    [ -d /brew ] && echo $(readlink -f /brew) || echo /usr/local
   }
 fi
 
