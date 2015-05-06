@@ -71,14 +71,14 @@ function vv {
     echo "No virtualenv in ${PWD}"
     return 1
   fi
-  venv=$(/bin/ls -1 .venv)
-  vpath=$(cd .venv/$venv && pwd)
+  local venv=$(/bin/ls -1 .venv)
+  local vpath=$(cd .venv/$venv && pwd)
   export PATH="${vpath}/bin:${PATH}"
   vv_prompt $venv
 }
 
 function vv_prompt {
-  venv=$1
+  local venv=$1
   export PS1="\[$(tput smul)$(tput setaf 6)\]$venv\[$(tput sgr0)\] $DEFAULT_PS1"
 }
 
