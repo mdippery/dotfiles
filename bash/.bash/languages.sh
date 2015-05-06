@@ -1,4 +1,4 @@
-if [ -d ~/.cabal ]; then
+if hash ghc 2>/dev/null && [ -d ~/.cabal ]; then
   export PATH="${HOME}/.cabal/bin:${PATH}"
 fi
 
