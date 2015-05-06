@@ -9,12 +9,14 @@ for f in $(find -H $bash_completion_d -mindepth 1); do
 done
 
 bash_completion_d="$(brew --prefix)/etc/bash_completion.d"
-for f in $(find $bash_completion_d -mindepth 1); do
-  # Skip git-prompt.sh -- I don't want to source that
-  if [ $(basename $f) != 'git-prompt.sh' ]; then
-    source $f
-  fi
-done
+if [ -d $bash_completion_d ]; then
+  for f in $(find $bash_completion_d -mindepth 1); do
+    # Skip git-prompt.sh -- I don't want to source that
+    if [ $(basename $f) != 'git-prompt.sh' ]; then
+      source $f
+    fi
+  done
+fi
 
 if hash ghc 2>/dev/null; then
   compleat_script="${HOME}/.cabal/share/$(cabal-platform)/compleat-1.0/compleat_setup"
