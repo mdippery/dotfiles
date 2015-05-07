@@ -28,6 +28,11 @@ servers = (
     chatnet = "snoonet";
     port = "6697";
     use_ssl = "yes";
+  },
+  {
+    address = "light.wa.us.swiftirc.net";
+    chatnet = "swiftirc";
+    port = "6667";
   }
 );
 
@@ -62,6 +67,12 @@ chatnets = {
     max_msgs = "4";
     max_whois = "1";
   };
+  swiftirc = {
+    type = "IRC";
+    max_kicks = "1";
+    max_msgs = "4";
+    max_whois = "1";
+  };
 };
 
 channels = (
@@ -86,7 +97,8 @@ channels = (
   { name = "#mecoop"; chatnet = "gamesurge"; autojoin = "No"; },
   { name = "#socialcode"; chatnet = "monkeyrobot"; autojoin = "Yes"; },
   { name = "#apple"; chatnet = "snoonet"; autojoin = "No"; },
-  { name = "#books"; chatnet = "snoonet"; autojoin = "No"; }
+  { name = "#books"; chatnet = "snoonet"; autojoin = "No"; },
+  { name = "#TrueFilm"; chatnet = "swiftirc"; autojoin = "Yes"; }
 );
 
 aliases = {
