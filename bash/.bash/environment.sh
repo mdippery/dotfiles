@@ -48,7 +48,9 @@ export ANSIBLE_NOCOWS=1
 export HOMEBREW_NO_EMOJI=1
 
 if [ $OS = 'linux' ]; then
-  export TERM='xterm-256color'
+  if [ -z "$TMUX" ]; then
+    export TERM='xterm-256color'
+  fi
   export GUI_EDITOR='/usr/bin/gvim'
   unset HOMEBREW_EDITOR
 fi
