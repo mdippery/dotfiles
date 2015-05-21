@@ -14,6 +14,12 @@ function cabal-platform {
 
 function char { echo -n "$1" | hexdump -C; }
 
+function colors {
+  for i in {0..255}; do
+    printf "\x1b[38;5;${i}mcolour${i}\n"
+  done
+}
+
 function erlp {
   local proj=$1
   mkdir $proj
