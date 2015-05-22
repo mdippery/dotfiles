@@ -1,3 +1,11 @@
+function bcat {
+  if hash $1 2>/dev/null; then
+    less $(which $1)
+  else
+    which $1
+  fi
+}
+
 function binroot {
   dirname $(dirname $(which $1))
 }
