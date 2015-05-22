@@ -1,15 +1,5 @@
 # lib.sh: Common functions that many bash subscripts may find useful
 
-# Parts of the bash config scripts rely on `brew`, which is only installed
-# on my Macs. Instead of wrapping a lot of the logic in conditionals
-# that check for the presence of `brew`, provide a fake one if it is
-# not installed.
-if ! hash brew 2>/dev/null; then
-  function brew {
-    [ -d /brew ] && echo $(readlink -f /brew) || echo /usr/local
-  }
-fi
-
 # Recreate behavior of GNU `readlink` on OS X
 # Some of the bash config scripts expect `readlink -f` to work on OS X
 # the same way it does on Linux.
