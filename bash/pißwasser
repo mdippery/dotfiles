@@ -29,7 +29,7 @@ function _list {
   if [ $# -eq 1 ]; then
     local pkg pkgd pkgv
     pkg=$1
-    pkgd="$(brew --prefix)/Cellar/${pkg}"
+    pkgd="$(_prefix)/Cellar/${pkg}"
     if [ -d "$pkgd" ]; then
       pkgv=$(ls -r "$(brew --prefix)/Cellar/${pkg}" | head -n 1)
       pkgd="$(brew --prefix)/Cellar/${pkg}/${pkgv}"
@@ -38,7 +38,9 @@ function _list {
       die 2 "no such package: $pkg"
     fi
   else
-    find "$(_prefix)/Cellar" -maxdepth 2 -mindepth 2 -type d | cut -d / -f 8,9 | tr / ' ' | sort | column -t
+    if [ -d "$(_prefix)/Cellar" ]; then
+      find "$(_prefix)/Cellar" -maxdepth 2 -mindepth 2 -type d | cut -d / -f 8,9 | tr / ' ' | sort | column -t
+    fi
   fi
 }
 
