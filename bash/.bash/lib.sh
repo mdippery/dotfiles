@@ -27,3 +27,5 @@ if [ $OS = 'darwin' ]; then
     }
   fi
 fi
+
+[ -r "${DOTBASH}/lib.user.sh" ] && source "${DOTBASH}/lib.user.sh"
