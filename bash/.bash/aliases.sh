@@ -55,6 +55,8 @@ if [ $OS = 'linux' ]; then
   alias mvim='gvim'
   alias pbcopy='xclip -selection clipboard'
   alias pbpaste='xclip -selection clipboad -o'
+
+  hash gitk 2>/dev/null && alias gitx='gitk'
 fi
 
 [ -r "${DOTBASH}/aliases.user.sh" ] && source "${DOTBASH}/aliases.user.sh"
