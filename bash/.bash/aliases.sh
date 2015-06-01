@@ -57,6 +57,8 @@ if [ $OS = 'linux' ]; then
   alias pbpaste='xclip -selection clipboad -o'
 
   hash gitk 2>/dev/null && alias gitx='gitk'
+
+  unalias top
 fi
 
 [ -r "${DOTBASH}/aliases.user.sh" ] && source "${DOTBASH}/aliases.user.sh"
