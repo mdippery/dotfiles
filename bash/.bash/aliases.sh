@@ -40,7 +40,7 @@ alias top='top -o cpu'
 alias uuid='/usr/bin/uuidgen'
 alias ve='virtualenv --always-copy'
 alias vims="git --git-dir=${VIMFILES}/.git --work-tree=${VIMFILES}"
-alias vimsyn="find $(binroot vim)/share/vim/vim$(vim --version | head -n 1 | egrep --color=never -o '(7\.[0-9])' | tr -d '.')/syntax -name '*.vim' -exec basename {} \;"
+alias vimsyn="find $(binroot vim)/share/vim/vim$(vim --version | head -n 1 | egrep -o '(7\.[0-9])' | tr -d '.')/syntax -name '*.vim' -exec basename {} \;"
 alias w='which'
 alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"
 
