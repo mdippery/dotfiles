@@ -1,2 +1,3 @@
+chruby <rubies>;
+
 rubies = ! /bin/ls -1 ~/.rubies ;
-chruby <rubies>
