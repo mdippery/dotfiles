@@ -1,0 +1,21 @@
+bundle check;
+bundle clean;
+bundle console;
+bundle exec <PROG>;
+bundle config;
+bundle gem <GEMNAME>;
+bundle help [<cmd>];
+bundle init;
+bundle install;
+bundle list;
+bundle lock;
+bundle open <gem>;
+bundle package;
+bundle platform;
+bundle show <gem>;
+bundle outdated;
+bundle update;
+bundle viz;
+
+cmd = (check | clean | console | exec | config | gem | init | install | list | lock | open | package | platform | show | outdated | update | viz);
+gem = ! bundle list | grep '^  \*' | cut -d '*' -f 2 | cut -d ' ' -f 2 ;
