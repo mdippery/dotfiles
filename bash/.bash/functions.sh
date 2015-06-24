@@ -45,6 +45,11 @@ function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
 # Returns the HTTP status code for a URL
 function hstat { curl -I $1 2>/dev/null | head -1; }
 
+# Show known SSH hosts
+function known-hosts {
+  cut -d ' ' -f 1 < ~/.ssh/known_hosts | cut -d ',' -f 1 | sort
+}
+
 # Creates a go project and link in the current directory
 function mkgo {
   if [ -z "$GOPATH" ]; then
