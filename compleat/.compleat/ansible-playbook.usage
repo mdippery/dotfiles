@@ -1,0 +1,3 @@
+ansible-playbook [-i <HOSTS>] <playbooks>;
+
+playbooks = ! ls *.yml ;
