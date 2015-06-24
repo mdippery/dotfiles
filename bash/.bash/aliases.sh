@@ -31,7 +31,6 @@ alias path='echo $PATH | tr ":" "\n"'
 alias pyclean="find . -name '*.pyc' | xargs rm -f"
 alias pypath='python -c "import sys; print(\"\\n\".join(sys.path))" | sed "s/^$/\./g"'
 alias q='cd -'
-alias res="osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d, -f 3,4 | sed 's/, /x/' | tr -d ' '"
 alias rh='runhaskell'
 alias rm='rm -i'
 alias ssh-reset="printf '\e]0;\a'"
@@ -40,7 +39,6 @@ alias top='top -o cpu'
 alias uuid='/usr/bin/uuidgen'
 alias ve='virtualenv --always-copy'
 alias vims="git --git-dir=${VIMFILES}/.git --work-tree=${VIMFILES}"
-alias vimsyn="find $(binroot vim)/share/vim/vim$(vim --version | head -n 1 | egrep -o '(7\.[0-9])' | tr -d '.')/syntax -name '*.vim' -exec basename {} \;"
 alias w='which'
 alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"
 

@@ -85,6 +85,11 @@ function uuid7 {
     echo "${u:0:7}"
 }
 
+function vimsyn {
+  local ver=$(vim --version | head -n 1 | egrep -o '(7\.[0-9])' | tr -d '.')
+  find $(binroot vim)/share/vim/vim${ver}/syntax -name '*.vim' -exec basename {} \;
+}
+
 function vv {
   if [ ! -d .venv ]; then
     echo "No virtualenv in ${PWD}"
