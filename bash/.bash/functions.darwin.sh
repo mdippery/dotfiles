@@ -6,7 +6,7 @@ function rebuild-openwith {
 
 # Displays desktop resolution
 function res {
-  osascript -e 'tell application \"Finder\" to get bounds of window of desktop' \
+  osascript -e 'tell application "Finder" to get bounds of window of desktop' \
     | cut -d, -f 3,4 \
     | sed 's/, /x/' \
     | tr -d ' '
