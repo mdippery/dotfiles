@@ -50,6 +50,11 @@ function known-hosts {
   cut -d ' ' -f 1 < ~/.ssh/known_hosts | cut -d ',' -f 1 | sort
 }
 
+# Creates a new folder and cd's into it
+function mkcd {
+  mkdir -pv "${1:?}" && cd "$1"
+}
+
 # Creates a go project and link in the current directory
 function mkgo {
   if [ -z "$GOPATH" ]; then
