@@ -42,7 +42,7 @@ alias w='which'
 alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"
 
 if hash jq 2>/dev/null; then
-  alias json="jq '.'"
+  alias json="jq -C '.'"
 else
   alias json='python -mjson.tool'
 fi
