@@ -34,6 +34,7 @@
 	ds = !git --no-pager diff --stat -M -w
 	ga = log --graph --oneline --decorate --all
 	gr = log --graph --oneline --decorate
+	ld = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=short
 	lf = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative --numstat
 	lm = log --no-merges
 	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative
