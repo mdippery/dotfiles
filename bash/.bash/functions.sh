@@ -111,7 +111,7 @@ function vv_prompt {
   export PS1="\[$(tput smul)$(tput setaf 6)\]$venv\[$(tput sgr0)\] $DEFAULT_PS1"
 }
 
-function wl { readlink -f $(which $1); }
+function whither { readlink -f $(which $1); }
 
 function whois { /usr/bin/whois $1 | $PAGER; }
 
