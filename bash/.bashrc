@@ -5,6 +5,8 @@ export HISTCONTROL=ignoredups
 export HISTIGNORE='bg:fg:history'
 shopt -s histappend
 
+set -o physical
+
 unalias -a                      # I don't want any pre-set aliases
 
 source "${DOTBASH}/lib.sh"
