@@ -1,6 +1,5 @@
 alias be='bundle exec'
 alias bi='bundle install --path=.bundle'
-alias brm='rm -rf .bundle && bi'
 alias clj='lein repl'
 alias ctags='ctags -f .tags'
 alias d='pwd'
