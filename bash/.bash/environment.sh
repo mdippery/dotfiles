@@ -24,7 +24,7 @@ export LOCAL="${HOME}/.local"
 export DOTFILES="${HOME}/.dotfiles"
 export VIMFILES="${HOME}/.vimfiles"
 
-export EDITOR='/usr/bin/vim'
+export EDITOR='vim'
 export GUI_EDITOR='/usr/local/bin/mvim'
 export HOMEBREW_EDITOR="$GUI_EDITOR"
 export PAGER='/usr/bin/less'
@@ -51,7 +51,7 @@ if [ $OS = 'linux' ]; then
   if [ -z "$TMUX" ]; then
     export TERM='xterm-256color'
   fi
-  export GUI_EDITOR='/usr/bin/gvim'
+  export GUI_EDITOR='gvim'
   unset HOMEBREW_EDITOR
 fi
 
