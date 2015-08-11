@@ -8,7 +8,7 @@ To install:
 All packages can be installed in one fell swoop with the following shell
 script:
 
-    for pkg in $(find . -type d -depth 1 ! -name .git); do
+    for pkg in $(find . -maxdepth 1 -type d -regex '\./[a-zA-Z0-9].*'); do
       stow ${pkg:2}
     done
 
