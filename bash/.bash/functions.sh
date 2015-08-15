@@ -20,8 +20,13 @@ function cabal-platform {
   if [ "$OS" = 'darwin' ]; then
     os='osx'
   fi
-  local ghc=$(ghc --version | awk '{print $(NF)}')
-  echo "${arch}-${os}-ghc-${ghc}"
+  if hash ghc 2>/dev/null; then
+    local ghc=$(ghc --version | awk '{print $(NF)}')
+    echo "${arch}-${os}-ghc-${ghc}"
+  else
+    echo 'GHC is not installed' 1>&2
+    return 1
+  fi
 }
 
 function char { echo -n "$1" | hexdump -C; }
