@@ -7,7 +7,7 @@ function bcat {
 }
 
 function binroot {
-  if [ $# -lt 1 ]; then
+  if (( $# < 1 )); then
     echo 'binroot <path>' 1>&2
     return 1
   fi
