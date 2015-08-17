@@ -41,11 +41,7 @@ alias vims="git --git-dir=${VIMFILES}/.git --work-tree=${VIMFILES}"
 alias w='which'
 alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"
 
-if hash jq 2>/dev/null; then
-  alias json="jq -C '.'"
-else
-  alias json='python -mjson.tool'
-fi
+hash jq 2>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
 
 if [ $OS = 'linux' ]; then
   alias ls='ls -F --color'

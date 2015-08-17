@@ -2,7 +2,7 @@ if hash ghc 2>/dev/null && [ -d ~/.cabal ]; then
   export PATH="${HOME}/.cabal/bin:${PATH}"
 fi
 
-if [ -d ~/.rubies -a -d "$LOCAL" ]; then
+if [[ -d ~/.rubies && -d "$LOCAL" ]]; then
   source "${LOCAL}/share/chruby/chruby.sh"
   chruby $(/bin/ls ~/.rubies | tail -n 1)
 fi
