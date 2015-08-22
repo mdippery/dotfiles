@@ -72,7 +72,7 @@ function utf8 {
   echo -n "$1" \
     | hexdump -b \
     | head -n 1 \
-    | awk '{ print "\\" $2 " \\" $3 " \\" $4 }'
+    | awk '{ for (i = 1; ++i <= NF;) printf "\\%s", $i; } END { print " " }'
 }
 
 function uuid7 {
