@@ -68,7 +68,12 @@ function rvdns { nslookup $1 | awk '/name = .*\.$/ {print $4}' | sed 's/\.$//'; 
 function trim { cut -c-$(tput cols); }
 
 # Prints the bash utf8 representation of a character
-function utf8 { echo -n "$1" | hexdump -b | head -n 1 | awk '{ print "\\" $2 " \\" $3 " \\" $4 }'; }
+function utf8 {
+  echo -n "$1" \
+    | hexdump -b \
+    | head -n 1 \
+    | awk '{ print "\\" $2 " \\" $3 " \\" $4 }'
+}
 
 function uuid7 {
     local u=$(date | md5sum)
