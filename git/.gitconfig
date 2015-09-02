@@ -36,7 +36,6 @@
 	gr = log --graph --oneline --decorate
 	ld = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=short
 	lf = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative --numstat
-	lm = log --no-merges
 	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative
 	ol = log --oneline --decorate
 	rb = rebase
@@ -60,10 +59,7 @@
 	staged = diff --cached
 	stats = !git --no-pager shortlog -ns
 	tags = tag -n1 -l
-	toss = checkout -- .
-	#touched = log --name-only
-	undo = reset HEAD .
-	#unhide = update-index --no-assume-unchanged
+	trash = !git reset HEAD . && git checkout -- . && echo 'Undid all changes'
 	who = !git --no-pager shortlog -sn --no-merges
 	whoami = !git config --get user.name && git config --get user.email
 
