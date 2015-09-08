@@ -14,7 +14,7 @@ function _brew_die {
 }
 
 function brew_prefix {
-  [ -d /brew ] && echo $(readlink -f /brew) || echo '/usr/local'
+  [ -n $HOMEBREW ] && echo "$HOMEBREW" || echo '/usr/local'
 }
 
 function brew_ls {
