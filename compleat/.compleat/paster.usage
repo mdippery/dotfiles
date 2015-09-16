@@ -1,0 +1,3 @@
+paster serve [--reload] <ini>;
+
+ini = ! find . -maxdepth 1 -name '*.ini' | sed 's/^\.\///g' ;
