@@ -22,7 +22,7 @@ gem rdoc <gems>;
 gem search;
 gem server;
 gem sources [--list];
-gem specification (<gems> | <gemfiles>);
+gem (spec | specification) (<gems> | <gemfiles>);
 gem stale;
 gem uninstall <gems>;
 gem unpack;
