@@ -9,8 +9,6 @@
 # system, but will default to /usr/local in the absence of such
 # a path.
 
-echo 'Brewing Bud Light...'
-
 function _brew_die {
   echo "brew: $1" 1>&2
 }
