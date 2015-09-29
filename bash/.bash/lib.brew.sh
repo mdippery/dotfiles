@@ -18,7 +18,7 @@ function brew_prefix {
 }
 
 function brew_ls {
-  if [ $# -eq 1 ]; then
+  if (( $# == 1 )); then
     local pkg pkgd pkgv
     pkg=$1
     pkgd="$(brew_prefix)/Cellar/${pkg}"
@@ -37,8 +37,22 @@ function brew_ls {
   fi
 }
 
+function brew_cellar {
+  if (( $# == 0 )); then
+    echo "$(brew --prefix)/Cellar"
+  elif (( $# == 1 )); then
+    echo "$(brew --prefix)/Cellar/${1}"
+  else
+    _brew_die 'only one package may be specified at a time'
+  fi
+}
+
 function brew {
   case "$1" in
+    --cellar)
+      shift
+      brew_cellar $*
+      ;;
     --prefix)
       shift
       brew_prefix $*
