@@ -49,7 +49,7 @@
 	up = pull --prune
 	alias = !sh -c 'git config --get-regexp alias | cut -c 7-'
 	authors = !sh -c 'git log --format="%aN" | sort -k 2 -u'
-	changes = diff ORIG_HEAD..
+	changed = diff ORIG_HEAD..
 	deleted = log --diff-filter=D --summary
 	edits = diff --color-words
 	fix = commit -a --amend
