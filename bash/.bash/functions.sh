@@ -113,5 +113,5 @@ function wjava {
   grep -l "$1" *.jar
 }
 
-[ -r "${DOTBASH}/functions.${OS}.sh" ] && source "${DOTBASH}/functions.${OS}.sh"
+[ -r "${DOTBASH}/plat/${OS}/functions.sh" ] && source "${DOTBASH}/plat/${OS}/functions.sh"
 [ -r "${DOTBASH}/functions.user.sh" ] && source "${DOTBASH}/functions.user.sh"
