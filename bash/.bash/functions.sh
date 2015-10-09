@@ -41,7 +41,6 @@ function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
 
 function greet {
   !(hash lolcat 2>/dev/null && hash cowthink 2>/dev/null) && return 1
-  echo
   echo "$(hostname -s)?" | cowthink | lolcat
   echo
 }
