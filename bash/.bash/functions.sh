@@ -40,9 +40,10 @@ function colors {
 function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
 
 function greet {
-  (hash lolcat 2>/dev/null && hash cowthink 2>/dev/null) || return 1
-  echo "$(hostname -s)?" | cowthink | lolcat
-  echo
+  if hash lolcat 2>/dev/null && hash cowthink 2>/dev/null; then
+    echo "$(hostname -s)?" | cowthink | lolcat
+    echo
+  fi
 }
 
 # Returns the IP address for a given host
