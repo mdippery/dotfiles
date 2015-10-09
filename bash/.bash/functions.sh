@@ -41,8 +41,12 @@ function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
 
 function greet {
   if hash lolcat 2>/dev/null && hash cowthink 2>/dev/null; then
-    echo "$(hostname -s)?" | cowthink | lolcat
-    echo
+    if [ -r /etc/motd ]; then
+      lolcat < /etc/motd
+    else
+      echo "$(hostname -s)?" | cowthink | lolcat
+      echo
+    fi
   fi
 }
 
