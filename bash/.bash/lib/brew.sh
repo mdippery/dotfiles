@@ -23,7 +23,7 @@ function brew_ls {
     pkg=$1
     pkgd="$(brew_prefix)/Cellar/${pkg}"
     if [ -d "$pkgd" ]; then
-      pkgv=$(/bin/ls -r "$(brew_prefix)/Cellar/${pkg}" | head -n 1)
+      pkgv=$(\ls -r "$(brew_prefix)/Cellar/${pkg}" | head -n 1)
       pkgd="$(brew_prefix)/Cellar/${pkg}/${pkgv}"
       tree "$pkgd"
     else
