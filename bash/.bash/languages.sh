@@ -4,7 +4,7 @@ fi
 
 if [[ -d ~/.rubies && -d "$LOCAL" ]]; then
   source "${LOCAL}/share/chruby/chruby.sh"
-  chruby $(/bin/ls ~/.rubies | tail -n 1)
+  chruby $(\ls ~/.rubies | tail -n 1)
 fi
 
 if [ -d ~/.pythons/Current ]; then

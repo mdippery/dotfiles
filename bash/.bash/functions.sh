@@ -104,7 +104,7 @@ function vv {
     echo "No virtualenv in ${PWD}"
     return 1
   fi
-  local venv=$(/bin/ls -1 .venv)
+  local venv=$(\ls -1 .venv)
   local vpath=$(cd .venv/$venv && pwd)
   export PATH="${vpath}/bin:${PATH}"
   vv_prompt $venv
