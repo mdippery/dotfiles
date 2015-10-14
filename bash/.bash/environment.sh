@@ -10,13 +10,13 @@ function _ps1_pushed_dirs {
   fi
 }
 
-function _setps1 {
+function _ps1_str {
   local s=$1
   local color=$2
   echo -ne "\[$(tput setaf $color)\]$s\[$(tput sgr0)\] \[$(tput setaf 0)$(tput bold)\]>\[$(tput sgr0)\] "
 }
 
-export DEFAULT_PS1="\[$(tput setaf 1)\]"'$(_ps1_pushed_dirs)'"\[$(tput sgr0)\]$(_setps1 \\W 4)"
+export DEFAULT_PS1="\[$(tput setaf 1)\]"'$(_ps1_pushed_dirs)'"\[$(tput sgr0)\]$(_ps1_str \\W 4)"
 export PS1="$DEFAULT_PS1"
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3
