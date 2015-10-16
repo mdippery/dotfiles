@@ -5,8 +5,6 @@
 function _ps1_pushed_dirs {
   if (( $(dirs -v | wc -l) > 1 )); then
     echo -ne "+ "
-  else
-    echo -ne ""
   fi
 }
 
