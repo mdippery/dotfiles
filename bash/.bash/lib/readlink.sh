@@ -4,15 +4,6 @@ function readlink {
   else
     shift
     local target_file=$1
-    cd $(dirname "$target_file")
-    target_file=$(basename $target_file)
-    while [ -L "$target_file" ]; do
-      target_file=$(readlink "$target_file")
-      cd $(dirname "$target_file")
-      target_file=$(basename "$target_file")
-    done
-    local phys_dir=$(pwd -P)
-    local res="${phys_dir}/${target_file}"
-    echo $res
+    python -c 'import os,sys; print os.path.realpath(sys.argv[1])' "$target_file"
   fi
 }
