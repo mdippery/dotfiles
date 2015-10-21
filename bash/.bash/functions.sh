@@ -40,13 +40,19 @@ function colors {
 function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
 
 function greet {
-  if hash lolcat 2>/dev/null && hash cowthink 2>/dev/null; then
-    if [ -r /etc/motd ]; then
-      lolcat < /etc/motd
-    else
-      echo "$(hostname -s)?" | cowthink | lolcat
-      echo
-    fi
+  # Assumes cowthink and lolcat are both installed. If they are not, add
+  #   alias cowthink='cat'
+  #   alias lolcat='cat'
+  # to your local ~/.bashrc file.
+
+  if [ -r /etc/motd ]; then
+    lolcat < /etc/motd
+  elif hash ddate 2>/dev/null; then
+    ddate | cowthink | lolcat
+  elif ! alias cowthink 2>/dev/null; then
+    uptime | cowthink -n | lolcat
+  else
+    echo "$(hostname -s)?" | cowthink | lolcat
   fi
 }
 
