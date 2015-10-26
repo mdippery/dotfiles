@@ -50,7 +50,7 @@ function greet {
   elif hash ddate 2>/dev/null; then
     ddate | cowthink | lolcat
   elif ! alias cowthink 2>/dev/null; then
-    uptime | cowthink -n | lolcat
+    uptime | tail -c +8 | cowthink -n | lolcat
   else
     echo "$(hostname -s)?" | cowthink | lolcat
   fi
