@@ -117,7 +117,6 @@ function vv {
 }
 
 function vv_prompt {
-  local venv=$1
   export PS1="\[$(tput setaf 6)\]\342\226\266\[$(tput sgr0)\] $DEFAULT_PS1"
 }
 
