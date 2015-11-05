@@ -122,7 +122,7 @@ function vv_prompt {
 
 function whither { readlink -f $(which $1); }
 
-function whois { /usr/bin/whois $1 | $PAGER; }
+function whois { command whois $1 | $PAGER; }
 
 # Finds a class file in a given JAR file
 function wjava {

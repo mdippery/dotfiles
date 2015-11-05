@@ -1,6 +1,6 @@
 function readlink {
   if [ $1 != '-f' ]; then
-    /usr/bin/readlink $*
+    command readlink $*
   else
     shift
     local target_file=$1
