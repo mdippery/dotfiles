@@ -1,0 +1,3 @@
+lein <tasks>;
+
+tasks = ! lein help | tail -n +$(lein help | command grep -n 'Several tasks' | cut -d : -f 1) | tail -n +2 | head -n $(lein help | command grep -n 'Run `lein help $TASK` for details' | cut -d : -f 1) | head -n -5 | awk '{print $1}' ;
