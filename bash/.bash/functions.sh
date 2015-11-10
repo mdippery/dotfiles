@@ -67,6 +67,16 @@ function known-hosts {
   cut -d ' ' -f 1 < ~/.ssh/known_hosts | cut -d ',' -f 1 | sort
 }
 
+# Generate compleat config file for `lein`
+function lein-compleat {
+  lein help \
+    | tail -n +$(lein help | command grep -n 'Several tasks' | cut -d : -f 1) \
+    | tail -n +2 \
+    | head -n $(lein help | command grep -n 'Run `lein help $TASK` for details' | cut -d : -f 1) \
+    | head -n -5 \
+    | awk '{print "lein " $1 ";"}'
+}
+
 # Creates a new folder and cd's into it
 function mkcd {
   mkdir -pv "${1:?}" && cd "$1"
