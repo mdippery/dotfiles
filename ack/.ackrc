@@ -6,3 +6,4 @@
 --ignore-file=is:.tags
 --type-set=mako:ext:mako
 --type-set=ini:ext:ini
+--type-set=cucumber:ext:feature
