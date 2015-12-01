@@ -35,7 +35,7 @@
 	ga = log --graph --oneline --decorate --all
 	gr = log --graph --oneline --decorate
 	ld = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=short
-	lf = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative --numstat
+	lf = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative --name-status
 	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative
 	ol = log --oneline --decorate
 	rb = rebase
