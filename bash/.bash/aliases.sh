@@ -38,6 +38,7 @@ alias top='top -o cpu'
 alias uuid='/usr/bin/uuidgen'
 alias ve='virtualenv --always-copy'
 alias vims="git --git-dir=${VIMFILES}/.git --work-tree=${VIMFILES}"
+alias vundle='vim +PluginInstall +qall'
 alias w='which'
 alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"
 
