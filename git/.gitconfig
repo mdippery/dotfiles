@@ -12,6 +12,8 @@
 	status = auto
 [diff]
 	renames = copies
+[diff "json"]
+	textconv = jq '.'
 [instaweb]
 	httpd = webrick
 [interactive]
