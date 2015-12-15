@@ -7,3 +7,4 @@
 --type-set=mako:ext:mako
 --type-set=ini:ext:ini
 --type-set=cucumber:ext:feature
+--type-set=ddl:ext:ddl
