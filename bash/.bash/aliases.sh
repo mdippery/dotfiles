@@ -36,7 +36,7 @@ alias ssh-reset="printf '\e]0;\a'"
 alias t='type'
 alias top='top -o cpu'
 alias uuid='/usr/bin/uuidgen'
-alias ve='virtualenv --always-copy'
+alias virtualenv='virtualenv --always-copy'
 alias vims="git --git-dir=${VIMFILES}/.git --work-tree=${VIMFILES}"
 alias vundle='vim +PluginInstall +qall'
 alias w='which'

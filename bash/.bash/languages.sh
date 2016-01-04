@@ -18,7 +18,7 @@ if [ -d ~/.pythons/Current ]; then
   if [ ${py_fam} = '3' ]; then
     alias pip='pip3'
     alias python='python3'
-    alias ve='pyvenv'
+    alias virtualenv='pyvenv'
   fi
 fi
 
