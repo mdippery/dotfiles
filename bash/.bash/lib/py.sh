@@ -4,7 +4,7 @@
 # system-installed one.
 
 function py {
-  local py_ver
+  local py_ver cmd
   if [ $1 = '-v' ]; then
     shift
     py_ver=$1
@@ -21,5 +21,16 @@ function py {
     py_ver=$(basename $(echo "$py_match"))
   fi
   bin_path="${HOME}/.pythons/${py_ver}/bin"
-  env PATH="$bin_path:/usr/bin" $*
+  cmd=$1
+  shift
+  if [[ ${py_ver:0:1} == '3' ]]; then
+    if [[ $cmd == 'python' ]]; then
+      cmd='python3'
+    elif [[ $cmd == 'pip' ]]; then
+      cmd='pip3'
+    elif [[ $cmd == 'virtualenv' ]]; then
+      cmd='pyvenv'
+    fi
+  fi
+  env PATH="$bin_path:/usr/bin" $cmd $*
 }
