@@ -23,8 +23,6 @@ function brew_ls {
     pkg=$1
     pkgd="$(brew_prefix)/Cellar/${pkg}"
     if [ -d "$pkgd" ]; then
-      pkgv=$(\ls -r "$(brew_prefix)/Cellar/${pkg}" | head -n 1)
-      pkgd="$(brew_prefix)/Cellar/${pkg}/${pkgv}"
       tree "$pkgd"
     else
       _brew_die "no such package: $pkg"
@@ -32,7 +30,7 @@ function brew_ls {
     fi
   else
     if [ -d "$(brew_prefix)/Cellar" ]; then
-      find "$(brew_prefix)/Cellar" -maxdepth 2 -mindepth 2 -type d | cut -d / -f 8,9 | tr / ' ' | sort | column -t
+      \ls -1 $(brew --cellar)
     fi
   fi
 }
