@@ -53,6 +53,18 @@ function brew_diy {
   brew --cellar $1
 }
 
+function brew_link {
+  stow -d $(brew --cellar) $*
+}
+
+function brew_uninstall {
+  \rm -rf $(brew --cellar $1)
+}
+
+function brew_unlink {
+  stow -d $(brew --cellar) -D $*
+}
+
 function brew {
   case "$1" in
     --cellar)
@@ -67,9 +79,29 @@ function brew {
       shift
       brew_diy $*
       ;;
+    link)
+      shift
+      brew_link $*
+      ;;
+    ln)
+      shift
+      brew_link $*
+      ;;
     ls)
       shift
       brew_ls $*
+      ;;
+    rm)
+      shift
+      brew_uninstall $*
+      ;;
+    uninstall)
+      shift
+      brew_uninstall $*
+      ;;
+    unlink)
+      shift
+      brew_unlink $*
       ;;
     *)
       _brew_die 'invalid arguments'
