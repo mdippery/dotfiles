@@ -45,6 +45,14 @@ function brew_cellar {
   fi
 }
 
+function brew_diy {
+  if (( $# != 1 )); then
+    _brew_die 'no package specified'
+    return 1
+  fi
+  brew --cellar $1
+}
+
 function brew {
   case "$1" in
     --cellar)
@@ -54,6 +62,10 @@ function brew {
     --prefix)
       shift
       brew_prefix $*
+      ;;
+    diy)
+      shift
+      brew_diy $*
       ;;
     ls)
       shift
