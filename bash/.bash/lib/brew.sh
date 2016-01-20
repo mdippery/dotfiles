@@ -13,26 +13,8 @@ function _brew_die {
   echo "brew: $1" 1>&2
 }
 
-function brew_prefix {
-  [ -n $HOMEBREW ] && echo "$HOMEBREW" || echo '/usr/local'
-}
-
-function brew_ls {
-  if (( $# == 1 )); then
-    local pkg pkgd pkgv
-    pkg=$1
-    pkgd="$(brew_prefix)/Cellar/${pkg}"
-    if [ -d "$pkgd" ]; then
-      tree "$pkgd"
-    else
-      _brew_die "no such package: $pkg"
-      return 2
-    fi
-  else
-    if [ -d "$(brew_prefix)/Cellar" ]; then
-      \ls -1 $(brew --cellar)
-    fi
-  fi
+function brew_cache {
+  echo ${HOMEBREW_CACHE:-/tmp}
 }
 
 function brew_cellar {
@@ -57,6 +39,30 @@ function brew_link {
   stow -d $(brew --cellar) $*
 }
 
+function brew_ls {
+  if (( $# == 1 )); then
+    local pkg pkgd pkgv
+    pkg=$1
+    pkgd="$(brew_prefix)/Cellar/${pkg}"
+    if [ -d "$pkgd" ]; then
+      tree "$pkgd"
+    else
+      _brew_die "no such package: $pkg"
+      return 2
+    fi
+  else
+    if [ -d "$(brew_prefix)/Cellar" ]; then
+      \ls -1 $(brew --cellar)
+    fi
+  fi
+}
+
+
+function brew_prefix {
+  echo ${HOMEBREW:-/usr/local}
+}
+
+
 function brew_uninstall {
   \rm -rf $(brew --cellar $1)
 }
@@ -67,6 +73,10 @@ function brew_unlink {
 
 function brew {
   case "$1" in
+    --cache)
+      shift
+      brew_cache $*
+      ;;
     --cellar)
       shift
       brew_cellar $*
