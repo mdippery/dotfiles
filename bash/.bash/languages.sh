@@ -33,4 +33,11 @@ if [ -d ~/.go/Current ]; then
   export PATH="${GOPATH}/bin:$(readlink -f ~/.go/Current/bin):${PATH}"
 fi
 
+if hash node 2>/dev/null; then
+  node_modules="$(dirname $(dirname $(which node)))/lib/node_modules"
+  if [ -d $node_modules ]; then
+    export NODE_PATH="${node_modules}:${NODE_PATH}"
+  fi
+fi
+
 [ -r "${DOTBASH}/languages.user.sh" ] && source "${DOTBASH}/languages.user.sh"
