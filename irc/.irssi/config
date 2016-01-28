@@ -259,6 +259,7 @@ aliases = {
   rekt = "/say rectum? damn near killed 'im!";
   nickserv = "/msg nickserv";
   ocean = "/say https://www.digitalocean.com/?refcode=5039910abfe9";
+  banlist = "/mode $0 +b";
 };
 
 statusbar = {
