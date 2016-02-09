@@ -4,6 +4,7 @@
 --ignore-dir=.bundle
 --ignore-dir=_rel
 --ignore-file=is:.tags
+--ignore-file=is:.lein-repl-history
 --type-set=mako:ext:mako
 --type-set=ini:ext:ini
 --type-set=cucumber:ext:feature
