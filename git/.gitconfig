@@ -26,8 +26,6 @@
 	default = simple
 [rerere]
 	enabled = true
-[pager]
-	stash = false
 [alias]
 	br = branch
 	ci = commit
@@ -59,7 +57,7 @@
 	info = config --list
 	nuke = !sh -c 'git reset --hard HEAD~$1' -
 	showtag = !sh -c 'git rev-parse $1 | xargs git cat-file -p' -
-	stashed = stash list
+	stashed = !git --no-pager stash list
 	staged = diff --cached
 	stats = !git --no-pager shortlog -ns
 	tags = tag -n1 -l
