@@ -9,3 +9,4 @@
 --type-set=ini:ext:ini
 --type-set=cucumber:ext:feature
 --type-set=ddl:ext:ddl
+--type-set=glade:ext:glade
