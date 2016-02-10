@@ -37,6 +37,10 @@ function colors {
   done
 }
 
+function find-prefix {
+  find . -name '*.'$1
+}
+
 function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
 
 function greet {
