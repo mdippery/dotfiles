@@ -260,6 +260,7 @@ aliases = {
   nickserv = "/msg nickserv";
   ocean = "/say https://www.digitalocean.com/?refcode=5039910abfe9";
   banlist = "/mode $0 +b";
+  dnsimple = "/say https://dnsimple.com/r/fb68ff4a452321";
 };
 
 statusbar = {
