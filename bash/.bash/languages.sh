@@ -12,7 +12,7 @@ if [ -d ~/.pythons/Current ]; then
   py_vers=$(basename $py_home)
   py_fam=${py_vers:0:1}
   export PATH="${py_home}/bin:${PATH}"
-  export ANSIBLE_LIBRARY="${py_home}/share/ansible"
+  [ -d "${py_home}/share/ansible" ] && export ANSIBLE_LIBRARY="${py_home}/share/ansible"
   export TOX_PYTHONS="${HOME}/.pythons"
 
   if [ ${py_fam} = '3' ]; then
