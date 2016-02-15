@@ -128,6 +128,7 @@ function vv {
   local venv=$(\ls -1 .venv)
   local vpath=$(cd .venv/$venv && pwd)
   export PATH="${vpath}/bin:${PATH}"
+  unset ANSIBLE_LIBRARY
   vv_prompt $venv
 }
 
