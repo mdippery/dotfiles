@@ -7,19 +7,9 @@ if [[ -d ~/.rubies && -d "$LOCAL" ]]; then
   chruby $(\ls ~/.rubies | tail -n 1)
 fi
 
-if [ -d ~/.pythons/Current ]; then
-  py_home=$(readlink -f ~/.pythons/Current)
-  py_vers=$(basename $py_home)
-  py_fam=${py_vers:0:1}
-  export PATH="${py_home}/bin:${PATH}"
-  [ -d "${py_home}/share/ansible" ] && export ANSIBLE_LIBRARY="${py_home}/share/ansible"
-  export TOX_PYTHONS="${HOME}/.pythons"
-
-  if [ ${py_fam} = '3' ]; then
-    alias pip='pip3'
-    alias python='python3'
-    alias virtualenv='pyvenv'
-  fi
+if [[ -d ~/.pythons && -d "$LOCAL" ]]; then
+  source "${LOCAL}/share/chpython/chpython.sh"
+  chpython 2.7 >/dev/null
 fi
 
 if [ -d ~/.scalas/Current ]; then
