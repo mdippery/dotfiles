@@ -66,6 +66,12 @@ function hostip { host $1 | head -n 1 | awk '{ print $4 }'; }
 # Returns the HTTP status code for a URL
 function hstat { curl -I $1 2>/dev/null | head -1; }
 
+# Returns IP information
+function ipinfo {
+  curl ipinfo.io/$1
+  echo
+}
+
 # Show known SSH hosts
 function known-hosts {
   cut -d ' ' -f 1 < ~/.ssh/known_hosts | cut -d ',' -f 1 | sort
