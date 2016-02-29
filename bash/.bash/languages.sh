@@ -17,10 +17,11 @@ if [ -d ~/.scalas/Current ]; then
   export PATH="${SCALA_HOME}/bin:${PATH}"
 fi
 
-if [ -d ~/.go/Current ]; then
+if [ -d ~/.go/go ]; then
+  export GOROOT="${HOME}/.go/go"
   export GOPATH="${HOME}/.go/ws"
   mkdir -p "$GOPATH"
-  export PATH="${GOPATH}/bin:$(readlink -f ~/.go/Current/bin):${PATH}"
+  export PATH="${GOPATH}/bin:${GOROOT}/bin:${PATH}"
 fi
 
 if hash node 2>/dev/null; then
