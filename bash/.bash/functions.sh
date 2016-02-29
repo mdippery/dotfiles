@@ -60,6 +60,13 @@ function greet {
   fi
 }
 
+# Returns IP data for a given host
+function hostinfo {
+  for ip in $(hostip $1); do
+    ipinfo $ip
+  done
+}
+
 # Returns the IP address for a given host
 function hostip { host $1 | command grep 'has address' | awk '{ print $4 }'; }
 
