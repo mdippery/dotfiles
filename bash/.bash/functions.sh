@@ -61,7 +61,7 @@ function greet {
 }
 
 # Returns the IP address for a given host
-function hostip { host $1 | head -n 1 | awk '{ print $4 }'; }
+function hostip { host $1 | command grep 'has address' | awk '{ print $4 }'; }
 
 # Returns the HTTP status code for a URL
 function hstat { curl -I $1 2>/dev/null | head -1; }
