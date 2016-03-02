@@ -75,7 +75,7 @@ function hstat { curl -I $1 2>/dev/null | head -1; }
 
 # Returns IP information
 function ipinfo {
-  curl ipinfo.io/$1
+  curl -s ipinfo.io/$1
   echo
 }
 
