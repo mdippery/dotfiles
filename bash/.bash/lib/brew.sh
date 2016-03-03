@@ -13,6 +13,11 @@ function _brew_die {
   echo "brew: $1" 1>&2
 }
 
+function _brew_guess_package {
+  local dir=$(basename $1)
+  echo "$dir" | awk -F - '{ print $1 }'
+}
+
 function brew_cache {
   echo ${HOMEBREW_CACHE:-/tmp}
 }
@@ -28,11 +33,17 @@ function brew_cellar {
 }
 
 function brew_diy {
-  if (( $# != 1 )); then
+  local pkg
+  if (( $# == 1 )); then
+    pkg=$1
+  else
+    pkg=$(_brew_guess_package $(pwd))
+  fi
+  if [[ -z $pkg ]]; then
     _brew_die 'no package specified'
     return 1
   fi
-  brew --cellar $1
+  brew --cellar $pkg
 }
 
 function brew_link {
