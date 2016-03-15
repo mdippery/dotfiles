@@ -2,7 +2,9 @@
 	name = Michael Dippery
 	email = michael@monkey-robot.com
 [core]
-        excludesfile = ~/.config/git/ignore
+	excludesfile = ~/.config/git/ignore
+[commit]
+	template = ~/.config/git/templates/commit.txt
 [apply]
 	whitespace = nowarn
 [color]
