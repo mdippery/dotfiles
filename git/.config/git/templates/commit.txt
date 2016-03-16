@@ -1,5 +1,6 @@
 
 
+# --------------------
 # <type>: (If applied, this commit will...) <subject> (Max 50 char)
 #
 #
