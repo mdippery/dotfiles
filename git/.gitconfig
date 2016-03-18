@@ -26,6 +26,8 @@
 	rebase = true
 [push]
 	default = simple
+[rebase]
+	autostash = true
 [rerere]
 	enabled = true
 [alias]
