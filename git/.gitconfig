@@ -49,6 +49,7 @@
 	sh = show HEAD
 	st = status
 	up = pull --prune
+	blc = blame-color
 	alias = !sh -c 'git config --get-regexp alias | cut -c 7-'
 	authors = !sh -c 'git log --format="%aN" | sort -k 2 -u'
 	changed = diff ORIG_HEAD..
