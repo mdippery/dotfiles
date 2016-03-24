@@ -53,6 +53,8 @@ function greet {
     lolcat < /etc/motd
   elif hash ddate 2>/dev/null; then
     ddate | cowthink | lolcat
+  elif hash figlet 2>/dev/null; then
+    figlet -f slant 'o m g !' | lolcat
   elif ! alias cowthink 2>/dev/null; then
     uptime | ([[ $OS == 'darwin' ]] && tail -c +8 || cat) | cowthink -n | lolcat
   else
