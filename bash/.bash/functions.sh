@@ -63,7 +63,7 @@ function greet {
 }
 
 # Queries Spotify for related bands
-function homonym {
+function homophone {
   local band id
   band=$1
   id=$(curl -s "https://api.spotify.com/v1/search?type=artist&q=${band}" | jq '.artists.items[0].id' | sed 's/"//g')
