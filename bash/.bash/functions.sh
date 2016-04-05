@@ -62,6 +62,20 @@ function greet {
   fi
 }
 
+# Queries Spotify for related bands
+function homonym {
+  local band id
+  band=$1
+  id=$(curl -s "https://api.spotify.com/v1/search?type=artist&q=${band}" | jq '.artists.items[0].id' | sed 's/"//g')
+  curl -s "https://api.spotify.com/v1/artists/${id}/related-artists" \
+    | jq '.artists[] | {name}' \
+    | grep name \
+    | cut -d ':' -f 2 \
+    | sed 's/^ "//g' \
+    | sed 's/"$//g' \
+    | sort
+}
+
 # Returns IP data for a given host
 function hostinfo {
   for ip in $(hostip $1); do
