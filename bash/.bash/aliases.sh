@@ -29,6 +29,7 @@ alias p='pushd'
 alias path='echo $PATH | tr ":" "\n"'
 alias pyclean="find . -name '*.pyc' | xargs rm -f"
 alias pypath='python -c "import sys; print(\"\\n\".join(sys.path))" | sed "s/^$/\./g"'
+alias pyprefix='python -c "import sys; print(sys.prefix)"'
 alias q='cd -'
 alias rh='runhaskell'
 alias rm='rm -i'
