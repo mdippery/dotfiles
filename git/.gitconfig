@@ -50,7 +50,7 @@
 	st = status
 	up = pull --prune
 	blc = blame-color
-	alias = !sh -c 'git config --get-regexp alias | cut -c 7-'
+	alias = "!f() { git config --get-regexp alias | cut -c 7- | sed 's/ /_/' | column -t -s _; }; f"
 	authors = !sh -c 'git log --format="%aN" | sort -k 2 -u'
 	changed = diff ORIG_HEAD..
 	deleted = log --diff-filter=D --summary
