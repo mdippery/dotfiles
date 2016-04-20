@@ -65,6 +65,7 @@
 	stats = !git --no-pager shortlog -ns
 	tags = tag -n1 -l
 	trash = !git reset HEAD . && git checkout -- . && echo 'Undid all changes'
+	type = cat-file -t
 	undo = reset HEAD .
 	who = !git --no-pager shortlog -sn --no-merges
 	whoami = !git config --get user.name && git config --get user.email
