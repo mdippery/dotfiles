@@ -52,6 +52,7 @@ export NETHACKOPTIONS=''                        # MacBook doesn't have a numberp
 export DJANGO_DEBUG=true
 export ANSIBLE_NOCOWS=1
 export HOMEBREW_NO_EMOJI=1
+export HOMEBREW_NO_ANALYTICS=1
 
 if [ $OS = 'linux' ]; then
   if [ -z "$TMUX" ]; then
