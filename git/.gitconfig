@@ -60,8 +60,8 @@
 	info = config --list
 	nuke = !sh -c 'git reset --hard HEAD~$1' -
 	showtag = !sh -c 'git rev-parse $1 | xargs git cat-file -p' -
-	stashed = !git --no-pager stash list
 	staged = diff --cached
+	stashed = !git --no-pager stash list
 	stats = !git --no-pager shortlog -ns
 	tags = tag -n1 -l
 	trash = !git reset HEAD . && git checkout -- . && echo 'Undid all changes'
