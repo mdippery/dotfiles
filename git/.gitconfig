@@ -20,6 +20,8 @@
 	singlekey = true
 [merge]
 	tool = ksdiff
+[fetch]
+	prune = true
 [pull]
 	rebase = true
 [push]
@@ -48,7 +50,6 @@
 	sb = status -sb
 	sh = show HEAD
 	st = status
-	up = pull --prune
 	blc = blame-color
 	alias = "!f() { git config --get-regexp alias | cut -c 7- | sed \"s/ /$(echo 2B | xxd -r -p)/\" | column -t -s $(echo 2B | xxd -r -p); }; f"
 	authors = !sh -c 'git log --format="%aN" | sort -k 2 -u'
