@@ -18,8 +18,6 @@
 	httpd = webrick
 [interactive]
 	singlekey = true
-[merge]
-	tool = ksdiff
 [fetch]
 	prune = true
 [pull]
@@ -73,10 +71,3 @@
 
 [include]
 	path = ~/.gitconfig.user
-
-# Added by Kaleidoscope
-[difftool "ksdiff"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[mergetool "ksdiff"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
