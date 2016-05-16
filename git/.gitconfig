@@ -61,12 +61,11 @@
 	showtag = !sh -c 'git rev-parse $1 | xargs git cat-file -p' -
 	staged = diff --cached
 	stashed = !git --no-pager stash list
-	stats = !git --no-pager shortlog -ns
+	stats = !git --no-pager shortlog -sn --no-merges
 	tags = tag -n1 -l
 	trash = !git reset HEAD . && git checkout -- . && echo 'Undid all changes'
 	type = cat-file -t
 	undo = reset HEAD .
-	who = !git --no-pager shortlog -sn --no-merges
 	whoami = !git config --get user.name && git config --get user.email
 
 [include]
