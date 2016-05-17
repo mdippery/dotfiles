@@ -26,7 +26,7 @@ gem (spec | specification) (<gems> | <gemfiles>);
 gem stale;
 gem uninstall <gems>;
 gem unpack;
-gem update <gems>;
+gem update [<gems>] ...;
 gem which;
 gem yank;
 
