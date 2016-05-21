@@ -2,6 +2,7 @@
 --pager=less
 --ignore-dir=migrations
 --ignore-dir=.bundle
+--ignore-dir=.venv
 --ignore-dir=_rel
 --ignore-file=is:.tags
 --ignore-file=is:.lein-repl-history
