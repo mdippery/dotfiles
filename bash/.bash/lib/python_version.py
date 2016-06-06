@@ -31,5 +31,4 @@ if len(cmp_ver) < 3:
     VERSION = sys.version_info[0:len(cmp_ver)]
 
 res = compare_versions(op, cmp_ver, VERSION)
-res = 0 if res else 1
-sys.exit(res)
+sys.exit({True: 0, False: 1}[res])
