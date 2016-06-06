@@ -1,7 +1,7 @@
 brew_completion="$(brew --prefix)/Library/Contributions/brew_bash_completion.sh"
 [ -r $brew_completion ] && source $brew_completion
 
-hash pip 2>/dev/null && eval $(pip completion --bash)
+hash pip 2>/dev/null && (python -V |& grep 'Python 2.6' >/dev/null) || eval $(pip completion --bash)
 
 bash_completion_d="${HOME}/.bash_completion.d"
 for f in $(find -H $bash_completion_d -mindepth 1); do
