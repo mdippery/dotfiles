@@ -1,3 +1,8 @@
+function netinfo {
+  ifconfig eth0 | command grep -E -o 'inet addr:[^ ]+' | awk -F: '{print $2}'
+  ifconfig eth0 | command grep -E -o 'HWaddr .+$' | awk '{print $2}'
+}
+
 # Recreate OS X's `otool -L` on Linux
 function otool {
   if (( $# < 1 )) || [[ $1 != '-L' ]]; then
