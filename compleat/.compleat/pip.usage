@@ -1,0 +1,11 @@
+pip completion;
+pip download;
+pip freeze;
+pip hash;
+pip help;
+pip install;
+pip list;
+pip search;
+pip show;
+pip uninstall;
+pip wheel;
