@@ -140,7 +140,7 @@ function vv {
     echo "No virtualenv in ${PWD}"
     return 1
   fi
-  local venv=$(\ls -1 .venv)
+  local venv=$(command ls -1 .venv)
   local vpath=$(cd .venv/$venv && pwd)
   export PATH="${vpath}/bin:${PATH}"
   unset ANSIBLE_LIBRARY

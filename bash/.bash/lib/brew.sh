@@ -63,7 +63,7 @@ function brew_ls {
     fi
   else
     if [ -d "$(brew_prefix)/Cellar" ]; then
-      \ls -1 $(brew --cellar)
+      command ls -1 $(brew --cellar)
     fi
   fi
 }
@@ -76,7 +76,7 @@ function brew_prefix {
 
 function brew_uninstall {
   brew_unlink $1
-  \rm -rf $(brew --cellar $1)
+  command rm -rf $(brew --cellar $1)
 }
 
 function brew_unlink {
