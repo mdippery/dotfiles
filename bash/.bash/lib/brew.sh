@@ -75,6 +75,7 @@ function brew_prefix {
 
 
 function brew_uninstall {
+  brew_unlink $1
   \rm -rf $(brew --cellar $1)
 }
 
