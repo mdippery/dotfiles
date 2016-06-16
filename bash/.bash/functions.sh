@@ -41,6 +41,8 @@ function find-ext { find . -name '*.'$1; }
 
 function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
 
+function grab-line { sed -n "$1 p"; }
+
 function greet {
   # Assumes cowthink and lolcat are both installed. If they are not, add
   #   alias cowthink='cat'
