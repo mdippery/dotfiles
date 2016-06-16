@@ -89,8 +89,8 @@ function known-hosts {
 # Generate compleat config file for `lein`
 function lein-compleat {
   local lein_help=$(lein help)
-  local lein_help_start=$(command grep -n 'Several tasks' <<< "$lein_help" | cut -d : -f 1)
-  local lein_help_end=$(command grep -n 'Run `lein help $TASK` for details' <<< "$lein_help" | cut -d : -f 1)
+  local lein_help_start=$(sed -n '/Several tasks/=' <<< "$lein_help")
+  local lein_help_end=$(sed -n '/Run `lein help $TASK` for details/=' <<< "$lein_help")
   local x=$((lein_help_start + 1))
   local y=$((lein_help_end - 2))
   echo "$lein_help" \
