@@ -15,7 +15,7 @@ an _interactive login shell_ and `~/.bash_profile` will be loaded. Thereafter,
 you will be presented with an _interactive (non-login) shell_, and `~/.bashrc`
 will be loaded. Except, of course, if you're using a GUI. In that case, upon
 logging in and launching your terminal app (e.g., Konsole), you will always be
-given an _interactive (non-login) shell_--the opposite of Mac OS X,
+given an _interactive (non-login) shell_—the opposite of Mac OS X,
 essentially.
 
 [Some][staiger] [greybeards][rushanan] [say][stack] that environment variables

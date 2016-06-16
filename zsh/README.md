@@ -88,5 +88,5 @@ On OS X, when launching Terminal.app, the following files will be read:
 
 In general, though, environment variables should be set in `.zshenv`, other
 settings (aliases, functions) in `.zshrc`, and then `.zlogin` can be used to
-show a friendly message when logging in -- except on Linux, where that should
+show a friendly message when logging in—except on Linux, where that should
 be done in `.zshrc`.
