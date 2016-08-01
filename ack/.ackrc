@@ -4,6 +4,7 @@
 --ignore-dir=.bundle
 --ignore-dir=.venv
 --ignore-dir=_rel
+--ignore-dir=.stack-work
 --ignore-file=is:.tags
 --ignore-file=is:.lein-repl-history
 --type-set=mako:ext:mako
