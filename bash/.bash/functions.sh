@@ -98,6 +98,20 @@ function lein-compleat {
     | awk '{print "lein " $1 ";"}'
 }
 
+# A nicer man with colorized text
+# Inspired by <http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized>
+function man {
+  env \
+    LESS_TERMCAP_mb=$(tput bold; tput setaf 1) \
+    LESS_TERMCAP_md=$(tput bold; tput setaf 1) \
+    LESS_TERMCAP_me=$(tput sgr0) \
+    LESS_TERMCAP_se=$(tput sgr0) \
+    LESS_TERMCAP_so=$(tput bold; tput setab 4; tput setaf 3) \
+    LESS_TERMCAP_ue=$(tput sgr0) \
+    LESS_TERMCAP_us=$(tput bold; tput setaf 2) \
+    man "$@"
+}
+
 # Creates a new folder and cd's into it
 function mkcd {
   mkdir -pv "${1:?}" && cd "$1"
