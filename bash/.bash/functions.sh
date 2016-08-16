@@ -102,7 +102,6 @@ function lein-compleat {
 # Inspired by <http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized>
 function man {
   env \
-    LESS_TERMCAP_mb=$(tput bold; tput setaf 1) \
     LESS_TERMCAP_md=$(tput bold; tput setaf 1) \
     LESS_TERMCAP_me=$(tput sgr0) \
     LESS_TERMCAP_se=$(tput sgr0) \
