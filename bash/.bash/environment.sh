@@ -36,6 +36,8 @@ export HOMEBREW_EDITOR="$GUI_EDITOR"
 export PAGER='/usr/bin/less'
 export LESS='R'
 
+export GPG_TTY=$(tty)
+
 export FIGNORE='DS_Store'
 
 if [ -x /usr/libexec/java_home ]; then
