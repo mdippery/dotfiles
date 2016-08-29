@@ -2,9 +2,10 @@ if hash ghc 2>/dev/null && [ -d ~/.cabal ]; then
   export PATH="${HOME}/.cabal/bin:${PATH}"
 fi
 
-if [[ -d ~/.rubies && -d "$LOCAL" ]]; then
-  source "${LOCAL}/share/chruby/chruby.sh"
-  chruby $(command ls ~/.rubies | tail -n 1)
+if [[ -d ~/.rbenv ]]; then
+  export PATH="${HOME}/.rbenv/bin:${PATH}"
+  eval "$(rbenv init -)"
+  export RUBY_VERSION=$(rbenv version | awk '{print $1}')
 fi
 
 if [[ -d ~/.pythons && -d "$LOCAL" ]]; then
