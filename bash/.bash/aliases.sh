@@ -37,6 +37,7 @@ alias rm='rm -i'
 alias ssh-reset="printf '\e]0;\a'"
 alias t='type'
 alias tab='column -t'
+alias tg='tmux a'
 alias top='top -o cpu'
 alias uuid='/usr/bin/uuidgen'
 alias virtualenv='virtualenv --always-copy'
