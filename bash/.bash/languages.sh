@@ -8,9 +8,10 @@ if [[ -d ~/.rbenv ]]; then
   export RUBY_VERSION=$(rbenv version | awk '{print $1}')
 fi
 
-if [[ -d ~/.pythons && -d "$LOCAL" ]]; then
-  source "${LOCAL}/share/chpython/chpython.sh"
-  chpython 2.7 >/dev/null
+if [[ -d ~/.pyenv ]]; then
+  export PYENV_ROOT="${HOME}/.pyenv"
+  export PATH="${PYENV_ROOT}/bin:${PATH}"
+  eval "$(pyenv init -)"
 fi
 
 if [ -d ~/.scalas/Current ]; then
