@@ -1,3 +1,24 @@
+function alias-py3 {
+  if ! hash python3 2>/dev/null; then
+    echo "You are using $(python -V)!" 1>&2
+    return 1
+  fi
+  local py_home=$(python3 -c 'import sys; print(sys.prefix)')
+  local py_bin="${py_home}/bin"
+  for bin in $(find "$py_bin" -name '*3'); do
+    local bin_name=$(basename $bin)
+    local alias_name=${bin_name%3}
+    if [[ $bin_name != '2to3' ]]; then
+      echo -n "Aliasing ${alias_name} to ${bin_name}... "
+      alias ${alias_name}=${bin_name}
+      echo 'ok'
+    fi
+  done
+  echo -n 'Aliasing virtualenv to pyvenv... '
+  alias virtualenv=pyvenv
+  echo 'ok'
+}
+
 function bcat {
   if hash $1 2>/dev/null; then
     less $(which $1)
