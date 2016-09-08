@@ -52,7 +52,7 @@ if [ $OS = 'linux' ]; then
   alias ls='ls -F --color'
   alias mvim='gvim'
   alias pbcopy='xclip -selection clipboard'
-  alias pbpaste='xclip -selection clipboad -o'
+  alias pbpaste='xclip -selection clipboard -o'
 
   hash gitk 2>/dev/null && alias gitx='gitk'
 
