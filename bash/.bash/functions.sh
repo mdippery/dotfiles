@@ -140,6 +140,16 @@ function mkcd {
 # Opens a man page in Preview
 function pman { man -t $1 | open -f -a /Applications/Preview.app; }
 
+# Removes .pyc files
+function pyclean {
+  local dir=.
+  if (( $# > 0 )); then
+    dir=$1
+  fi
+  find "$dir" -name '*.pyc' -delete
+  find "$dir" -name __pycache__ -delete
+}
+
 # Repeats a character a given number of times
 function repeat {
   local ch=$1
