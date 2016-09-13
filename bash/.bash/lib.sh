@@ -1,5 +1,9 @@
 # lib.sh: Common functions that many bash subscripts may find useful
 
+function onoe {
+  echo $* 1>&2
+}
+
 hash brew 2>/dev/null || source "${DOTBASH}/lib/brew.sh"
 
 # Recreate behavior of GNU `readlink` on OS X

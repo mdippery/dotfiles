@@ -1,6 +1,6 @@
 function alias-py3 {
   if ! hash python3 2>/dev/null; then
-    echo "You are using $(python -V)!" 1>&2
+    onoe "You are using $(python -V 2>&1)!"
     return 1
   fi
   local py_home=$(python3 -c 'import sys; print(sys.prefix)')
@@ -29,7 +29,7 @@ function bcat {
 
 function binroot {
   if (( $# < 1 )); then
-    echo 'binroot <path>' 1>&2
+    onoe 'binroot <path>'
     return 1
   fi
   dirname $(dirname $(which $1))
@@ -45,7 +45,7 @@ function cabal-platform {
     local ghc=$(ghc --version | awk '{print $(NF)}')
     echo "${arch}-${os}-ghc-${ghc}"
   else
-    echo 'GHC is not installed' 1>&2
+    onoe 'GHC is not installed'
     return 1
   fi
 }
@@ -172,7 +172,7 @@ function vimsyn {
 
 function vv {
   if [ ! -d .venv ]; then
-    echo "No virtualenv in ${PWD}"
+    onoe "No virtualenv in ${PWD}"
     return 1
   fi
   local venv=$(command ls -1 .venv)

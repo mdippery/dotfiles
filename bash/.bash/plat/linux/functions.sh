@@ -14,7 +14,7 @@ function otool {
     if (( $# > 0 )); then
       cmd="$cmd $*"
     fi
-    echo "I think you mean \`$cmd\`" 2>&1
+    onoe "I think you mean \`$cmd\`"
     return 1
   fi
   shift

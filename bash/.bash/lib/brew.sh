@@ -10,7 +10,7 @@
 # a path.
 
 function _brew_die {
-  echo "brew: $1" 1>&2
+  onoe "brew: $1"
 }
 
 function _brew_guess_package {
