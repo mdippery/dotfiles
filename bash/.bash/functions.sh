@@ -1,7 +1,7 @@
 function airport-code {
   curl -s "https://iatacodes.org/api/v6/airports?api_key=356cad88-f3a3-4a7e-aeec-fad56d838158&code=$1" \
     | jq .response[0].name \
-    | sed 's/"//g'
+    | tr -d '"'
 }
 
 function alias-py3 {
