@@ -156,6 +156,17 @@ function pyclean {
   find "$dir" -name __pycache__ -delete
 }
 
+# Prints the python path
+function pypath {
+  python -c 'import sys; print("\n".join(sys.path))' \
+    | sed 's/^$/\./g'
+}
+
+# Prints the python prefix
+function pyprefix {
+  python -c 'import sys; print(sys.prefix)'
+}
+
 # Repeats a character a given number of times
 function repeat {
   local ch=$1
