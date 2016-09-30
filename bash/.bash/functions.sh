@@ -167,6 +167,11 @@ function pyprefix {
   python -c 'import sys; print(sys.prefix)'
 }
 
+# Reads a .env file into exported variables
+function read-env {
+  eval $(sed 's/^/export /' < .env)
+}
+
 # Repeats a character a given number of times
 function repeat {
   local ch=$1
