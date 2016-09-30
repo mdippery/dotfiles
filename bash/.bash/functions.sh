@@ -64,6 +64,13 @@ function colors {
   done
 }
 
+# Reads a .env file into variables
+function dotenv {
+  set -a
+  source .env
+  set +a
+}
+
 function find-ext { find . -name '*.'$1; }
 
 function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
@@ -165,11 +172,6 @@ function pypath {
 # Prints the python prefix
 function pyprefix {
   python -c 'import sys; print(sys.prefix)'
-}
-
-# Reads a .env file into exported variables
-function read-env {
-  eval $(sed 's/^/export /' < .env)
 }
 
 # Repeats a character a given number of times
