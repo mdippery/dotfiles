@@ -8,9 +8,10 @@ fi
 git=$(readlink -f $(type -P git))
 git_share="$(dirname $(dirname $(dirname $git)))/share/git-core/templates"
 git_exclude_path="${git_share}/info/exclude"
+local_exclude_path="${GIT_DIR:-.git}/info/exclude"
 
-if diff "$git_exclude_path" .git/info/exclude >/dev/null 2>&1; then
-  echo $1 > .git/info/exclude
+if diff "$git_exclude_path" "$local_exclude_path" >/dev/null 2>&1; then
+  echo $1 > "$local_exclude_path"
 else
-  echo $1 >> .git/info/exclude
+  echo $1 >> "$local_exclude_path"
 fi
