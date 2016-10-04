@@ -6,7 +6,7 @@ if (( $# != 1 )); then
 fi
 
 git=$(readlink -f $(type -P git))
-git_share="$(dirname $(dirname $git))/share/git-core/templates"
+git_share="$(dirname $(dirname $(dirname $git)))/share/git-core/templates"
 git_exclude_path="${git_share}/info/exclude"
 
 if diff "$git_exclude_path" .git/info/exclude >/dev/null 2>&1; then
