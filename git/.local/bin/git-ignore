@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if (( $# != 1 )); then
+  echo "Usage: $(basename $0) <pattern>" 1>&2
+  exit 1
+fi
+
+git=$(readlink -f $(type -P git))
+git_share="$(dirname $(dirname $git))/share/git-core/templates"
+git_exclude_path="${git_share}/info/exclude"
+
+if diff "$git_exclude_path" .git/info/exclude >/dev/null 2>&1; then
+  echo $1 > .git/info/exclude
+else
+  echo $1 >> .git/info/exclude
+fi
