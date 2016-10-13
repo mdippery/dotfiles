@@ -5,7 +5,7 @@ function airport-code {
 }
 
 function alias-py3 {
-  if ! hash python3 2>/dev/null; then
+  if ! pyenv which python3 2>/dev/null; then
     onoe "You are using $(python -V 2>&1)!"
     return 1
   fi
