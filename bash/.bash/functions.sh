@@ -150,6 +150,11 @@ function mkcd {
   mkdir -pv "${1:?}" && cd "$1"
 }
 
+# Upgrades outdated pip dependencies
+function pip-outdated {
+  pip list -o | cut -d ' ' -f 1 | xargs pip install -U
+}
+
 # Opens a man page in Preview
 function pman { man -t $1 | open -f -a /Applications/Preview.app; }
 
