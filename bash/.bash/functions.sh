@@ -56,6 +56,20 @@ function cabal-platform {
   fi
 }
 
+function cat-all {
+  local dir seen
+  dir=$1
+  seen='no'
+  for fn in $(find $dir -type f); do
+    [[ $seen == 'yes' ]] && echo
+    tput setaf 1
+    echo $fn
+    tput sgr0
+    cat "$fn"
+    seen='yes'
+  done
+}
+
 function char { echo -n "$1" | hexdump -C; }
 
 function colors {
