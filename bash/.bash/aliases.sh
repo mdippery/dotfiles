@@ -23,6 +23,7 @@ alias ll='ls -lh'
 alias ls='ls -FG'
 alias mate='mate -r'
 alias md='open -a /Applications/Byword.app'
+alias mkdir='mkdir -p'
 alias mongod="mongod -f $(brew --prefix)/etc/mongod.conf"
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias o='popd'
