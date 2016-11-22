@@ -26,6 +26,7 @@ alias md='open -a /Applications/Byword.app'
 alias mkdir='mkdir -p'
 alias mongod="mongod -f $(brew --prefix)/etc/mongod.conf"
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias nth-line='grab-line'
 alias o='popd'
 alias p='pushd'
 alias path='echo $PATH | tr ":" "\n"'
