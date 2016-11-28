@@ -151,7 +151,7 @@ function pip-outdated {
 # Opens a man page in Preview
 function pman { man -t $1 | open -f -a /Applications/Preview.app; }
 
-function alias-py3 {
+function py3-alias {
   if ! pyenv which python3 2>/dev/null; then
     onoe "You are using $(python -V 2>&1)!"
     return 1
