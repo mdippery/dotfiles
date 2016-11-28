@@ -13,7 +13,7 @@ if [[ -d ~/.pyenv ]]; then
   export PATH="${PYENV_ROOT}/bin:${PATH}"
   eval "$(pyenv init -)"
 fi
-export PYTHONSTARTUP="${XDG_CONFIG_HOME:-${HOME}/.config}/python/startup.py"
+export PYTHONSTARTUP="$(xdg config-home)/python/startup.py"
 
 if [ -d ~/.scalas/Current ]; then
   export SCALA_HOME=$(readlink -f ~/.scalas/Current)
