@@ -248,5 +248,38 @@ function wjava {
   grep -l "$1" *.jar
 }
 
+# Returns the default values for $XDG_* variables
+function xdg {
+  local v
+
+  if (( $# < 1 )); then
+    onoe 'Variable not specified'
+    return 1
+  fi
+
+  v=$1
+
+  case $v in
+    config-dirs)
+      echo ${XDG_CONFIG_DIRS:-/etc/xdg};;
+    config-home)
+      echo ${XDG_CONFIG_HOME:-${HOME}/.config};;
+    cache-home)
+      echo ${XDG_CACHE_HOME:-${HOME}/.cache};;
+    data-dirs)
+      echo ${XDG_DATA_DIRS:-/usr/local/share:/usr/share};;
+    data-home)
+      echo ${XDG_DATA_HOME:-${HOME}/.local/share};;
+    runtime-dir)
+      if [[ -n $XDG_RUNTIME_DIR ]]; then
+        echo $XDG_RUNTIME_DIR
+      fi
+      ;;
+    *)
+      onoe 'No such variable: $XDG_'"$(echo -n $v | tr - _ | tr [:lower:] [:upper:])"
+      return 2
+  esac
+}
+
 [ -r "${DOTBASH}/plat/${OS}/functions.sh" ] && source "${DOTBASH}/plat/${OS}/functions.sh"
 [ -r "${DOTBASH}/functions.user.sh" ] && source "${DOTBASH}/functions.user.sh"
