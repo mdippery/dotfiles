@@ -63,7 +63,7 @@ function brew_ls {
     fi
   else
     if [ -d "$(brew_prefix)/Cellar" ]; then
-      command ls -1 $(brew --cellar)
+      command ls $(brew --cellar)
     fi
   fi
 }
