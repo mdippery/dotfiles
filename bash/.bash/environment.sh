@@ -23,7 +23,7 @@ if [ -d /usr/local/heroku ]; then
   export PATH="/usr/local/heroku/bin:${PATH}"
 fi
 
-export PATH="${HOME}/.local/bin:${PATH}"
+export PATH="${HOME}/.local/bin:${HOME}/.local/libexec/git:${PATH}"
 export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
 export LOCAL="${HOME}/.local"
