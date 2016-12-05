@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Simple Git script to show the commit info and diff for a given
+# line of code. (Basically, it does the `git show` for the output
+# of a `git blame`). Currently still a work in progress.
+
+commit=$(git blame --porcelain $* | head -n 1 | cut -d ' ' -f 1)
+exec git show $commit
