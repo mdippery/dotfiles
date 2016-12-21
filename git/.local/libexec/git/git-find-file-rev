@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if (( $# < 1 )); then
+  echo "Usage: $0 <file>" 1>&2
+  exit 2
+fi
+
+sum=$(git hash-object $1)
+
+while read tree commit; do
+  if git ls-tree -r $tree | grep -q $sum; then
+    the_commit=$commit
+  fi
+done < <(git log --pretty=format:'%T %h')
+
+if [[ -z $the_commit ]]; then
+  echo "Cannot find file matching: $sum" 1>&2
+  exit 1
+fi
+
+exec git show $the_commit
