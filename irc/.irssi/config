@@ -374,7 +374,11 @@ settings = {
     autolog = "yes";
   };
 };
-keyboard = ( { key = "meta-q"; id = "command"; data = "window last"; } );
+keyboard = (
+  { key = "meta-q"; id = "command"; data = "window last"; },
+  { key = "meta-m"; id = "command"; data = "/mark"; },
+  { key = "meta-t"; id = "command"; data = "/tb"; }
+);
 logs = { };
 hilights = (
   { text = "mipadi"; nick = "yes"; word = "no"; },
