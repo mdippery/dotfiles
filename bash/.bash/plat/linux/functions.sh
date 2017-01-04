@@ -43,3 +43,12 @@ function ripcd {
 
   echo 'Done!'
 }
+
+# Outputs the rpath for a given library
+function rpath {
+  local obj=$1
+  readelf -d "$obj" \
+    | command egrep '\(RPATH\)\s+Library rpath: \[(.+)\]' \
+    | awk -F[ '{ print $2 }' \
+    | sed 's/]$//g'
+}
