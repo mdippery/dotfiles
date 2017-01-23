@@ -57,6 +57,27 @@ function colors {
   done
 }
 
+# Downloads and extracts the given tar archive
+function dl {
+  local f expand
+  f=$1
+  case $f in
+    *.tbz | *.bz2)
+      expand='bunzip2';;
+    *.tar)
+      expand='cat';;
+    *.tgz | *.gz)
+      expand='gunzip';;
+    *.xz)
+      expand='unxz';;
+    *)
+      onoe "Unrecognized archive type: $(basename $f)"
+      exit 1
+      ;;
+  esac
+  curl $1 | $expand | tar xf -
+}
+
 # Reads a .env file into variables
 function dotenv {
   set -a
