@@ -81,7 +81,7 @@ function get {
       expand='unxz';;
     *)
       onoe "Unrecognized archive type: $(basename $f)"
-      exit 1
+      return 1
       ;;
   esac
   curl $1 | $expand | tar xf -
