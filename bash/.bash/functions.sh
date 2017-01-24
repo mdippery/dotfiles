@@ -57,8 +57,17 @@ function colors {
   done
 }
 
+# Reads a .env file into variables
+function dotenv {
+  set -a
+  source .env
+  set +a
+}
+
+function find-ext { find . -name '*.'$1; }
+
 # Downloads and extracts the given tar archive
-function dl {
+function get {
   local f expand
   f=$1
   case $f in
@@ -77,15 +86,6 @@ function dl {
   esac
   curl $1 | $expand | tar xf -
 }
-
-# Reads a .env file into variables
-function dotenv {
-  set -a
-  source .env
-  set +a
-}
-
-function find-ext { find . -name '*.'$1; }
 
 function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
 
