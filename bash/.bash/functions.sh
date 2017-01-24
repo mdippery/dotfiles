@@ -71,14 +71,11 @@ function get {
   local f expand
   f=$1
   case $f in
-    *.tbz | *.bz2)
-      expand='bunzip2';;
-    *.tar)
-      expand='cat';;
-    *.tgz | *.gz)
-      expand='gunzip';;
-    *.xz)
-      expand='unxz';;
+    *.tbz | *.bz2) expand='bunzip2' ;;
+    *.tar)         expand='cat'     ;;
+    *.tgz | *.gz)  expand='gunzip'  ;;
+    *.xz)          expand='unxz'    ;;
+
     *)
       onoe "Unrecognized archive type: $(basename $f)"
       return 1
