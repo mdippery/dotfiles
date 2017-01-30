@@ -64,4 +64,5 @@ if [ $OS = 'linux' ]; then
   unset HOMEBREW_EDITOR
 fi
 
+[ -r "${DOTBASH}/plat/${OS}/environment.sh" ] && source "${DOTBASH}/plat/${OS}/environment.sh"
 [ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
