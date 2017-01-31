@@ -56,13 +56,5 @@ export ANSIBLE_NOCOWS=1
 export HOMEBREW_NO_EMOJI=1
 export HOMEBREW_NO_ANALYTICS=1
 
-if [ $OS = 'linux' ]; then
-  if [ -z "$TMUX" ]; then
-    export TERM='xterm-256color'
-  fi
-  export GUI_EDITOR='gvim'
-  unset HOMEBREW_EDITOR
-fi
-
 [ -r "${DOTBASH}/plat/${OS}/environment.sh" ] && source "${DOTBASH}/plat/${OS}/environment.sh"
 [ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
