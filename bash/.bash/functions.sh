@@ -64,7 +64,17 @@ function dotenv {
   set +a
 }
 
-function find-ext { find . -name '*.'$1; }
+function find-ext {
+  local path ext
+  if (( $# == 2 )); then
+    path=$1
+    ext=$2
+  else
+    path=.
+    ext=$1
+  fi
+  find "$path" -name '*.'$ext
+}
 
 # Downloads and extracts the given tar archive
 function get {
