@@ -102,7 +102,8 @@ channels = (
   { name = "#books"; chatnet = "snoonet"; autojoin = "No"; },
   { name = "#TrueFilm"; chatnet = "swiftirc"; autojoin = "Yes"; },
   { name = "#swift-lang"; chatnet = "freenode"; autojoin = "No"; },
-  { name = "#cocoa-init"; chatnet = "freenode"; autojoin = "No"; }
+  { name = "#cocoa-init"; chatnet = "freenode"; autojoin = "No"; },
+  { name = "#writerchat"; chatnet = "snoonet"; autojoin = "No"; }
 );
 
 aliases = {
