@@ -1,3 +1,0 @@
-ansible-playbook [-i <HOSTS>] <playbooks>;
-
-playbooks = ! find . -maxdepth 1 -name '*.yml' | sed 's|\./||g' ;
