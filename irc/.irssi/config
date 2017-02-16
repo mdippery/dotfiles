@@ -78,7 +78,7 @@ chatnets = {
     max_msgs = "4";
     max_whois = "1";
   };
-  novel = {
+  novel = { 
     type = "IRC";
     max_kicks = "1";
     max_msgs = "4";
@@ -406,5 +406,6 @@ hilights = (
   { text = "clojure"; nick = "no"; word = "no"; },
   { text = "vim"; nick = "no"; word = "no"; },
   { text = "django"; nick = "no"; word = "no"; },
-  { text = "zanegort!*@*"; nick = "yes"; word = "no"; mask = "yes"; }
+  { text = "zanegort!*@*"; nick = "yes"; word = "no"; mask = "yes"; },
+  { text = "scala"; nick = "no"; word = "no"; }
 );
