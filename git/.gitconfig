@@ -28,6 +28,10 @@
 	autostash = true
 [rerere]
 	enabled = true
+[pager]
+	incoming = false
+	outgoing = false
+	who = false
 [alias]
 	br = branch
 	ci = commit
@@ -56,10 +60,10 @@
 	edits = diff --color-words
 	fix = commit -a --amend
 	hide = update-index --assume-unchanged
-	incoming = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative ORIG_HEAD..
+	incoming = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]%n" --date=relative ORIG_HEAD..
 	info = config --list
 	nuke = !sh -c 'git reset --hard HEAD~$1' -
-	outgoing = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative @{u}..
+	outgoing = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]%n" --date=relative @{u}..
 	showtag = !sh -c 'git rev-parse $1 | xargs git cat-file -p' -
 	staged = diff --cached
 	stashed = !git --no-pager stash list
@@ -67,7 +71,7 @@
 	trash = !git reset HEAD . && git checkout -- . && echo 'Undid all changes'
 	type = cat-file -t
 	undo = reset HEAD .
-	who = !git --no-pager shortlog -sn --no-merges
+	who = shortlog -sn --no-merges
 	whoami = !git config --get user.name && git config --get user.email
 
 [include]
