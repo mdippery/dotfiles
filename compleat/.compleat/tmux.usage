@@ -4,4 +4,4 @@ tmux kill-server;
 tmux kill-session [-t <sessions>];
 tmux (new | new-session) [-s <SESSION>];
 
-sessions = ! tmux ls | cut -d ':' -f 1 ;
+sessions = ! tmux ls 2>/dev/null | cut -d ':' -f 1 ;
