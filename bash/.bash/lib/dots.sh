@@ -17,9 +17,13 @@ function dots_exec {
   git_dir=$dots_dir/.git
   shift
   case "$1" in
-    install)
+    ln)
       shift
       stow -d $dots_dir $*
+      ;;
+    rm)
+      shift
+      stow -D $dots_dir $*
       ;;
     up)
       git --git-dir=$git_dir --work-tree=$git_dir pull
