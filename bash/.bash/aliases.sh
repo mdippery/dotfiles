@@ -7,7 +7,6 @@ alias d='pwd'
 alias df='df -h'
 alias dj='python manage.py'
 alias djrun='python manage.py runserver'
-alias dots="git --git-dir=${DOTFILES}/.git --work-tree=${DOTFILES}"
 alias du='du -sh'
 alias egrep='egrep --color'
 alias ffs='sudo $(fc -ln -1)'
@@ -42,7 +41,6 @@ alias tg='tmux a'
 alias top='top -o cpu'
 alias uuid='/usr/bin/uuidgen'
 alias virtualenv='virtualenv --always-copy'
-alias vims="git --git-dir=${VIMFILES}/.git --work-tree=${VIMFILES}"
 alias vundle='vim +PluginInstall +qall'
 alias w='which'
 alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"

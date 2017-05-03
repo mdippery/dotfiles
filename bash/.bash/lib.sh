@@ -4,6 +4,8 @@ function onoe {
   echo $* 1>&2
 }
 
+source "${DOTBASH}/lib/dots.sh"
+
 hash brew 2>/dev/null || source "${DOTBASH}/lib/brew.sh"
 
 # Recreate behavior of GNU `readlink` on OS X
