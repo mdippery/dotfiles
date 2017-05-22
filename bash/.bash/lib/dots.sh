@@ -26,10 +26,10 @@ function dots_exec {
       stow -D $dots_dir $*
       ;;
     up)
-      git --git-dir=$git_dir --work-tree=$git_dir pull
+      git --git-dir=$git_dir --work-tree=$dots_dir pull
       ;;
     *)
-      git --git-dir=$git_dir --work-tree=$git_dir $*
+      git --git-dir=$git_dir --work-tree=$dots_dir $*
       ;;
   esac
 }
