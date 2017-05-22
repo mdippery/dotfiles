@@ -136,6 +136,11 @@ function ipinfo {
   echo
 }
 
+# List local ivy packages
+function ivy-local {
+  find ~/.ivy2/local -mindepth 2 -maxdepth 2 -type d -exec basename {} \; | sort
+}
+
 # Show known SSH hosts
 function known-hosts {
   cut -d ' ' -f 1 < ~/.ssh/known_hosts | cut -d ',' -f 1 | sort
