@@ -23,7 +23,7 @@ function dots_exec {
       ;;
     rm)
       shift
-      stow -D $dots_dir $*
+      stow -D -d $dots_dir $*
       ;;
     up)
       git --git-dir=$git_dir --work-tree=$dots_dir pull
