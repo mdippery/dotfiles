@@ -26,7 +26,7 @@ alias mkdir='mkdir -p'
 alias mongod="mongod -f $(brew --prefix)/etc/mongod.conf"
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias nth-line='grab-line'
-alias o='popd'
+alias o='popd 2>/dev/null || cd -'
 alias p='pushd'
 alias path='echo $PATH | tr ":" "\n"'
 alias pyack='ack --type=python'
