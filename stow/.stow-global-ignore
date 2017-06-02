@@ -1,4 +1,7 @@
-.*.bat
-.git
-.gitignore
+^/LICENSE
+^/README.*
+^/CHANGELOG.*
+.*\.bat
+\.git
+\.gitignore
 share/info/dir
