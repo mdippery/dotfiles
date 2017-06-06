@@ -1,0 +1,3 @@
+npm <cmd>;
+
+cmd = ! npm help | grep '^    [^/]' | sed s'/^    //g' | sed s'/, /\n/g' | tr -d , ;
