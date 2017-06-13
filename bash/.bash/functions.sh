@@ -236,6 +236,11 @@ function repeat {
 # Does a reverse DNS lookup on an IP
 function rvdns { nslookup $1 | awk '/name = .*\.$/ {print $4}' | sed 's/\.$//'; }
 
+function sbt_classes {
+  if [ ! -d target ]; then return 1; fi
+  echo "$(find target -name scala-* -type d 2>/dev/null | sort -V | tail -n 1)/classes"
+}
+
 function trim { cut -c-$(tput cols); }
 
 # Prints the bash utf8 representation of a character
