@@ -1,6 +1,7 @@
 ^/LICENSE
 ^/README.*
 ^/CHANGELOG.*
+^/readme\.txt
 .*\.bat
 \.git
 \.gitignore
