@@ -70,7 +70,7 @@
 	tags = tag -n1 -l
 	trash = !git reset HEAD . && git checkout -- . && echo 'Undid all changes'
 	type = cat-file -t
-	undo = reset HEAD .
+	unstage = reset HEAD .
 	who = shortlog -sn --no-merges
 	whoami = !git config --get user.name && git config --get user.email
 
