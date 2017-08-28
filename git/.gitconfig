@@ -10,6 +10,9 @@
 	diff = auto
 	interactive = auto
 	status = auto
+[log]
+	; abbrevcommit = true
+	decorate = no
 [diff]
 	renames = copies
 [diff "json"]
