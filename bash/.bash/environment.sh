@@ -24,7 +24,10 @@ if [ -d /usr/local/heroku ]; then
 fi
 
 export PATH="${HOME}/.local/bin:${HOME}/.local/libexec/git:${PATH}"
-export MANPATH="$(brew --prefix erlang)/lib/erlang/man:${MANPATH}"
+
+if [[ -n $HOMEBREW ]]; then
+  export MANPATH="$($HOMEBREW/bin/brew --prefix erlang)/lib/erlang/man:${MANPATH}"
+fi
 
 export LOCAL="${HOME}/.local"
 export DOTFILES="${HOME}/.dotfiles"
