@@ -241,6 +241,12 @@ function sbt_classes {
   echo "$(find target -name scala-* -type d 2>/dev/null | sort -V | tail -n 1)/classes"
 }
 
+function showcert {
+  echo \
+    | openssl s_client -showcerts -servername $1 -connect $1:443 2>/dev/null \
+    | openssl x509 -inform pem -noout -text
+}
+
 function trim { cut -c-$(tput cols); }
 
 # Prints the bash utf8 representation of a character
