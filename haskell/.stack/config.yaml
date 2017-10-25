@@ -1,0 +1,7 @@
+templates:
+  params:
+    author-email: michael@monkey-robot.com
+    author-name: Michael Dippery
+    category: Utilities
+    copyright: 2017 Michael Dippery
+    github-username: mdippery
