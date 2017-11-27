@@ -115,7 +115,8 @@ channels = (
   { name = "#swift-lang"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#cocoa-init"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#writerchat"; chatnet = "snoonet"; autojoin = "No"; },
-  { name = "#yearofthenovel"; chatnet = "novel"; autojoin = "Yes"; }
+  { name = "#yearofthenovel"; chatnet = "novel"; autojoin = "Yes"; },
+  { name = "#haskell"; chatnet = "freenode"; autojoin = "No"; }
 );
 
 aliases = {
