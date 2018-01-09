@@ -98,7 +98,7 @@ channels = (
     chatnet = "freenode";
     autojoin = "No";
   },
-  { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#r/webdev"; chatnet = "freenode"; autojoin = "No"; },
   { name = "##webdev"; chatnet = "freenode"; autojoin = "No"; },
   { name = "##webdevvit"; chatnet = "freenode"; autojoin = "Yes"; },
@@ -274,7 +274,7 @@ aliases = {
   98 = "WINDOW GOTO 98";
   99 = "WINDOW GOTO 99";
   slap = "/me slaps $0 around a bit with a large trout.";
-  rekt = "/say rectum? damn near killed 'im!";
+  rekt = "/say rectum? damn near killed 'em!";
   nickserv = "/msg nickserv";
   ocean = "/say https://www.digitalocean.com/?refcode=5039910abfe9";
   banlist = "/mode $0 +b";
