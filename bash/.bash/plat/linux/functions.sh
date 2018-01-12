@@ -7,18 +7,9 @@ function netinfo {
   ifconfig eth0 | command grep -E -o 'HWaddr .+$' | awk '{print $2}'
 }
 
-# Recreate OS X's `otool -L` on Linux
 function otool {
-  if (( $# < 1 )) || [[ $1 != '-L' ]]; then
-    local cmd='ldd'
-    if (( $# > 0 )); then
-      cmd="$cmd $*"
-    fi
-    onoe "I think you mean \`$cmd\`"
-    return 1
-  fi
-  shift
-  ldd "$1"
+  onoe 'I think you mean \`ldd\`'
+  return 1
 }
 
 function ripcd {
