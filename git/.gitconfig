@@ -35,6 +35,7 @@
 	branch = false
 	incoming = false
 	outgoing = false
+	tag = false
 	who = false
 [alias]
 	br = branch
