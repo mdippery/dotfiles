@@ -32,6 +32,7 @@
 [rerere]
 	enabled = true
 [pager]
+	br = false
 	incoming = false
 	outgoing = false
 	who = false
