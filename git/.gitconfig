@@ -32,7 +32,7 @@
 [rerere]
 	enabled = true
 [pager]
-	br = false
+	branch = false
 	incoming = false
 	outgoing = false
 	who = false
