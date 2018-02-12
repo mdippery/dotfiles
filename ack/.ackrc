@@ -12,3 +12,4 @@
 --type-set=cucumber:ext:feature
 --type-set=ddl:ext:ddl
 --type-set=glade:ext:glade
+--type-set=bat:ext:bat
