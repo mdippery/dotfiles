@@ -8,7 +8,7 @@ function netinfo {
 }
 
 function otool {
-  onoe 'I think you mean \`ldd\`'
+  onoe 'I think you mean `ldd`'
   return 1
 }
 
