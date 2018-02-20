@@ -1,6 +1,7 @@
 export DOTBASH="${HOME}/.bash"
 
 export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+export HOSTNAME_HASH=$(hostname | sha256sum | awk '{ print $1 }')
 
 export HISTCONTROL=ignoredups
 export HISTIGNORE='bg:fg:history'
