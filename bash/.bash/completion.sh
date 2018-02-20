@@ -16,9 +16,7 @@ if [ -d $bash_completion_d ]; then
   done
 fi
 
-if hash ghc 2>/dev/null; then
-  compleat_script="${HOME}/.cabal/share/$(cabal-platform)/compleat-1.0/compleat_setup"
-  [ -r $compleat_script ] && source $compleat_script
-fi
+unset brew_completion
+unset bash_completion_d
 
 [ -r "${DOTBASH}/completion.user.sh" ] && source "${DOTBASH}/completion.user.sh"
