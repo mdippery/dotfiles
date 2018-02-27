@@ -176,6 +176,11 @@ function mkcd {
   mkdir -pv "${1:?}" && cd "$1"
 }
 
+# Mimics nc -z on systems with ncat
+function nz {
+  (echo | nc -w1 $1 $2 >/dev/null 2>&1) && echo 'OPEN' || echo 'CLOSED'
+}
+
 # Upgrades outdated pip dependencies
 function pip-outdated {
   pip list -o | cut -d ' ' -f 1 | xargs pip install -U
