@@ -1,4 +1,4 @@
-ssh <hosts> | <known_hosts>;
+ssh [-Y] (<hosts> | <known_hosts>);
 
 hosts = ! grep '^Host' ~/.ssh/config 2>/dev/null | cut -d ' ' -f 2 ;
 known_hosts = ! cut -d ' ' -f 1 < ~/.ssh/known_hosts 2>/dev/null | cut -d ',' -f 1 ;
