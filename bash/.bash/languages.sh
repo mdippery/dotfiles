@@ -12,6 +12,7 @@ if [[ -d ~/.pyenv ]]; then
   export PYENV_ROOT="${HOME}/.pyenv"
   export PATH="${PYENV_ROOT}/bin:${PATH}"
   eval "$(pyenv init -)"
+  hash pipenv 2>/dev/null && eval "$(pipenv --completion)"
 fi
 export PYTHONSTARTUP="$(xdg config-home)/python/startup.py"
 
