@@ -43,6 +43,8 @@ export GPG_TTY=$(tty)
 
 export FIGNORE='DS_Store'
 
+export PIPENV_VENV_IN_PROJECT=true
+
 if [ -x /usr/libexec/java_home ]; then
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
 fi
