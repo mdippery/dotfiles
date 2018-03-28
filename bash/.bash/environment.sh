@@ -19,15 +19,12 @@ export PS1="$DEFAULT_PS1"
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3
 
-if [ -d /usr/local/heroku ]; then
-  export PATH="/usr/local/heroku/bin:${PATH}"
-fi
+[ -d /usr/local/heroku ] && export PATH="/usr/local/heroku/bin:${PATH}"
+[ -e "${HOME}/.meteor" ] && export PATH="${HOME}/.meteor:${PATH}"
 
 export PATH="${HOME}/.local/bin:${HOME}/.local/libexec/git:${PATH}"
 
-if [[ -n $HOMEBREW ]]; then
-  export MANPATH="$($HOMEBREW/bin/brew --prefix erlang)/lib/erlang/man:${MANPATH}"
-fi
+[[ -n $HOMEBREW ]] && export MANPATH="$($HOMEBREW/bin/brew --prefix erlang)/lib/erlang/man:${MANPATH}"
 
 export LOCAL="${HOME}/.local"
 export DOTFILES="${HOME}/.dotfiles"
