@@ -33,8 +33,6 @@
 	enabled = true
 [pager]
 	branch = false
-	incoming = false
-	outgoing = false
 	tag = false
 	who = false
 [alias]
