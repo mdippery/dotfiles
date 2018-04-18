@@ -2,20 +2,28 @@
 #   <http://linux.101hacks.com/ps1-examples/prompt-color-using-tput/>
 #   <http://unix.stackexchange.com/a/105932/57970>
 
-function _ps1_pushed_dirs {
-  if (( $(dirs -v | wc -l) > 1 )); then
-    echo -ne "+ "
-  fi
-}
-
 function _ps1_str {
   local s=$1
   local color=$2
   echo -ne "\[$(tput setaf $color)\]$s\[$(tput sgr0)\] \[$(tput setaf 0)$(tput bold)\]>\[$(tput sgr0)\] "
 }
 
-export DEFAULT_PS1="\[$(tput setaf 1)\]"'$(_ps1_pushed_dirs)'"\[$(tput sgr0)\]$(_ps1_str \\W 4)"
-export PS1="$DEFAULT_PS1"
+function _ps1 {
+  local pushed_dirs git_branch
+
+  if (( $(dirs -v | wc -l) > 1 )); then
+    pushed_dirs="\[$(tput setaf 1)\]+\[$(tput sgr0)\] "
+  fi
+
+  if git branch >/dev/null 2>&1; then
+    git_branch=$(git branch | grep '^\*' | awk '{print $2}')
+    git_branch=$(_ps1_str $git_branch 3)
+  fi
+
+  export PS1="${pushed_dirs}${git_branch}$(_ps1_str \\W 4)"
+}
+
+export PROMPT_COMMAND=_ps1
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3
 
