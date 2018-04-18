@@ -17,7 +17,7 @@ function _ps1 {
 
   if git branch >/dev/null 2>&1; then
     git_branch=$(git branch | grep '^\*' | awk '{print $2}')
-    git_branch=$(_ps1_str $git_branch 3)
+    git_branch="\[$(tput setaf 3)$git_branch\[$(tput sgr0)\] \[$(tput setaf 0)$(tput bold)\]↯$(tput sgr0)\] "
   fi
 
   export PS1="${pushed_dirs}${git_branch}$(_ps1_str \\W 4)"
