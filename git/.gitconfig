@@ -60,7 +60,7 @@
 	changed = diff ORIG_HEAD..
 	deleted = log --diff-filter=D --summary
 	edits = diff --color-words
-	fix = commit -a --amend
+	fix = commit -a --amend --no-edit
 	hide = update-index --assume-unchanged
 	info = config --list
 	nuke = !sh -c 'git reset --hard HEAD~$1' -
