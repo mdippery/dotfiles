@@ -49,9 +49,7 @@
 	ol = log --oneline --decorate
 	rb = rebase
 	ri = rebase -i
-	rp = "!f() { for remote in $(git remote); do git remote prune $remote; done; }; f"
 	rv = revert
-	ru = remote update
 	sb = status -sb
 	sh = show HEAD
 	st = status
