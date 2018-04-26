@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ $OS = 'darwin' ]; then
+  exec /usr/local/bin/pinentry
+else
+  exec /usr/bin/pinentry-curses
+fi
