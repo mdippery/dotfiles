@@ -9,7 +9,7 @@ function _ps1_str {
 }
 
 function _ps1 {
-  local pushed_dirs git_branch
+  local pushed_dirs git_branch venv
 
   if (( $(dirs -v | wc -l) > 1 )); then
     pushed_dirs="\[$(tput setaf 1)\]+\[$(tput sgr0)\] "
@@ -20,7 +20,11 @@ function _ps1 {
     git_branch="\[$(tput setaf 3)$git_branch\[$(tput sgr0)\] \[$(tput setaf 0)$(tput bold)\]↯$(tput sgr0)\] "
   fi
 
-  export PS1="${pushed_dirs}${git_branch}$(_ps1_str \\W 4)"
+  if [ -n "$VIRTUAL_ENV" ]; then
+    venv="\[$(tput setaf 6)\]\342\226\266\[$(tput sgr0)\] "
+  fi
+
+  export PS1="${venv}${pushed_dirs}${git_branch}$(_ps1_str \\W 4)"
 }
 
 export PROMPT_COMMAND=_ps1

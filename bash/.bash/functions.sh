@@ -281,11 +281,6 @@ function vv {
   local vpath=$(cd .venv/$venv && pwd)
   export PATH="${vpath}/bin:${PATH}"
   unset ANSIBLE_LIBRARY
-  vv_prompt $venv
-}
-
-function vv_prompt {
-  export PS1="\[$(tput setaf 6)\]\342\226\266\[$(tput sgr0)\] $DEFAULT_PS1"
 }
 
 function whither { readlink -f $(which $1); }
