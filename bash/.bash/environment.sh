@@ -15,16 +15,11 @@ function _ps1 {
     pushed_dirs="\[$(tput setaf 1)\]+\[$(tput sgr0)\] "
   fi
 
-  if git branch >/dev/null 2>&1; then
-    git_branch=$(git branch | grep '^\*' | awk '{print $2}')
-    git_branch="\[$(tput setaf 3)$git_branch\[$(tput sgr0)\] \[$(tput setaf 0)$(tput bold)\]↯$(tput sgr0)\] "
-  fi
-
   if [ -n "$VIRTUAL_ENV" ]; then
     venv="\[$(tput setaf 6)\]\342\226\266\[$(tput sgr0)\] "
   fi
 
-  export PS1="${venv}${pushed_dirs}${git_branch}$(_ps1_str \\W 4)"
+  export PS1="${venv}${pushed_dirs}$(_ps1_str \\W 4)"
 }
 
 export PROMPT_COMMAND=_ps1
