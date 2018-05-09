@@ -24,7 +24,7 @@ function _ps1 {
     if git diff-index --quiet HEAD; then
       git_branch="$(tput setaf 0)$(tput bold)${git_branch}$(tput sgr0) "
     else
-      git_branch="$(tput setaf 3)$(tput bold)${git_branch}$(tput sgr0) "
+      git_branch="$(tput setaf 2)$(tput bold)${git_branch}$(tput sgr0) "
     fi
   fi
 
