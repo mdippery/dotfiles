@@ -21,6 +21,7 @@ function _ps1 {
 
   if git rev-parse --git-dir >/dev/null 2>&1; then
     git_branch='↯'
+    # TODO: Detect untracked files
     if git diff-index --quiet HEAD; then
       git_branch="$(tput setaf 0)$(tput bold)${git_branch}$(tput sgr0) "
     else
