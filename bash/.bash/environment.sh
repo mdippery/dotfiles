@@ -9,7 +9,9 @@ function _ps1_str {
 }
 
 function _ps1 {
-  local pushed_dirs git_branch venv
+  local last_exit=$?
+
+  local pushed_dirs git_branch venv exit_code
 
   if (( $(dirs -v | wc -l) > 1 )); then
     pushed_dirs="\[$(tput setaf 1)\]+\[$(tput sgr0)\] "
@@ -23,13 +25,19 @@ function _ps1 {
     git_branch='↯'
     # TODO: Detect untracked files
     if git diff-index --quiet HEAD; then
-      git_branch="$(tput setaf 0)$(tput bold)${git_branch}$(tput sgr0) "
+      git_branch="\[$(tput setaf 0)$(tput bold)\]${git_branch}\[$(tput sgr0)\] "
     else
-      git_branch="$(tput setaf 2)$(tput bold)${git_branch}$(tput sgr0) "
+      git_branch="\[$(tput setaf 2)\]${git_branch}\[$(tput sgr0)\] "
     fi
   fi
 
-  export PS1="${git_branch}${venv}${pushed_dirs}$(_ps1_str \\W 4)"
+  if (( $last_exit == 0 )); then
+    exit_code="\[$(tput setaf 2)$(tput bold)\]•\[$(tput sgr0)\] "
+  else
+    exit_code="\[$(tput setaf 1)$(tput bold)\]•\[$(tput sgr0)\] "
+  fi
+
+  export PS1="${exit_code}${git_branch}${venv}${pushed_dirs}$(_ps1_str \\W 4)"
 }
 
 export PROMPT_COMMAND=_ps1
