@@ -19,7 +19,16 @@ function _ps1 {
     venv="\[$(tput setaf 6)\]\342\226\266\[$(tput sgr0)\] "
   fi
 
-  export PS1="${venv}${pushed_dirs}$(_ps1_str \\W 4)"
+  if git rev-parse --git-dir >/dev/null 2>&1; then
+    git_branch='↯'
+    if git diff-index --quiet HEAD; then
+      git_branch="$(tput setaf 0)$(tput bold)${git_branch}$(tput sgr0) "
+    else
+      git_branch="$(tput setaf 3)$(tput bold)${git_branch}$(tput sgr0) "
+    fi
+  fi
+
+  export PS1="${git_branch}${venv}${pushed_dirs}$(_ps1_str \\W 4)"
 }
 
 export PROMPT_COMMAND=_ps1
