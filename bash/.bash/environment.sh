@@ -37,7 +37,7 @@ function _ps1 {
     exit_code="\[$(tput setaf 1)$(tput bold)\]•\[$(tput sgr0)\] "
   fi
 
-  export PS1="${exit_code}${git_branch}${venv}${pushed_dirs}$(_ps1_str \\W 4)"
+  export PS1="${exit_code}${git_branch}${pushed_dirs}${venv}$(_ps1_str \\W 4)"
 }
 
 export PROMPT_COMMAND=_ps1
