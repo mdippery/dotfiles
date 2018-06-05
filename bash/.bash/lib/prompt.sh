@@ -33,7 +33,7 @@ function _ps1_pushed_dirs {
 
 function _ps1_virtual_env {
   if [ -n "$VIRTUAL_ENV" ]; then
-    echo -ne "\[$(tput setaf 6)\]\342\226\266\[$(tput sgr0)\] "
+    echo -ne "\[$(tput setaf 6)\]▶[$(tput sgr0)\] "
   fi
 }
 
