@@ -39,14 +39,14 @@ if hash gradle 2>/dev/null; then
   export GRADLE_HOME="$(dirname $(dirname $(readlink -f $(which gradle))))"
 fi
 
+export ANSIBLE_NOCOWS=1
 export CLICOLOR_FORCE=true
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
-export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
 export DJANGO_DEBUG=true
-export ANSIBLE_NOCOWS=1
-export HOMEBREW_NO_EMOJI=1
-export HOMEBREW_NO_ANALYTICS=1
 export GREP_OPTIONS='--color'
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_EMOJI=1
+export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
 
 [ -r "${DOTBASH}/plat/${OS}/environment.sh" ] && source "${DOTBASH}/plat/${OS}/environment.sh"
 [ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
