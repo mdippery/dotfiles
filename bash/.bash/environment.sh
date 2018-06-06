@@ -8,12 +8,8 @@ export PROMPT_COMMAND=_ps1
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3
 
-[ -d /usr/local/heroku ] && export PATH="/usr/local/heroku/bin:${PATH}"
-[ -e "${HOME}/.meteor" ] && export PATH="${HOME}/.meteor:${PATH}"
-
-export PATH="${HOME}/.local/bin:${HOME}/.local/libexec/git:${PATH}"
-
-[[ -n $HOMEBREW ]] && export MANPATH="$($HOMEBREW/bin/brew --prefix erlang)/lib/erlang/man:${MANPATH}"
+export PATH=$(tr '\n' ':' < "${DOTBASH}/host/${HOSTNAME_HASH}/paths" | sed 's/:$//')
+export MANPATH=$(tr '\n' ':' < "${DOTBASH}/host/${HOSTNAME_HASH}/manpaths" | sed 's/:$//')
 
 export LOCAL="${HOME}/.local"
 export DOTFILES="${HOME}/.dotfiles"
