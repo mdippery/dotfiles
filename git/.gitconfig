@@ -47,6 +47,7 @@
 	lf = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative --name-status
 	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative
 	ol = log --oneline --decorate
+	ra = rebase -i --autosquash
 	rb = rebase
 	ri = rebase -i
 	rv = revert
