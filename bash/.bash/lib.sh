@@ -1,5 +1,13 @@
 # lib.sh: Common functions that many bash subscripts may find useful
 
+function manpaths_helper {
+  cat ${HOME}/.manpaths.d/* | tr '\n' ':' | sed 's/:$//'
+}
+
+function paths_helper {
+  cat ${HOME}/.paths.d/* | tr '\n' ':' | sed 's/:$//'
+}
+
 function onoe {
   echo $* 1>&2
 }
