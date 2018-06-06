@@ -42,6 +42,7 @@ alias vex='vex --path=.bundle'
 alias vundle='vim +PluginInstall +qall'
 alias w='which'
 alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"
+alias whichsh='echo $0'
 
 hash jq 2>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
 
