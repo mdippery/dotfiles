@@ -1,7 +1,7 @@
 export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 export HOSTNAME_HASH=$(hostname | md5sum | awk '{print $1 }')
 
-export PATH=$(cat "${DOTZSH}/host/${HOSTNAME_HASH}/paths.d/"* | tr '\n' ':' | sed 's/:$//')
+export PATH=$(cat "${DOTZSH}/host/${HOSTNAME_HASH}/paths" | tr '\n' ':' | sed 's/:$//')
 
 export LOCAL=$(dirname $XDG_DATA_HOME)
 export DOTFILES="${HOME}/.dotfiles"
