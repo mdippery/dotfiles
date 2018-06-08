@@ -8,7 +8,7 @@ function _ps1_git_prompt {
   if git rev-parse --git-dir >/dev/null 2>&1; then
     local git_branch='↯'
     # TODO: Detect untracked files
-    if git diff-index --quiet HEAD; then
+    if ! git rev-parse HEAD >/dev/null 2>&1 || git diff-index --quiet HEAD; then
       echo -ne "\[$(tput setaf 0)$(tput bold)\]${git_branch}\[$(tput sgr0)\] "
     else
       echo -ne "\[$(tput setaf 2)\]${git_branch}\[$(tput sgr0)\] "
