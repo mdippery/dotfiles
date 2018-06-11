@@ -1,9 +1,9 @@
-if [[ -d ~/.rbenv ]]; then
+if hash rbenv 2>/dev/null; then
   eval "$(rbenv init -)"
   export RUBY_VERSION=$(rbenv version | awk '{print $1}')
 fi
 
-if [[ -d ~/.pyenv ]]; then
+if hash pyenv 2>/dev/null; then
   export PYENV_ROOT="${HOME}/.pyenv"
   eval "$(pyenv init -)"
 fi

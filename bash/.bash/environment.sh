@@ -8,8 +8,10 @@ export PROMPT_COMMAND=_ps1
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3
 
-export PATH=$(tr '\n' ':' < "${DOTBASH}/host/${HOSTNAME_HASH}/paths" | sed 's/:$//')
-export MANPATH=$(tr '\n' ':' < "${DOTBASH}/host/${HOSTNAME_HASH}/manpaths" | sed 's/:$//')
+[ -r "${DOTBASH}/host/${HOSTNAME_HASH}/paths" ] && \
+  export PATH=$(tr '\n' ':' < "${DOTBASH}/host/${HOSTNAME_HASH}/paths" | sed 's/:$//')
+[ -r "${DOTBASH}/host/${HOSTNAME_HASH}/manpaths" ] && \
+  export MANPATH=$(tr '\n' ':' < "${DOTBASH}/host/${HOSTNAME_HASH}/manpaths" | sed 's/:$//')
 
 export LOCAL="${HOME}/.local"
 export DOTFILES="${HOME}/.dotfiles"
@@ -27,13 +29,11 @@ export FIGNORE='DS_Store'
 
 export PIPENV_VENV_IN_PROJECT=true
 
-if [ -x /usr/libexec/java_home ]; then
+[ -x /usr/libexec/java_home ] && \
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
-fi
 
-if hash gradle 2>/dev/null; then
+hash gradle 2>/dev/null && \
   export GRADLE_HOME="$(dirname $(dirname $(readlink -f $(which gradle))))"
-fi
 
 export ANSIBLE_NOCOWS=1
 export CLICOLOR_FORCE=true
