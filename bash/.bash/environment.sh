@@ -13,6 +13,10 @@ export PROMPT_DIRTRIM=3
 [ -r "${DOTBASH}/host/${HOSTNAME_HASH}/manpaths" ] && \
   export MANPATH=$(tr '\n' ':' < "${DOTBASH}/host/${HOSTNAME_HASH}/manpaths" | sed 's/:$//')
 
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+
 export LOCAL="${HOME}/.local"
 export DOTFILES="${HOME}/.dotfiles"
 export VIMFILES="${HOME}/.vimfiles"
@@ -20,6 +24,7 @@ export VIMFILES="${HOME}/.vimfiles"
 export EDITOR='vim'
 export GUI_EDITOR='/usr/local/bin/mvim'
 export HOMEBREW_EDITOR="$GUI_EDITOR"
+
 export PAGER='/usr/bin/less'
 export LESS='R'
 
