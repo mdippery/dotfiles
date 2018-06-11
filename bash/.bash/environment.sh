@@ -22,16 +22,22 @@ export DOTFILES="${HOME}/.dotfiles"
 export VIMFILES="${HOME}/.vimfiles"
 
 export EDITOR='vim'
-export GUI_EDITOR='/usr/local/bin/mvim'
+export GUI_EDITOR='mvim'
 export HOMEBREW_EDITOR="$GUI_EDITOR"
 
 export PAGER='/usr/bin/less'
 export LESS='R'
 
-export GPG_TTY=$(tty)
-
+export ANSIBLE_NOCOWS=1
+export CLICOLOR_FORCE=true
+export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
+export DJANGO_DEBUG=true
 export FIGNORE='DS_Store'
-
+export GPG_TTY=$(tty)
+export GREP_OPTIONS='--color'
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_EMOJI=1
+export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
 export PIPENV_VENV_IN_PROJECT=true
 
 [ -x /usr/libexec/java_home ] && \
@@ -39,15 +45,6 @@ export PIPENV_VENV_IN_PROJECT=true
 
 hash gradle 2>/dev/null && \
   export GRADLE_HOME="$(dirname $(dirname $(readlink -f $(which gradle))))"
-
-export ANSIBLE_NOCOWS=1
-export CLICOLOR_FORCE=true
-export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
-export DJANGO_DEBUG=true
-export GREP_OPTIONS='--color'
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_EMOJI=1
-export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
 
 [ -r "${DOTBASH}/plat/${OS}/environment.sh" ] && source "${DOTBASH}/plat/${OS}/environment.sh"
 [ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
