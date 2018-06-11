@@ -43,8 +43,5 @@ export PIPENV_VENV_IN_PROJECT=true
 [ -x /usr/libexec/java_home ] && \
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
 
-hash gradle 2>/dev/null && \
-  export GRADLE_HOME="$(dirname $(dirname $(readlink -f $(which gradle))))"
-
 [ -r "${DOTBASH}/plat/${OS}/environment.sh" ] && source "${DOTBASH}/plat/${OS}/environment.sh"
 [ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
