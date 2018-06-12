@@ -3,6 +3,7 @@ export DOTBASH="${HOME}/.bash"
 export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 export HOSTNAME_HASH=$(hostname | md5sum | awk '{ print $1 }')
 
+unset HISTFILE                  # Don't save history
 export HISTCONTROL=ignoredups
 export HISTIGNORE='bg:fg:history'
 shopt -s histappend
