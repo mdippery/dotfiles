@@ -8,10 +8,8 @@ export PROMPT_COMMAND=_ps1
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3
 
-PATHS_FILE="${DOTBASH}/host/${HOSTNAME_HASH}/paths"
-MANPATHS_FILE="${DOTBASH}/host/${HOSTNAME_HASH}/manpaths"
-[ -r "$PATHS_FILE" ] && export PATH=$(tr '\n' ':' < "$PATHS_FILE" | sed 's/:$//')
-[ -r "$MANPATHS_FILE" ] && export MANPATH=$(tr '\n' ':' < "$MANPATHS_FILE" | sed 's/:$//')
+export PATH=$(paths-helper)
+export MANPATH=$(manpaths-helper)
 
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
