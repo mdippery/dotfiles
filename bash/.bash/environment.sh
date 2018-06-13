@@ -4,16 +4,12 @@
 
 
 source "${DOTBASH}/lib/prompt.sh"
-export PROMPT_COMMAND=_ps1
+export PROMPT_COMMAND='history -a; history -n; _ps1'
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3
 
 export PATH=$(paths-helper)
 export MANPATH=$(manpaths-helper)
-
-export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
-export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
-export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 
 export LOCAL="${HOME}/.local"
 export DOTFILES="${HOME}/.dotfiles"
