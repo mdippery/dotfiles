@@ -1,7 +1,7 @@
 # lib.sh: Common functions that many bash subscripts may find useful
 
 function manpaths-helper {
-  export MANPATHS_FILE="${DOTBASH}/host/${DOTBASH_HOSTNAME_HASH}/manpaths"
+  export MANPATHS_FILE="${DOTBASH}/host/${DOTBASH_SYS}/manpaths"
   if [ -r "$MANPATHS_FILE" ]; then
     tr '\n' ':' < "$MANPATHS_FILE" | sed 's/:$//'
   else
@@ -10,7 +10,7 @@ function manpaths-helper {
 }
 
 function paths-helper {
-  export PATHS_FILE="${DOTBASH}/host/${DOTBASH_HOSTNAME_HASH}/paths"
+  export PATHS_FILE="${DOTBASH}/host/${DOTBASH_SYS}/paths"
   if [ -r "$PATHS_FILE" ]; then
     tr '\n' ':' < "$PATHS_FILE" | sed 's/:$//'
   else

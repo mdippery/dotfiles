@@ -1,7 +1,8 @@
 export DOTBASH="${HOME}/.bash"
 
-export DOTBASH_OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 export DOTBASH_HOSTNAME_HASH=$(hostname | md5sum | awk '{ print $1 }')
+export DOTBASH_OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+export DOTBASH_SYS="centos$(egrep -o 'CentOS (Linux )?release [0-9]+' /etc/redhat-release  | awk '{print $NF}')"   # TODO: Detect macos
 
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
