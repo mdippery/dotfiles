@@ -6,6 +6,13 @@ for f in $(find -H $bash_completion_d -mindepth 1); do
   source $f
 done
 
+bash_completion_d="${DOTBASH}/host/${HOSTNAME_HASH}/completions"
+if [ -d $bash_completion_d ]; then
+  for f in $(find -H $bash_completion_d -mindepth 1); do
+    source $f
+  done
+fi
+
 bash_completion_d="$(brew --prefix)/etc/bash_completion.d"
 if [ -d $bash_completion_d ]; then
   for f in $(find $bash_completion_d -mindepth 1); do
