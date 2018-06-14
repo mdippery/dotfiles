@@ -1,3 +1,5 @@
+[ -r "${DOTBASH}/lib/prompt.user.sh" ] && source "${DOTBASH}/lib/prompt.user.sh"
+
 function _ps1_str {
   local s=$1
   local color=$2
@@ -39,5 +41,9 @@ function _ps1_virtual_env {
 
 function _ps1 {
   local last_exit=$?
-  export PS1="$(_ps1_exit_code $last_exit)$(_ps1_pushed_dirs)$(_ps1_virtual_env)$(_ps1_git_prompt)$(_ps1_str \\W 4)"
+  local custom_ps1
+  if type -t _ps1_custom >/dev/null 2>&1; then
+    custom_ps1=$(_ps1_custom)
+  fi
+  export PS1="$(_ps1_exit_code $last_exit)${custom_ps1}$(_ps1_pushed_dirs)$(_ps1_virtual_env)$(_ps1_git_prompt)$(_ps1_str \\W 4)"
 }
