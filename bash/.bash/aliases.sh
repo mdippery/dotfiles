@@ -46,7 +46,7 @@ alias whichsh='echo $0'
 
 hash jq 2>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
 
-if [ $OS = 'linux' ]; then
+if [ $DOTBASH_OS = 'linux' ]; then
   alias ls='ls -F --color'
   alias mvim='gvim'
   alias pbcopy='xclip -selection clipboard'

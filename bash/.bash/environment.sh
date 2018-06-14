@@ -37,5 +37,5 @@ export PIPENV_VENV_IN_PROJECT=true
 [ -x /usr/libexec/java_home ] && \
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
 
-[ -r "${DOTBASH}/plat/${OS}/environment.sh" ] && source "${DOTBASH}/plat/${OS}/environment.sh"
+[ -r "${DOTBASH}/plat/${DOTBASH_OS}/environment.sh" ] && source "${DOTBASH}/plat/${DOTBASH_OS}/environment.sh"
 [ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"

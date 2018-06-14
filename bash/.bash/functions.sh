@@ -111,7 +111,7 @@ function greet {
   elif hash ddate 2>/dev/null; then
     ddate | cowthink | lolcat
   elif ! alias cowthink 2>/dev/null; then
-    uptime | ([[ $OS == 'darwin' ]] && tail -c +8 || cat) | cowthink -n | lolcat
+    uptime | ([[ $DOTBASH_OS == 'darwin' ]] && tail -c +8 || cat) | cowthink -n | lolcat
   else
     echo "$(hostname -s)?" | cowthink | lolcat
   fi
@@ -325,5 +325,5 @@ function xdg {
   esac
 }
 
-[ -r "${DOTBASH}/plat/${OS}/functions.sh" ] && source "${DOTBASH}/plat/${OS}/functions.sh"
+[ -r "${DOTBASH}/plat/${DOTBASH_OS}/functions.sh" ] && source "${DOTBASH}/plat/${DOTBASH_OS}/functions.sh"
 [ -r "${DOTBASH}/functions.user.sh" ] && source "${DOTBASH}/functions.user.sh"

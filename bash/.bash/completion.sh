@@ -6,7 +6,7 @@ for f in $(find -H $bash_completion_d -mindepth 1); do
   source $f
 done
 
-bash_completion_d="${DOTBASH}/host/${HOSTNAME_HASH}/completions"
+bash_completion_d="${DOTBASH}/host/${DOTBASH_HOSTNAME_HASH}/completions"
 if [ -d $bash_completion_d ]; then
   for f in $(find -H $bash_completion_d -mindepth 1); do
     source $f
