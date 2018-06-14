@@ -100,20 +100,24 @@ function grab-line { sed -n "$1 p"; }
 
 function greet {
   # Assumes cowthink and lolcat are both installed. If they are not, add
-  #   alias cowthink='cat'
-  #   alias lolcat='cat'
+  #   export DOTBASH_COWTHINK=cat
+  #   export DOTBASH_LOLCAT=cat
   # to your local ~/.bashrc file.
 
+  local cowthink lolcat
+  cowthink=${DOTBASH_COWTHINK:-cowthink}
+  lolcat=${DOTBASH_LOLCAT:-lolcat}
+
   if [ -r /etc/motd ]; then
-    lolcat < /etc/motd
+    $lolcat < /etc/motd
   elif hash figlet 2>/dev/null; then
-    figlet -f slant 'o m g !' | lolcat
+    figlet -f slant 'o m g !' | $lolcat
   elif hash ddate 2>/dev/null; then
-    ddate | cowthink | lolcat
+    ddate | $cowthink | $lolcat
   elif ! alias cowthink 2>/dev/null; then
-    uptime | ([[ $DOTBASH_OS == 'darwin' ]] && tail -c +8 || cat) | cowthink -n | lolcat
+    uptime | ([[ $DOTBASH_OS == 'darwin' ]] && tail -c +8 || cat) | $cowthink -n | $lolcat
   else
-    echo "$(hostname -s)?" | cowthink | lolcat
+    echo "$(hostname -s)?" | $cowthink | $lolcat
   fi
 }
 
