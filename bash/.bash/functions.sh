@@ -325,5 +325,5 @@ function xdg {
   esac
 }
 
-[ -r "${DOTBASH}/plat/${DOTBASH_OS}/functions.sh" ] && source "${DOTBASH}/plat/${DOTBASH_OS}/functions.sh"
-[ -r "${DOTBASH}/functions.user.sh" ] && source "${DOTBASH}/functions.user.sh"
+[ -r "$(dotbash plat)/functions.sh" ] && source "$(dotbash plat)/functions.sh"
+[ -r "$(dotbash)/functions.user.sh" ] && source "$(dotbash)/functions.user.sh"

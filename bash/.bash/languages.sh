@@ -26,4 +26,4 @@ if hash node 2>/dev/null; then
   fi
 fi
 
-[ -r "${DOTBASH}/languages.user.sh" ] && source "${DOTBASH}/languages.user.sh"
+[ -r "$(dotbash)/languages.user.sh" ] && source "$(dotbash)/languages.user.sh"

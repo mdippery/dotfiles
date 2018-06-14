@@ -57,4 +57,4 @@ if [ $DOTBASH_OS = 'linux' ]; then
   unalias top
 fi
 
-[ -r "${DOTBASH}/aliases.user.sh" ] && source "${DOTBASH}/aliases.user.sh"
+[ -r "$(dotbash)/aliases.user.sh" ] && source "$(dotbash)/aliases.user.sh"

@@ -18,10 +18,10 @@ unalias -a                      # I don't want any pre-set aliases
 
 source "${DOTBASH}/lib.sh"
 
-source "${DOTBASH}/environment.sh"
-source "${DOTBASH}/functions.sh"
-source "${DOTBASH}/aliases.sh"
-source "${DOTBASH}/languages.sh"
-source "${DOTBASH}/completion.sh"
+source "$(dotbash)/environment.sh"
+source "$(dotbash)/functions.sh"
+source "$(dotbash)/aliases.sh"
+source "$(dotbash)/languages.sh"
+source "$(dotbash)/completion.sh"
 
 [ -r "${HOME}/.bashrc.user" ] && source "${HOME}/.bashrc.user"

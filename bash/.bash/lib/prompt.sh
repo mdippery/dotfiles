@@ -1,4 +1,4 @@
-[ -r "${DOTBASH}/lib/prompt.user.sh" ] && source "${DOTBASH}/lib/prompt.user.sh"
+[ -r "$(dotbash)/lib/prompt.user.sh" ] && source "$(dotbash)/lib/prompt.user.sh"
 
 function _ps1_str {
   local s=$1

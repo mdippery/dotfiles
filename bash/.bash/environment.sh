@@ -3,7 +3,7 @@
 #   <http://unix.stackexchange.com/a/105932/57970>
 
 
-source "${DOTBASH}/lib/prompt.sh"
+source "$(dotbash)/lib/prompt.sh"
 export PROMPT_COMMAND='history -a; history -n; _ps1'
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3
@@ -37,5 +37,5 @@ export PIPENV_VENV_IN_PROJECT=true
 [ -x /usr/libexec/java_home ] && \
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
 
-[ -r "${DOTBASH}/plat/${DOTBASH_OS}/environment.sh" ] && source "${DOTBASH}/plat/${DOTBASH_OS}/environment.sh"
-[ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
+[ -r "$(dotbash plat)/environment.sh" ] && source "$(dotbash plat)/environment.sh"
+[ -r "$(dotbash)/environment.user.sh" ] && source "$(dotbash)/environment.user.sh"

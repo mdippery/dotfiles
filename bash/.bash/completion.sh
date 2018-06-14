@@ -1,12 +1,12 @@
 brew_completion="$(brew --prefix)/Library/Contributions/brew_bash_completion.sh"
 [ -r $brew_completion ] && source $brew_completion
 
-bash_completion_d="${DOTBASH}/completions"
+bash_completion_d="$(dotbash)/completions"
 for f in $(find -H $bash_completion_d -mindepth 1); do
   source $f
 done
 
-bash_completion_d="${DOTBASH}/sys/${DOTBASH_SYS}/completions"
+bash_completion_d="$(dotbash sys)/completions"
 if [ -d $bash_completion_d ]; then
   for f in $(find -H $bash_completion_d -mindepth 1); do
     source $f
@@ -26,4 +26,4 @@ fi
 unset brew_completion
 unset bash_completion_d
 
-[ -r "${DOTBASH}/completion.user.sh" ] && source "${DOTBASH}/completion.user.sh"
+[ -r "$(dotbash)/completion.user.sh" ] && source "$(dotbash)/completion.user.sh"
