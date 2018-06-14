@@ -1,7 +1,7 @@
 brew_completion="$(brew --prefix)/Library/Contributions/brew_bash_completion.sh"
 [ -r $brew_completion ] && source $brew_completion
 
-bash_completion_d="${HOME}/.bash_completion.d"
+bash_completion_d="${DOTBASH}/completions"
 for f in $(find -H $bash_completion_d -mindepth 1); do
   source $f
 done
