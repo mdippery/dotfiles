@@ -1,5 +1,3 @@
-[ -r "$(dotbash)/lib/prompt.user.sh" ] && source "$(dotbash)/lib/prompt.user.sh"
-
 function _ps1_str {
   local s=$1
   local color=$2
@@ -33,6 +31,12 @@ function _ps1_pushed_dirs {
   fi
 }
 
+function _ps1_ssh_host {
+  if [ -n "$SSH_TTY" ]; then
+    echo -ne "\[$(tput setaf 0)$(tput bold)\]\h\[$(tput sgr0)\] \[$(tput setaf 3)$(tput bold)\]⚡\[$(tput sgr0)\] "
+  fi
+}
+
 function _ps1_virtual_env {
   if [ -n "$VIRTUAL_ENV" ]; then
     echo -ne "\[$(tput setaf 6)\]▶[$(tput sgr0)\] "
@@ -45,5 +49,5 @@ function _ps1 {
   if type -t _ps1_custom >/dev/null 2>&1; then
     custom_ps1=$(_ps1_custom)
   fi
-  export PS1="$(_ps1_exit_code $last_exit)${custom_ps1}$(_ps1_pushed_dirs)$(_ps1_virtual_env)$(_ps1_git_prompt)$(_ps1_str \\W 4)"
+  export PS1="$(_ps1_exit_code $last_exit)$(_ps1_ssh_host)$(_ps1_pushed_dirs)$(_ps1_virtual_env)$(_ps1_git_prompt)$(_ps1_str \\W 4)"
 }
