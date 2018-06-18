@@ -6,6 +6,7 @@ fi
 if hash pyenv 2>/dev/null; then
   export PYENV_ROOT="${HOME}/.pyenv"
   eval "$(pyenv init -)"
+  alias pyw='pyenv which'
 fi
 export PYTHONSTARTUP="$(xdg config-home)/python/startup.py"
 
