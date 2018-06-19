@@ -2,6 +2,10 @@ function cpuinfo {
   lscpu | command egrep 'Thread|Core|Socket|^CPU\('
 }
 
+function list-groups {
+  awk -F : '{ print $1 }' < /etc/group | sort
+}
+
 function netinfo {
   ifconfig eth0 | command grep -E -o 'inet addr:[^ ]+' | awk -F: '{print $2}'
   ifconfig eth0 | command grep -E -o 'HWaddr .+$' | awk '{print $2}'
