@@ -250,6 +250,13 @@ function sbt_classes {
   echo "$(find target -name scala-* -type d 2>/dev/null | sort -V | tail -n 1)/classes"
 }
 
+function scpv {
+  local host path
+  host=$(echo "$1" | cut -d : -f 1)
+  path=$(echo "$1" | cut -d : -f 2)
+  ssh $host "cat $path" | pv -bpt > $(basename path)
+}
+
 function showcert {
   echo \
     | openssl s_client -showcerts -servername $1 -connect $1:443 2>/dev/null \
