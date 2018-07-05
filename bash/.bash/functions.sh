@@ -91,7 +91,7 @@ function get {
       return 1
       ;;
   esac
-  curl -s $1 | $expand | tar xf -
+  curl $f | $expand | tar xf -
 }
 
 function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
