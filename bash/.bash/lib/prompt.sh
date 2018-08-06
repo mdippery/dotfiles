@@ -41,7 +41,7 @@ function _ps1_ssh_host {
 
 function _ps1_virtual_env {
   if [ -n "$VIRTUAL_ENV" ]; then
-    echo -ne "\[$(tput setaf 6)\]▶\[$(tput sgr0)\] "
+    echo -ne "\[$(tput setaf 6)\]$(basename $VIRTUAL_ENV) ▶\[$(tput sgr0)\] "
   fi
 }
 
