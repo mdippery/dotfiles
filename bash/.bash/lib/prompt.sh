@@ -46,7 +46,7 @@ function _ps1_virtual_env {
 }
 
 function _ps1_time {
-  echo -ne "\[$(tput setaf 0)$(tput bold)\]\T\[$(tput sgr0)\]"
+  echo -ne "\[$(tput setaf 0)$(tput bold)\]\@\[$(tput sgr0)\]"
 }
 
 function _ps1 {
