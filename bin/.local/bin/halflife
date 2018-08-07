@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+
+import datetime as dt
+import sys
+
+year, month, day = sys.argv[1:4]
+birth = dt.date(int(year), int(month), int(day))
+diff = (dt.date.today() - birth).days
+delta = dt.timedelta(days=(diff / 2))
+half = birth + delta
+print(half.strftime("%a, %b %m, %Y"))
