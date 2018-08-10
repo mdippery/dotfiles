@@ -290,6 +290,7 @@ function vv {
   fi
   local venv=$(command ls -1 .venv)
   local vpath=$(cd .venv/$venv && pwd)
+  export VIRTUAL_ENV="${vpath}"
   export PATH="${vpath}/bin:${PATH}"
   unset ANSIBLE_LIBRARY
 }
