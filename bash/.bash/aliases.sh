@@ -38,7 +38,6 @@ alias tab='column -t'
 alias tg='tmux a'
 alias top='top -o cpu'
 alias uuid='/usr/bin/uuidgen'
-alias vex='vex --path=.bundle'
 alias vundle='vim +PluginInstall +qall'
 alias w='which'
 alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"

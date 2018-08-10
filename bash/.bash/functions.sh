@@ -283,6 +283,14 @@ function vimsyn {
   find $(binroot vim)/share/vim/vim${ver}/syntax -name '*.vim' -exec basename {} \;
 }
 
+function vex {
+  if [ ! -d .bundle ]; then
+    onoe "No virtualenv in ${PWD}"
+    return 1
+  fi
+  env PATH="${PWD}/.bundle/bin" $*
+}
+
 function vv {
   if [ ! -d .venv ]; then
     onoe "No virtualenv in ${PWD}"
