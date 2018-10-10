@@ -35,6 +35,8 @@
 	branch = false
 	tag = false
 	who = false
+[git-p4]
+	attemptRCSCleanup = true
 [alias]
 	br = branch
 	ci = commit
