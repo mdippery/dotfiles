@@ -102,7 +102,7 @@ function greet {
   # Assumes cowthink and lolcat are both installed. If they are not, add
   #   export DOTBASH_COWTHINK=cat
   #   export DOTBASH_LOLCAT=cat
-  # to your local ~/.bashrc file.
+  # to your local ~/.bash/environment.user.sh file.
 
   local cowthink lolcat
   cowthink=${DOTBASH_COWTHINK:-cowthink}
