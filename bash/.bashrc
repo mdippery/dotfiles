@@ -1,5 +1,7 @@
 export DOTBASH="${HOME}/.bash"
 
+hash md5sum 2>/dev/null || function md5sum { /sbin/md5; }
+
 export DOTBASH_HOSTNAME_HASH=$(hostname | md5sum | awk '{ print $1 }')
 export DOTBASH_OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 
