@@ -17,5 +17,5 @@ function paths-helper {
 }
 
 function read-paths {
-  tr '\n' ':' < $1 | sed 's/:$//'
+  eval echo $(tr '\n' ':' < $1 | sed 's/:$//')
 }

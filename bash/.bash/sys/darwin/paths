@@ -1,8 +1,8 @@
-/Users/mdippery/.pyenv/bin
-/Users/mdippery/.rbenv/bin
-/Users/mdippery/.cabal/bin
-/Users/mdippery/.local/bin
-/Users/mdippery/.local/libexec/git
+/Users/$USER/.pyenv/bin
+/Users/$USER/.rbenv/bin
+/Users/$USER/.cabal/bin
+/Users/$USER/.local/bin
+/Users/$USER/.local/libexec/git
 /usr/local/bin
 /usr/bin
 /bin
