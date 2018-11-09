@@ -100,16 +100,20 @@ function grab-line { sed -n "$1 p"; }
 
 function greet {
   # Assumes cowthink and lolcat are both installed. If they are not, add
+  #   export DOTBASH_COWSAY=cat
   #   export DOTBASH_COWTHINK=cat
   #   export DOTBASH_LOLCAT=cat
   # to your local ~/.bash/environment.user.sh file.
 
-  local cowthink lolcat
+  local cowsay cowthink lolcat
+  cowsay=${DOTBASH_COWSAY:-cowsay -n}
   cowthink=${DOTBASH_COWTHINK:-cowthink}
   lolcat=${DOTBASH_LOLCAT:-lolcat}
 
   if [ -r /etc/motd ]; then
     $lolcat < /etc/motd
+  elif hash fortune 2>/dev/null; then
+    fortune -s | $cowsay | cut -c-$(tput cols) | $lolcat
   elif hash figlet 2>/dev/null; then
     figlet -f slant 'o m g !' | $lolcat
   elif hash ddate 2>/dev/null; then
