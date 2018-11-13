@@ -29,6 +29,7 @@
 	default = simple
 [rebase]
 	autostash = true
+	autoSquash = true
 [rerere]
 	enabled = true
 [pager]
