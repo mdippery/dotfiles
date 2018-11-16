@@ -65,8 +65,10 @@
 	fix = commit -a --amend --no-edit
 	hide = update-index --assume-unchanged
 	info = config --list
+	last = rev-parse --short HEAD
 	nuke = !sh -c 'git reset --hard HEAD~$1' -
 	on = rev-parse --abbrev-ref HEAD
+	oops = "!f() { git commit --fixup=$(git last); }; f"
 	showtag = !sh -c 'git rev-parse $1 | xargs git cat-file -p' -
 	staged = diff --cached
 	stashed = !git --no-pager stash list
