@@ -1,8 +1,8 @@
-/Users/$USER/.pyenv/bin
-/Users/$USER/.rbenv/bin
-/Users/$USER/.cabal/bin
-/Users/$USER/.local/bin
-/Users/$USER/.local/libexec/git
+$HOME/.pyenv/bin
+$HOME/.rbenv/bin
+$HOME/.cabal/bin
+$HOME/.local/bin
+$HOME/.local/libexec/git
 /usr/local/bin
 /usr/bin
 /bin
