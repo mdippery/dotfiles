@@ -44,6 +44,7 @@
 	co = checkout
 	cp = cherry-pick
 	ds = !git --no-pager diff --stat -M -w
+	ff = merge --ff-only
 	ga = log --graph --oneline --decorate --exclude=refs/stash --exclude='refs/notes/*' --exclude='refs/original/*' --all
 	gr = log --graph --oneline --decorate
 	ld = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=short
