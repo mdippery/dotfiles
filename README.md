@@ -8,8 +8,8 @@ To install:
 All packages can be installed in one fell swoop with the following shell
 script:
 
-    for pkg in $(find . -maxdepth 1 -type d -regex '\./[^.].*'); do
-      stow ${pkg:2}
+    for pkg in *; do
+      [ $pkg != 'README.md' ] && stow $pkg
     done
 
 ---
