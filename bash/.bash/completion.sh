@@ -1,4 +1,6 @@
-brew_completion="$(brew --prefix)/Library/Contributions/brew_bash_completion.sh"
+brew_completion_old="$(brew --prefix)/Library/Contributions/brew_bash_completion.sh"
+brew_completion="$(brew --prefix)/Homebrew/completions/bash/brew"
+[ -r $brew_completion_old ] && source $brew_completion_old
 [ -r $brew_completion ] && source $brew_completion
 
 bash_completion_d="$(dotbash)/completions"
@@ -24,6 +26,7 @@ if [ -d $bash_completion_d ]; then
 fi
 
 unset brew_completion
+unset brew_completion_old
 unset bash_completion_d
 
 [ -r "$(dotbash)/completion.user.sh" ] && source "$(dotbash)/completion.user.sh"
