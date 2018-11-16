@@ -4,6 +4,14 @@ function airport-code {
     | tr -d '"'
 }
 
+function aws-profile {
+  if [ $1 == '--clear' ]; then
+    unset AWS_PROFILE
+  else
+    export AWS_PROFILE=$1
+  fi
+}
+
 function bcat {
   if hash $1 2>/dev/null; then
     less $(which $1)
