@@ -236,6 +236,10 @@ function pyclean {
   find "$dir" -name __pycache__ -delete
 }
 
+function pyman {
+  python -c "import $1; help($1)"
+}
+
 # Prints the python path
 function pypath {
   python -c 'import sys; print("\n".join(sys.path))' \
