@@ -34,6 +34,7 @@
 	enabled = true
 [pager]
 	branch = false
+	last = false
 	tag = false
 	who = false
 [git-p4]
@@ -66,7 +67,7 @@
 	fix = commit -a --amend --no-edit
 	hide = update-index --assume-unchanged
 	info = config --list
-	last = rev-parse --short HEAD
+	last = log --grep='^fixup!' --invert-grep --pretty=tformat:%h -n 1
 	nuke = !sh -c 'git reset --hard HEAD~$1' -
 	on = rev-parse --abbrev-ref HEAD
 	oops = "!f() { git commit --fixup=$(git last); }; f"
