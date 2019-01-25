@@ -308,15 +308,15 @@ function vex {
 }
 
 function vv {
-  if [ ! -d .venv ]; then
-    onoe "No virtualenv in ${PWD}"
+  if [ ! -d .bundle ]; then
+    onoe "No virtualenv in $(pwd)"
     return 1
   fi
-  local venv=$(command ls -1 .venv)
-  local vpath=$(cd .venv/$venv && pwd)
+  local vpath="$(pwd)/.bundle"
   export VIRTUAL_ENV="${vpath}"
   export PATH="${vpath}/bin:${PATH}"
   unset ANSIBLE_LIBRARY
+  type python
 }
 
 function whither { readlink -f $(which $1); }

@@ -40,8 +40,13 @@ function _ps1_ssh_host {
 }
 
 function _ps1_virtual_env {
+  local venv
+  venv=''
   if [ -n "$VIRTUAL_ENV" ]; then
-    echo -ne "\[$(tput setaf 6)\]$(basename $VIRTUAL_ENV) ▶\[$(tput sgr0)\] "
+    if [ $(basename $VIRTUAL_ENV) != '.bundle' ]; then
+      venv="$(basename $VIRTUAL_ENV) "
+    fi
+    echo -ne "\[$(tput setaf 6)\]${venv}▶\[$(tput sgr0)\] "
   fi
 }
 
