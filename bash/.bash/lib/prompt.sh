@@ -46,7 +46,7 @@ function _ps1_virtual_env {
     if [ $(basename $VIRTUAL_ENV) != '.bundle' ]; then
       venv="$(basename $VIRTUAL_ENV) "
     fi
-    echo -ne "\[$(tput setaf 6)\]${venv}▶\[$(tput sgr0)\] "
+    echo -ne "\[$(tput setaf 6)\]${venv}➥\[$(tput sgr0)\] "
   fi
 }
 
