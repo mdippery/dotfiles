@@ -251,6 +251,22 @@ function pyprefix {
   python -c 'import sys; print(sys.prefix)'
 }
 
+function python-flags {
+  local pkgs
+  pkgs='openssl sqlite3 zlib'
+  CFLAGS=''
+  for pkg in $pkgs; do
+    CFLAGS="${CFLAGS}-I$(brew --prefix $pkg)/include "
+  done
+  CFLAGS=$(echo $CFLAGS | sed -e 's/ $//')
+  LDFLAGS=$(echo $CFLAGS | tr 'I' 'L' | ruby -e 'puts STDIN.read.chomp.gsub(/\/include/, "/lib")')
+
+  export CFLAGS
+  export LDFLAGS
+
+  env | egrep '(C|LD)FLAGS'
+}
+
 # Repeats a character a given number of times
 function repeat {
   local ch=$1
