@@ -4,7 +4,7 @@ import readline
 import rlcompleter
 import sys
 
-IS_PY3 = sys.version[0] == 3
+IS_PY3 = sys.version_info[0] == 3
 HISTORY_EXT = '.py3' if IS_PY3 else ''
 HISTORY_BASE = 'history{}'.format(HISTORY_EXT)
 HISTORY = os.path.abspath(os.path.join(os.path.dirname(__file__), HISTORY_BASE))
