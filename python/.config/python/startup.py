@@ -9,8 +9,12 @@ HISTORY_EXT = '.py3' if IS_PY3 else ''
 HISTORY_BASE = 'history{}'.format(HISTORY_EXT)
 HISTORY = os.path.abspath(os.path.join(os.path.dirname(__file__), HISTORY_BASE))
 
-sys.ps1 = "\001\033[030;1m\002>>>\001\033[0m\002 "
-sys.ps2 = "\001\033[030;1m\002...\001\033[0m\002 "
+if IS_PY3:
+    sys.ps1 = "\u27a5  "
+    sys.ps2 = "\u22ef  "
+else:
+    sys.ps1 = "\001\033[030;1m\002>>>\001\033[0m\002 "
+    sys.ps2 = "\001\033[030;1m\002...\001\033[0m\002 "
 
 readline.parse_and_bind('tab: complete')
 
