@@ -6,6 +6,7 @@
 --ignore-dir=_rel
 --ignore-dir=.stack-work
 --ignore-dir=.tox
+--ignore-dir=.eggs
 --ignore-file=is:.tags
 --ignore-file=is:.lein-repl-history
 --type-set=mako:ext:mako
