@@ -65,6 +65,12 @@ function colors {
   done
 }
 
+function docker-prune {
+  yes \
+    | (docker container prune && docker image prune) \
+    && docker image ls
+}
+
 # Reads a .env file into variables
 function dotenv {
   set -a
