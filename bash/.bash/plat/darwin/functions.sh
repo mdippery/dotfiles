@@ -2,7 +2,7 @@
 function install-missing-headers {
   local dir=/Library/Developer/CommandLineTools/Packages
   local pkg=$(ls -t1 $dir | head -n 1)
-  open "$pkg"
+  open "$dir/$pkg"
 }
 
 function ldd {
