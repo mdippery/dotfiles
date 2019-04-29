@@ -1,4 +1,2 @@
-{:user {:dependencies [[pjstadig/humane-test-output "0.7.0"]]
-        :plugins [[lein-bin "0.3.5"]
-                  [lein-cloverage "1.0.2"]
-                  [venantius/ultra "0.5.1"]]}}
+{:user {:dependencies [[pjstadig/humane-test-output "0.9.0"]]
+        :plugins [[lein-cloverage "1.1.1"]]}}
