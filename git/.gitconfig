@@ -19,8 +19,6 @@
 	textconv = ansible-vault view
 [diff "json"]
 	textconv = jq '.'
-[instaweb]
-	httpd = webrick
 [interactive]
 	singlekey = true
 [fetch]
