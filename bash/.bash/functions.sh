@@ -326,7 +326,7 @@ function vex {
     onoe "No virtualenv in ${PWD}"
     return 1
   fi
-  env PATH="${PWD}/.bundle/bin" $*
+  env PATH="${PWD}/.bundle/bin:${PATH}" $*
 }
 
 function vv {
