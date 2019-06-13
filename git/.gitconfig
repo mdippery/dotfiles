@@ -42,6 +42,7 @@
 [alias]
 	br = branch
 	ci = commit
+	cl = clone -o github
 	co = checkout
 	cp = cherry-pick
 	ds = !git --no-pager diff --stat -M -w
