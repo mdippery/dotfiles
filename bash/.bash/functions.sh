@@ -301,6 +301,8 @@ function showcert {
     | openssl x509 -inform pem -noout -text
 }
 
+function term-title { echo -ne "\033]0;$1\007"; }
+
 function trim { cut -c-$(tput cols); }
 
 # Prints the bash utf8 representation of a character
