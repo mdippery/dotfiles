@@ -149,6 +149,9 @@ function hostinfo {
 # Returns the IP address for a given host
 function hostip { host $1 | command grep 'has address' | awk '{ print $4 }'; }
 
+# Retrieves information for the given HTTP status code
+function httpstatus { open "https://httpstatuses.com/$1"; }
+
 # Returns the HTTP status code for a URL
 function hstat { curl -I $1 2>/dev/null | head -1; }
 
