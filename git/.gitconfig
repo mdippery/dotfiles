@@ -49,9 +49,9 @@
 	ff = merge --ff-only
 	ga = log --graph --oneline --decorate --exclude=refs/stash --exclude='refs/notes/*' --exclude='refs/original/*' --all
 	gr = log --graph --oneline --decorate
-	ld = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=short
-	lf = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative --name-status
-	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%an]" --date=relative
+	ld = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%aN]" --date=short
+	lf = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%aN]" --date=relative --name-status
+	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%aN]" --date=relative
 	ol = log --oneline --decorate
 	rb = rebase
 	ri = rebase -i
