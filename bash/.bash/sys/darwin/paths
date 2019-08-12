@@ -1,3 +1,4 @@
+$HOME/.poetry/bin
 $HOME/.pyenv/bin
 $HOME/.rbenv/bin
 $HOME/.cabal/bin
