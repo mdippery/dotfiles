@@ -308,6 +308,13 @@ function term-title { echo -ne "\033]0;$1\007"; }
 
 function trim { cut -c-$(tput cols); }
 
+function update-docs {
+  local path bucket
+  path=$2
+  bucket=$1
+  aws s3 sync --acl=public-read --delete $path s3://docs.mipadi.com/$bucket
+}
+
 # Prints the bash utf8 representation of a character
 function utf8 {
   echo -n "$1" \
