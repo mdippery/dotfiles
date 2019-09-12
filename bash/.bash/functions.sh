@@ -4,6 +4,13 @@ function airport-code {
     | tr -d '"'
 }
 
+function aws-secret {
+  aws secretsmanager get-secret-value --secret-id $1 --version-stage AWSCURRENT \
+    | jq '.SecretString' \
+    | python -c 'import json, sys; print(json.load(sys.stdin));' \
+    | jq
+}
+
 function aws-profile {
   if [ $1 == '--clear' ]; then
     unset AWS_PROFILE
