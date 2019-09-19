@@ -17,6 +17,8 @@
 	renames = copies
 [diff "ansible-vault"]
 	textconv = ansible-vault view
+[diff "gzip"]
+	textconv = gunzip -c
 [diff "json"]
 	textconv = jq '.'
 [interactive]
