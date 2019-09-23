@@ -246,6 +246,13 @@ function py3-alias {
   echo 'ok'
 }
 
+function py3-compat {
+  pip3 -v show $1 \
+    | grep 'Programming Language :: Python :: 3.' \
+    | awk -F ' :: ' '{ print $NF }' \
+    | paste -sd ' ' -
+}
+
 # Removes .pyc files
 function pyclean {
   local dir=.
