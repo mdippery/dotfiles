@@ -1,5 +1,13 @@
 #!/bin/sh
 
+if [[ $SHELL_USE_EMOJI == '1' ]]; then
+  YES=✅
+  NO=❌
+else
+  YES="$(tput setaf 2)✔︎$(tput sgr0)"
+  NO="$(tput setaf 1)✖︎$(tput sgr0)"
+fi
+
 function py3_compat {
   pip3 -v show $1 \
     | egrep 'Programming Language :: Python :: 3(\.[0-9]+)?$' \
@@ -7,6 +15,10 @@ function py3_compat {
     | paste -sd ' ' -
 }
 
+function _py3_bool {
+  [ -n "$(py3_compat $1)" ] && echo $YES || echo $NO
+}
+
 for pkg in $(pip list | tail -n +3 | awk '{print $1}'); do
-  echo "$pkg\t$(py3_compat $pkg | tr ' ' ,)"
-done | column -t | tr , ' '
+  echo "$(_py3_bool $pkg)  $pkg"
+done
