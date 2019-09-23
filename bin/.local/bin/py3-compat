@@ -1,0 +1,12 @@
+#!/bin/sh
+
+function py3_compat {
+  pip3 -v show $1 \
+    | egrep 'Programming Language :: Python :: 3(\.[0-9]+)?$' \
+    | awk -F ' :: ' '{ print $NF }' \
+    | paste -sd ' ' -
+}
+
+for pkg in $(pip list | tail -n +3 | awk '{print $1}'); do
+  echo "$pkg\t$(py3_compat $pkg | tr ' ' ,)"
+done | column -t | tr , ' '
