@@ -1,11 +1,21 @@
 #!/bin/sh
 
+if [[ $SHELL_USE_COLOR != '0' ]]; then
+  GREEN="$(tput setaf 2)"
+  RED="$(tput setaf 1)"
+  RESET="$(tput sgr0)"
+else
+  GREEN=''
+  RED=''
+  RESET=''
+fi
+
 if [[ $SHELL_USE_EMOJI == '1' ]]; then
   YES=✅
   NO=❌
 else
-  YES="$(tput setaf 2)✔︎$(tput sgr0)"
-  NO="$(tput setaf 1)✖︎$(tput sgr0)"
+  YES="${GREEN}✔︎${RESET}"
+  NO="${RED}✖︎${RESET}"
 fi
 
 function py3_compat {
