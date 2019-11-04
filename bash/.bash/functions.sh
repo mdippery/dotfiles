@@ -256,6 +256,10 @@ function pyclean {
   find "$dir" -name __pycache__ -delete
 }
 
+function pyenv-all {
+  command ls -1 ~/.pyenv/versions/ | sort -rV | paste -sd : -
+}
+
 function pyman {
   python -c "import $1; help($1)"
 }
