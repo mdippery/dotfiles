@@ -12,3 +12,4 @@ $HOME/.local/libexec/git
 /sbin
 /Library/TeX/texbin
 /opt/X11/bin
+$(brew --prefix gettext)/bin
