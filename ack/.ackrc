@@ -15,3 +15,4 @@
 --type-set=ddl:ext:ddl
 --type-set=glade:ext:glade
 --type-set=bat:ext:bat
+--type-set=jenkins:is:Jenkinsfile
