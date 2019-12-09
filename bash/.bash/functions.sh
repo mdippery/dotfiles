@@ -190,9 +190,9 @@ function lein-compleat {
     | awk '{print "lein " $1 ";"}'
 }
 
-function ln-docs { ln -s $(stack path --local-doc-root) docs; }
+function ln-docs { ln -snf $(stack path --local-doc-root) docs; }
 
-function ln-hpc { ln -s $(stack path --local-hpc-root) coverage; }
+function ln-hpc { ln -snf $(stack path --local-hpc-root) coverage; }
 
 # A nicer man with colorized text
 # Inspired by <http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized>
