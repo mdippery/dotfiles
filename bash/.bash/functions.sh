@@ -19,6 +19,10 @@ function aws-profile {
   fi
 }
 
+function bash-functions {
+  declare -F | awk '{print $3}'
+}
+
 function bcat {
   if hash $1 2>/dev/null; then
     less $(which $1)
