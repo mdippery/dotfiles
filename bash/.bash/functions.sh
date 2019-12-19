@@ -229,27 +229,6 @@ function pip-outdated {
 # Opens a man page in Preview
 function pman { man -t $1 | open -f -a /Applications/Preview.app; }
 
-function py3-alias {
-  if ! pyenv which python3 2>/dev/null; then
-    onoe "You are using $(python -V 2>&1)!"
-    return 1
-  fi
-  local py_home=$(python3 -c 'import sys; print(sys.prefix)')
-  local py_bin="${py_home}/bin"
-  for bin in $(find "$py_bin" -name '*3'); do
-    local bin_name=$(basename $bin)
-    local alias_name=${bin_name%3}
-    if [[ $bin_name != '2to3' ]]; then
-      echo -n "Aliasing ${alias_name} to ${bin_name}... "
-      alias ${alias_name}=${bin_name}
-      echo 'ok'
-    fi
-  done
-  echo -n 'Aliasing virtualenv to pyvenv... '
-  alias virtualenv=pyvenv
-  echo 'ok'
-}
-
 # Removes .pyc files
 function pyclean {
   local dir=.
