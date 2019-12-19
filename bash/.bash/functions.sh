@@ -150,6 +150,12 @@ function greet {
   fi
 }
 
+function haskell-docs {
+  mkdir -p docs
+  ln -snf $(stack path --local-doc-root) docs/api
+  ln -snf $(stack path --local-hpc-root) docs/coverage
+}
+
 # Returns IP data for a given host
 function hostinfo {
   for ip in $(hostip $1); do
@@ -193,10 +199,6 @@ function lein-compleat {
     | sed -n "${x},${y}p" \
     | awk '{print "lein " $1 ";"}'
 }
-
-function ln-docs { ln -snf $(stack path --local-doc-root) docs; }
-
-function ln-hpc { ln -snf $(stack path --local-hpc-root) coverage; }
 
 # A nicer man with colorized text
 # Inspired by <http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized>
