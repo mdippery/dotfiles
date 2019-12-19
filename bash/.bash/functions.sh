@@ -295,6 +295,17 @@ function python-flags {
   env | egrep '(C|LD)FLAGS'
 }
 
+function pyvenv {
+  local cmd
+  if [ $(python_major_version) == 3 ]; then
+    cmd="python -m venv $*"
+  else
+    cmd="virtualenv $*"
+  fi
+  echo $cmd
+  eval $cmd
+}
+
 # Repeats a character a given number of times
 function repeat {
   local ch=$1
