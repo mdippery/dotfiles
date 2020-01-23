@@ -67,8 +67,10 @@
 	authors = !sh -c 'git log --format="%aN" | sort -k 2 -u'
 	changed = diff ORIG_HEAD..
 	deleted = log --diff-filter=D --summary
+	diff-branch = "!f() { git diff $(git merge-base --fork-point master $1)..$1; }; f"
 	edits = diff --color-words
 	fix = commit -a --amend --no-edit
+	fork = merge-base --fork-point master
 	hide = update-index --assume-unchanged
 	info = config --list
 	last = log --grep='^fixup!' --invert-grep --pretty=tformat:%h -n 1
