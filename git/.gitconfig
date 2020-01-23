@@ -39,6 +39,7 @@
 	df = false
 	ds = false
 	last = false
+	stashed = false
 	tag = false
 	who = false
 [git-p4]
@@ -80,7 +81,7 @@
 	release = !sh -c 'git diff $(git describe | cut -d - -f 1)..'
 	showtag = !sh -c 'git rev-parse $1 | xargs git cat-file -p' -
 	staged = diff --cached
-	stashed = !git --no-pager stash list
+	stashed = stash list
 	tags = tag -n1 -l
 	trash = !git reset HEAD . && git checkout -- . && echo 'Undid all changes'
 	tree = !sh -c 'git ls-files | tree --fromfile .'
