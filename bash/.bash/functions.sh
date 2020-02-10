@@ -326,6 +326,10 @@ function update-docs {
   aws s3 sync --acl=public-read --delete $path s3://docs.mipadi.com/$bucket
 }
 
+function urlencode {
+  python -c 'import urllib.parse as P; import sys; print(P.quote(sys.stdin.read()))'
+}
+
 # Prints the bash utf8 representation of a character
 function utf8 {
   echo -n "$1" \
