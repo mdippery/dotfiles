@@ -1,23 +1,8 @@
-function _free_memory {
-  local pages=$(\
-    vm_stat \
-      | grep 'Pages free:' \
-      | awk -F : '{ print $2 }' \
-      | tr -d ' ' \
-      | tr -d '.' \
-  )
-  expr $(($pages * 4 / 1024))
-}
-
 function _hardware_info {
   system_profiler SPHardwareDataType \
     | grep "$1" \
     | cut -d : -f 2 \
     | sed 's/^ //g'
-}
-
-function _total_memory {
-  expr $(sysctl -n hw.memsize) / $((1024**2))
 }
 
 function greet {
@@ -32,7 +17,6 @@ ${indent}${grey}host${reset}    $(_hardware_info 'Model Identifier')
 ${indent}${grey}cpu${reset}     $(_hardware_info 'Number of Processors') $(_hardware_info 'Processor Speed') $(_hardware_info 'Processor Name')
 ${indent}${grey}kernel${reset}  Darwin $(uname -r)
 ${indent}${grey}uptime${reset}  $(system_profiler SPSoftwareDataType | grep 'Time since boot' | cut -d : -f 2,3 | sed 's/^ //g')
-${indent}${grey}memory${reset}  $(_free_memory) MB free of $(_total_memory) MB total
 ${indent}${grey}load${reset}    $(uptime | awk -F , '{ print $NF }' | awk -F : '{ print $NF }' | sed 's/^ //g')
 ${indent}${grey}shell${reset}   $SHELL
 EOM
