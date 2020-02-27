@@ -14,7 +14,7 @@ function greet {
 ${indent}${user}$(whoami)@$(system_profiler SPSoftwareDataType | grep 'Computer Name' | awk '{ print $3 }')${reset}
 ${indent}${grey}os${reset}      macOS $(sw_vers -productVersion)
 ${indent}${grey}host${reset}    $(_hardware_info 'Model Identifier')
-${indent}${grey}cpu${reset}     $(_hardware_info 'Number of Processors') $(_hardware_info 'Processor Speed') $(_hardware_info 'Processor Name')
+${indent}${grey}cpu${reset}     $(_hardware_info 'Number of Processors') × $(_hardware_info 'Processor Speed') $(_hardware_info 'Processor Name')
 ${indent}${grey}kernel${reset}  Darwin $(uname -r)
 ${indent}${grey}uptime${reset}  $(system_profiler SPSoftwareDataType | grep 'Time since boot' | cut -d : -f 2,3 | sed 's/^ //g')
 ${indent}${grey}load${reset}    $(uptime | awk -F , '{ print $NF }' | awk -F : '{ print $NF }' | sed 's/^ //g')
