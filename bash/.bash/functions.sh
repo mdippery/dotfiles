@@ -343,9 +343,8 @@ function uuid7 {
     echo "${u:0:7}"
 }
 
-function vimsyn {
-  local ver=$(vim --version | head -n 1 | egrep -o '(7\.[0-9])' | tr -d '.')
-  find $(binroot vim)/share/vim/vim${ver}/syntax -name '*.vim' -exec basename {} \;
+function vbox-ostypes {
+  VBoxManage list ostypes | egrep '^ID:' | awk '{print $2}' | sort
 }
 
 function vex {
@@ -354,6 +353,11 @@ function vex {
     return 1
   fi
   env PATH="${PWD}/.bundle/bin:${PATH}" VIRTUAL_ENV="${PWD}/.bundle" $*
+}
+
+function vimsyn {
+  local ver=$(vim --version | head -n 1 | egrep -o '(7\.[0-9])' | tr -d '.')
+  find $(binroot vim)/share/vim/vim${ver}/syntax -name '*.vim' -exec basename {} \;
 }
 
 function vv {
