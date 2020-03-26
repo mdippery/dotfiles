@@ -76,6 +76,15 @@ function colors {
   done
 }
 
+function covid19 {
+  local code=${1:-us}
+  if [ $code = '--help' -o $code == '-h' ]; then
+    curl https://covid19tracker.xyz/help
+    return
+  fi
+  curl https://covid19tracker.xyz/$code
+}
+
 function docker-prune {
   yes \
     | (docker container prune && docker image prune) \
