@@ -41,6 +41,7 @@ alias top='top -o cpu'
 alias uuid='/usr/bin/uuidgen'
 alias vundle='vim +PluginInstall +qall'
 alias w='which'
+alias weather='curl wttr.in'
 alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"
 alias whichsh='echo $0'
 
