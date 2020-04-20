@@ -133,30 +133,16 @@ function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
 function grab-line { sed -n "$1 p"; }
 
 function greet {
-  # Assumes cowthink and lolcat are both installed. If they are not, add
-  #   export DOTBASH_COWSAY=cat
-  #   export DOTBASH_COWTHINK=cat
-  #   export DOTBASH_LOLCAT=cat
-  # to your local ~/.bash/environment.user.sh file.
-
-  local cowsay cowthink lolcat
-  cowsay=${DOTBASH_COWSAY:-cowsay -n}
-  cowthink=${DOTBASH_COWTHINK:-cowthink}
-  lolcat=${DOTBASH_LOLCAT:-lolcat}
-
-  if [ -r /etc/motd ]; then
-    $lolcat < /etc/motd
-  elif hash fortune 2>/dev/null; then
-    fortune -s | $cowsay | cut -c-$(tput cols) | $lolcat
-  elif hash figlet 2>/dev/null; then
-    figlet -f slant 'o m g !' | $lolcat
-  elif hash ddate 2>/dev/null; then
-    ddate | $cowthink | $lolcat
-  elif ! alias cowthink 2>/dev/null; then
-    uptime | ([[ $DOTBASH_OS == 'darwin' ]] && tail -c +8 || cat) | $cowthink -n | $lolcat
-  else
-    echo "$(hostname -s)?" | $cowthink | $lolcat
-  fi
+  local green grey reset
+  green="$(tput setaf 2)"
+  grey="$(tput setaf 0)$(tput bold)"
+  reset=$(tput sgr0)
+  cat <<EOM
+🙋🏻‍♂️    ${green}$(whoami)${reset}${grey}@$(hostname)${reset}
+🌽    ${grey}$(uname) $(uname -r)${reset}
+🐚    ${grey}${SHELL}${reset}
+🗓     ${grey}$(date)${reset}
+EOM
 }
 
 function haskell-docs {
