@@ -283,6 +283,7 @@ function python-flags {
   export LDFLAGS
 
   env | egrep '(C|LD)FLAGS'
+  echo ./configure --prefix=$PYENV_ROOT/versions/:version --with-openssl=$(brew --prefix openssl)
 }
 
 function pyvenv {
