@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
-import random
+import secrets
 
 
 parser = argparse.ArgumentParser()
@@ -10,4 +10,4 @@ parser.add_argument("end", type=int, help="Ending number (inclusive)")
 args = parser.parse_args()
 
 lower, upper = args.start, args.end + 1
-print(random.choice(range(lower, upper)))
+print(secrets.choice(range(lower, upper)))
