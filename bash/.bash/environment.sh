@@ -2,6 +2,7 @@
 #   <http://linux.101hacks.com/ps1-examples/prompt-color-using-tput/>
 #   <http://unix.stackexchange.com/a/105932/57970>
 
+shopt -s globstar
 
 source "$(dotbash)/lib/prompt.sh"
 export PROMPT_COMMAND=_ps1
