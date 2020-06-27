@@ -348,7 +348,7 @@ function vex {
     onoe "No virtualenv in ${PWD}"
     return 1
   fi
-  env PATH="${PWD}/.bundle/bin:${PATH}" VIRTUAL_ENV="${PWD}/.bundle" $*
+  env -P "${PWD}/.bundle/bin" VIRTUAL_ENV="${PWD}/.bundle" $*
 }
 
 function vimsyn {
