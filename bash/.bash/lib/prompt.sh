@@ -54,11 +54,17 @@ function _ps1_time {
   echo -ne "\[$(tput setaf 0)$(tput bold)\]\A\[$(tput sgr0)\]"
 }
 
+function _ps1_git_branch {
+  if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) = "true" ]]; then
+    echo -ne " \[$(tput setaf 3)\ue0a0 $(git branch --show-current)$(tput sgr0)\]"
+  fi
+}
+
 function _ps1 {
   local last_exit=$?
   local custom_ps1
   if type -t _ps1_custom >/dev/null 2>&1; then
     custom_ps1=$(_ps1_custom)
   fi
-  export PS1="$(_ps1_time) $(_ps1_ssh_host)$(_ps1_pushed_dirs)$(_ps1_virtual_env)$(_ps1_cwd)\n$(_ps1_sigil) "
+  export PS1="$(_ps1_time) $(_ps1_ssh_host)$(_ps1_pushed_dirs)$(_ps1_virtual_env)$(_ps1_cwd)$(_ps1_git_branch)\n$(_ps1_sigil) "
 }
