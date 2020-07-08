@@ -8,20 +8,20 @@ for brew in ${brew_completion[@]}; do
 done
 
 bash_completion_d="$(dotbash)/completions"
-for f in $(find -H $bash_completion_d -mindepth 1); do
+for f in $(find -H $bash_completion_d -mindepth 1 -not -name .gitignore); do
   source $f
 done
 
 bash_completion_d="$(dotbash sys)/completions"
 if [ -d $bash_completion_d ]; then
-  for f in $(find -H $bash_completion_d -mindepth 1); do
+  for f in $(find -H $bash_completion_d -mindepth 1 -not -name .gitignore); do
     source $f
   done
 fi
 
 bash_completion_d="$(brew --prefix)/etc/bash_completion.d"
 if [ -d $bash_completion_d ]; then
-  for f in $(find $bash_completion_d -mindepth 1); do
+  for f in $(find $bash_completion_d -mindepth 1 -not -name .gitignore); do
     # Skip git-prompt.sh -- I don't want to source that
     if [ $(basename $f) != 'git-prompt.sh' ]; then
       source $f
