@@ -91,6 +91,17 @@ function docker-prune {
     && docker image ls
 }
 
+# Calculate the age of a dog in "dog years", based on the formula in
+# <https://mpd.im/2WeW6qZ>
+function dog-years {
+  python <<EOS
+import math
+y = int("$1")
+age = round(math.log(y) * 16 + 31)
+print("{:d}".format(age))
+EOS
+}
+
 # Reads a .env file into variables
 function dotenv {
   set -a
