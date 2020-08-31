@@ -379,6 +379,11 @@ function vv {
   type python
 }
 
+function which-sh {
+  # Inspired by <https://nil.wallyjones.com/what-shell-am-i-using/>
+  lsof -p $$ | tail -n +3 | head -n 1 | awk '{print $NF}'
+}
+
 function whither { readlink -f $(which $1); }
 
 function whois { command whois $1 | $PAGER; }
