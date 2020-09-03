@@ -257,7 +257,7 @@ function pyman {
 
 # Prints the python path
 function pypath {
-  python -c 'import sys; print("\n".join(sys.path))' \
+  python -c 'import os.path, sys; print("\n".join(map(os.path.abspath, sys.path)))' \
     | sed 's/^$/\./g'
 }
 
