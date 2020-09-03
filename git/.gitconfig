@@ -78,6 +78,8 @@
 	nuke = !sh -c 'git reset --hard HEAD~$1' -
 	on = rev-parse --abbrev-ref HEAD
 	oops = "!f() { git commit --fixup=$(git last); }; f"
+	push-name = !sh -c 'git remote get-url --push $(git push-remote) | cut -d / -f 2 | cut -d . -f 1'
+	push-remote = !sh -c 'git config branch.$(git rev-parse --abbrev-ref HEAD).remote'
 	release = !sh -c 'git diff $(git describe | cut -d - -f 1)..'
 	showtag = !sh -c 'git rev-parse $1 | xargs git cat-file -p' -
 	staged = diff --cached
