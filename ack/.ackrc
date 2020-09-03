@@ -9,10 +9,12 @@
 --ignore-dir=.eggs
 --ignore-file=is:.tags
 --ignore-file=is:.lein-repl-history
---type-set=mako:ext:mako
---type-set=ini:ext:ini
+--type-set=bat:ext:bat
 --type-set=cucumber:ext:feature
 --type-set=ddl:ext:ddl
 --type-set=glade:ext:glade
---type-set=bat:ext:bat
+--type-set=ini:ext:ini
 --type-set=jenkins:is:Jenkinsfile
+--type-set=mako:ext:mako
+--type-set=proto:ext:proto
+--type-set=pysetup:is:setup.py
