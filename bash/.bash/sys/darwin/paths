@@ -2,8 +2,8 @@ $HOME/.poetry/bin
 $HOME/.pyenv/bin
 $HOME/.rbenv/bin
 $HOME/.cabal/bin
-$HOME/.local/bin
-$HOME/.local/libexec/git
+$LOCAL/bin
+$LOCAL/libexec/git
 /usr/local/bin
 /usr/bin
 /bin

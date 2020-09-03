@@ -9,12 +9,12 @@ export PROMPT_COMMAND=_ps1
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3
 
-export PATH=$(paths-helper)
-export MANPATH=$(manpaths-helper)
-
 export LOCAL="${HOME}/.local"
 export DOTFILES="${HOME}/.dotfiles"
 export VIMFILES="${HOME}/.vimfiles"
+
+export PATH=$(paths-helper)
+export MANPATH=$(manpaths-helper)
 
 export EDITOR='vim'
 export GUI_EDITOR='mvim'
