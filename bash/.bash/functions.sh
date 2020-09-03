@@ -158,8 +158,8 @@ EOM
 
 function haskell-docs {
   mkdir -p docs
-  ln -snf $(realpath --relative-to=docs $(stack path --local-doc-root)) docs/api
-  ln -snf $(realpath --relative-to=docs $(stack path --local-hpc-root)) docs/coverage
+  ln -snfv $(realpath --relative-to=docs $(stack path --local-doc-root)) docs/api
+  ln -snfv $(realpath --relative-to=docs $(stack path --local-hpc-root)) docs/coverage
 }
 
 # Returns IP data for a given host
