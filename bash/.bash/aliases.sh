@@ -49,16 +49,5 @@ alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read
 hash jq 2>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
 hash uuid 2>/dev/null || alias uuid='/usr/bin/uuidgen'
 
-if [ $DOTBASH_OS = 'linux' ]; then
-  alias ls='ls -F --color'
-  alias mvim='gvim'
-  alias pbcopy='xclip -selection clipboard'
-  alias pbpaste='xclip -selection clipboard -o'
-
-  hash gitk 2>/dev/null && alias gitx='gitk'
-
-  unalias top
-fi
-
 [ -r "$(dotbash plat)/aliases.sh" ] && source "$(dotbash plat)/aliases.sh"
 [ -r "$(dotbash)/aliases.user.sh" ] && source "$(dotbash)/aliases.user.sh"
