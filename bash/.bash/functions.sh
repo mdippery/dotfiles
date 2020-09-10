@@ -86,9 +86,9 @@ function covid19 {
 }
 
 function docker-prune {
-  yes \
-    | (docker container prune && docker image prune) \
-    && docker image ls
+  docker container prune -f
+  docker image prune -f
+  docker image ls
 }
 
 # Calculate the age of a dog in "dog years", based on the formula in
