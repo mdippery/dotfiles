@@ -41,7 +41,6 @@ alias t='type'
 alias tab='column -t'
 alias tg='tmux a'
 alias top='top -o cpu'
-alias uuid='/usr/bin/uuidgen'
 alias vundle='vim +PluginInstall +qall'
 alias w='which'
 alias weather='curl wttr.in'
@@ -49,6 +48,7 @@ alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read
 alias whichsh='echo $0'
 
 hash jq 2>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
+hash uuid 2>/dev/null || alias uuid='/usr/bin/uuidgen'
 
 if [ $DOTBASH_OS = 'linux' ]; then
   alias ls='ls -F --color'
