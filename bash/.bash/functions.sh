@@ -379,7 +379,7 @@ function vv {
   type python
 }
 
-function which-sh {
+function whichsh {
   # Inspired by <https://nil.wallyjones.com/what-shell-am-i-using/>
   lsof -p $$ | tail -n +3 | head -n 1 | awk '{print $NF}'
 }

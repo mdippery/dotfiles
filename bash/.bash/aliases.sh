@@ -45,7 +45,6 @@ alias vundle='vim +PluginInstall +qall'
 alias w='which'
 alias weather='curl wttr.in'
 alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"
-alias whichsh='echo $0'
 
 hash jq 2>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
 hash uuid 2>/dev/null || alias uuid='/usr/bin/uuidgen'
