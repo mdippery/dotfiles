@@ -31,7 +31,7 @@ alias p='pushd'
 alias path='echo $PATH | tr ":" "\n"'
 alias pe='printenv'
 alias pyack='ack --type=python'
-alias pytree='tree -I __pycache__'
+alias pytree="tree -I '__pycache__|*.egg-info'"
 alias Q='echo $OLDPWD'
 alias q='cd -'
 alias rh='runhaskell'
