@@ -75,6 +75,7 @@
 	hide = update-index --assume-unchanged
 	info = config --list
 	last = log --grep='^fixup!' --invert-grep --pretty=tformat:%h -n 1
+	latest-tag = describe --abbrev=0
 	nuke = !sh -c 'git reset --hard HEAD~$1' -
 	on = rev-parse --abbrev-ref HEAD
 	oops = "!f() { git commit --fixup=$(git last); }; f"
