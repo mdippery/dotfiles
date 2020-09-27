@@ -1,0 +1,18 @@
+#!/bin/bash
+
+repo=$1
+repo_name=$(basename $repo)
+out_dir=${2:-$(pwd)}
+
+cd $out_dir
+git clone $repo
+
+pushd $repo_name
+git remote rm origin
+
+popd
+tar czf $repo_name.tgz $repo_name
+rm -rf $repo_name
+tar tf $repo_name
+
+rm -rf $repo
