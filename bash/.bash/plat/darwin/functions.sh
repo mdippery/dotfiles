@@ -1,13 +1,14 @@
-# Sometimes Xcode upgrades don't install header files in /usr/include properly
-function install-missing-headers {
-  local dir=/Library/Developer/CommandLineTools/Packages
-  local pkg=$(ls -t1 $dir | head -n 1)
-  open "$dir/$pkg"
+function include_path {
+  echo $(xcrun --show-sdk-path)/usr/include
 }
 
 function ldd {
   onoe 'I think you mean `otool [-L]`'
   return 1
+}
+
+function ls-include {
+  ls $* $(include_path)
 }
 
 # Rebuilds the LaunchServices database. Useful for removing
