@@ -32,7 +32,7 @@ alias path='echo $PATH | tr ":" "\n"'
 alias pe='printenv'
 alias pyack='ack --type=python'
 alias pydoc='python -m pydoc'
-alias pytree="tree -I '__pycache__|*.egg-info'"
+alias pytree="tree -I '__pycache__|*.pyc|*.egg-info'"
 alias Q='echo $OLDPWD'
 alias q='cd -'
 alias rh='runhaskell'
