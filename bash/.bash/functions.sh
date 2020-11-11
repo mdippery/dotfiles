@@ -326,6 +326,10 @@ function term-title { echo -ne "\033]0;$1\007"; }
 
 function trim { cut -c-$(tput cols); }
 
+function unixtime {
+  python -c "import time; print(time.asctime(time.localtime($1)))"
+}
+
 function update-docs {
   local path bucket
   path=$2
