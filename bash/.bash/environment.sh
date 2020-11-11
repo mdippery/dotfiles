@@ -26,6 +26,7 @@ export LESS='R'
 export ANSIBLE_NOCOWS=1
 export CLICOLOR_FORCE=true
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
+export CUCUMBER_PUBLISH_QUIET=true
 export DJANGO_DEBUG=true
 export FIGNORE='DS_Store'
 export GPG_TTY=$(tty)
