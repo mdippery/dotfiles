@@ -1,3 +1,4 @@
 ---
 BUNDLE_BUILD__EVENTMACHINE: "--with-cppflags=-I/usr/local/opt/openssl/include"
+BUNDLE_BUILD__THIN: "--with-cflags='-Wno-error=implicit-function-declaration'"
 BUNDLE_GIT__ALLOW_INSECURE: "true"
