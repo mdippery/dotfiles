@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+import datetime as dt
+import argparse as ap
+
+
+date = dt.date.fromisoformat
+
+parser = ap.ArgumentParser(description="Calculate the difference between two dates.")
+parser.add_argument("-s", "--start", dest="start", type=date, required=True, help="Starting date")
+parser.add_argument("-e", "--end", dest="end", type=date, default=dt.date.today(), help="Ending date")
+
+args = parser.parse_args()
+
+delta = args.end - args.start
+print(delta.days)
