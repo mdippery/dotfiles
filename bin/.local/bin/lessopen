@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# To use this filter, place it somewhere in your $PATH and set your
+# $LESSOPEN environment variable to `|lessopen %s`.
+
+if [ -d "$1" ]; then
+  ls -l "$1"
+  exit 0
+fi
