@@ -34,6 +34,7 @@ export GREP_OPTIONS='--color'
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_EMOJI=1
+export LESSOPEN="|${LOCAL}/bin/lessopen %s"
 export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
 export PIPENV_VENV_IN_PROJECT=true
 export TOX_WORKDIR_CACHE="${HOME}/Library/Caches/tox"
