@@ -3,7 +3,7 @@ brew_completion=(
   Homebrew/completions/bash/brew
 )
 for brew in ${brew_completion[@]}; do
-  brew="$(brew --prefix)/$brew"
+  brew="${BREW_PREFIX}/$brew"
   [ -r $brew ] && source $brew
 done
 
@@ -21,7 +21,7 @@ fi
 
 bash_completion_d=(bash_completion profile)
 for d in ${bash_completion_d[@]}; do
-  d="$(brew --prefix)/etc/${d}.d"
+  d="${BREW_PREFIX}/etc/${d}.d"
   if [ -d $d ]; then
     for f in $(find $d -mindepth 1 -not -name .gitignore); do
       # Skip git-prompt.sh -- I don't want to source that
@@ -31,8 +31,6 @@ for d in ${bash_completion_d[@]}; do
     done
   fi
 done
-
-bash_completion_d="$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
 unset brew
 unset brew_completion

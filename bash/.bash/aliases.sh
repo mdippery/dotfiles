@@ -23,7 +23,7 @@ alias ls='ls -FG'
 alias mate='mate -r'
 alias md='open -a /Applications/Byword.app'
 alias mkdir='mkdir -p'
-alias mongod="mongod -f $(brew --prefix)/etc/mongod.conf"
+alias mongod="mongod -f ${BREW_PREFIX}/etc/mongod.conf"
 alias myip='curl icanhazip.com'
 alias nth-line='grab-line'
 alias o='popd 2>/dev/null || cd -'
@@ -46,7 +46,7 @@ alias top='top -o cpu'
 alias vundle='vim +PluginInstall +qall'
 alias w='which'
 alias weather='curl wttr.in'
-alias which="(alias ; declare -f) | $(brew --prefix)/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"
+alias which="(alias ; declare -f) | ${BREW_PREFIX}/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde"
 
 hash jq 2>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
 hash uuid 2>/dev/null || alias uuid='/usr/bin/uuidgen'

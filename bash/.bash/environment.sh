@@ -42,5 +42,7 @@ export TOX_WORKDIR_CACHE="${HOME}/Library/Caches/tox"
 [ -x /usr/libexec/java_home ] && \
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
 
+hash brew 2>/dev/null && export BREW_PREFIX=$(brew --prefix)
+
 [ -r "$(dotbash plat)/environment.sh" ] && source "$(dotbash plat)/environment.sh"
 [ -r "$(dotbash)/environment.user.sh" ] && source "$(dotbash)/environment.user.sh"
