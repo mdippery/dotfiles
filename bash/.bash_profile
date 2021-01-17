@@ -1,2 +1,2 @@
 [ -r ~/.bashrc ] && source ~/.bashrc
-greet
+greet 2>/dev/null || greet_shell
