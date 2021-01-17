@@ -19,13 +19,14 @@ function python_major_version {
 
 source "$(dotbash)/lib/dots.sh"
 source "$(dotbash)/lib/paths.sh"
+source "$(dotbash)/lib/greet.sh"
 
 # Recreate behavior of GNU `readlink` on OS X
 # Some of the bash config scripts expect `readlink -f` to work on OS X
 # the same way it does on Linux.
 if [ $DOTBASH_OS = 'darwin' ]; then
   if hash greadlink 2>/dev/null; then
-    alias readlink='greadlink'
+    alias readlink=greadlink
   else
     source "$(dotbash)/lib/readlink.sh"
   fi

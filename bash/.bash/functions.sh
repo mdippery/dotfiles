@@ -143,19 +143,6 @@ function get-pip { wget https://bootstrap.pypa.io/get-pip.py; }
 
 function grab-line { sed -n "$1 p"; }
 
-function greet {
-  local green grey reset
-  green="$(tput setaf 2)"
-  grey="$(tput setaf 0)$(tput bold)"
-  reset=$(tput sgr0)
-  cat <<EOM
-🙋🏻‍♂️    ${green}$(whoami)${reset}${grey}@$(hostname)${reset}
-🌽    ${grey}$(uname) $(uname -r)${reset}
-🐚    ${grey}${SHELL}${reset}
-🗓     ${grey}$(date)${reset}
-EOM
-}
-
 function haskell-docs {
   mkdir -p docs
   ln -snfv $(realpath --relative-to=docs $(stack path --local-doc-root)) docs/api
