@@ -59,6 +59,7 @@
 	lf = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%aN]" --date=relative --name-status
 	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%aN]" --date=relative
 	ol = log --oneline --decorate
+	ph = push -u github HEAD
 	rb = rebase
 	ri = rebase -i
 	rv = revert
