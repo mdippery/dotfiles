@@ -1,3 +1,7 @@
+function binld {
+  otool -L $(which $1)
+}
+
 function include_path {
   echo $(xcrun --show-sdk-path)/usr/include
 }
