@@ -9,8 +9,16 @@ date = dt.date.fromisoformat
 parser = ap.ArgumentParser(description="Calculate the difference between two dates.")
 parser.add_argument("-s", "--start", dest="start", type=date, required=True, help="Starting date")
 parser.add_argument("-e", "--end", dest="end", type=date, default=dt.date.today(), help="Ending date")
+parser.add_argument("-l", "--ls", dest="list_dates", action="store_true", help="List all dates in range")
 
 args = parser.parse_args()
 
 delta = args.end - args.start
-print(delta.days)
+
+if args.list_dates:
+    d = args.start
+    while d <= args.end:
+        print(d)
+        d += dt.timedelta(days=1)
+else:
+    print(delta.days)
