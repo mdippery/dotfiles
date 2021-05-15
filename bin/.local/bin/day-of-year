@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+
+import datetime
+import sys
+
+
+try:
+    now = sys.argv[1]
+except IndexError:
+    now = datetime.date.today()
+else:
+    try:
+        now = datetime.datetime.strptime(now, '%Y-%m-%d').date()
+    except ValueError:
+        print('Invalid date: {}'.format(now), file=sys.stderr)
+        sys.exit(65)
+
+print(now.strftime('%j').lstrip('0'))
