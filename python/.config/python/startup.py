@@ -5,16 +5,19 @@ import rlcompleter
 import sys
 
 try:
-    startup_py = os.path.dirname(__file__)
+    startup_py = __file__
+    py_config_home = os.path.dirname(py_config_home)
 except NameError:
-    xdg_config_home = os.environ.get("XDG_CONFIG_HOME", "~/.config/python")
+    xdg_config_home = os.environ.get("XDG_CONFIG_HOME", "~/.config")
     xdg_config_home = os.path.expanduser(xdg_config_home)
-    startup_py = os.path.join(xdg_config_home, "startup.py")
+    py_config_home = os.path.join(xdg_config_home, "python")
+    startup_py = os.path.join(py_config_home, "startup.py")
 
 IS_PY3 = sys.version_info[0] == 3
 HISTORY_EXT = '.py3' if IS_PY3 else ''
 HISTORY_BASE = 'history{}'.format(HISTORY_EXT)
-HISTORY = os.path.abspath(os.path.join(os.path.dirname(startup_py), HISTORY_BASE))
+HISTORY = os.path.abspath(os.path.join(py_config_home, HISTORY_BASE))
+print("History file is {}.".format(HISTORY))
 
 if IS_PY3:
     sys.ps1 = "\u27a5  "
