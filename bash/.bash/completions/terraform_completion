@@ -1,0 +1,1 @@
+[ -x /usr/local/bin/terraform ] && complete -C /usr/local/bin/terraform terraform
