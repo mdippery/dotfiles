@@ -1,1 +1,2 @@
 [ -x /usr/local/bin/terraform ] && complete -C /usr/local/bin/terraform terraform
+[ -x /usr/local/bin/terraform ] && complete -C /usr/local/bin/terraform tf

@@ -41,6 +41,7 @@ alias ssh-reset="printf '\e]0;\a'"
 alias t='type'
 alias ta='tmux attach'
 alias tab='column -t'
+alias tf='terraform'
 alias tg='tmux a'
 alias top='top -o cpu'
 alias vundle='vim +PluginInstall +qall'
