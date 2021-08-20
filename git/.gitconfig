@@ -3,6 +3,8 @@
 	email = michael@monkey-robot.com
 [core]
 	excludesfile = ~/.config/git/ignore
+[init]
+	defaultBranch = master
 [apply]
 	whitespace = nowarn
 [color]
