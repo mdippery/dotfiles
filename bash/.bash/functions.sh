@@ -430,3 +430,5 @@ function xdg {
 
 [ -r "$(dotbash plat)/functions.sh" ] && source "$(dotbash plat)/functions.sh"
 [ -r "$(dotbash)/functions.user.sh" ] && source "$(dotbash)/functions.user.sh"
+
+# vim: set ft=bash :
