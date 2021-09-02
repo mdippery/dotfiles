@@ -270,6 +270,12 @@ function python-flags {
   echo ./configure --prefix=$PYENV_ROOT/versions/:version --with-openssl=$(brew --prefix openssl)
 }
 
+# List all direct dependencies for a package
+function python-requires {
+  python setup.py egg_info >/dev/null 2>&1
+  cat *.egg-info/requires.txt
+}
+
 function pyvenv {
   local cmd
   if [ $(python_major_version) == 3 ]; then
