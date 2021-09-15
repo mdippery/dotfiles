@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source=$1
+dest=${2:-HEAD}
+source_hash=$(git rev-parse $source)
+base=$(git merge-base $source $dest)
+
+if [[ $source_hash == $base ]]; then
+  echo $source has been merged into $dest
+else
+  echo $source has not been merged into $dest
+  exit 1
+fi
