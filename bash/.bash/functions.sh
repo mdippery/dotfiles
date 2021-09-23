@@ -76,6 +76,13 @@ function colors {
   done
 }
 
+# Via <https://github.com/cookiecutter/cookiecutter/issues/784#issuecomment-283529086>
+function cookiecutter-apply {
+  local repo_url
+  repo_url=$1
+  cookiecutter --output-dir=.. --config-file=.cookiecutter.yaml --no-input --overwrite-if-exists $repo_url
+}
+
 function covid19 {
   local code=${1:-us}
   if [ $code = '--help' -o $code == '-h' ]; then
