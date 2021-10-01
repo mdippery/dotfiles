@@ -327,7 +327,13 @@ function showcert {
     | openssl x509 -inform pem -noout -text
 }
 
-function term-title { echo -ne "\033]0;$1\007"; }
+function term-title {
+  if [[ $1 == --reset ]]; then
+    echo -ne "\033]0;\007"
+  else
+    echo -ne "\033]0;$1\007"
+  fi
+}
 
 function trim { cut -c-$(tput cols); }
 
