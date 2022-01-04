@@ -231,6 +231,11 @@ function pip-outdated {
 # Opens a man page in Preview
 function pman { man -t $1 | open -f -a /Applications/Preview.app; }
 
+# Pretty-print the current env
+function ppenv {
+  command env | sort | column -s = -t
+}
+
 # Removes .pyc files
 function pyclean {
   local dir=.
