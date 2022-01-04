@@ -301,7 +301,7 @@ function pyvenv {
 
 # Lists all repositories on my private Git server
 function remote-repos {
-  ssh git@git.mipadi.com "find . -name '*.git' -type d | cut -c 3-"
+  ssh git@git.mipadi.com "find . -name '*.git' -type d | cut -c 3- | sort"
 }
 
 # Repeats a character a given number of times
