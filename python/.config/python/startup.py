@@ -47,3 +47,9 @@ try:
     del xdg_config_home
 except NameError:
     pass
+
+try:
+    from rich import pretty, print, inspect
+    pretty.install()
+except ImportError:
+    pass
