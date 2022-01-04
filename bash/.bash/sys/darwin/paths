@@ -1,5 +1,6 @@
 $HOME/.poetry/bin
 $HOME/.pyenv/bin
+$HOME/.pyenv/shims
 $HOME/.rbenv/bin
 $HOME/.cabal/bin
 $LOCAL/bin
