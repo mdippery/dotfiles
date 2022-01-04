@@ -38,6 +38,7 @@ export LESSOPEN="|${LOCAL}/bin/lessopen %s"
 export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
 export PIPENV_VENV_IN_PROJECT=true
 export TOX_WORKDIR_CACHE="${HOME}/Library/Caches/tox"
+export TF_PLUGIN_CACHE_DIR="${XDG_CONFIG_HOME}/terraform/plugins"
 
 [ -x /usr/libexec/java_home ] && \
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
