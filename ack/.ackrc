@@ -20,4 +20,5 @@
 --type-set=mako:ext:mako
 --type-set=proto:ext:proto
 --type-set=pysetup:is:setup.py
+--type-set=tf:ext:tf
 --type-set=vagrant:is:Vagrantfile
