@@ -7,6 +7,7 @@
 --ignore-dir=.stack-work
 --ignore-dir=.tox
 --ignore-dir=.eggs
+--ignore-dir=.terraform
 --ignore-file=is:.tags
 --ignore-file=is:.lein-repl-history
 --type-set=bat:ext:bat
