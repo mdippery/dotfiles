@@ -1,6 +1,7 @@
 .DS_Store
 .nfs*
 /.bundle/
+/.env
 /.python-version
 /.tags
 /.venv/
