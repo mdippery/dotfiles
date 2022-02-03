@@ -213,6 +213,16 @@ function man {
     man "$@"
 }
 
+# Runs the manylinux Docker container for building Python packages
+# From <https://github.com/pypa/auditwheel>
+# See <https://quay.io/organization/pypa> for possible images.
+function manylinux {
+  local image
+  # image=${MANYLINUX_IMAGE:-manylinux_2_24_x86_64}
+  image=${MANYLINUX_IMAGE:-manylinux2014_x86_64}
+  docker run --rm -it -v $(pwd):/io quay.io/pypa/$image /bin/bash
+}
+
 # Creates a new folder and cd's into it
 function mkcd {
   mkdir -pv "${1:?}" && cd "$1"
