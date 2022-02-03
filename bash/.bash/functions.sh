@@ -112,7 +112,7 @@ EOS
 # Reads a .env file into variables
 function dotenv {
   set -a
-  source .env
+  source ${1:-.env}
   set +a
 }
 
