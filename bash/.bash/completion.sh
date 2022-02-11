@@ -1,6 +1,7 @@
 brew_completion=(
   Library/Contributions/brew_bash_completion.sh
   Homebrew/completions/bash/brew
+  completions/bash/brew
 )
 for brew in ${brew_completion[@]}; do
   brew="${BREW_PREFIX}/$brew"

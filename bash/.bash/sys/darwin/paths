@@ -14,4 +14,4 @@ $LOCAL/libexec/git
 /sbin
 /Library/TeX/texbin
 /opt/X11/bin
-$(brew --prefix gettext)/bin
+$(brew --prefix gettext 2>/dev/null || echo /opt/homebrew/opt/gettext)/bin
