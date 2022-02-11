@@ -5,6 +5,7 @@ $HOME/.rbenv/bin
 $HOME/.cabal/bin
 $LOCAL/bin
 $LOCAL/libexec/git
+/opt/homebrew/bin
 /usr/local/bin
 /usr/bin
 /bin
