@@ -409,6 +409,16 @@ function vv {
   type python
 }
 
+function which {
+  local which_prefix
+  if [ -x ${BREW_PREFIX}/bin/which ]; then
+    which_prefix=${BREW_PREFIX}/bin
+  else
+    which_prefix=${BREW_PREFIX}/opt/gnu-which/libexec/gnubin
+  fi
+  (alias ; declare -f) | $which_prefix/which --tty-only --read-alias --read-functions --show-dot --show-tilde $*
+}
+
 function whichsh {
   # Inspired by <https://nil.wallyjones.com/what-shell-am-i-using/>
   lsof -p $$ | tail -n +3 | head -n 1 | awk '{print $NF}'
