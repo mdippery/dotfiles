@@ -33,6 +33,8 @@ for d in ${bash_completion_d[@]}; do
   fi
 done
 
+hash stack 2>/dev/null && eval "$(stack --bash-completion-script stack)"
+
 unset brew
 unset brew_completion
 unset bash_completion_d
