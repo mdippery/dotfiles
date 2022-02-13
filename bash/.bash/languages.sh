@@ -27,4 +27,5 @@ if hash node 2>/dev/null; then
   fi
 fi
 
+[ -r "${XDG_DATA_HOME}/ghcup/env" ] && source "${XDG_DATA_HOME}/ghcup/env"
 [ -r "$(dotbash)/languages.user.sh" ] && source "$(dotbash)/languages.user.sh"
