@@ -39,6 +39,7 @@ export NETHACKOPTIONS=''                        # MacBook doesn't have a numberp
 export PIPENV_VENV_IN_PROJECT=true
 export TOX_WORKDIR_CACHE="${HOME}/Library/Caches/tox"
 export TF_PLUGIN_CACHE_DIR="${XDG_CONFIG_HOME}/terraform/plugins"
+export GHCUP_USE_XDG_DIRS=true
 
 [ -x /usr/libexec/java_home ] && \
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
