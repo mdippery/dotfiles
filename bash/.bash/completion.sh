@@ -8,17 +8,10 @@ for brew in ${brew_completion[@]}; do
   [ -r $brew ] && source $brew
 done
 
-bash_completion_d="$(dotbash)/completions"
+bash_completion_d="${DOTBASH}/completions"
 for f in $(find -H $bash_completion_d -mindepth 1 -not -name .gitignore); do
   source $f
 done
-
-bash_completion_d="$(dotbash sys)/completions"
-if [ -d $bash_completion_d ]; then
-  for f in $(find -H $bash_completion_d -mindepth 1 -not -name .gitignore); do
-    source $f
-  done
-fi
 
 bash_completion_d=(bash_completion profile)
 for d in ${bash_completion_d[@]}; do
@@ -41,4 +34,4 @@ unset bash_completion_d
 unset d
 unset f
 
-[ -r "$(dotbash)/completion.user.sh" ] && source "$(dotbash)/completion.user.sh"
+[ -r "${DOTBASH}/completion.user.sh" ] && source "${DOTBASH}/completion.user.sh"

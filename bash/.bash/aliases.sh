@@ -53,5 +53,5 @@ alias weather='curl wttr.in'
 hash jq 2>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
 hash uuid 2>/dev/null || alias uuid='/usr/bin/uuidgen'
 
-[ -r "$(dotbash plat)/aliases.sh" ] && source "$(dotbash plat)/aliases.sh"
-[ -r "$(dotbash)/aliases.user.sh" ] && source "$(dotbash)/aliases.user.sh"
+[ -r "${DOTBASH_OS}/aliases.sh" ] && source "${DOTBASH_OS}/aliases.sh"
+[ -r "${DOTBASH}/aliases.user.sh" ] && source "${DOTBASH}/aliases.user.sh"
