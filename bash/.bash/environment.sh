@@ -12,12 +12,7 @@ export PROMPT_DIRTRIM=3
 export DOTFILES="${HOME}/.dotfiles"
 export VIMFILES="${HOME}/.vimfiles"
 
-[ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:${PATH}"
-export PATH="${XDG_BIN_HOME}:$(dirname $XDG_BIN_HOME)/libexec/git:${PATH}"
-[ -d /Library/TeX/texbin ] && export PATH="${PATH}:/Library/TeX/texbin"
-[ -d /opt/X11/bin ] && export PATH="${PATH}:/opt/X11/bin"
-brew --prefix gnu-which >/dev/null 2>&1 && export PATH="${PATH}:$(brew --prefix gnu-which)/libexec/gnubin"
-brew --prefix gettext >/dev/null 2>&1 && export PATH="${PATH}:$(brew --prefix gettext)/bin"
+export PATH=$(paths-helper)
 
 export EDITOR=vim
 export GUI_EDITOR=mvim
