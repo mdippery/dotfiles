@@ -39,6 +39,7 @@ export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
 export CUCUMBER_PUBLISH_QUIET=true
 export DJANGO_DEBUG=true
 export FIGNORE='.terraform:.DS_Store'
+export GHCUP_USE_XDG_DIRS=true
 export GPG_TTY=$(tty)
 export GREP_OPTIONS='--color'
 export LESSOPEN="|${XDG_BIN_HOME}/lessopen %s"
@@ -46,7 +47,6 @@ export NETHACKOPTIONS=''                        # MacBook doesn't have a numberp
 export PIPENV_VENV_IN_PROJECT=true
 export TOX_WORKDIR_CACHE="${XDG_CACHE_HOME}/tox"
 export TF_PLUGIN_CACHE_DIR="${XDG_CONFIG_HOME}/terraform/plugins"
-export GHCUP_USE_XDG_DIRS=true
 
 [ -x /usr/libexec/java_home ] && \
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
