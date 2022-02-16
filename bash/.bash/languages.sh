@@ -1,17 +1,17 @@
-if hash rbenv 2>/dev/null; then
-  export PATH="${HOME}/.rbenv_bin:${PATH}"
+if [ -d ~/.rbenv ]; then
+  export PATH="${HOME}/.rbenv/bin:${PATH}"
   eval "$(rbenv init -)"
   export RUBY_VERSION=$(rbenv version | awk '{print $1}')
 fi
 
-if hash pyenv 2>/dev/null; then
+if [ -d ~/.pyenv ]; then
   export PYENV_ROOT="${HOME}/.pyenv"
   export PATH="${PYENV_ROOT}/bin:${PATH}"
-  evan "$(pyenv init --path)"
+  eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
   alias pyw='pyenv which'
 fi
-[ -d "${HOME}/.poetry/bin" ] && export PATH="${HOME}/.poetry/bin:${PATH}"
+[ -r ~/.poetry/env ] && source ~/.poetry/env
 export PYTHONSTARTUP="$(xdg config-home)/python/startup.py"
 
 if [ -d ~/.go/go ]; then
