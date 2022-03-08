@@ -1,0 +1,10 @@
+#!/bin/bash
+
+SEP=$(echo 2B | xxd -r -p)
+
+git for-each-ref \
+    --sort=authordate \
+    --format="%(refname:short)$SEP%(authordate:relative)$SEP%(authorname)$SEP%(contents:subject)" \
+    refs/remotes/github/ \
+  | cut -d / -f 2- \
+  | column -t -s $SEP
