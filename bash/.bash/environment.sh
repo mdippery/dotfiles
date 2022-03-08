@@ -48,6 +48,8 @@ export TF_PLUGIN_CACHE_DIR="${XDG_CACHE_HOME}/terraform/plugins"
 
 hash brew 2>/dev/null && export BREW_PREFIX=$(brew --prefix)
 
+mkdir -p "$TF_PLUGIN_CACHE_DIR"
+
 [ -r "${DOTBASH_OS}/environment.sh" ] && source "${DOTBASH_OS}/environment.sh"
 [ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
 
