@@ -277,10 +277,10 @@ function pyprefix {
 
 function python-flags {
   local pkgs
-  pkgs='openssl sqlite3 zlib'
-  CFLAGS=''
+  pkgs='libffi openssl sqlite3 xz zlib'
+  CFLAGS=-I$(brew --prefix)/include
   for pkg in $pkgs; do
-    CFLAGS="${CFLAGS}-I$(brew --prefix $pkg)/include "
+    CFLAGS="${CFLAGS} -I$(brew --prefix $pkg)/include"
   done
   CFLAGS=$(echo $CFLAGS | sed -e 's/ $//')
   LDFLAGS=$(echo $CFLAGS | tr 'I' 'L' | ruby -e 'puts STDIN.read.chomp.gsub(/\/include/, "/lib")')
@@ -288,8 +288,15 @@ function python-flags {
   export CFLAGS
   export LDFLAGS
 
+  local system_ffi=yes
+  if [ $(arch) = arm64 ]; then system_ffi=no; fi
+
   env | egrep '(C|LD)FLAGS'
-  echo ./configure --prefix=$PYENV_ROOT/versions/:version --with-openssl=$(brew --prefix openssl)
+  echo ./configure \
+    --prefix=$PYENV_ROOT/versions/\$version \
+    --with-openssl=$(brew --prefix openssl) \
+    --with-system-ffi=$system_ffi \
+    --with-system-libmpdec
 }
 
 # List all direct dependencies for a package
