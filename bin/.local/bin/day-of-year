@@ -1,18 +1,35 @@
 #!/usr/bin/env python
 
-import datetime
-import sys
+import argparse as ap
+import datetime as dt
 
 
-try:
-    now = sys.argv[1]
-except IndexError:
-    now = datetime.date.today()
+def date(value):
+    if isinstance(value, str):
+        return dt.datetime.strptime(value, "%Y-%m-%d").date()
+    return value
+
+
+def day_of_year(date):
+    return int(args.date.strftime("%j"))
+
+
+def total_days(date):
+    start = dt.date(date.year, 1, 1)
+    end = dt.date(date.year + 1, 1, 1)
+    return (end - start).days
+
+
+parser = ap.ArgumentParser(description="Calculate the day of the year.")
+parser.add_argument("-p", "--print-percentage", action='store_true', help="calculate the percentage of the year instead")
+parser.add_argument("date", type=date, default=dt.date.today(), nargs='?', help="the date")
+
+args = parser.parse_args()
+
+print(day_of_year(args.date), end="")
+
+if args.print_percentage:
+    p = float(day_of_year(args.date)) / float(total_days(args.date))
+    print(" {:.0f}%".format(p * 100))
 else:
-    try:
-        now = datetime.datetime.strptime(now, '%Y-%m-%d').date()
-    except ValueError:
-        print('Invalid date: {}'.format(now), file=sys.stderr)
-        sys.exit(65)
-
-print(now.strftime('%j').lstrip('0'))
+    print()
