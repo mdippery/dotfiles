@@ -404,18 +404,6 @@ function vimsyn {
   find $(binroot vim)/share/vim/vim${ver}/syntax -name '*.vim' -exec basename {} \;
 }
 
-function vv {
-  if [ ! -d .bundle ]; then
-    onoe "No virtualenv in $(pwd)"
-    return 1
-  fi
-  local vpath="$(pwd)/.bundle"
-  export VIRTUAL_ENV="${vpath}"
-  export PATH="${vpath}/bin:${PATH}"
-  unset ANSIBLE_LIBRARY
-  type python
-}
-
 function which {
   local which_prefix
   if [ -x ${BREW_PREFIX}/bin/which ]; then
