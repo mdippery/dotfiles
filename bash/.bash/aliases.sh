@@ -31,6 +31,7 @@ alias o='popd 2>/dev/null || cd -'
 alias p='pushd'
 alias path='echo $PATH | tr ":" "\n"'
 alias pe='printenv'
+alias penv='env | sort | column -s= -t'
 alias pyack='ack --type=python'
 alias pydoc='python -m pydoc'
 alias pytree="tree -I '__pycache__|*.pyc|*.egg-info'"
