@@ -1,4 +1,5 @@
 import atexit
+import os
 import os.path
 import readline
 import rlcompleter
@@ -8,7 +9,7 @@ try:
     startup_py = __file__
     py_config_home = os.path.dirname(py_config_home)
 except NameError:
-    xdg_config_home = os.environ.get("XDG_CONFIG_HOME", "~/.config")
+    xdg_config_home = os.environ.get("XDG_CACHE_HOME", "~/.cache")
     xdg_config_home = os.path.expanduser(xdg_config_home)
     py_config_home = os.path.join(xdg_config_home, "python")
     startup_py = os.path.join(py_config_home, "startup.py")
