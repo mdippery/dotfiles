@@ -92,6 +92,10 @@ function covid19 {
   curl https://covid19tracker.xyz/$code
 }
 
+function docker-arch {
+  docker inspect $1 | jq .[0].Architecture | tr -d '"'
+}
+
 function docker-prune {
   docker container prune -f
   docker image prune -f
