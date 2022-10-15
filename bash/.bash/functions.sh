@@ -96,6 +96,10 @@ function docker-arch {
   docker inspect $1 | jq .[0].Architecture | tr -d '"'
 }
 
+function docker-inspect {
+  docker inspect $1 | jq -C . | less -S
+}
+
 function docker-prune {
   docker container prune -f
   docker image prune -f
