@@ -40,6 +40,7 @@ export GREP_OPTIONS='--color'
 export LESSOPEN="|${XDG_BIN_HOME}/lessopen %s"
 export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
 export PIPENV_VENV_IN_PROJECT=true
+export PYTHONDONTWRITEBYTECODE=1
 export TOX_WORKDIR_CACHE="${XDG_CACHE_HOME}/tox"
 export TF_PLUGIN_CACHE_DIR="${XDG_CACHE_HOME}/terraform/plugins"
 
