@@ -309,6 +309,10 @@ function python-requires {
   cat *.egg-info/requires.txt
 }
 
+function pytree {
+  find $1 -name '*.py' | tree --fromfile .
+}
+
 function pyvenv {
   local cmd
   if [ $(python_major_version) == 3 ]; then
