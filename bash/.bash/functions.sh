@@ -365,6 +365,11 @@ function term-title {
   fi
 }
 
+function touchp {
+  mkdir -p $(dirname $1)
+  touch $1
+}
+
 function trim { cut -c-$(tput cols); }
 
 function unixtime {
