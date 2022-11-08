@@ -369,6 +369,17 @@ function term-title {
   fi
 }
 
+function tfcd {
+  local cmd
+  if [[ $1 == -n ]]; then
+    cmd=cd
+  else
+    cmd=pushd
+  fi
+  shift
+  $cmd $(git rev-parse --show-toplevel)
+}
+
 function touchp {
   mkdir -p $(dirname $1)
   touch $1
