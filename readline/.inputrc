@@ -1,2 +1,4 @@
 set mark-symlinked-directories on
 set show-all-if-ambiguous on
+set colored-stats on
+# set mark-directories off
