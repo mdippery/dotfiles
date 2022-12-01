@@ -4,7 +4,7 @@ function greet {
   grey="$(tput setaf 0)$(tput bold)"
   reset=$(tput sgr0)
   cat <<EOM
-🙋🏻‍♂️    ${green}$(whoami)${reset}${grey}@$(hostname)${reset}
+🤓    ${green}$(whoami)${reset}${grey}@$(hostname)${reset}
 🌽    ${grey}$(uname) $(uname -r)${reset}
 🐚    ${grey}${SHELL}${reset}
 🗓     ${grey}$(date)${reset}
