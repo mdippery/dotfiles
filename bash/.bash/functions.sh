@@ -371,10 +371,10 @@ function term-title {
 
 function tfcd {
   local cmd
-  if [[ $1 == -n ]]; then
-    cmd=cd
-  else
+  if [[ $1 == -p ]]; then
     cmd=pushd
+  else
+    cmd=cd
   fi
   shift
   $cmd $(git rev-parse --show-toplevel)
