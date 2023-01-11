@@ -2,17 +2,17 @@ function paths-helper {
   local BREW RAW_PATH
   local homebrew texbin x11bin whichbin gettext
 
-  if [ -d /opt/homebrew/bin ]; then
-    BREW=/opt/homebrew/bin/brew
+  if [ $(uname -m) = arm64 ]; then
+    homebrew=/opt/homebrew/bin
+    BREW=${homebrew}/brew
   else
-    BREW=brew
+    BREW=/usr/local/bin/brew
   fi
 
-  [ -d /opt/homebrew/bin ] && homebrew=/opt/homebrew/bin
   [ -d /Library/TeX/texbin ] && texbin=/Library/TeX/texbin
   [ -d /opt/X11/bin ] && x11bin=/opt/X11/bin
-  $BREW --prefix --installed >/dev/null 1>&1 gnu-which && whichbin=$($BREW --prefix gnu-which)/libexec/gnubin
-  $BREW --prefix --installed >/dev/null 1>&1 gettext && gettext=$($BREW --prefix gettext)/bin
+  $BREW --prefix --installed gnu-which >/dev/null 1>&1 gnu-which && whichbin=$($BREW --prefix gnu-which)/libexec/gnubin
+  $BREW --prefix --installed gettext >/dev/null 1>&1 gettext && gettext=$($BREW --prefix gettext)/bin
 
   RAW_PATH=$(cat <<EOS
 $XDG_BIN_HOME
