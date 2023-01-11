@@ -21,7 +21,12 @@ export HOMEBREW_EDITOR=$GUI_EDITOR
 export PAGER=/usr/bin/less
 export LESS=R
 
-export HOMEBREW_PREFIX=/opt/homebrew
+if [ $(uname -m) = arm64 ]; then
+  HOMEBREW_PREFIX=/opt/homebrew
+else
+  HOMEBREW_PREFIX=/usr/local
+fi
+export HOMEBREW_PREFIX
 export HOMEBREW_REPOSITORY=$HOMEBREW_PREFIX
 export HOMEBREW_CELLAR="${HOMEBREW_PREFIX}/Cellar"
 export HOMEBREW_NO_ANALYTICS=1
