@@ -5,6 +5,8 @@
 	excludesfile = ~/.config/git/ignore
 [init]
 	defaultBranch = master
+[advice]
+	skippedCherryPicks = false
 [apply]
 	whitespace = nowarn
 [color]
