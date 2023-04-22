@@ -9,6 +9,7 @@
 --ignore-dir=.eggs
 --ignore-dir=.terraform
 --ignore-dir=.mypy_cache
+--ignore-dir=.ci
 --ignore-file=is:.tags
 --ignore-file=is:.lein-repl-history
 --type-set=bat:ext:bat
