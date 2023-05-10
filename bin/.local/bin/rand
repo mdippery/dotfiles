@@ -5,9 +5,21 @@ import secrets
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("start", type=int, help="Starting number (inclusive)")
-parser.add_argument("end", type=int, help="Ending number (inclusive)")
+parser.add_argument("choice", nargs="+", help="Choices to randomize")
 args = parser.parse_args()
 
-lower, upper = args.start, args.end + 1
-print(secrets.choice(range(lower, upper)))
+if len(args.choice) == 1:
+    try:
+        lower, upper = args.choice[0].split("-", 1)
+    except ValueError:
+        try:
+            choices = [int(args.choice[0])]
+        except ValueError:
+            choices = [args.choice[0]]
+    else:
+        lower, upper = int(lower), int(upper)
+        choices = range(lower, upper)
+else:
+    choices = args.choice
+
+print(secrets.choice(choices))
