@@ -5,6 +5,8 @@
 	excludesfile = ~/.config/git/ignore
 [init]
 	defaultBranch = master
+[clone]
+	defaultRemoteName = github
 [advice]
 	skippedCherryPicks = false
 [apply]
@@ -51,7 +53,7 @@
 [alias]
 	br = branch
 	ci = commit
-	cl = clone -o github
+	cl = clone
 	co = checkout
 	cp = cherry-pick
 	df = diff --name-status
