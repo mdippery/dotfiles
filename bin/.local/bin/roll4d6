@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+
+import random
+
+
+def roll4d6():
+    return [random.randint(1, 6) for _ in range(4)]
+
+
+score_set = [roll4d6() for _ in range(6)]
+
+for i, scores in enumerate(score_set, 1):
+    print(f"{i:d}:", end=" ")
+    top3 = sorted(scores, reverse=True)[:3]
+    for score in top3:
+        print(f"{score:2d}", end=" ")
+    total = sum(top3)
+    print(f"= {total:2d}")
