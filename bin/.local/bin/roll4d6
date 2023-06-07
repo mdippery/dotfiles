@@ -11,8 +11,10 @@ score_set = [roll4d6() for _ in range(6)]
 
 for i, scores in enumerate(score_set, 1):
     print(f"{i:d}:", end=" ")
-    top3 = sorted(scores, reverse=True)[:3]
+    scores = sorted(scores, reverse=True)
+    top3 = scores[:3]
     for score in top3:
-        print(f"{score:2d}", end=" ")
+        print(f"{score:d}", end=" ")
+    print(f"({scores[-1]:d})", end=" ")
     total = sum(top3)
     print(f"= {total:2d}")
