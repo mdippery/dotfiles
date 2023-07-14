@@ -12,6 +12,7 @@
 --ignore-dir=.ci
 --ignore-file=is:.tags
 --ignore-file=is:.lein-repl-history
+--ignore-file=is:poetry.lock
 --type-set=bat:ext:bat
 --type-set=cucumber:ext:feature
 --type-set=ddl:ext:ddl
