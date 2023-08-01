@@ -50,6 +50,8 @@
 	who = false
 [git-p4]
 	attemptRCSCleanup = true
+[instaweb]
+	httpd = python
 [alias]
 	br = branch
 	ci = commit
