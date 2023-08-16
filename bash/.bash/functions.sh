@@ -1,7 +1,6 @@
 function airport-code {
   curl -s "https://airlabs.co/api/v6/airports?api_key=356cad88-f3a3-4a7e-aeec-fad56d838158&code=$1" \
-    | jq .response[0].name \
-    | tr -d '"'
+    | jq -r .response[0].name
 }
 
 function aws-secret {
@@ -93,7 +92,7 @@ function covid19 {
 }
 
 function docker-arch {
-  docker inspect $1 | jq .[0].Architecture | tr -d '"'
+  docker inspect $1 | jq -r .[0].Architecture
 }
 
 function docker-inspect {
