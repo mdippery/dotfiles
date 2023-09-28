@@ -455,13 +455,25 @@ function wjava {
   grep -l "$1" *.jar
 }
 
+# Prints out a complete list of all XDG variables
+function xdg_all {
+  column -s , -t <<EOS
+XDG_CONFIG_DIRS,$(xdg config-dirs)
+XDG_CONFIG_HOME,$(xdg config-home)
+XDG_CACHE_HOME,$(xdg cache-home)
+XDG_DATA_DIRS,$(xdg data-dirs)
+XDG_DATA_HOME,$(xdg data-home)
+XDG_RUNTIME_DIR,$(xdg runtime-dir)
+EOS
+}
+
 # Returns the default values for $XDG_* variables
 function xdg {
   local v
 
   if (( $# < 1 )); then
-    onoe 'Variable not specified'
-    return 1
+    xdg_all
+    return 0
   fi
 
   v=$1
