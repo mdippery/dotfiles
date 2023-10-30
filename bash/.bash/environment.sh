@@ -5,7 +5,7 @@
 shopt -s globstar
 
 source "${DOTBASH}/lib/prompt.sh"
-export PROMPT_COMMAND=_ps1
+export PROMPT_COMMAND="_ps1; $PROMPT_COMMAND"
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3
 
