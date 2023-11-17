@@ -109,3 +109,5 @@
 
 [include]
 	path = ~/.gitconfig.user
+[includeIf "gitdir:~/.vimfiles/"]
+	path = ~/.config/git/vundle
