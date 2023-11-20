@@ -9,6 +9,8 @@ function paths-helper {
     BREW=/usr/local/bin/brew
   fi
 
+  [ -d /Applications/MacVim.app/Contents/bin ] && macvim=/Applications/MacVim.app/Contents/bin
+
   [ -d /Library/TeX/texbin ] && texbin=/Library/TeX/texbin
   [ -d /opt/X11/bin ] && x11bin=/opt/X11/bin
   $BREW --prefix --installed gnu-which >/dev/null 1>&1 gnu-which && whichbin=$($BREW --prefix gnu-which)/libexec/gnubin
@@ -17,6 +19,7 @@ function paths-helper {
   RAW_PATH=$(cat <<EOS
 $XDG_BIN_HOME
 $(dirname $XDG_BIN_HOME)/libexec/git
+$macvim
 $homebrew
 $texbin
 $x11bin
