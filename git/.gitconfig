@@ -67,7 +67,7 @@
 	lf = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%aN]" --date=relative --name-status
 	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%aN]" --date=relative
 	ol = log --oneline --decorate
-	ph = push -u github HEAD
+	ph = "!f() { git push -u $(git config clone.defaultRemoteName) HEAD; }; f"
 	rb = rebase
 	ri = rebase -i
 	rv = revert
