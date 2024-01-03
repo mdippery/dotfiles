@@ -28,6 +28,8 @@ done
 
 hash stack 2>/dev/null && eval "$(stack --bash-completion-script stack)"
 
+hash aws_completer 2>/dev/null && complete -C aws_completer aws
+
 unset brew
 unset brew_completion
 unset bash_completion_d
