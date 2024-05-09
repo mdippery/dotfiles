@@ -108,6 +108,6 @@
 	whoami = !git config --get user.name && git config --get user.email
 
 [include]
-	path = ~/.gitconfig.user
+	path = ~/.config/git/config.user
 [includeIf "gitdir:~/.vimfiles/"]
 	path = ~/.config/git/vundle
