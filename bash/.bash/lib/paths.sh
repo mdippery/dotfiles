@@ -1,6 +1,6 @@
 function paths-helper {
   local BREW RAW_PATH
-  local homebrew texbin x11bin whichbin gettext
+  local homebrew x11bin whichbin gettext
 
   if [ $(uname -m) = arm64 ]; then
     homebrew=/opt/homebrew/bin
@@ -11,7 +11,6 @@ function paths-helper {
 
   [ -d /Applications/MacVim.app/Contents/bin ] && macvim=/Applications/MacVim.app/Contents/bin
 
-  [ -d /Library/TeX/texbin ] && texbin=/Library/TeX/texbin
   [ -d /opt/X11/bin ] && x11bin=/opt/X11/bin
   $BREW --prefix --installed gnu-which >/dev/null 1>&1 gnu-which && whichbin=$($BREW --prefix gnu-which)/libexec/gnubin
   $BREW --prefix --installed gettext >/dev/null 1>&1 gettext && gettext=$($BREW --prefix gettext)/bin
@@ -21,7 +20,6 @@ $XDG_BIN_HOME
 $(dirname $XDG_BIN_HOME)/libexec/git
 $macvim
 $homebrew
-$texbin
 $x11bin
 $whichbin
 $gettext
