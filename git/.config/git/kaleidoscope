@@ -1,7 +1,20 @@
+# To remove Kaleidoscope as the default diff and merge tools,
+# remove all sections except for difftool.Kaleidoscope and
+# mergetool.Kaleidoscope (although at that point it might be
+# more desirable to just stop loading this config).
+
+
+[diff]
+	tool = Kaleidoscope
 [merge]
-	tool = ksdiff
-[difftool "ksdiff"]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+
+[difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[mergetool "ksdiff"]
+[mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
