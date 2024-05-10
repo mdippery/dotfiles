@@ -464,6 +464,7 @@ XDG_CACHE_HOME,$(xdg cache-home)
 XDG_DATA_DIRS,$(xdg data-dirs)
 XDG_DATA_HOME,$(xdg data-home)
 XDG_RUNTIME_DIR,$(xdg runtime-dir)
+XDG_STATE_HOME,$(xdg state-home)
 EOS
 }
 
@@ -494,6 +495,8 @@ function xdg {
         echo $XDG_RUNTIME_DIR
       fi
       ;;
+    state-home)
+      echo ${XDG_STATE_HOME:-${HOME}/.local/state};;
     *)
       onoe 'No such variable: $XDG_'"$(echo -n $v | tr - _ | tr [:lower:] [:upper:])"
       return 2
