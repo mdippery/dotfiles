@@ -1,0 +1,73 @@
+#!/bin/bash
+
+set -eu
+
+python-brew() {
+  local pkgs
+  pkgs='gdbm libffi libmpdec openssl sqlite3 xz zlib'
+
+  brew install pkg-config  # Install separately, no need to link
+  brew install $pkgs
+
+  for pkg in $pkgs; do
+    CFLAGS="${CFLAGS} -I$(brew --prefix $pkg)/include"
+  done
+
+  CFLAGS=$(echo $CFLAGS | sed -e 's/ $//')
+  LDFLAGS=$(echo $CFLAGS | tr 'I' 'L' | ruby -e 'puts STDIN.read.chomp.gsub(/\/include/, "/lib")')
+}
+
+if [[ $# < 1 ]]; then
+  echo 'Usage: python-install <version>' 1>&2
+  exit 1
+fi
+
+python_version=$1
+work_dir=$(mktemp -d)
+install_dir=$PYENV_ROOT/versions/$python_version
+
+cleanup() {
+  echo
+
+  echo Deleting $work_dir...
+  rm -rf $work_dir
+
+  echo Runtime:
+  times | tail -n 1
+}
+
+trap cleanup EXIT
+
+pushd $work_dir
+
+echo Downloading Python $python_version in $work_dir...
+curl -O https://www.python.org/ftp/python/$python_version/Python-$python_version.tar.xz
+tar xf Python-$python_version.tar.xz
+
+pushd Python-$python_version
+
+python-brew
+echo "CFLAGS=$CFLAGS"
+echo "LDFLAGS=$LDFLAGS"
+
+system_ffi=yes
+if [[ $(arch) = arm64 ]]; then
+  system_ffi=no
+fi
+echo "system_ffi=$system_ffi"
+
+openssl_dir=$(brew --prefix openssl)
+echo "openssl_dir=$openssl_dir"
+
+./configure \
+  --prefix=$install_dir \
+  --with-openssl=$openssl_dir \
+  --with-system-ffi=$system_ffi
+make
+make install
+
+pushd $install_dir/bin
+for bin in pip3 pydoc3 python3; do
+  ln -s $bin $(echo $bin | tr -d 3)
+done
+ls -l
