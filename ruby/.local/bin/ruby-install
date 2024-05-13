@@ -1,0 +1,51 @@
+#!/bin/bash
+
+set -eu
+
+if [[ $# < 1 ]]; then
+  echo 'Usage: ruby-install <version>' 1>&2
+  exit 1
+fi
+
+ruby_version=$1
+ruby_version_short=$(echo $ruby_version | cut -d. -f1,2)
+work_dir=$(mktemp -d)
+install_dir=$HOME/.rbenv/versions/$ruby_version
+
+cleanup() {
+  echo
+
+  echo Deleting $work_dir...
+  rm -rf $work_dir
+
+  echo Runtime:
+  times | tail -n 1
+}
+
+trap cleanup EXIT
+
+pushd $work_dir
+
+echo Downloading Ruby $ruby_version to $work_dir...
+curl -O https://cache.ruby-lang.org/pub/ruby/$ruby_version_short/ruby-$ruby_version.tar.gz
+tar xf ruby-$ruby_version.tar.gz
+
+brew install openssl
+brew install libyaml
+
+pushd ruby-$ruby_version
+
+openssl_dir=$(brew --prefix openssl)
+libyaml_dir=$(brew --prefix libyaml)
+echo Using OpenSSL from $openssl_dir
+echo Using libyaml from $libyaml_dir
+
+./configure \
+  --prefix=$install_dir \
+  --with-openssl-dir=$openssl_dir \
+  --with-libyaml-dir=$libyaml_dir
+make
+make test
+
+echo Installing Ruby $ruby_version into $install_dir...
+make install
