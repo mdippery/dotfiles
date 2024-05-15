@@ -35,6 +35,7 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_EMOJI=1
 
 export ANSIBLE_NOCOWS=1
+export BASH_COMPLETION_USER_DIR="${DOTBASH}/completions"
 export CLICOLOR_FORCE=true
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
 export CUCUMBER_PUBLISH_QUIET=true

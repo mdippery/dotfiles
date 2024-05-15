@@ -8,7 +8,7 @@ for brew in ${brew_completion[@]}; do
   [ -r $brew ] && source $brew
 done
 
-bash_completion_d="${HOME}/.bash_completion.d"
+bash_completion_d=$BASH_COMPLETION_USER_DIR
 for f in $(find -H $bash_completion_d -mindepth 1 -not -name .gitignore); do
   source $f
 done
@@ -37,3 +37,5 @@ unset d
 unset f
 
 [ -r "${DOTBASH}/completion.user.sh" ] && source "${DOTBASH}/completion.user.sh"
+
+# vim: set ft=bash :
