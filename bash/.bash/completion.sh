@@ -8,7 +8,7 @@ for brew in ${brew_completion[@]}; do
   [ -r $brew ] && source $brew
 done
 
-bash_completion_d="${DOTBASH}/completions"
+bash_completion_d="${HOME}/.bash_completion.d"
 for f in $(find -H $bash_completion_d -mindepth 1 -not -name .gitignore); do
   source $f
 done
