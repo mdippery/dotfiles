@@ -9,15 +9,15 @@ try:
     startup_py = __file__
     py_config_home = os.path.dirname(py_config_home)
 except NameError:
-    xdg_config_home = os.environ.get("XDG_STATE_HOME", "~/.local/state")
-    xdg_config_home = os.path.expanduser(xdg_config_home)
-    py_config_home = os.path.join(xdg_config_home, "python")
-    startup_py = os.path.join(py_config_home, "startup.py")
+    xdg_state_home = os.environ.get("XDG_STATE_HOME", "~/.local/state")
+    xdg_state_home = os.path.expanduser(xdg_state_home)
+    py_state_home = os.path.join(xdg_state_home, "python")
+    startup_py = os.path.join(py_state_home, "startup.py")
 
 IS_PY3 = sys.version_info[0] == 3
 HISTORY_EXT = '.py3' if IS_PY3 else ''
 HISTORY_BASE = 'history{}'.format(HISTORY_EXT)
-HISTORY = os.path.abspath(os.path.join(py_config_home, HISTORY_BASE))
+HISTORY = os.path.abspath(os.path.join(py_state_home, HISTORY_BASE))
 print("History file is {}.".format(HISTORY))
 
 if IS_PY3:
@@ -45,7 +45,12 @@ del atexit, HISTORY, HISTORY_BASE, HISTORY_EXT, IS_PY3, os, readline, \
     rlcompleter, save_history, startup_py, sys
 
 try:
-    del xdg_config_home
+    del py_config_home
+except NameError:
+    pass
+
+try:
+    del xdg_state_home, py_state_home
 except NameError:
     pass
 
