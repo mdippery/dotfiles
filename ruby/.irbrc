@@ -7,3 +7,8 @@ IRB.conf[:PROMPT][:MY_PROMPT]= {
 }
 
 IRB.conf[:PROMPT_MODE] = :MY_PROMPT
+
+xdg_state_home = ENV['XDG_STATE_HOME'] || "#{Dir.home}/.local/state"
+ruby_state_home = "#{xdg_state_home}/ruby"
+irb_history_file = "#{ruby_state_home}/irb_history"
+IRB.conf[:HISTORY_FILE] = irb_history_file
