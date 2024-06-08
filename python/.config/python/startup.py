@@ -5,14 +5,10 @@ import readline
 import rlcompleter
 import sys
 
-try:
-    startup_py = __file__
-    py_config_home = os.path.dirname(py_config_home)
-except NameError:
-    xdg_state_home = os.environ.get("XDG_STATE_HOME", "~/.local/state")
-    xdg_state_home = os.path.expanduser(xdg_state_home)
-    py_state_home = os.path.join(xdg_state_home, "python")
-    startup_py = os.path.join(py_state_home, "startup.py")
+xdg_state_home = os.environ.get("XDG_STATE_HOME", "~/.local/state")
+xdg_state_home = os.path.expanduser(xdg_state_home)
+py_state_home = os.path.join(xdg_state_home, "python")
+startup_py = os.path.join(py_state_home, "startup.py")
 
 IS_PY3 = sys.version_info[0] == 3
 HISTORY_EXT = '.py3' if IS_PY3 else ''
@@ -43,11 +39,6 @@ atexit.register(save_history)
 
 del atexit, HISTORY, HISTORY_BASE, HISTORY_EXT, IS_PY3, os, readline, \
     rlcompleter, save_history, startup_py, sys
-
-try:
-    del py_config_home
-except NameError:
-    pass
 
 try:
     del xdg_state_home, py_state_home
