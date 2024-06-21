@@ -15,7 +15,7 @@ source "${DOTBASH}/lib/greet.sh"
 # Recreate behavior of GNU `readlink` on OS X
 # Some of the bash config scripts expect `readlink -f` to work on OS X
 # the same way it does on Linux.
-if [ $DOTBASH_OS = 'darwin' ]; then
+if [ $DOTBASH_OS_NAME = 'darwin' ]; then
   if hash greadlink 2>/dev/null; then
     alias readlink=greadlink
   else
