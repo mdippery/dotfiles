@@ -15,6 +15,17 @@ function ls-include {
   ls $* $(include_path)
 }
 
+# Converts an .mp3 into an .m4r (ringtone)
+function mp32m4r {
+  local out
+  if [[ $# = 2 ]]; then
+    out=$2
+  else
+    out=${1/.mp3/.m4r}
+  fi
+  afconvert -o "$out" -q 127 -b 256000 -f m4af -d aac "$1"
+}
+
 # Rebuilds the LaunchServices database. Useful for removing
 # duplicate entries from the "Open with..." menu.
 function rebuild-openwith {
