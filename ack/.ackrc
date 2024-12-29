@@ -10,6 +10,7 @@
 --ignore-dir=.terraform
 --ignore-dir=.mypy_cache
 --ignore-dir=.ci
+--ignore-dir=.jekyll-cache
 --ignore-file=is:.tags
 --ignore-file=is:.lein-repl-history
 --ignore-file=is:poetry.lock
