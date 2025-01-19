@@ -37,16 +37,18 @@ if os.path.exists(HISTORY):
 
 atexit.register(save_history)
 
+# Python 3.13 includes an interactive terminal with color
+if sys.version_info[:2] < (3, 13):
+    try:
+        from rich import pretty, print, inspect
+        pretty.install()
+    except ImportError:
+        pass
+
 del atexit, HISTORY, HISTORY_BASE, HISTORY_EXT, IS_PY3, os, readline, \
     rlcompleter, save_history, startup_py, sys
 
 try:
     del xdg_state_home, py_state_home
 except NameError:
-    pass
-
-try:
-    from rich import pretty, print, inspect
-    pretty.install()
-except ImportError:
     pass
