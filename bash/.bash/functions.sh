@@ -284,7 +284,7 @@ function pyprefix {
 
 function python-flags {
   local pkgs
-  pkgs='gdbm libffi libmpdec openssl sqlite3 xz zlib'
+  pkgs='gdbm gettext libffi libmpdec openssl sqlite3 xz zlib'
   CFLAGS=-I$(brew --prefix)/include
   for pkg in $pkgs; do
     CFLAGS="${CFLAGS} -I$(brew --prefix $pkg)/include"
