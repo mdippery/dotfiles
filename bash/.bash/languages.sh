@@ -31,6 +31,11 @@ if hash node 2>/dev/null; then
   fi
 fi
 
+if [ -s ~/.nvm/nvm.sh ]; then
+  export NVM_DIR="${HOME}/.nvm"
+  . "${NVM_DIR}/nvm.sh"
+fi
+
 [ -r "${XDG_DATA_HOME}/ghcup/env" ] && source "${XDG_DATA_HOME}/ghcup/env"
 [ -r "${DOTBASH}/languages.user.sh" ] && source "${DOTBASH}/languages.user.sh"
 
