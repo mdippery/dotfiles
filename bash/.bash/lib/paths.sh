@@ -1,6 +1,6 @@
 function paths-helper {
   local BREW RAW_PATH
-  local homebrew x11bin whichbin gettext
+  local macvim docker homebrew x11bin whichbin gettext
 
   if [ $(uname -m) = arm64 ]; then
     homebrew=/opt/homebrew/bin
@@ -8,6 +8,8 @@ function paths-helper {
   else
     BREW=/usr/local/bin/brew
   fi
+
+  [ -d "${HOME}/.docker/bin" ] && docker="${HOME}/.docker/bin"
 
   [ -d /Applications/MacVim.app/Contents/bin ] && macvim=/Applications/MacVim.app/Contents/bin
 
@@ -19,6 +21,7 @@ function paths-helper {
 $XDG_BIN_HOME
 $(dirname $XDG_BIN_HOME)/libexec/git
 $macvim
+$docker
 $homebrew
 $x11bin
 $whichbin
