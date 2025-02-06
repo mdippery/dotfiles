@@ -326,6 +326,26 @@ function pyvenv {
   eval $cmd
 }
 
+# Show quick bash nav help
+function qh {
+  cat <<EOS
+ctrl-a          Move to beginning of line
+ctrl-e          Move to end of line
+meta-b          Move back one word
+meta-f          Move forward one word
+ctrl-x ctrl-e   Open command line in \$EDITOR
+ctrl-u          Delete from cursor to beginning of line
+ctrl-k          Delete from cursor to end of line
+ctrl-w          Delete word before cursor
+alt-d           Delete word after cursor
+ctrl-d          Delete current character
+ctrl-t          Transpose current character with previous
+alt-t           Transpose current word with previous
+alt-l           Make lowercase word after cursor
+alt-u           Make uppercase word after cursor
+EOS
+}
+
 # Lists all repositories on my private Git server
 function remote-repos {
   ssh git@git.mipadi.com "find . -name '*.git' -type d | cut -c 3- | sort"
