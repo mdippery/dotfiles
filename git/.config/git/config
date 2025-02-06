@@ -65,6 +65,7 @@
 	gr = log --graph --oneline --decorate
 	ld = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%aN]" --date=short
 	lf = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%aN]" --date=relative --name-status
+	lm = log --no-merges
 	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Creset\\ %s\\ %Cblue[%aN]" --date=relative
 	ol = log --oneline --decorate
 	ph = "!f() { git push -u $(git config clone.defaultRemoteName) HEAD; }; f"
