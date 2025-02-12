@@ -95,7 +95,8 @@
 	push-remote = !sh -c 'git config branch.$(git rev-parse --abbrev-ref HEAD).remote'
 	release = !sh -c 'git diff $(git describe | cut -d - -f 1)..'
 	root = rev-parse --show-toplevel
-	showtag = !sh -c 'git rev-parse $1 | xargs git cat-file -p' -
+	show-files = show --pretty=format: --name-only
+	show-tag = !sh -c 'git rev-parse $1 | xargs git cat-file -p' -
 	staged = diff --cached
 	start = commit --allow-empty -m 'Initial commit to repo'
 	stashed = stash list
