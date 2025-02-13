@@ -2,6 +2,7 @@
 .nfs*
 /.bundle/
 /.env
+/.nova/
 /.python-version
 /.tags
 /.venv/
