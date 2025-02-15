@@ -12,7 +12,7 @@ prompt_continue() {
 
 python-brew() {
   local pkgs
-  pkgs='gdbm gettext libffi libmpdec openssl sqlite3 xz zlib'
+  pkgs='gdbm gettext libffi libmpdec openssl readline sqlite3 xz zlib'
 
   brew install pkg-config  # Install separately, no need to link
   brew install $pkgs
