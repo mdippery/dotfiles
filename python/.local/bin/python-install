@@ -2,6 +2,14 @@
 
 set -e
 
+prompt_continue() {
+  read -p "Continue? [Y/n] " -n 1 -r
+  echo
+  if [[ $REPLY != "Y" ]]; then
+    exit 1
+  fi
+}
+
 python-brew() {
   local pkgs
   pkgs='gdbm gettext libffi libmpdec openssl sqlite3 xz zlib'
@@ -27,6 +35,7 @@ work_dir=$(mktemp -d)
 install_dir=$PYENV_ROOT/versions/$(cut -d. -f1,2 <<<$python_version)
 
 echo Installing Python to $install_dir...
+prompt_continue
 
 cleanup() {
   echo
@@ -65,7 +74,9 @@ echo "openssl_dir=$openssl_dir"
   --prefix=$install_dir \
   --with-openssl=$openssl_dir \
   --with-system-ffi=$system_ffi
+prompt_continue
 make
+prompt_continue
 make install
 
 pushd $install_dir/bin
