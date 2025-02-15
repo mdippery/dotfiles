@@ -21,8 +21,8 @@ python-brew() {
     CFLAGS="${CFLAGS} -I$(brew --prefix $pkg)/include"
   done
 
-  CFLAGS=$(echo $CFLAGS | sed -e 's/ $//')
-  LDFLAGS=$(echo $CFLAGS | tr 'I' 'L' | ruby -e 'puts STDIN.read.chomp.gsub(/\/include/, "/lib")')
+  export CFLAGS=$(echo $CFLAGS | sed -e 's/ $//')
+  export LDFLAGS=$(echo $CFLAGS | tr 'I' 'L' | ruby -e 'puts STDIN.read.chomp.gsub(/\/include/, "/lib")')
 }
 
 if [[ $# < 1 ]]; then
@@ -60,6 +60,7 @@ pushd Python-$python_version
 python-brew
 echo "CFLAGS=$CFLAGS"
 echo "LDFLAGS=$LDFLAGS"
+prompt_continue
 
 system_ffi=yes
 if [[ $(arch) = arm64 ]]; then
