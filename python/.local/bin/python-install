@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -e
 
 python-brew() {
   local pkgs
@@ -24,7 +24,9 @@ fi
 
 python_version=$1
 work_dir=$(mktemp -d)
-install_dir=$PYENV_ROOT/versions/$python_version
+install_dir=$PYENV_ROOT/versions/$(cut -d. -f1,2 <<<$python_version)
+
+echo Installing Python to $install_dir...
 
 cleanup() {
   echo
