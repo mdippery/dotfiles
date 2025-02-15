@@ -10,6 +10,13 @@ xdg_state_home = os.path.expanduser(xdg_state_home)
 py_state_home = os.path.join(xdg_state_home, "python")
 startup_py = os.path.join(py_state_home, "startup.py")
 
+try:
+    os.mkdir(py_state_home, mode=0o700)
+except FileExistsError:
+    pass
+else:
+    print("Created {}.".format(py_state_home))
+
 IS_PY3 = sys.version_info[0] == 3
 HISTORY_EXT = '.py3' if IS_PY3 else ''
 HISTORY_BASE = 'history{}'.format(HISTORY_EXT)
