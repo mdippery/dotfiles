@@ -18,10 +18,7 @@ else:
     print("Created {}.".format(py_state_home))
 
 IS_PY3 = sys.version_info[0] == 3
-HISTORY_EXT = '.py3' if IS_PY3 else ''
-HISTORY_BASE = 'history{}'.format(HISTORY_EXT)
-HISTORY = os.path.abspath(os.path.join(py_state_home, HISTORY_BASE))
-print("History file is {}.".format(HISTORY))
+IS_PY_LT_313 = sys.version_info[:2] < (3, 13)
 
 if IS_PY3:
     sys.ps1 = "\u27a5  "
@@ -33,27 +30,38 @@ else:
     sys.ps1 = "\001\033[030;1m\002>>>\001\033[0m\002 "
     sys.ps2 = "\001\033[030;1m\002...\001\033[0m\002 "
 
-readline.parse_and_bind('tab: complete')
+# Python 3.13 respects $PYTHON_HISTORY for setting history location
+if IS_PY_LT_313:
+    HISTORY_EXT = '.py3' if IS_PY3 else ''
+    HISTORY_BASE = 'history{}'.format(HISTORY_EXT)
+    HISTORY = os.path.abspath(os.path.join(py_state_home, HISTORY_BASE))
+    print("History file is {}.".format(HISTORY))
 
-def save_history(path=HISTORY):
-    import readline
-    readline.write_history_file(path)
+    readline.parse_and_bind('tab: complete')
 
-if os.path.exists(HISTORY):
-    readline.read_history_file(HISTORY)
+    def save_history(path=HISTORY):
+        import readline
+        readline.write_history_file(path)
 
-atexit.register(save_history)
+    if os.path.exists(HISTORY):
+        readline.read_history_file(HISTORY)
+
+    atexit.register(save_history)
+
+    del HISTORY, HISTORY_BASE, HISTORY_EXT, save_history
+elif "PYTHON_HISTORY" not in os.environ:
+    print("$PYTHON_HISTORY is unset.")
+    print(f"Please set $PYTHON_HISTORY to customize Python history file location.")
 
 # Python 3.13 includes an interactive terminal with color
-if sys.version_info[:2] < (3, 13):
+if IS_PY_LT_313:
     try:
         from rich import pretty, print, inspect
         pretty.install()
     except ImportError:
         pass
 
-del atexit, HISTORY, HISTORY_BASE, HISTORY_EXT, IS_PY3, os, readline, \
-    rlcompleter, save_history, startup_py, sys
+del atexit, IS_PY_LT_313, IS_PY3, os, readline, rlcompleter, startup_py, sys
 
 try:
     del xdg_state_home, py_state_home
