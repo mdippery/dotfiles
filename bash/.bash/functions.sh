@@ -230,6 +230,11 @@ function manylinux {
   docker run --rm -it -v $(pwd):/io quay.io/pypa/$image /bin/bash
 }
 
+# Prints the current time in milliseconds since the Unix epoch
+function millitime {
+  python -c 'import time; print(int(time.time() * 1000))'
+}
+
 # Creates a new folder and cd's into it
 function mkcd {
   mkdir -pv "${1:?}" && cd "$1"
