@@ -338,16 +338,16 @@ ctrl-a,Move to beginning of line
 ctrl-e,Move to end of line
 meta-b,Move back one word
 meta-f,Move forward one word
-ctrl-x ctrl-e,Open command line in \$EDITOR
+ctrl-x ctrl-e,Open command line in $EDITOR
 ctrl-u,Delete from cursor to beginning of line
 ctrl-k,Delete from cursor to end of line
 ctrl-w,Delete word before cursor
-alt-d,Delete word after cursor
+meta-d,Delete word after cursor
 ctrl-d,Delete current character
 ctrl-t,Transpose current character with previous
-alt-t,Transpose current word with previous
-alt-l,Make lowercase word after cursor
-alt-u,Make uppercase word after cursor
+meta-t,Transpose current word with previous
+meta-l,Make lowercase word after cursor
+meta-u,Make uppercase word after cursor
 EOS
 }
 
