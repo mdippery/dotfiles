@@ -49,6 +49,8 @@
 	stashed = false
 	tag = false
 	who = false
+[submodule]
+	fetchJobs = 0
 [git-p4]
 	attemptRCSCleanup = true
 [instaweb]
