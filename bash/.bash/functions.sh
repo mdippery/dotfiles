@@ -82,15 +82,6 @@ function cookiecutter-apply {
   cookiecutter --output-dir=.. --config-file=.cookiecutter.yaml --no-input --overwrite-if-exists $repo_url
 }
 
-function covid19 {
-  local code=${1:-us}
-  if [ $code = '--help' -o $code == '-h' ]; then
-    curl https://covid19tracker.xyz/help
-    return
-  fi
-  curl https://covid19tracker.xyz/$code
-}
-
 function docker-arch {
   docker inspect $1 | jq -r .[0].Architecture
 }
