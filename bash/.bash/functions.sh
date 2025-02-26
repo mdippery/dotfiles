@@ -442,8 +442,17 @@ function vex {
 }
 
 function vimsyn {
+  local synroot
   local ver=$(vim --version | head -n 1 | egrep -o '(7\.[0-9])' | tr -d '.')
-  find $(binroot vim)/share/vim/vim${ver}/syntax -name '*.vim' -exec basename {} \;
+  local binroot_vim=$(binroot vim)
+
+  if [ "$binroot_vim" = /Applications/MacVim.app/Contents ]; then
+    synroot=/Applications/MacVim.app/Contents/Resources/vim/runtime/syntax
+  else
+    synroot=${binroot_vim}/share/vim/vim${ver}/syntax
+  fi
+
+  find "$synroot" -name '*.vim' -exec basename {} \; | sort
 }
 
 function which {
