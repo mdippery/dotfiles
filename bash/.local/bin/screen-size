@@ -1,6 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
-osascript -e 'tell application "Finder" to get bounds of window of desktop' \
-  | cut -d, -f 3,4 \
-  | sed 's/, /x/' \
-  | tr -d ' '
+arch=$(uname | tr [:upper:] [:lower:])
+script=$(cd $(dirname $0)/../opt/${arch}/bin && pwd)/$(basename $0)
+
+if [ -x $script ]; then
+  exec $script
+else
+  echo Could not find screen-size for $arch
+  exit 1
+fi
