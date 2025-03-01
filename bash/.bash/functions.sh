@@ -165,7 +165,11 @@ function hostinfo {
 function hostip { host $1 | command grep 'has address' | awk '{ print $4 }'; }
 
 # Retrieves information for the given HTTP status code
-function httpstatus { lynx "https://httpstatuses.io/$1"; }
+function httpstatus {
+  lynx -display_charset=utf-8 -dump "https://httpstatuses.io/$1" \
+    | tail -n +3 \
+    | less
+}
 
 # Returns the HTTP status code for a URL
 function hstat { curl -I $1 2>/dev/null | head -1; }
