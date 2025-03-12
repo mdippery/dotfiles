@@ -37,8 +37,9 @@
 [push]
 	default = simple
 [rebase]
-	autostash = true
+	autoStash = true
 	autoSquash = true
+	abbreviateCommands = true
 [rerere]
 	enabled = true
 [pager]
