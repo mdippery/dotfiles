@@ -100,6 +100,7 @@
 	root = rev-parse --show-toplevel
 	show-files = show --pretty=format: --name-only
 	show-tag = !sh -c 'git rev-parse $1 | xargs git cat-file -p' -
+	squash = rebase --interactive --ignore-date
 	staged = diff --cached
 	start = commit --allow-empty -m 'Initial commit to repo'
 	stashed = stash list
