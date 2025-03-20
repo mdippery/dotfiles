@@ -40,6 +40,8 @@
 	autoStash = true
 	autoSquash = true
 	abbreviateCommands = true
+[stash]
+	showPatch = true
 [rerere]
 	enabled = true
 [pager]
