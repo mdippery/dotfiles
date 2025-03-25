@@ -26,9 +26,11 @@ for d in ${bash_completion_d[@]}; do
   fi
 done
 
-hash stack 2>/dev/null && eval "$(stack --bash-completion-script stack)"
+command -v stack &>/dev/null && eval "$(stack --bash-completion-script stack)"
+command -v just &>/dev/null && eval "$(just --completions=bash)"
+command -v ngrok &>/dev/null && eval "$(ngrok completion)"
 
-hash aws_completer 2>/dev/null && complete -C aws_completer aws
+command -v aws_completer &>/dev/null && complete -C aws_completer aws
 
 unset brew
 unset brew_completion
