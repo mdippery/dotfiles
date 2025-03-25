@@ -114,16 +114,23 @@ function dotenv {
   set +a
 }
 
+function fd_ext {
+  fd -e $1 . $2
+}
+
+function find_ext {
+  find "$2" -name '*.'$1
+}
+
 function find-ext {
   local path ext
-  if (( $# == 2 )); then
-    path=$1
-    ext=$2
+  ext=$1
+  path=${2:-.}
+  if hash fd 2>/dev/null; then
+    fd_ext $ext "$path"
   else
-    path=.
-    ext=$1
+    find_ext $ext "$path"
   fi
-  find "$path" -name '*.'$ext
 }
 
 # Downloads and extracts the given tar archive
