@@ -10,7 +10,7 @@ fi
 ruby_version=$1
 ruby_version_short=$(echo $ruby_version | cut -d. -f1,2)
 work_dir=$(mktemp -d)
-install_dir=$HOME/.rbenv/versions/$ruby_version
+install_dir=$HOME/.rbenv/versions/$ruby_version_short
 
 cleanup() {
   echo
