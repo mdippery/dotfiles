@@ -181,6 +181,9 @@ function httpstatus {
 # Returns the HTTP status code for a URL
 function hstat { curl -I $1 2>/dev/null | head -1; }
 
+# Get the inode of a file
+function inode { stat -f '%i' $1; }
+
 # Returns IP information
 function ipinfo {
   curl -s ipinfo.io/$1
