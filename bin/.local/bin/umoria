@@ -1,5 +1,5 @@
 #!/bin/bash
 
-UMORIA_HOME=${UMORIA_HOME:-${HOME}/.local/opt/umoria}
-cd $UMORIA_HOME
+MORIA_HOME=${MORIA_HOME:-$HOME/.local/opt/umoria}
+cd $MORIA_HOME
 exec ./umoria -r $*
