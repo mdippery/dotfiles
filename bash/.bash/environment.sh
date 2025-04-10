@@ -48,6 +48,7 @@ export GOPATH="${HOME}/Library/Application Support/go"
 export GPG_TTY=$(tty)
 export GREP_OPTIONS='--color'
 export LESSOPEN="|${XDG_BIN_HOME}/lessopen %s"
+export MORIA=-r
 export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
 export PIPENV_VENV_IN_PROJECT=true
 export PYTHONDONTWRITEBYTECODE=1

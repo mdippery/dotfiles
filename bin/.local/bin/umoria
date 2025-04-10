@@ -2,4 +2,4 @@
 
 MORIA_HOME=${MORIA_HOME:-$HOME/.local/opt/umoria}
 cd $MORIA_HOME
-exec ./umoria -r $*
+exec ./umoria $MORIA $*
