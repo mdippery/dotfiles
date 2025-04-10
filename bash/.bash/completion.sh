@@ -26,6 +26,8 @@ for d in ${bash_completion_d[@]}; do
   fi
 done
 
+complete -c bcat
+
 command -v stack &>/dev/null && eval "$(stack --bash-completion-script stack)"
 command -v just &>/dev/null && eval "$(just --completions=bash)"
 command -v ngrok &>/dev/null && eval "$(ngrok completion)"
