@@ -38,6 +38,14 @@ function binroot {
   dirname $(dirname $(which $1))
 }
 
+function blib {
+  if hash $1 2>/dev/null; then
+    otool -L $(which $1)
+  else
+    which $1
+  fi
+}
+
 function cabal-platform {
   local arch=$(uname -m)
   local os="$OS"
