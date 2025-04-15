@@ -20,6 +20,10 @@ if [ -d ~/.go/go ]; then
   mkdir -p "$GOPATH"
 fi
 
+if [ -d ~/.cargo/bin ]; then
+  export PATH=${HOME}/.cargo/bin:${PATH}
+fi
+
 if [ -d ~/.cabal/bin ]; then
   export PATH=${HOME}/.cabal/bin:${PATH}
 fi
