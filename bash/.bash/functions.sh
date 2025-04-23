@@ -361,6 +361,7 @@ ctrl-t,Transpose current character with previous
 meta-t,Transpose current word with previous
 meta-l,Make lowercase word after cursor
 meta-u,Make uppercase word after cursor
+ctrl-s/ctrl-q,Stop/restart terminal output
 EOS
 }
 
