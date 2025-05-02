@@ -27,7 +27,6 @@ for d in ${bash_completion_d[@]}; do
 done
 
 complete -c bcat
-complete -c blib
 
 command -v stack &>/dev/null && eval "$(stack --bash-completion-script stack)"
 command -v just &>/dev/null && eval "$(just --completions=bash)"
@@ -41,6 +40,7 @@ unset bash_completion_d
 unset d
 unset f
 
+[ -r "${DOTBASH_OS}/completion.sh" ] && source "${DOTBASH_OS}/completion.sh"
 [ -r "${DOTBASH}/completion.user.sh" ] && source "${DOTBASH}/completion.user.sh"
 
 # vim: set ft=bash :
