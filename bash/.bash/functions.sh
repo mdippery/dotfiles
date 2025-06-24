@@ -485,7 +485,22 @@ function whichsh {
   lsof -p $$ | tail -n +3 | head -n 1 | awk '{print $NF}'
 }
 
-function whither { readlink -f $(which $1); }
+function whither {
+  if [ "$(type -t $1)" = file ]; then
+    if command -v $1 &>/dev/null; then
+      readlink -f $(which $1);
+    else
+      which $1
+    fi
+  else
+    if command -v $1 &>/dev/null; then
+      type $1
+    else
+      onoe "$0: $1: command not found"
+      return 1
+    fi
+  fi
+}
 
 function whois { command whois $1 | $PAGER; }
 
