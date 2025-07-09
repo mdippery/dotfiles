@@ -173,7 +173,11 @@ function hostip { host $1 | command grep 'has address' | awk '{ print $4 }'; }
 
 # Retrieves information for the given HTTP status code
 function httpstatus {
-  lynx -display_charset=utf-8 -dump "https://httpstatuses.io/$1" \
+  lynx \
+      -display_charset=utf-8 \
+      -dump \
+      -nolist \
+      "https://httpstatuses.io/$1" \
     | tail -n +3 \
     | less
 }
