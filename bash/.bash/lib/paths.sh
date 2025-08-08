@@ -1,6 +1,6 @@
 function paths-helper {
   local BREW RAW_PATH
-  local macvim docker homebrew x11bin whichbin gettext
+  local macvim docker homebrew x11bin whichbin gettext libpq
 
   if [ $(uname -m) = arm64 ]; then
     homebrew=/opt/homebrew/bin
@@ -14,8 +14,13 @@ function paths-helper {
   [ -d /Applications/MacVim.app/Contents/bin ] && macvim=/Applications/MacVim.app/Contents/bin
 
   [ -d /opt/X11/bin ] && x11bin=/opt/X11/bin
-  $BREW --prefix --installed gnu-which >/dev/null 1>&1 gnu-which && whichbin=$($BREW --prefix gnu-which)/libexec/gnubin
-  $BREW --prefix --installed gettext >/dev/null 1>&1 gettext && gettext=$($BREW --prefix gettext)/bin
+
+  $BREW --prefix --installed gnu-which >/dev/null 2>&1 && whichbin=$($BREW --prefix gnu-which)/libexec/gnubin
+  $BREW --prefix --installed gettext >/dev/null 2>&1 && gettext=$($BREW --prefix gettext)/bin
+
+  # Nowadays I normally run Postgres in Docker, so I only install libpq
+  # to get access to the `psql` binary.
+  $BREW --prefix --installed libpq >/dev/null 2>&1 && libpq=$($BREW --prefix libpq)/bin
 
   RAW_PATH=$(cat <<EOS
 $XDG_BIN_HOME
@@ -26,6 +31,7 @@ $homebrew
 $x11bin
 $whichbin
 $gettext
+$libpq
 $PATH
 EOS
 )
