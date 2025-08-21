@@ -1,3 +1,7 @@
 -n
---color=always
 --heading
+--color=always
+--colors=line:fg:yellow
+--colors=path:fg:green
+--colors=match:fg:red
+--colors=match:style:nobold
