@@ -52,6 +52,7 @@ export MORIA=-r
 export NETHACKOPTIONS=''                        # MacBook doesn't have a numberpad
 export PIPENV_VENV_IN_PROJECT=true
 export PYTHONDONTWRITEBYTECODE=1
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 export TOX_WORKDIR_CACHE="${XDG_CACHE_HOME}/tox"
 export TF_PLUGIN_CACHE_DIR="${XDG_CACHE_HOME}/terraform/plugins"
 export XML_CATALOG_FILES="$(brew --prefix)/etc/xml/catalog"
