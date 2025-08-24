@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+
+import os.path
+import sys
+from urllib.parse import urlparse
+
+try:
+    hostname = sys.argv[1]
+except IndexError:
+    hostname = sys.stdin.read().strip()
+
+if not hostname:
+    script = os.path.basename(sys.argv[0])
+    print(f'Usage: {script} HOSTNAME')
+    sys.exit(1)
+
+if hostname.startswith('http'):
+    hostname = urlparse(hostname).hostname
+
+if '.' in hostname:
+    hostname, tld = hostname.split('.')
+    tld = f'.{tld}'
+else:
+    tld = ''
+
+print(f'Converting {hostname}{tld}', file=sys.stderr)
+
+try:
+    _ = hostname.encode('ascii')
+except UnicodeEncodeError:
+    # We have a utf-8 address we are converting TO punycode
+    converted_hostname = hostname.encode('punycode').decode('ascii')
+    converted_hostname = f'xn--{converted_hostname}'
+else:
+    # We have an ascii address we are converted FROM punycode
+    converted_hostname = hostname[4:].encode('ascii').decode('punycode')
+
+converted_hostname = f'{converted_hostname}{tld}'
+print(converted_hostname)
