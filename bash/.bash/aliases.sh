@@ -21,6 +21,7 @@ alias j='jobs'
 alias javap='javap -cp build:$(sbt_classes)'
 alias ll='ls -lh'
 alias ls='ls -FG'
+alias lynx='lynx -accept_all_cookies'
 alias md='open -a /Applications/Byword.app'
 alias mkdir='mkdir -p'
 alias mongod="mongod -f ${BREW_PREFIX}/etc/mongod.conf"
