@@ -36,6 +36,8 @@ export HOMEBREW_NO_EMOJI=1
 
 export PYTHON_HISTORY="${XDG_STATE_HOME}/python/history.py3"
 
+export UV_PROJECT_ENVIRONMENT=.bundle
+
 export ANSIBLE_NOCOWS=1
 export BASH_COMPLETION_USER_DIR="${DOTBASH}/completions"
 export CLICOLOR_FORCE=true
