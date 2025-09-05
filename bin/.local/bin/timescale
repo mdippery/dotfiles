@@ -1,0 +1,99 @@
+#!/usr/bin/env python
+
+import sys
+from dataclasses import dataclass
+from enum import Enum, auto
+from functools import reduce
+from typing import Self
+
+
+class TimeUnit(Enum):
+    SECOND = auto()
+    MINUTE = auto()
+    HOUR = auto()
+    DAY = auto()
+    YEAR = auto()
+    CENTURY = auto()
+    MILLENNIUM = auto()
+
+
+def seconds_in(unit: TimeUnit) -> int:
+    if unit == TimeUnit.SECOND:
+        return 1
+    elif unit == TimeUnit.MINUTE:
+        return 60
+    elif unit == TimeUnit.HOUR:
+        return 60 * seconds_in(TimeUnit.MINUTE)
+    elif unit == TimeUnit.DAY:
+        return 24 * seconds_in(TimeUnit.HOUR)
+    elif unit == TimeUnit.YEAR:
+        return 365 * seconds_in(TimeUnit.DAY)
+    elif unit == TimeUnit.CENTURY:
+        return 100 * seconds_in(TimeUnit.YEAR)
+    elif unit == TimeUnit.MILLENNIUM:
+        return 1000 * seconds_in(TimeUnit.YEAR)
+    else:
+        raise ValueError(f"Unknown unit: {unit}")
+
+
+@dataclass
+class Components:
+    millennia: int = 0
+    centuries: int = 0
+    years: int = 0
+    days: int = 0
+    hours: int = 0
+    minutes: int = 0
+    seconds: int = 0
+
+    def set_units(self, unit: TimeUnit, value: int) -> Self:
+        attrs = {
+            TimeUnit.MILLENNIUM: 'millennia',
+            TimeUnit.CENTURY: 'centuries',
+        }
+        default_attr = f"{str(unit).split('.')[1].lower()}s"
+        attr = attrs.get(unit, default_attr)
+        setattr(self, attr, value)
+        return self
+
+
+@dataclass
+class Duration:
+    seconds: int
+
+    def components(self) -> Components:
+        def f(
+            acc: tuple[int, Components],
+            unit: TimeUnit
+        ) -> tuple[int, Components]:
+            remaining, components = acc
+            secs = seconds_in(unit)
+            total_units = remaining // secs
+            assert total_units >= 0, total_units
+
+            if total_units == 0:
+                return remaining, components
+
+            components.set_units(unit, total_units)
+            remaining -= total_units * secs
+            return remaining, components
+        remaining, components = reduce(
+            f,
+            reversed(TimeUnit),
+            (self.seconds, Components())
+        )
+        assert remaining == 0, remaining
+        return components
+
+
+def main():
+    # TODO: Parse "1 second", "1000 seconds", "1 kilosecond",
+    #       "1 megasecond", etc.
+    seconds = int(sys.argv[1])
+    components = Duration(seconds).components()
+    # TODO: Pretty-print
+    print(f"{components}")
+
+
+if __name__ == "__main__":
+    sys.exit(main())
