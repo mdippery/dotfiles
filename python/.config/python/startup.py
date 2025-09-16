@@ -32,7 +32,8 @@ else:
 
 # Python 3.13 respects $PYTHON_HISTORY for setting history location
 if IS_PY_LT_313:
-    HISTORY_EXT = '.py3' if IS_PY3 else ''
+    HISTORY_EXT_V = '.'.join(map(str, sys.version_info[:2]))
+    HISTORY_EXT = '.py' + HISTORY_EXT_V if IS_PY3 else ''
     HISTORY_BASE = 'history{}'.format(HISTORY_EXT)
     HISTORY = os.path.abspath(os.path.join(py_state_home, HISTORY_BASE))
     print("History file is {}.".format(HISTORY))
@@ -48,7 +49,7 @@ if IS_PY_LT_313:
 
     atexit.register(save_history)
 
-    del HISTORY, HISTORY_BASE, HISTORY_EXT, save_history
+    del HISTORY, HISTORY_BASE, HISTORY_EXT, HISTORY_EXT_V, save_history
 elif "PYTHON_HISTORY" not in os.environ:
     print("$PYTHON_HISTORY is unset.")
     print(f"Please set $PYTHON_HISTORY to customize Python history file location.")
