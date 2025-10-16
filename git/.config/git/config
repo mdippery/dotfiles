@@ -8,6 +8,7 @@
 [clone]
 	defaultRemoteName = github
 [advice]
+	detachedHead = false
 	ignoredHook = false
 	skippedCherryPicks = false
 [apply]
