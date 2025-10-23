@@ -1,6 +1,6 @@
-alias bc='bundle console'
+# alias bc='bundle console'
 alias be='bundle exec'
-alias bi="bundle config set --local path '.bundle'"
+# alias bi="bundle config set --local path '.bundle'"
 alias clj='lein repl'
 alias coin-flip='rand heads tails'
 alias ctags='ctags -f .tags'
