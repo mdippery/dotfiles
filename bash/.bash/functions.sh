@@ -373,6 +373,11 @@ function repeat {
   printf %${n}s | tr ' ' $ch
 }
 
+# rg with automatic paging, the way God intended
+function rg {
+  command rg "$@" | $PAGER
+}
+
 # Does a reverse DNS lookup on an IP
 function rvdns { nslookup $1 | awk '/name = .*\.$/ {print $4}' | sed 's/\.$//'; }
 
