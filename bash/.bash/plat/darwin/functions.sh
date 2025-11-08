@@ -1,5 +1,5 @@
 function blib {
-  if hash $1 2>/dev/null; then
+  if command -v $1; then
     otool -L $(which $1)
   else
     which $1
@@ -35,3 +35,13 @@ function mp32m4r {
 function rebuild-openwith {
   /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 }
+
+function sym {
+  if command -v $1; then
+    nm $(which $1)
+  else
+    which $1
+  fi
+}
+
+# vim: set ft=bash :
