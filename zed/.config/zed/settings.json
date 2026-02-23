@@ -1,0 +1,27 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "tabs": {
+    "close_position": "left",
+  },
+  "preferred_line_length": 78,
+  "show_wrap_guides": true,
+  "wrap_guides": [78],
+  "ui_font_family": ".ZedSans",
+  "buffer_font_family": "Source Code Pro for Powerline",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
+  },
+  "base_keymap": "JetBrains",
+  "ui_font_size": 14,
+  "buffer_font_size": 13,
+  "theme": "Base16 Ocean Dark",
+}
