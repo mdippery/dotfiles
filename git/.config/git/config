@@ -79,6 +79,7 @@
 	rb = rebase
 	ri = rebase -i
 	rv = revert
+	sb = branch --show-current
 	sh = show HEAD
 	st = status
 	alias = "!f() { git config --get-regexp alias | cut -c 7- | sed \"s/ /$(echo 2B | xxd -r -p)/\" | column -t -s $(echo 2B | xxd -r -p); }; f"
