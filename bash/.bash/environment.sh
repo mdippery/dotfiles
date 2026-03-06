@@ -38,6 +38,7 @@ export HOMEBREW_NO_EMOJI=1
 
 export CLAUDE_CODE_DISABLE_TERMINAL_TITLE=1
 
+export PSQL_HISTORY="${XDG_STATE_HOME}/psql/history"
 export PYTHON_HISTORY="${XDG_STATE_HOME}/python/history.py3"
 
 export UV_PROJECT_ENVIRONMENT=.bundle
@@ -69,6 +70,8 @@ export XML_CATALOG_FILES="$(brew --prefix)/etc/xml/catalog"
 hash brew 2>/dev/null && export BREW_PREFIX=$(brew --prefix)
 
 mkdir -p "$TF_PLUGIN_CACHE_DIR"
+mkdir -p $(dirname "$PSQL_HISTORY")
+mkdir -p $(dirname "$PYTHON_HISTORY")
 
 [ -r "${DOTBASH_OS}/environment.sh" ] && source "${DOTBASH_OS}/environment.sh"
 [ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
