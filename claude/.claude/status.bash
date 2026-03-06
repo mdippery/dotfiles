@@ -16,5 +16,5 @@ branch=$(git branch --show-current)
 echo -n "📂 $cwd"
 echo -n "$sep"
 echo -n "${yellow} $branch${reset}"
-echo -n "$sep"
+if [ $(tput cols) -gt 100 ]; then echo -n "$sep"; else echo; fi
 echo -n "🤖 ${teal}${model}${reset}"
