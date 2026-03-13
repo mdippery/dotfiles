@@ -1,5 +1,6 @@
 *
 !.gitignore
 
+!CLAUDE.md
 !settings.json
 !status.bash
