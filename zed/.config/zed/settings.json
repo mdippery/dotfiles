@@ -7,35 +7,35 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "terminal": {
-    "cursor_shape": "underline"
-  },
-  "inline_code_actions": false,
+  "base_keymap": "JetBrains",
+  "buffer_font_family": "Source Code Pro for Powerline",
+  "buffer_font_size": 13,
+  "ensure_final_newline_on_save": true,
   "gutter": {
     "folds": true,
     "line_numbers": true,
   },
-  "use_auto_surround": false,
-  "ensure_final_newline_on_save": true,
-  "remove_trailing_whitespace_on_save": false,
-  "indent_guides": {
-    "enabled": true,
-  },
-  "tabs": {
-    "close_position": "left",
-  },
-  "preferred_line_length": 78,
-  "show_wrap_guides": true,
-  "wrap_guides": [78],
-  "ui_font_family": ".ZedSans",
-  "buffer_font_family": "Source Code Pro for Powerline",
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
     "dark": "Zed (Default)",
   },
-  "base_keymap": "JetBrains",
-  "ui_font_size": 14,
-  "buffer_font_size": 13,
+  "indent_guides": {
+    "enabled": true,
+  },
+  "inline_code_actions": false,
+  "preferred_line_length": 78,
+  "remove_trailing_whitespace_on_save": false,
+  "show_wrap_guides": true,
+  "tabs": {
+    "close_position": "left",
+  },
+  "terminal": {
+    "cursor_shape": "underline"
+  },
   "theme": "Base16 Ocean Dark",
+  "ui_font_family": ".ZedSans",
+  "ui_font_size": 14,
+  "use_auto_surround": false,
+  "wrap_guides": [78],
 }
