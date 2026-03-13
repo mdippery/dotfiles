@@ -38,6 +38,9 @@
       "hard_tabs": true,
     },
   },
+  "outline_panel": {
+    "dock": "right",
+  },
   "preferred_line_length": 78,
   "project_panel": {
     "auto_fold_dirs": false,
