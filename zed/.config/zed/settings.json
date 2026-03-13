@@ -15,7 +15,14 @@
     "folds": true,
     "line_numbers": true,
   },
-  "hidden_files": [".cache", ".idea", "target"],
+  "hidden_files": [
+    ".cache",
+    ".idea",
+    ".yarn",
+    "dist",
+    "node_modules",
+    "target",
+  ],
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
