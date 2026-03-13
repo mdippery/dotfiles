@@ -25,13 +25,17 @@
   },
   "inline_code_actions": false,
   "preferred_line_length": 78,
+  "project_panel": {
+    "auto_fold_dirs": false,
+    "folder_icons": false,
+  },
   "remove_trailing_whitespace_on_save": false,
   "show_wrap_guides": true,
   "tabs": {
     "close_position": "left",
   },
   "terminal": {
-    "cursor_shape": "underline"
+    "cursor_shape": "underline",
   },
   "theme": "Base16 Ocean Dark",
   "ui_font_family": ".ZedSans",
