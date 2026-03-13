@@ -25,6 +25,12 @@
     "enabled": true,
   },
   "inline_code_actions": false,
+  "languages": {
+    "Git Config": {
+      "tab_size": 8,
+      "hard_tabs": true,
+    },
+  },
   "preferred_line_length": 78,
   "project_panel": {
     "auto_fold_dirs": false,
