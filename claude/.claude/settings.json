@@ -2,5 +2,8 @@
   "statusLine": {
     "type": "command",
     "command": "~/.claude/status.bash"
+  },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true
   }
 }
