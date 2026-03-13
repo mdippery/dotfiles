@@ -15,6 +15,7 @@
     "folds": true,
     "line_numbers": true,
   },
+  "hidden_files": [".cache", ".idea", "target"],
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
@@ -28,6 +29,7 @@
   "project_panel": {
     "auto_fold_dirs": false,
     "folder_icons": false,
+    "hide_hidden": true,
   },
   "remove_trailing_whitespace_on_save": false,
   "show_wrap_guides": true,
