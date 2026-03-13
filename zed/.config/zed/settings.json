@@ -10,6 +10,7 @@
   "base_keymap": "JetBrains",
   "buffer_font_family": "Source Code Pro for Powerline",
   "buffer_font_size": 13,
+  "document_folding_ranges": "on",
   "ensure_final_newline_on_save": true,
   "gutter": {
     "folds": true,
