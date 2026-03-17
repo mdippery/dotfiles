@@ -32,7 +32,13 @@
   {
     "context": "Editor",
     "bindings": {
-      "cmd-k shift-p": "workspace::CopyRelativePath"
+      "alt-cmd-shift-c": "workspace::CopyRelativePath"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-cmd-c": "workspace::CopyPath"
     }
   }
 ]
