@@ -10,5 +10,17 @@
     "bindings": {
       "cmd-p": null
     }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "home": "editor::MoveToBeginning"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "end": "editor::MoveToEnd"
+    }
   }
 ]
