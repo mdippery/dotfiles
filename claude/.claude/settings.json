@@ -3,6 +3,17 @@
     "type": "command",
     "command": "~/.claude/status.bash"
   },
+  "spinnerVerbs": {
+    "mode": "append",
+    "verbs": [
+      "Burning down the Amazon",
+      "Dabbing",
+      "Daydrinking",
+      "Dreaming of electric sheep",
+      "Killing time",
+      "Reticulating splines"
+    ]
+  },
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true
   }
