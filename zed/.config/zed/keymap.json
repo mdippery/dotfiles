@@ -28,5 +28,11 @@
     "bindings": {
       "cmd-k": null
     }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-k shift-p": "workspace::CopyRelativePath"
+    }
   }
 ]
