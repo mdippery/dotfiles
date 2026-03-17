@@ -22,5 +22,11 @@
     "bindings": {
       "end": "editor::MoveToEnd"
     }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-k": null
+    }
   }
 ]
