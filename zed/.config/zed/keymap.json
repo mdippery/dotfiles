@@ -40,5 +40,16 @@
     "bindings": {
       "alt-cmd-c": "workspace::CopyPath"
     }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd-0": null
+    }
+  },
+  {
+    "bindings": {
+      "cmd-0": null
+    }
   }
 ]
