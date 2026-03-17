@@ -1,5 +1,11 @@
 [
   {
+    "context": "(Editor && mode == full)",
+    "bindings": {
+      "alt-cmd-shift-p": "editor::ShowSignatureHelp"
+    }
+  },
+  {
     "context": "Editor && mode == full",
     "bindings": {
       "cmd-p": null
