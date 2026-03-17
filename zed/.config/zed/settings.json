@@ -20,8 +20,10 @@
     ".cache",
     ".idea",
     ".yarn",
+    "coverage",
     "dist",
     "node_modules",
+    "playwright-report",
     "target",
   ],
   "icon_theme": {
