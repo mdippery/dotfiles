@@ -50,7 +50,7 @@
     "folder_icons": false,
     "hide_hidden": true,
   },
-  "remove_trailing_whitespace_on_save": false,
+  "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
   "tabs": {
     "close_position": "left",
