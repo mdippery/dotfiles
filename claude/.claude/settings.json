@@ -3,6 +3,12 @@
     "type": "command",
     "command": "~/.claude/status.bash"
   },
+  "permissions": {
+    "allow": [
+      "Bash(npx eslint:*)",
+      "Bash(npx vitest:*)"
+    ]
+  },
   "spinnerVerbs": {
     "mode": "append",
     "verbs": [
