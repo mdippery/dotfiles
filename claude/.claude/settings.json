@@ -6,6 +6,7 @@
   "permissions": {
     "allow": [
       "Bash(npx eslint:*)",
+      "Bash(npx tsc:*)",
       "Bash(npx vitest:*)",
       "Bash(xargs grep:*)"
     ]
