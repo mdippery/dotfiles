@@ -5,6 +5,7 @@
   },
   "permissions": {
     "allow": [
+      "Bash(find:*)",
       "Bash(npx eslint:*)",
       "Bash(npx tsc:*)",
       "Bash(npx vitest:*)",
