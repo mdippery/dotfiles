@@ -16,6 +16,7 @@
     "verbs": [
       "Burning down the Amazon",
       "Conjuring",
+      "Consulting the Oracles",
       "Cooking",
       "Dabbing",
       "Daydreaming",
@@ -23,13 +24,20 @@
       "Debugging",
       "Distilling",
       "Dreaming of electric sheep",
+      "Frying the Earth",
+      "Giving humans the pink slip",
       "Intensifying",
       "Killing all humans",
       "Killing time",
       "Looking busy",
+      "Praying to God",
+      "Putting developers out of work",
       "Reticulating splines",
       "Struggling",
-      "Twiddling thumbs"
+      "Tokenizing",
+      "Trying really hard",
+      "Twiddling thumbs",
+      "Waltzing"
     ]
   },
   "enabledPlugins": {
