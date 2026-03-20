@@ -6,7 +6,8 @@
   "permissions": {
     "allow": [
       "Bash(npx eslint:*)",
-      "Bash(npx vitest:*)"
+      "Bash(npx vitest:*)",
+      "Bash(xargs grep:*)"
     ]
   },
   "spinnerVerbs": {
