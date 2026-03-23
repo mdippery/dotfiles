@@ -7,9 +7,13 @@
     "allow": [
       "Bash(find:*)",
       "Bash(npx eslint:*)",
+      "Bash(npx jest:*)",
       "Bash(npx tsc:*)",
       "Bash(npx vitest:*)",
-      "Bash(xargs grep:*)"
+      "Bash(xargs grep:*)",
+      "Bash(xargs ls:*)",
+      "Bash(yarn fix:*)",
+      "Bash(yarn run jest:*)"
     ]
   },
   "spinnerVerbs": {
