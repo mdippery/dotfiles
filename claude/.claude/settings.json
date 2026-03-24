@@ -9,6 +9,7 @@
       "Bash(grep:*)",
       "Bash(npx eslint:*)",
       "Bash(npx jest:*)",
+      "Bash(npx prettier:*)",
       "Bash(npx tsc:*)",
       "Bash(npx vitest:*)",
       "Bash(xargs grep:*)",
