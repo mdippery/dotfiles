@@ -7,11 +7,13 @@
     "allow": [
       "Bash(find:*)",
       "Bash(grep:*)",
+      "Bash(ls:*)",
       "Bash(npx eslint:*)",
       "Bash(npx jest:*)",
       "Bash(npx prettier:*)",
       "Bash(npx tsc:*)",
       "Bash(npx vitest:*)",
+      "Bash(tree:*)",
       "Bash(xargs grep:*)",
       "Bash(xargs ls:*)",
       "Bash(yarn fix:*)",
