@@ -8,11 +8,6 @@ for brew in ${brew_completion[@]}; do
   [ -r $brew ] && source $brew
 done
 
-bash_completion_d=$BASH_COMPLETION_USER_DIR
-for f in $(find -H $bash_completion_d -mindepth 1 -not -name .gitignore); do
-  source $f
-done
-
 bash_completion_d=(bash_completion profile)
 for d in ${bash_completion_d[@]}; do
   d="${BREW_PREFIX}/etc/${d}.d"
@@ -24,6 +19,11 @@ for d in ${bash_completion_d[@]}; do
       fi
     done
   fi
+done
+
+bash_completion_d=$BASH_COMPLETION_USER_DIR
+for f in $(find -H $bash_completion_d -mindepth 1 -not -name .gitignore); do
+  source $f
 done
 
 complete -c bcat
