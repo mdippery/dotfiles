@@ -16,6 +16,7 @@
       "Bash(npx prettier:*)",
       "Bash(npx tsc:*)",
       "Bash(npx vitest:*)",
+      "Bash(realpath:*)",
       "Bash(tree:*)",
       "Bash(xargs grep:*)",
       "Bash(xargs ls:*)",
