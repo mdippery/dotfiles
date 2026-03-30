@@ -11,6 +11,7 @@
       "Bash(npm run fix:*)",
       "Bash(npm run lint:*)",
       "Bash(npm run type-check:*)",
+      "Bash(npm test:*)",
       "Bash(npx eslint:*)",
       "Bash(npx jest:*)",
       "Bash(npx prettier:*)",
