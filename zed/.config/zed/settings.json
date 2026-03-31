@@ -17,9 +17,11 @@
     "line_numbers": true,
   },
   "hidden_files": [
+    ".bundle",
     ".cache",
     ".idea",
     ".yarn",
+    ".*_cache",
     "coverage",
     "dist",
     "node_modules",
