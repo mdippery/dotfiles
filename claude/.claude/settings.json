@@ -19,6 +19,7 @@
       "Bash(npx vitest:*)",
       "Bash(realpath:*)",
       "Bash(tree:*)",
+      "Bash(uv run mypy:*)",
       "Bash(xargs grep:*)",
       "Bash(xargs ls:*)",
       "Bash(yarn fix:*)",
