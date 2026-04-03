@@ -17,7 +17,7 @@ function _ps1_exit_code {
 
 function _ps1_pushed_dirs {
   if (( $(dirs -v | wc -l) > 1 )); then
-    echo -ne "\[$(tput setaf 2)\]⎌\[$(tput sgr0)\] "
+    echo -ne "\[$(tput setaf 1)\]⎌\[$(tput sgr0)\] "
   fi
 }
 
