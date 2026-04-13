@@ -1,0 +1,5 @@
+#!/bin/bash
+
+path=$2
+bucket=$1
+aws s3 sync --acl=public-read --delete $path s3://docs.mipadi.com/$bucket

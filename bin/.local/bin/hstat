@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Returns the HTTP status code for a URL
+curl -I $1 2>/dev/null | head -1

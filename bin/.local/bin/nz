@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Mimics nc -z on systems with ncat
+(echo | nc -w1 $1 $2 >/dev/null 2>&1) && echo 'OPEN' || echo 'CLOSED'

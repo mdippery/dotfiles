@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Does a reverse DNS lookup on an IP
+
+set -o pipefail
+nslookup $1 | awk '/name = .*\.$/ {print $4}' | sed 's/\.$//'

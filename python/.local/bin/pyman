@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+
+import importlib
+import sys
+
+modname = sys.argv[1]
+module = importlib.import_module(modname)
+help(module)

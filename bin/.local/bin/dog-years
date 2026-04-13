@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+
+# Calculate the age of a dog in "dog years", based on the formula in
+# <https://mpd.im/2WeW6qZ>
+
+import math
+import sys
+
+y = int(sys.argv[1])
+age = round(math.log(y) * 16 + 31)
+print("{:d}".format(age))

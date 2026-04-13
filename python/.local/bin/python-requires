@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# List all direct dependencies for a package
+
+set -e
+
+python setup.py egg_info >/dev/null 2>&1
+cat *.egg-info/requires.txt

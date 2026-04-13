@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -o pipefail
+
+host=$(echo "$1" | cut -d : -f 1)
+path=$(echo "$1" | cut -d : -f 2)
+ssh $host "cat $path" | pv -bpt > $(basename path)

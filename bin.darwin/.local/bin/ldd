@@ -1,0 +1,4 @@
+#!/bin/bash
+
+onoe 'I think you mean `otool [-L]`'
+exit 1

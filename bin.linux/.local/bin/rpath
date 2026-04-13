@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+obj=$1
+readelf -d "$obj" \
+  | command egrep '\(RPATH\)\s+Library rpath: \[(.+)\]' \
+  | awk -F[ '{ print $2 }' \
+  | sed 's/]$//g'

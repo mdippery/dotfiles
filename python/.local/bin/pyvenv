@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+function python_major_version {
+  python -V 2>&1 | cut -d ' ' -f 2 | cut -d . -f 1
+}
+
+if [ $(python_major_version) == 3 ]; then
+  cmd="python -m venv $*"
+else
+  cmd="virtualenv $*"
+fi
+echo $cmd
+eval $cmd

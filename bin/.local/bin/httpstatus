@@ -1,0 +1,9 @@
+#!/bin/bash
+
+lynx \
+    -display_charset=utf-8 \
+    -dump \
+    -nolist \
+    "https://httpstatuses.io/$1" \
+  | tail -n +3 \
+  | less

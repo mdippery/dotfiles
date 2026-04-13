@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+
+import os.path
+import sys
+
+script_path = os.path.dirname(os.path.abspath(sys.argv[0]))
+print("\n".join(os.path.abspath(p) for p in sys.path if p != script_path))

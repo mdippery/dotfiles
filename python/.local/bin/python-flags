@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# I think this script is superseded by python-install, but I'll keep it until
+# I can confirm.
+
+set -e
+set -o pipefail
+
+pkgs='gdbm gettext libffi libmpdec openssl sqlite3 xz zlib'
+CFLAGS=-I$(brew --prefix)/include
+for pkg in $pkgs; do
+  CFLAGS="${CFLAGS} -I$(brew --prefix $pkg)/include"
+done
+CFLAGS=$(echo $CFLAGS | sed -e 's/ $//')
+LDFLAGS=$(echo $CFLAGS | tr 'I' 'L' | ruby -e 'puts STDIN.read.chomp.gsub(/\/include/, "/lib")')
+
+export CFLAGS
+export LDFLAGS
+
+system_ffi=yes
+if [ $(arch) = arm64 ]; then system_ffi=no; fi
+
+env | egrep '(C|LD)FLAGS'
+echo ./configure \
+  --prefix=$PYENV_ROOT/versions/\$version \
+  --with-openssl=$(brew --prefix openssl) \
+  --with-system-ffi=$system_ffi

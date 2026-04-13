@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Prints the bash utf8 representation of a character
+
+echo -n "$1" \
+  | hexdump -b \
+  | head -n 1 \
+  | awk '{ for (i = 1; ++i <= NF;) printf "\\%s", $i; } END { print " " }'

@@ -1,6 +1,8 @@
-# Simplifies interaction with dotfiles
+#!/bin/bash
 
-function _dots_directory {
+set -e
+
+function dots_directory {
   case "$1" in
     dots) echo $DOTFILES ;;
     vims) echo $VIMFILES ;;
@@ -13,26 +15,26 @@ function _dots_directory {
 
 function dots_exec {
   local dots_dir git_dir
-  dots_dir=$(_dots_directory $1)
+  dots_dir=$(dots_directory $1)
   git_dir=$dots_dir/.git
   shift
   case "$1" in
     ln)
       shift
-      stow -d $dots_dir $*
+      exec stow -d $dots_dir $*
       ;;
     rm)
       shift
-      stow -D -d $dots_dir $*
+      exec stow -D -d $dots_dir $*
       ;;
     up)
-      git --git-dir=$git_dir --work-tree=$dots_dir pull
+      exec git --git-dir=$git_dir --work-tree=$dots_dir pull
       ;;
     *)
-      git --git-dir=$git_dir --work-tree=$dots_dir $*
+      exec git --git-dir=$git_dir --work-tree=$dots_dir $*
       ;;
   esac
 }
 
-alias dots='dots_exec dots'
-alias vims='dots_exec vims'
+dots_type=$(basename $0)
+dots_exec $dots_type $*

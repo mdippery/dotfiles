@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -o pipefail
+command ls -1 ~/.pyenv/versions/ | sort -rV | paste -sd : -

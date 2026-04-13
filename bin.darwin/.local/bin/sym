@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if command -v $1; then
+  nm $(which $1)
+else
+  which $1
+fi

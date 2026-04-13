@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+ifconfig eth0 | command grep -E -o 'inet addr:[^ ]+' | awk -F: '{print $2}'
+ifconfig eth0 | command grep -E -o 'HWaddr .+$' | awk '{print $2}'

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ $1 == --reset ]]; then
+  echo -ne "\033]0;\007"
+else
+  echo -ne "\033]0;$1\007"
+fi

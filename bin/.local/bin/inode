@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Get the inode of a file
+stat -f '%i' $1

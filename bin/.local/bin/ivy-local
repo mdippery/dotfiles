@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# List local ivy packages
+find ~/.ivy2/local -mindepth 2 -maxdepth 2 -type d -exec basename {} \; | sort

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+mkdir -p docs
+ln -snfv $(realpath --relative-to=docs $(stack path --local-doc-root)) docs/api
+ln -snfv $(realpath --relative-to=docs $(stack path --local-hpc-root)) docs/coverage

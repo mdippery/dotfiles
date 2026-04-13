@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Via <https://github.com/cookiecutter/cookiecutter/issues/784#issuecomment-283529086>
+
+repo_url=$1
+cookiecutter \
+  --output-dir=.. \
+  --config-file=.cookiecutter.yaml \
+  --no-input \
+  --overwrite-if-exists $repo_url

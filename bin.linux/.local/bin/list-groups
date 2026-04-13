@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -o pipefail
+awk -F : '{ print $1 }' < /etc/group | sort

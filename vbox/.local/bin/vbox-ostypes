@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -o pipefail
+VBoxManage list ostypes | egrep '^ID:' | awk '{print $2}' | sort

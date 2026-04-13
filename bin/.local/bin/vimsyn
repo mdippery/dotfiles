@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -o pipefail
+
+ver=$(vim --version | head -n 1 | egrep -o '(7\.[0-9])' | tr -d '.')
+binroot_vim=$(binroot vim)
+
+if [ "$binroot_vim" = /Applications/MacVim.app/Contents ]; then
+  synroot=/Applications/MacVim.app/Contents/Resources/vim/runtime/syntax
+else
+  synroot=${binroot_vim}/share/vim/vim${ver}/syntax
+fi
+
+find "$synroot" -name '*.vim' -exec basename {} \; | sort

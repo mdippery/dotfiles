@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -o pipefail
+find $1 -name '*.py' | tree --fromfile .

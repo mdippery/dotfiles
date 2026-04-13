@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Downloads and extracts the given tar archive
+
+set -eu
+set -o pipefail
+
+f=$1
+case $f in
+  *.tbz | *.bz2) expand='bunzip2' ;;
+  *.tar)         expand='cat'     ;;
+  *.tgz | *.gz)  expand='gunzip'  ;;
+  *.xz)          expand='unxz'    ;;
+
+  *)
+    onoe "Unrecognized archive type: $(basename $f)"
+    exit 1
+    ;;
+esac
+curl $f | $expand | tar xf -

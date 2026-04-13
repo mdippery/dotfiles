@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Generate compleat config file for `lein`
+
+set -e
+
+lein_help=$(lein help)
+lein_help_start=$(sed -n '/Several tasks/=' <<< "$lein_help")
+lein_help_end=$(sed -n '/Run `lein help $TASK` for details/=' <<< "$lein_help")
+x=$((lein_help_start + 1))
+y=$((lein_help_end - 2))
+echo "$lein_help" \
+  | sed -n "${x},${y}p" \
+  | awk '{print "lein " $1 ";"}'

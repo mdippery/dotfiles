@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Converts an .mp3 into an .m4r (ringtone)
+
+if [[ $# = 2 ]]; then
+  out=$2
+else
+  out=${1/.mp3/.m4r}
+fi
+
+afconvert -o "$out" -q 127 -b 256000 -f m4af -d aac "$1"

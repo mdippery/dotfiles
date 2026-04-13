@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Removes .pyc files
+
+set -e
+
+dir=.
+if (( $# > 0 )); then
+  dir=$1
+fi
+find "$dir" -name '*.pyc' -delete
+find "$dir" -name __pycache__ -delete

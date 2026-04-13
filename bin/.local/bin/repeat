@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Repeats a character a given number of times
+
+ch=$1
+n=$2
+printf %${n}s | tr ' ' $ch

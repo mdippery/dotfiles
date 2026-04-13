@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Returns the default values for $XDG_* variables
+
+function xdg_var {
+  v=$1
+
+  case $v in
+    config-dirs)
+      echo ${XDG_CONFIG_DIRS:-/etc/xdg};;
+    config-home)
+      echo ${XDG_CONFIG_HOME:-${HOME}/.config};;
+    cache-home)
+      echo ${XDG_CACHE_HOME:-${HOME}/.cache};;
+    data-dirs)
+      echo ${XDG_DATA_DIRS:-/usr/local/share:/usr/share};;
+    data-home)
+      echo ${XDG_DATA_HOME:-${HOME}/.local/share};;
+    runtime-dir)
+      if [[ -n $XDG_RUNTIME_DIR ]]; then
+        echo $XDG_RUNTIME_DIR
+      fi
+      ;;
+    state-home)
+      echo ${XDG_STATE_HOME:-${HOME}/.local/state};;
+    *)
+      onoe 'No such variable: $XDG_'"$(echo -n $v | tr - _ | tr [:lower:] [:upper:])"
+      return 2
+  esac
+}
+
+function xdg_all {
+  column -s , -t <<EOS
+XDG_CONFIG_DIRS,$(xdg_var config-dirs)
+XDG_CONFIG_HOME,$(xdg_var config-home)
+XDG_CACHE_HOME,$(xdg_var cache-home)
+XDG_DATA_DIRS,$(xdg_var data-dirs)
+XDG_DATA_HOME,$(xdg_var data-home)
+XDG_RUNTIME_DIR,$(xdg_var runtime-dir)
+XDG_STATE_HOME,$(xdg_var state-home)
+EOS
+}
+
+if (( $# < 1 )); then
+  xdg_all
+else
+  xdg_var $1
+fi
