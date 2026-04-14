@@ -65,7 +65,7 @@ export PYTHON_HISTORY="${XDG_STATE_HOME}/python/history.py3"
 [ -x /usr/libexec/java_home ] && \
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
 
-hash brew 2>/dev/null && export BREW_PREFIX=$(brew --prefix)
+command -v brew &>/dev/null && export BREW_PREFIX=$(brew --prefix)
 
 mkdir -p "$TF_PLUGIN_CACHE_DIR"
 mkdir -p $(dirname "$PSQL_HISTORY")

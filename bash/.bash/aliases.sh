@@ -57,8 +57,8 @@ alias vundle='vim +PluginInstall +qall'
 alias w='which'
 alias weather='curl wttr.in'
 
-hash jq 2>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
-hash uuid 2>/dev/null || alias uuid='/usr/bin/uuidgen'
+command -v jq &>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
+command -v uuid &>/dev/null || alias uuid='/usr/bin/uuidgen'
 
 [ -r "${DOTBASH_OS}/aliases.sh" ] && source "${DOTBASH_OS}/aliases.sh"
 [ -r "${DOTBASH}/aliases.user.sh" ] && source "${DOTBASH}/aliases.user.sh"
