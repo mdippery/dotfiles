@@ -1,4 +1,11 @@
 #!/bin/bash
 
 # Opens a man page in Preview
-man -t $1 | open -f -a /Applications/Preview.app
+
+if [ -d /System/Applications/Preview.app ]; then
+  Preview=/System/Applications/Preview.app
+else
+  Preview=/Applications/Preview.app
+fi
+
+man -t $1 | open -f -a $Preview
