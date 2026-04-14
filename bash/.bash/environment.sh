@@ -23,14 +23,8 @@ export HOMEBREW_EDITOR=$GUI_EDITOR
 export PAGER=/usr/bin/less
 export LESS=R
 
-if [ $(uname -m) = arm64 ]; then
-  HOMEBREW_PREFIX=/opt/homebrew
-else
-  HOMEBREW_PREFIX=/usr/local
-fi
-export HOMEBREW_PREFIX
-export HOMEBREW_REPOSITORY=$HOMEBREW_PREFIX
-export HOMEBREW_CELLAR="${HOMEBREW_PREFIX}/Cellar"
+export BREW_PREFIX=$(brew --prefix)
+export BREW_CELLAR="${HOMEBREW_PREFIX}/Cellar"
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
@@ -64,8 +58,6 @@ export PYTHON_HISTORY="${XDG_STATE_HOME}/python/history.py3"
 
 [ -x /usr/libexec/java_home ] && \
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
-
-command -v brew &>/dev/null && export BREW_PREFIX=$(brew --prefix)
 
 mkdir -p "$TF_PLUGIN_CACHE_DIR"
 mkdir -p $(dirname "$PSQL_HISTORY")
