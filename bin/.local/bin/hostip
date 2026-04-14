@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Returns the IP address for a given host
-
-set -o pipefail
-host $1 | command grep 'has address' | awk '{ print $4 }'

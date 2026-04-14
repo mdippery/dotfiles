@@ -2,6 +2,6 @@
 
 # Returns IP data for a given host
 
-for ip in $(hostip $1); do
+for ip in $(dig +short $1); do
   ipinfo $ip
 done
