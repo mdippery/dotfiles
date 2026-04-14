@@ -20,7 +20,7 @@ echo -n "$sep"
 echo -n "${yellow} $branch${reset}"
 
 # Quota and model
-# if [ $(tput cols) -gt 100 ]; then echo -n "$sep"; else echo; fi
-# echo -n "⏱️ ${blue}${usage}%${reset}"
+if [ $(tput cols) -gt 100 ]; then echo -n "$sep"; else echo; fi
+echo -n "🤖 ${teal}${model}${reset}"
 # echo -n "$sep"
-# echo -n "🤖 ${teal}${model}${reset}"
+# echo -n "⏱️ ${blue}${usage}%${reset}"
