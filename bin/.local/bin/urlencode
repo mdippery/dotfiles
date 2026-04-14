@@ -1,6 +1,14 @@
 #!/usr/bin/env python
 
+import os.path
 import sys
 import urllib.parse as P
 
-print(P.quote(sys.stdin.read()))
+parsers = dict(urlencode=P.quote, urldecode=P.unquote)
+script = os.path.basename(sys.argv[0])
+
+try:
+    print(parsers[script](sys.stdin.read().strip()))
+except KeyError:
+    print(f"Unknown URL tool: {script}", file=sys.stderr)
+    sys.exit(1)
