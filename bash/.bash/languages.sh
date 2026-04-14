@@ -28,7 +28,7 @@ if [ -d ~/.cabal/bin ]; then
   export PATH=${HOME}/.cabal/bin:${PATH}
 fi
 
-if hash node 2>/dev/null; then
+if command -v node &>/dev/null; then
   node_modules="$(dirname $(dirname $(which node)))/lib/node_modules"
   if [ -d $node_modules ]; then
     export NODE_PATH="${node_modules}:${NODE_PATH}"
