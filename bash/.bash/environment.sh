@@ -36,15 +36,9 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_EMOJI=1
 
-export CLAUDE_CODE_DISABLE_TERMINAL_TITLE=1
-
-export PSQL_HISTORY="${XDG_STATE_HOME}/psql/history"
-export PYTHON_HISTORY="${XDG_STATE_HOME}/python/history.py3"
-
-export UV_PROJECT_ENVIRONMENT=.bundle
-
 export ANSIBLE_NOCOWS=1
 export BASH_COMPLETION_USER_DIR="${DOTBASH}/completions"
+export CLAUDE_CODE_DISABLE_TERMINAL_TITLE=1
 export CLICOLOR_FORCE=true
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true    # Don't tar resource forks
 export CUCUMBER_PUBLISH_QUIET=true
@@ -62,7 +56,11 @@ export PYTHONDONTWRITEBYTECODE=1
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 export TOX_WORKDIR_CACHE="${XDG_CACHE_HOME}/tox"
 export TF_PLUGIN_CACHE_DIR="${XDG_CACHE_HOME}/terraform/plugins"
+export UV_PROJECT_ENVIRONMENT=.bundle
 export XML_CATALOG_FILES="$(brew --prefix)/etc/xml/catalog"
+
+export PSQL_HISTORY="${XDG_STATE_HOME}/psql/history"
+export PYTHON_HISTORY="${XDG_STATE_HOME}/python/history.py3"
 
 [ -x /usr/libexec/java_home ] && \
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
