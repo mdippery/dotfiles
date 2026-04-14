@@ -8,7 +8,7 @@ function _ps1_cwd {
 
 function _ps1_prev_dir {
   if [[ -n "$OLDPWD" ]]; then
-    echo -ne "\[$(tput setaf 0)$(tput bold)\]↪︎ $(basename ${OLDPWD/#$HOME/\~})\[$(tput sgr0)\]"
+    echo -ne " \[$(tput setaf 0)$(tput bold)\]↪︎ $(basename ${OLDPWD/#$HOME/\~})\[$(tput sgr0)\] "
   fi
 }
 
@@ -23,7 +23,7 @@ function _ps1_exit_code {
 
 function _ps1_pushed_dirs {
   if (( $(dirs -v | wc -l) > 1 )); then
-    echo -ne "\[$(tput setaf 1)\]⎌\[$(tput sgr0)\]"
+    echo -ne " \[$(tput setaf 1)\]⎌\[$(tput sgr0)\] "
   fi
 }
 
@@ -55,7 +55,7 @@ function _ps1_git_branch {
 }
 
 function _ps1 {
-  export PS1="$(_ps1_ssh_host)$(_ps1_virtual_env)$(_ps1_cwd) $(_ps1_pushed_dirs) $(_ps1_prev_dir) $(_ps1_git_branch)\n$(_ps1_sigil) "
+  export PS1="$(_ps1_ssh_host)$(_ps1_virtual_env)$(_ps1_cwd)$(_ps1_pushed_dirs)$(_ps1_prev_dir)$(_ps1_git_branch)\n$(_ps1_sigil) "
 }
 
 # vim: set ft=bash :
