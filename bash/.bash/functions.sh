@@ -91,6 +91,7 @@ function which {
   fi
   (alias ; declare -f) | $which_prefix/which --tty-only --read-alias --read-functions --show-dot --show-tilde $*
 }
+export -f which
 
 function whichsh {
   # Inspired by <https://nil.wallyjones.com/what-shell-am-i-using/>
