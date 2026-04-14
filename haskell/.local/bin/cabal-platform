@@ -1,12 +1,12 @@
 #!/bin/bash
 
 arch=$(uname -m)
-os="$DOTBASH_OS_NAME"  # TODO: Standardize to $OS for other shells
+os="${OS:-$DOTBASH_OS_NAME}"
 if [ "$os" = 'darwin' ]; then
   os='osx'
 fi
 
-if command -v ghc 2>/dev/null; then
+if command -v ghc &>/dev/null; then
   ghc=$(ghc --version | awk '{print $(NF)}')
   echo "${arch}-${os}-ghc-${ghc}"
 else

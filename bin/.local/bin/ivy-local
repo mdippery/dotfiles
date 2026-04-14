@@ -1,4 +1,5 @@
 #!/bin/bash
 
 # List local ivy packages
+set -o pipefail
 find ~/.ivy2/local -mindepth 2 -maxdepth 2 -type d -exec basename {} \; | sort

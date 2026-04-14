@@ -1,4 +1,5 @@
 #!/bin/bash
 
 # Show known SSH hosts
+set -o pipefail
 cut -d ' ' -f 1 < ~/.ssh/known_hosts | cut -d ',' -f 1 | sort

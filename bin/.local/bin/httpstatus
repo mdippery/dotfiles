@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o pipefail
+
 lynx \
     -display_charset=utf-8 \
     -dump \

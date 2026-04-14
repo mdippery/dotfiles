@@ -1,7 +1,5 @@
 #!/bin/bash
 
 # Upgrades outdated pip dependencies
-
 set -o pipefail
-
 pip list -o | cut -d ' ' -f 1 | xargs pip install -U

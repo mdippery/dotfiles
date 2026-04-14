@@ -6,7 +6,7 @@ shopt -s globstar
 
 source "${DOTBASH}/lib/prompt.sh"
 PROMPT_COMMAND=_ps1
-command -v update_terminal_cwd >/dev/null 2>&1 && PROMPT_COMMAND="${PROMPT_COMMAND}; update_terminal_cwd"
+command -v update_terminal_cwd &>/dev/null && PROMPT_COMMAND="${PROMPT_COMMAND}; update_terminal_cwd"
 export PROMPT_COMMAND
 export PS2="\[$(tput setaf 1)\]\342\200\246\[$(tput sgr0)\] "
 export PROMPT_DIRTRIM=3

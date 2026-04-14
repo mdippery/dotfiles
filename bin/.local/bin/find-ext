@@ -10,7 +10,7 @@ function find_ext {
 
 ext=$1
 path=${2:-.}
-if command -v fd 2>/dev/null; then
+if command -v fd &>/dev/null; then
   fd_ext $ext "$path"
 else
   find_ext $ext "$path"

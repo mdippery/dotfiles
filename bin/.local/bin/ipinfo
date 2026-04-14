@@ -1,6 +1,6 @@
 #!/bin/bash
 
 # Returns IP information
-
+set -e
 curl -s ipinfo.io/$1
 echo
