@@ -2,6 +2,14 @@
 
 set -o pipefail
 
+function binroot {
+  if (( $# < 1 )); then
+    onoe 'binroot <path>'
+    return 1
+  fi
+  dirname $(dirname $(which $1))
+}
+
 ver=$(vim --version | head -n 1 | egrep -o '(7\.[0-9])' | tr -d '.')
 binroot_vim=$(binroot vim)
 
