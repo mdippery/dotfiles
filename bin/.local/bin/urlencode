@@ -8,7 +8,12 @@ parsers = dict(urlencode=P.quote, urldecode=P.unquote)
 script = os.path.basename(sys.argv[0])
 
 try:
-    print(parsers[script](sys.stdin.read().strip()))
+    string = sys.argv[1]
+except IndexError:
+    string = sys.stdin.read().strip()
+
+try:
+    print(parsers[script](string))
 except KeyError:
     print(f"Unknown URL tool: {script}", file=sys.stderr)
     sys.exit(1)
