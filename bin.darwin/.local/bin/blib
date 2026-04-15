@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if command -v $1; then
+if command -v $1 &>/dev/null; then
   otool -L $(which $1)
 else
   which $1
