@@ -2,11 +2,10 @@ export DOTBASH="${HOME}/.bash"
 export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 export DOTBASH_PLAT="${DOTBASH}/plat/${OS}"
 
-export XDG_BIN_HOME=${XDG_BIN_HOME:-$HOME/.local/bin}
-export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/Library/Caches}
-export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
-export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
-export XDG_STATE_HOME=${XDG_CACHE_HOME}
+# We need to source these as early as possible because they are used
+# pervasively over our bash config.
+source "${DOTBASH}/xdg.sh"
+[ -r "${DOTBASH_PLAT}/xdg.sh" ] && source "${DOTBASH_PLAT}/xdg.sh"
 
 unset HISTFILE                  # Don't save history
 export HISTCONTROL=ignoredups
