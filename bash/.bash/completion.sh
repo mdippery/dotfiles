@@ -27,6 +27,7 @@ for f in $(find -H $bash_completion_d -mindepth 1 -not -name .gitignore); do
 done
 
 complete -c bcat
+complete -c whither
 
 command -v stack &>/dev/null && eval "$(stack --bash-completion-script stack)"
 command -v just &>/dev/null && eval "$(just --completions=bash)"
