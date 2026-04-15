@@ -1,6 +1,6 @@
 export DOTBASH="${HOME}/.bash"
-export DOTBASH_OS_NAME=$(uname -s | tr '[:upper:]' '[:lower:]')
-export DOTBASH_OS="${DOTBASH}/plat/${DOTBASH_OS_NAME}"
+export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+export DOTBASH_PLAT="${DOTBASH}/plat/${OS}"
 
 export XDG_BIN_HOME=${XDG_BIN_HOME:-$HOME/.local/bin}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/Library/Caches}

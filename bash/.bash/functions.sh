@@ -100,7 +100,7 @@ function whichsh {
 
 function whois { command whois $1 | $PAGER; }
 
-[ -r "${DOTBASH_OS}/functions.sh" ] && source "${DOTBASH_OS}/functions.sh"
+[ -r "${DOTBASH_PLAT}/functions.sh" ] && source "${DOTBASH_PLAT}/functions.sh"
 [ -r "${DOTBASH}/functions.user.sh" ] && source "${DOTBASH}/functions.user.sh"
 
 # vim: set ft=bash :

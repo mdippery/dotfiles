@@ -41,7 +41,7 @@ unset bash_completion_d
 unset d
 unset f
 
-[ -r "${DOTBASH_OS}/completion.sh" ] && source "${DOTBASH_OS}/completion.sh"
+[ -r "${DOTBASH_PLAT}/completion.sh" ] && source "${DOTBASH_PLAT}/completion.sh"
 [ -r "${DOTBASH}/completion.user.sh" ] && source "${DOTBASH}/completion.user.sh"
 
 # vim: set ft=bash :
