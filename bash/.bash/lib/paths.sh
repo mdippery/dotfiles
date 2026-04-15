@@ -1,13 +1,22 @@
-function paths-helper {
-  local BREW RAW_PATH
-  local macvim docker homebrew x11bin whichbin gettext libpq
-
+function _quick_brew_home {
   if [ $(uname -m) = arm64 ]; then
-    homebrew=/opt/homebrew/bin
-    BREW=${homebrew}/brew
+    echo /opt/homebrew
   else
-    BREW=/usr/local/bin/brew
+    echo /usr/local
   fi
+}
+
+function _quick_brew_prefix {
+  echo "$(_quick_brew_home)/opt/$1"
+}
+
+function _quick_brew_installed {
+  test -e $(_quick_brew_prefix $1)
+}
+
+function paths-helper {
+  local RAW_PATH
+  local macvim docker homebrew x11bin whichbin gettext libpq
 
   [ -d "${HOME}/.docker/bin" ] && docker="${HOME}/.docker/bin"
 
@@ -15,12 +24,14 @@ function paths-helper {
 
   [ -d /opt/X11/bin ] && x11bin=/opt/X11/bin
 
-  $BREW --prefix --installed gnu-which >/dev/null 2>&1 && whichbin=$($BREW --prefix gnu-which)/libexec/gnubin
-  $BREW --prefix --installed gettext >/dev/null 2>&1 && gettext=$($BREW --prefix gettext)/bin
+  homebrew=$(_quick_brew_home)/bin
+
+  $(_quick_brew_installed gnu-which) && whichbin=$(_quick_brew_prefix gnu-which)/libexec/gnubin
+  $(_quick_brew_installed gettext) && gettext=$(_quick_brew_prefix gettext)/bin
 
   # Nowadays I normally run Postgres in Docker, so I only install libpq
   # to get access to the `psql` binary.
-  $BREW --prefix --installed libpq >/dev/null 2>&1 && libpq=$($BREW --prefix libpq)/bin
+  $(_quick_brew_installed libpq) && libpq=$(_quick_brew_prefix libpq)/bin
 
   RAW_PATH=$(cat <<EOS
 $XDG_BIN_HOME
