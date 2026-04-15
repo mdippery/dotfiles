@@ -14,7 +14,7 @@ function _ps1_prev_dir {
 
 function _ps1_pushed_dirs {
   if (( $(dirs -v | wc -l) > 1 )); then
-    echo -ne "\[$(tput setaf 1)\]⎌\[$(tput sgr0)\] "
+    echo -ne "\[$(tput setaf 6)\]⎌\[$(tput sgr0)\] "
   fi
 }
 
