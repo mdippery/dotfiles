@@ -28,6 +28,7 @@ alias md='open -a /Applications/Byword.app'
 alias mkdir='mkdir -p'
 alias mongod="mongod -f ${BREW_PREFIX}/etc/mongod.conf"
 alias myip='curl -s icanhazip.com'
+alias myipv4='curl -s ipv4.icanhazip.com'
 alias nth-line='grab-line'
 alias o='popd 2>/dev/null || cd -'
 alias p='pushd'
