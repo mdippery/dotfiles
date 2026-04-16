@@ -3,13 +3,13 @@ function _ps1_sigil {
 }
 
 function _ps1_cwd {
-  echo -ne "\[$(tput setaf 4)\]\w\[$(tput sgr0)\] "
+  echo -ne "\[$(tput setaf 4)\]\w\[$(tput sgr0)\]"
 }
 
 function _ps1_prev_dir {
   if [ "$SHELL_SHOW_OLDPWD" = 1 -o "$SHELL_SHOW_OLDPWD" = true ]; then
     if [[ -n "$OLDPWD" ]]; then
-      echo -ne "\[$(tput setaf 0)$(tput bold)\]$(basename ${OLDPWD/#$HOME/\~}) ↩︎\[$(tput sgr0)\] "
+      echo -ne " \[$(tput setaf 0)$(tput bold)\]↪︎ $(basename ${OLDPWD/#$HOME/\~})\[$(tput sgr0)\]"
     fi
   fi
 }
@@ -52,12 +52,12 @@ function _ps1_time {
 
 function _ps1_git_branch {
   if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) = "true" ]]; then
-    echo -ne "\[$(tput setaf 3)\ue0a0 $(git branch --show-current)$(tput sgr0)\]"
+    echo -ne " \[$(tput setaf 3)\ue0a0 $(git branch --show-current)$(tput sgr0)\]"
   fi
 }
 
 function _ps1 {
-  export PS1="$(_ps1_ssh_host)$(_ps1_prev_dir)$(_ps1_pushed_dirs)$(_ps1_virtual_env)$(_ps1_cwd)$(_ps1_git_branch)\n$(_ps1_sigil) "
+  export PS1="$(_ps1_ssh_host)$(_ps1_pushed_dirs)$(_ps1_virtual_env)$(_ps1_cwd)$(_ps1_git_branch)$(_ps1_prev_dir)\n$(_ps1_sigil) "
 }
 
 # vim: set ft=bash :
