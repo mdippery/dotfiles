@@ -7,8 +7,10 @@ function _ps1_cwd {
 }
 
 function _ps1_prev_dir {
-  if [[ -n "$OLDPWD" ]]; then
-    echo -ne "\[$(tput setaf 0)$(tput bold)\]$(basename ${OLDPWD/#$HOME/\~}) ↩︎\[$(tput sgr0)\] "
+  if [ "$SHELL_SHOW_OLDPWD" = 1 -o "$SHELL_SHOW_OLDPWD" = true ]; then
+    if [[ -n "$OLDPWD" ]]; then
+      echo -ne "\[$(tput setaf 0)$(tput bold)\]$(basename ${OLDPWD/#$HOME/\~}) ↩︎\[$(tput sgr0)\] "
+    fi
   fi
 }
 
