@@ -1,0 +1,13 @@
+#!/bin/bash
+
+ipv4() { curl -s ipv4.icanhazip.com; }
+ipv6() { curl -s icanhazip.com; }
+ip()   { ipv6; }
+
+if (( $# == 0 )); then
+  ip
+elif [[ $1 == -4 ]]; then
+  ipv4
+elif [[ $1 == -6 ]]; then
+  ipv6
+fi
