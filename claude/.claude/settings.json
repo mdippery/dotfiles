@@ -23,7 +23,8 @@
       "Bash(xargs grep:*)",
       "Bash(xargs ls:*)",
       "Bash(yarn fix:*)",
-      "Bash(yarn run jest:*)"
+      "Bash(yarn run jest:*)",
+      "Bash(yarn vitest *)"
     ]
   },
   "spinnerVerbs": {
