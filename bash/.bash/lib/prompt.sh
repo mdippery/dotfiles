@@ -16,7 +16,7 @@ function _ps1_prev_dir {
 
 function _ps1_pushed_dirs {
   if (( $(dirs -v | wc -l) > 1 )); then
-    echo -ne "\[$(tput setaf 7)\]⎌\[$(tput sgr0)\] "
+    echo -ne " \[$(tput setaf 7)\]⎌\[$(tput sgr0)\]"
   fi
 }
 
@@ -57,7 +57,7 @@ function _ps1_git_branch {
 }
 
 function _ps1 {
-  export PS1="$(_ps1_ssh_host)$(_ps1_pushed_dirs)$(_ps1_virtual_env)$(_ps1_cwd)$(_ps1_git_branch)$(_ps1_prev_dir)\n$(_ps1_sigil) "
+  export PS1="$(_ps1_ssh_host)$(_ps1_virtual_env)$(_ps1_cwd)$(_ps1_git_branch)$(_ps1_pushed_dirs)$(_ps1_prev_dir)\n$(_ps1_sigil) "
 }
 
 # vim: set ft=bash :
