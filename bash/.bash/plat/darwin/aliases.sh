@@ -1,5 +1,6 @@
 alias binld='blib'
 alias dec='otool -tvV -use-color'
 alias dis='dec'
+alias fd='LS_COLORS="$FD_COLORS" fd'
 alias linux-sh='docker run --rm -it ubuntu:xenial'
 alias lsusb='system_profiler SPUSBDataType'
