@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# A sort of opposite to paste -sd.
+#     paste -sd : file.txt | unpaste
+# will return the same file.
+
+delim=:
+
+while getopts d: opt; do
+  case $opt in
+    d)
+      delim="$OPTARG"
+      ;;
+    ?)
+      echo "Usage: $0 [-d delimiter]" >&2
+      exit 1
+      ;;
+  esac
+done
+
+tr "$delim" "\n"
