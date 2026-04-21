@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 repo=$1
 repo_name=$(basename $repo)
 out_dir=${2:-$(pwd)}

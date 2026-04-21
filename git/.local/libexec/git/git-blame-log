@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/bash
+
+set -e
+set -o pipefail
 
 # Simple Git script to show the commit info and diff for a given
 # line of code. (Basically, it does the `git show` for the output

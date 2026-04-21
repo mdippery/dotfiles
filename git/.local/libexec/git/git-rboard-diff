@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+set -o pipefail
 
 git diff --no-prefix $* \
   | sed -e 's/^+++ .*/&    (working copy)/' \
