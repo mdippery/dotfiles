@@ -1,6 +1,30 @@
 #!/usr/bin/env python
 
+import argparse
 import sys
 import time
 
-print(time.asctime(time.localtime(int(sys.argv[1]))))
+parser = argparse.ArgumentParser(
+    description="Convert a Unix epoch timestamp into a human-readable string.",
+)
+parser.add_argument(
+    "-k",
+    action="store_true",
+    help="convert a Unix millisecond timestamp into seconds, if detected",
+)
+parser.add_argument("timestamp", help="Unix epoch timestamp", type=int)
+args = parser.parse_args()
+timestamp = args.timestamp
+
+if len(str(timestamp)) >= 13:
+    print(
+        "It looks like you are trying to print a millisecond time.",
+        file=sys.stderr,
+    )
+    if args.k:
+        timestamp //= 1000
+        print(f"Converted to {timestamp}.", file=sys.stderr)
+    else:
+        sys.exit(1)
+
+print(time.asctime(time.localtime(timestamp)))
