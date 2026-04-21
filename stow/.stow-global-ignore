@@ -3,6 +3,7 @@
 ^/CHANGELOG.*
 ^/readme\.txt
 .*\.bat
+\.DS_Store
 \.git
 \.gitignore
 share/info/dir
