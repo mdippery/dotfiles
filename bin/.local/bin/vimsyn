@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -o pipefail
+set -euo pipefail
 
 function binroot {
   if (( $# < 1 )); then
@@ -10,7 +10,7 @@ function binroot {
   dirname $(dirname $(which $1))
 }
 
-ver=$(vim --version | head -n 1 | egrep -o '(7\.[0-9])' | tr -d '.')
+ver=$(vim --version | head -n 1 | egrep -o '([0-9]+\.[0-9])' | tr -d '.')
 binroot_vim=$(binroot vim)
 
 if [ "$binroot_vim" = /Applications/MacVim.app/Contents ]; then
