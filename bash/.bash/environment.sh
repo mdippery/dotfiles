@@ -62,6 +62,7 @@ export PYTHON_HISTORY="${XDG_STATE_HOME}/python/history.py3"
 mkdir -p "$TF_PLUGIN_CACHE_DIR"
 mkdir -p $(dirname "$PSQL_HISTORY")
 mkdir -p $(dirname "$PYTHON_HISTORY")
+mkdir -p "$XDG_STATE_HOME/ruby"
 
 [ -r "${DOTBASH_OS}/environment.sh" ] && source "${DOTBASH_OS}/environment.sh"
 [ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
