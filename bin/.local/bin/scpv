@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -o pipefail
+set -euo pipefail
 
 host=$(echo "$1" | cut -d : -f 1)
 path=$(echo "$1" | cut -d : -f 2)
