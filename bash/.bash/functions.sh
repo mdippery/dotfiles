@@ -10,11 +10,25 @@ function bash-functions {
   declare -F | awk '{print $3}'
 }
 
+# Gets the job number of the Claude job for the current directory
+function claude_job {
+  jobs \
+    | grep claude \
+    | grep -v 'wd:' \
+    | egrep -o '^\[\d+\][+-]' \
+    | tr -d -C [:digit:]
+}
+
 # Reads a .env file into variables
 function dotenv {
   set -a
   source ${1:-.env}
   set +a
+}
+
+# Loads the Claude job for the current directory into the foreground
+function fgc {
+  fg $(claude_job)
 }
 
 # A nicer man with colorized text
