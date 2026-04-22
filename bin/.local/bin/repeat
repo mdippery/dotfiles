@@ -1,7 +1,8 @@
-#!/bin/bash
-
+#!/usr/bin/env python
 # Repeats a character a given number of times
 
-ch=$1
-n=$2
-printf %${n}s | tr ' ' $ch
+import sys
+
+ch = sys.argv[1]
+n = int(sys.argv[2])
+print(ch * n, end='')
