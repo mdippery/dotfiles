@@ -1,8 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env python
+
+import sys
 
 # Prints the bash utf8 representation of a character
+#
+# In straight bash, this would be:
+#
+#   echo -n "$1" \
+#     | hexdump -b \
+#     | head -n 1 \
+#     | awk '{ for (i = 1; ++i <= NF;) printf "\\%s", $i; } END { print " " }'
+#
+# but I think this Python version is easier to read.
 
-echo -n "$1" \
-  | hexdump -b \
-  | head -n 1 \
-  | awk '{ for (i = 1; ++i <= NF;) printf "\\%s", $i; } END { print " " }'
+ch = sys.argv[1]
+bn = ch.encode("utf-8")
+bs = "".join(oct(b).replace("0o", "\\") for b in bn)
+print(bs)
