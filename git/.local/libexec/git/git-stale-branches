@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 SEP=$(echo 2B | xxd -r -p)
 
 git for-each-ref \

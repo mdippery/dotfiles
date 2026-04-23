@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 source=$1
 dest=${2:-HEAD}
 source_hash=$(git rev-parse $source)
