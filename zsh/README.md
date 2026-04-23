@@ -22,7 +22,8 @@ attached to a tty." So basically: important environment variables.</td>
 <td><code>.zprofile</code>
 <td>Similar to <code>.zlogin</code>, but sourced <em>before</em>
 <code>.zshrc</code>. Either <code>.zprofile</code> or <code>.zlogin</code>
-should be used, but not both. <code>.zlogin</code> is preferable;
+should be used, but not both (though this is a general guideline; nothing
+prevents both from being used). <code>.zlogin</code> is preferable;
 <code>.zprofile</code> is intended for <code>ksh</code> fans.
 <tr>
 <td align="right">2</td>
@@ -58,6 +59,25 @@ to configure `zsh`:
 2. `.zshrc` (if interactive)
 3. `.zlogin` (if login)
 4. `.zlogout`
+
+## File Loading Order
+
+The above is a good general guideline, but here is the exact order in which
+configuration scripts are read by zsh:
+
+1. `/etc/zshenv`
+2. `$ZDOTDIR/.zshenv`
+3. `/etc/zprofile` (if login)
+4. `$ZDOTDIR/.zprofile` (if login)
+5. `/etc/zshrc` (if interactive)
+6. `$ZDOTDIR/.zshrc` (if interactive)
+7. `/etc/zlogin` (if login)
+8. `$ZDOTDIR/.zlogin` (if login)
+9. `$ZDOTDIR/.zlogout`
+10. `/etc/zlogout`
+
+`$ZDOTDIR` == `$HOME` unless `$ZDOTDIR` is explicitly set. It therefore _must_
+be set in `~/.zshenv` if changed.
 
 ## Login vs. interactive shells
 
