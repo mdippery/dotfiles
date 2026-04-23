@@ -39,7 +39,6 @@ export CUCUMBER_PUBLISH_QUIET=true
 export DJANGO_DEBUG=true
 export FIGNORE='.terraform:.DS_Store:.localized'
 export GHCUP_USE_XDG_DIRS=true
-export GOPATH="${HOME}/Library/Application Support/go"
 export GPG_TTY=$(tty)
 export GREP_OPTIONS='--color'
 export LESSOPEN="|${XDG_BIN_HOME}/lessopen %s"
