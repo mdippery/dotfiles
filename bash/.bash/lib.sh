@@ -6,4 +6,4 @@ function onoe {
 export -f onoe
 
 source "${DOTBASH}/lib/paths.sh"
-source "${DOTBASH}/lib/greet.sh"
+[ -r "${DOTBASH}/lib/greet.sh" ] && source "${DOTBASH}/lib/greet.sh"
