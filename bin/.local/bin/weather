@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -eo pipefail
+
+if [[ $1 == -v || $1 == --verbose ]]; then
+  opts=n
+  shift
+else
+  opts=0q # Q to suppress city name, too
+fi
+
+city=${*:-San Francisco}
+curl -s wttr.in/${city// /+}?$opts
