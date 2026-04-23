@@ -5,9 +5,12 @@ set -eo pipefail
 if [[ $1 == -v || $1 == --verbose ]]; then
   opts=n
   shift
+elif [[ $1 == -h || $1 == --help ]]; then
+  open https://wttr.in/:help
+  exit 0
 else
   opts=0q # Q to suppress city name, too
 fi
 
 city=${*:-San Francisco}
-curl -s wttr.in/${city// /+}?$opts
+curl -s https://wttr.in/${city// /+}?$opts
