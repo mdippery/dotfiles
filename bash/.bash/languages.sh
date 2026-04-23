@@ -14,10 +14,11 @@ fi
 [ -r ~/.poetry/env ] && source ~/.poetry/env
 export PYTHONSTARTUP="$(xdg config-home)/python/startup.py"
 
-if [ -d ~/.go/go ]; then
-  export GOROOT="${HOME}/.go/go"
-  export GOPATH="${HOME}/.go/ws"
+if [ -d "$(dirname $GOPATH)" ]; then
+  export GOROOT="$(dirname $GOPATH)/go"
+  mkdir -p "$GOROOT"
   mkdir -p "$GOPATH"
+  export PATH="${GOPATH}/bin:${GOROOT}/bin:${PATH}"
 fi
 
 if [ -d ~/.cargo/bin ]; then
