@@ -6,7 +6,7 @@
 # in the root of the home folder.
 ##############################################################################
 
-export DOTZSH="${HOME}/.config/zsh"
+export DOTZSH="${HOME}/.z"
 export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 export DOTZSH_PLAT="${DOTZSH}/plat/${OS}"
 #export ZDOTDIR=$DOTZSH
