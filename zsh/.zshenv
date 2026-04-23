@@ -7,9 +7,11 @@
 ##############################################################################
 
 export DOTZSH="${HOME}/.config/zsh"
+export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+export DOTZSH_PLAT="${DOTZSH}/plat/${OS}"
 #export ZDOTDIR=$DOTZSH
 
-export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+. "${DOTZSH}/xdg.zsh"
 
 # Check /etc/zshrc when configuring zsh, especially on macOS.
 # It can set some gnarly options.

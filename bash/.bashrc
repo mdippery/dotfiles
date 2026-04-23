@@ -5,7 +5,6 @@ export DOTBASH_PLAT="${DOTBASH}/plat/${OS}"
 # We need to source these as early as possible because they are used
 # pervasively over our bash config.
 source "${DOTBASH}/xdg.sh"
-[ -r "${DOTBASH_PLAT}/xdg.sh" ] && source "${DOTBASH_PLAT}/xdg.sh"
 
 unset HISTFILE                  # Don't save history
 export HISTCONTROL=ignoredups

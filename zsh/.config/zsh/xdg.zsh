@@ -8,4 +8,4 @@ export XDG_STATE_HOME=${XDG_CACHE_HOME}
 # isn't particularly necessary). Some ideas for setting its value here:
 # <https://wiki.alpinelinux.org/wiki/XDG_RUNTIME_DIR#Initialising_manually_in_/tmp>
 
-[ -r "${DOTBASH_PLAT}/xdg.sh" ] && source "${DOTBASH_PLAT}/xdg.sh"
+[ -r "${DOTZSH_PLAT}/xdg.zsh" ] && . "${DOTZSH_PLAT}/xdg.zsh"
