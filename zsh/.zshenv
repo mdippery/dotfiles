@@ -1,5 +1,5 @@
-# Should I use $ZDOTDIR here instead? Set ZDOTDIR=$DOTZSH?
-export DOTZSH="${HOME}/.config/zsh"
+export ZDOTDIR="${HOME}/.config/zsh"
+export DOTZSH=$ZDOTDIR
 
 export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 
@@ -10,3 +10,6 @@ export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 # Or if I want to disable it entirely, run `unset HISTFILE` as in bash.
 # Lots of other great options to look at, like $HIST_IGNORE_SPACE and
 # $HIST_IGNORE_DUPS; see `man zshoptions` for more settings.
+
+
+[ -r "${DOTZSH}/environment.zsh" ] && . "${DOTZSH}/environment.zsh"
