@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
 prompt_continue() {
   read -p "Continue? [Y/n] " -n 1 -r
