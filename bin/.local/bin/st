@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+
+# st = "script type"
+# Returns the "script type": the interpreter used to run a script.
+#
+# Very useful in chains using `fd` to find all scripts of a certain type
+# and run commands on them. For example, to find all shell scripts in the
+# current directory and sort them by number of lines:
+#
+#   $ fd -t x -x st
+#      | egrep '^(ba)?sh'
+#      | cut -d ' ' -f 2
+#      | xargs -n 1 wc -l
+#      | sort -r
+#
+# `file` could also be used here, but its output is a little wordier:
+#
+#   $ fd -t x -x file
+#      | grep 'shell script'
+#      | cut -d : -f 1
+#      | xargs -n 1 wc -l
+#      | sort -r
+
+import sys
+
+with open(sys.argv[1], "r") as fh:
+    first = fh.readline().strip()
+    parts = first.split(" ")
+    exe = parts[0].split("/")[-1]
+    if exe == "env":
+        script_type = parts[-1]
+    else:
+        script_type = exe
+
+print(script_type, sys.argv[1])
