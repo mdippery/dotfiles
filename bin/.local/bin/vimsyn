@@ -1,22 +1,33 @@
-#!/bin/bash
+#!/usr/bin/env python
 
-set -euo pipefail
+import shutil
+from pathlib import Path
 
-function binroot {
-  if (( $# < 1 )); then
-    onoe 'binroot <path>'
-    return 1
-  fi
-  dirname $(dirname $(which $1))
-}
+from plumbum.cmd import vim, egrep, find, head, sort, tr
 
-ver=$(vim --version | head -n 1 | egrep -o '([0-9]+\.[0-9])' | tr -d '.')
-binroot_vim=$(binroot vim)
 
-if [ "$binroot_vim" = /Applications/MacVim.app/Contents ]; then
-  synroot=/Applications/MacVim.app/Contents/Resources/vim/runtime/syntax
-else
-  synroot=${binroot_vim}/share/vim/vim${ver}/syntax
-fi
+def binroot(exe):
+    path = shutil.which(exe)
+    return Path(path).parent.parent
 
-find "$synroot" -name '*.vim' -exec basename {} \; | sort
+
+vim_version = (
+    vim["--version"]
+    | head["-n", "1"]
+    | egrep["-o", r"([0-9]+\.[0-9])"]
+    | tr["-d", "."]
+)().strip()
+
+vim_root = binroot("vim")
+macvim = Path("/") / "Applications" / "MacVim.app" / "Contents"
+if vim_root == macvim:
+    syn_root = macvim / "Resources" / "vim" / "runtime" / "syntax"
+else:
+    syn_root = vim_root / "share" / "vim" / f"vim{vim_version}" / "syntax"
+
+
+syntaxes = (
+    find[str(syn_root), "-name", "*.vim", "-exec", "basename", "{}", ";"]
+    | sort
+)().strip()
+print(syntaxes)
