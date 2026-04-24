@@ -21,11 +21,11 @@ function dots_exec {
   case "$1" in
     ln)
       shift
-      exec stow -d $dots_dir $*
+      exec stow -Rv -d $dots_dir $*
       ;;
     rm)
       shift
-      exec stow -D -d $dots_dir $*
+      exec stow -Dv -d $dots_dir $*
       ;;
     up)
       exec git --git-dir=$git_dir --work-tree=$dots_dir pull
