@@ -38,7 +38,7 @@ command -v stack &>/dev/null && eval "$(stack --bash-completion-script stack)"
 # Could also be done for fd in case I install it via Cargo, too, but
 # fd takes --gen-completions.
 # rg does not offer a way to generate completions from the command line.
-if command -v just &>/dev/null && [ ! -e "${BREW_PREFIX}/etc/bash_completion.d/just" ]; then
+if command -v just &>/dev/null && ! grep -q just <(complete -p); then
   eval "$(just --completions=bash)"
 fi
 
