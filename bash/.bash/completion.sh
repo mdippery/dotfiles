@@ -30,11 +30,17 @@ complete -c bcat
 complete -c sym
 complete -c whither
 
-command -v stack &>/dev/null && eval "$(stack --bash-completion-script stack)"
-command -v just &>/dev/null && eval "$(just --completions=bash)"
-command -v ngrok &>/dev/null && eval "$(ngrok completion)"
-
 command -v aws_completer &>/dev/null && complete -C aws_completer aws
+
+command -v ngrok &>/dev/null && eval "$(ngrok completion)"
+command -v stack &>/dev/null && eval "$(stack --bash-completion-script stack)"
+
+# Could also be done for fd in case I install it via Cargo, too, but
+# fd takes --gen-completions.
+# rg does not offer a way to generate completions from the command line.
+if command -v just &>/dev/null && [ ! -e "${BREW_PREFIX}/etc/bash_completion.d/just" ]; then
+  eval "$(just --completions=bash)"
+fi
 
 unset brew
 unset brew_completion
