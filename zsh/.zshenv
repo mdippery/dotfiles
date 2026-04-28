@@ -21,21 +21,6 @@ export DOTZSH_PLAT="${DOTZSH}/plat/${OS}"
 
 . "${DOTZSH}/xdg.zsh"
 
-# Disable shell session support on macOS.
-#
-# On macOS, /etc/zshrc calls /etc/zshrc_Apple_Terminal, which manages the
-# saving and loading of sessions. I hate sessions -- I want everything to
-# disappear when I close the Terminal -- so I like to disable these.
-# Unfortunately, this environment variable MUST be set in ~/.zprofile, because
-# it needs to be set BEFORE /etc/zshrc is loaded.
-#
-# See [1] for general discussion.
-#
-# [1]: https://superuser.com/q/1610587
-#
-# TODO: Move this to a plat/darwin directory when one becomes available.
-if [ -e /etc/zshrc_Apple_Terminal ]; then
-  export SHELL_SESSIONS_DISABLE=1
-fi
 
 [ -r "${DOTZSH}/environment.zsh" ] && . "${DOTZSH}/environment.zsh"
+[ -r "${DOTZSH_PLAT}/environment.zsh" ] && . "${DOTZSH_PLAT}/environment.zsh"
