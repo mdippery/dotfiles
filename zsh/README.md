@@ -102,9 +102,10 @@ following files will be read:
 On OS X, when launching Terminal.app, the following files will be read:
 
 1. `.zshenv`
-2. `.zshrc`
-3. `.zlogin`
-4. `.zlogout`
+2. `.zprofile` (but use `.zlogin` instead)
+3. `.zshrc`
+4. `.zlogin`
+5. `.zlogout`
 
 In general, though, environment variables should be set in `.zshenv`, other
 settings (aliases, functions) in `.zshrc`, and then `.zlogin` can be used to
