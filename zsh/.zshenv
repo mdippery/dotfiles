@@ -8,6 +8,10 @@
 
 # Check /etc/zshrc when configuring zsh, especially on macOS.
 # It can set some gnarly options.
+# It also sets some environment variables which should be really be set
+# in /etc/zshenv, which means they have to be overridden or unset in
+# ~/.zshrc, since /etc/zshrc is sourced after ~/.zshenv. Bad, macOS!
+#
 # In particular, I might want to set $HISTFILE to $ZDG_STATE_HOME/zsh,
 # like my other history files.
 # Or if I want to disable it entirely, run `unset HISTFILE` as in bash.
