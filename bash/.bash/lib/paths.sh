@@ -27,7 +27,7 @@ function paths-helper {
   local RAW_PATH
   local macvim docker homebrew x11bin whichbin gettext libpq
 
-  [ -d "${HOME}/.docker/bin" ] && docker="${HOME}/.docker/bin"
+  [ -n "$(find ~/.docker/bin -type f -maxdepth 1)" ] && docker="${HOME}/.docker/bin"
 
   [ -d /Applications/MacVim.app/Contents/bin ] && macvim=/Applications/MacVim.app/Contents/bin
 
