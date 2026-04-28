@@ -25,6 +25,4 @@ export DOTZSH_PLAT="${DOTZSH}/plat/${OS}"
 
 . "${DOTZSH}/xdg.zsh"
 
-
-[ -r "${DOTZSH}/environment.zsh" ] && . "${DOTZSH}/environment.zsh"
-[ -r "${DOTZSH_PLAT}/environment.zsh" ] && . "${DOTZSH_PLAT}/environment.zsh"
+. "${DOTZSH}/environment.zsh"
