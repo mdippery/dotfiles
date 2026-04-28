@@ -64,7 +64,7 @@ mkdir -p $(dirname "$PSQL_HISTORY")
 mkdir -p $(dirname "$PYTHON_HISTORY")
 mkdir -p "$XDG_STATE_HOME/ruby"
 
-[ -r "${DOTBASH_OS}/environment.sh" ] && source "${DOTBASH_OS}/environment.sh"
+[ -r "${DOTBASH_PLAT}/environment.sh" ] && source "${DOTBASH_PLAT}/environment.sh"
 [ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
 
 # vim: set ft=bash :
