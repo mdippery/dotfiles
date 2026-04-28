@@ -1,3 +1,12 @@
+function _default_path {
+  # macOS adds a lot of crap to the $PATH that I really don't need.
+  if [ $OS = darwin ]; then
+    echo /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  else
+    echo $PATH
+  fi
+}
+
 function _quick_brew_home {
   if [ $(uname -m) = arm64 ]; then
     echo /opt/homebrew
@@ -43,7 +52,7 @@ $x11bin
 $whichbin
 $gettext
 $libpq
-$PATH
+$(_default_path)
 EOS
 )
 
