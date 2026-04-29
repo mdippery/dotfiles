@@ -1,7 +1,12 @@
 function _default_path {
   # macOS adds a lot of crap to the $PATH that I really don't need.
+  local path
   if [ $OS = darwin ]; then
-    echo /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+    path=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+    if [ -r /etc/paths.d/TeX ]; then
+      path="$(cat /etc/paths.d/TeX):$path"
+    fi
+    echo $path
   else
     echo $PATH
   fi
