@@ -34,11 +34,11 @@ brew_installed() {
 
 macvim=''
 docker=''
-homebrew=$(brew_home)/bin
 x11bin=''
 whichbin=''
 gettext=''
 libpq=''
+homebrew=$(brew_home)/bin
 
 test -n "$(find ~/.docker/bin -type f -maxdepth 1)" && docker="${HOME}/.docker/bin"
 test -d /Applications/MacVim.app/Contents/bin && macvim=/Applications/MacVim.app/Contents/bin
@@ -56,11 +56,11 @@ $XDG_BIN_HOME
 $XDG_LIBEXEC_HOME/git
 $macvim
 $docker
-$homebrew
 $x11bin
 $whichbin
 $gettext
 $libpq
+$homebrew
 $(default_path)
 EOS
 echo
