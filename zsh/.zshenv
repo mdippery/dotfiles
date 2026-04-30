@@ -23,6 +23,9 @@ export OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 export DOTZSH_PLAT="${DOTZSH}/plat/${OS}"
 #export ZDOTDIR=$DOTZSH
 
+# $TERM is not always set in zsh -- make sure we set it early.
+[ -z "$TERM" ] && export TERM='xterm-256color'
+
 . "${DOTZSH}/xdg.zsh"
 
 . "${DOTZSH}/environment.zsh"
