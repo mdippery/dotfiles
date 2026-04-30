@@ -53,7 +53,7 @@ $(brew_installed libpq) && libpq=$(brew_prefix libpq)/bin
 
 cat <<EOS | tr '\n' ':' | sed 's/:$//' | tr -s :
 $XDG_BIN_HOME
-$(dirname $XDG_BIN_HOME)/libexec/git
+$XDG_LIBEXEC_HOME/git
 $macvim
 $docker
 $homebrew
