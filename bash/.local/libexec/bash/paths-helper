@@ -1,0 +1,66 @@
+#!/bin/bash
+
+set -euo pipefail
+
+default_path() {
+  # macOS adds a lot of crap to the $PATH that I really don't need.
+  local path
+  if [ $OS = darwin ]; then
+    path=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+    if [ -r /etc/paths.d/TeX ]; then
+      path="$(cat /etc/paths.d/TeX):$path"
+    fi
+    echo $path
+  else
+    echo $PATH
+  fi
+}
+
+brew_home() {
+  if [ $(uname -m) = arm64 ]; then
+    echo /opt/homebrew
+  else
+    echo /usr/local
+  fi
+}
+
+brew_prefix() {
+  echo "$(brew_home)/opt/$1"
+}
+
+brew_installed() {
+  test -e $(brew_prefix $1)
+}
+
+macvim=''
+docker=''
+homebrew=$(brew_home)/bin
+x11bin=''
+whichbin=''
+gettext=''
+libpq=''
+
+test -n "$(find ~/.docker/bin -type f -maxdepth 1)" && docker="${HOME}/.docker/bin"
+test -d /Applications/MacVim.app/Contents/bin && macvim=/Applications/MacVim.app/Contents/bin
+test -d /opt/X11/bin && x11bin=/opt/X11/bin
+
+$(brew_installed gnu-which) && whichbin=$(brew_prefix gnu-which)/libexec/gnubin
+$(brew_installed gettext) && gettext=$(brew_prefix gettext)/bin
+
+# Nowadays I normally run Postgres in Docker, so I only install libpq
+# to get access to the `psql` binary.
+$(brew_installed libpq) && libpq=$(brew_prefix libpq)/bin
+
+cat <<EOS | tr '\n' ':' | sed 's/:$//' | tr -s :
+$XDG_BIN_HOME
+$(dirname $XDG_BIN_HOME)/libexec/git
+$macvim
+$docker
+$homebrew
+$x11bin
+$whichbin
+$gettext
+$libpq
+$(default_path)
+EOS
+echo

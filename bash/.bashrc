@@ -20,7 +20,7 @@ shopt -s histappend
 
 unalias -a                      # I don't want any pre-set aliases
 
-source "${DOTBASH}/lib.sh"
+[ -r "${DOTBASH}/lib.sh" ] && source "${DOTBASH}/lib.sh"
 
 source "${DOTBASH}/environment.sh"
 source "${DOTBASH}/functions.sh"
