@@ -24,7 +24,7 @@ function xdg_var {
     state-home)
       echo ${XDG_STATE_HOME:-${HOME}/.local/state};;
     *)
-      onoe 'No such variable: $XDG_'"$(echo -n $v | tr - _ | tr [:lower:] [:upper:])"
+      echo 'No such variable: $XDG_'"$(echo -n $v | tr - _ | tr [:lower:] [:upper:])" >&2
       return 2
   esac
 }

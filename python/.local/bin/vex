@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -d .bundle ]; then
-  onoe "No virtualenv in ${PWD}"
+  echo "No virtualenv in ${PWD}" >&2
   exit 1
 fi
 env -P "${PWD}/.bundle/bin" VIRTUAL_ENV="${PWD}/.bundle" $*

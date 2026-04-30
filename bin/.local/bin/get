@@ -13,7 +13,7 @@ case $f in
   *.xz)          expand='unxz'    ;;
 
   *)
-    onoe "Unrecognized archive type: $(basename $f)"
+    echo "Unrecognized archive type: $(basename $f)" >&2
     exit 1
     ;;
 esac

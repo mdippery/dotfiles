@@ -8,7 +8,7 @@ function dots_directory {
     vims) echo $VIMFILES ;;
 
     *)
-      onoe "No dots directory: $1"
+      echo "No dots directory: $1" >&2
       return 1
   esac
 }

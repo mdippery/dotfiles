@@ -1,4 +1,4 @@
 #!/bin/bash
 
-onoe 'I think you mean `ldd`'
+echo 'I think you mean `ldd`' >&2
 exit 1

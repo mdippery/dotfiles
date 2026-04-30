@@ -1,4 +1,4 @@
 #!/bin/bash
 
-onoe 'I think you mean `otool [-L]`'
+echo 'I think you mean `otool [-L]`' >&2
 exit 1
