@@ -3,17 +3,42 @@
 set -euo pipefail
 
 default_path() {
-  # macOS adds a lot of crap to the $PATH that I really don't need.
-  local path
   if [ $OS = darwin ]; then
-    path=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-    if [ -r /etc/paths.d/TeX ]; then
-      path="$(cat /etc/paths.d/TeX):$path"
-    fi
-    echo $path
+    default_path_darwin
   else
     echo $PATH
   fi
+}
+
+default_path_darwin() {
+  # macOS adds a lot of crap to the $PATH that I really don't need.
+  #
+  # The com.apple.security.cryptexd directories don't even exist on any
+  # system I've checked, nor do the /opt/pkg and /opt/pmk directories.
+  #
+  # I have removed the following directories, although I could consider
+  # allowing them:
+  #
+  #   - /System/Cryptexes/App/usr/bin - contains safaridriver, which launches
+  #     a Selenium driver for Safari that might be useful for local web dev
+  #   - /Library/Apple/usr/bin - contains rvictl, which creates a virtual
+  #     network interface to capture traffic from iOS devices and might
+  #     also be useful for local iOS dev
+  #
+  # If I want to add these, remove
+  #
+  #   | egrep -v ^/System/Cryptexes \
+  #   | fgrep -v /Library/Apple/usr/bin \
+  #
+  # from the pipeline below.
+
+  echo $PATH \
+    | tr : "\n" \
+    | egrep -v ^/System/Cryptexes \
+    | fgrep -v /Library/Apple/usr/bin \
+    | fgrep -v com.apple.security.cryptexd \
+    | egrep -v '^/opt/p(kg|mk)/env' \
+    | tr "\n" :
 }
 
 brew_home() {
