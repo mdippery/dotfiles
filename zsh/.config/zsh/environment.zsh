@@ -23,4 +23,4 @@ export DOTFILES="${HOME}/.dotfiles"
 export VIMFILES="${HOME}/.vimfiles"
 
 [ -r "${DOTZSH_PLAT}/environment.zsh" ] && . "${DOTZSH_PLAT}/environment.zsh"
-[ -r "${DOTZSH}/user/environment.zsh" ] && . "${DOTZSH}/user/environment.zsh"
+[ -r "${DOTZSH}/environment.user.zsh" ] && . "${DOTZSH}/environment.user.zsh"
