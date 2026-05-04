@@ -1,2 +1,2 @@
 [ -r ~/.bashrc ] && source ~/.bashrc
-greet
+${XDG_LIBEXEC_HOME}/bash/greet
