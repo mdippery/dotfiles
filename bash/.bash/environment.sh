@@ -14,7 +14,10 @@ export PROMPT_DIRTRIM=3
 export DOTFILES="${HOME}/.dotfiles"
 export VIMFILES="${HOME}/.vimfiles"
 
-export PATH=$(${XDG_LIBEXEC_HOME}/bash/paths-helper)
+export SH_BIN="${XDG_LIBEXEC_HOME}/sh"
+export SH_SHARE="${XDG_DATA_HOME}/sh"
+
+export PATH=$(${SH_BIN}/paths-helper)
 
 export EDITOR=vim
 export GUI_EDITOR=mvim
