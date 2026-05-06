@@ -12,6 +12,10 @@ script:
       [ $pkg != 'README.md' ] && stow $pkg
     done
 
+Or a neat one-liner, if you have `fd` installed:
+
+    fd -t d --exact-depth 1 --strip-cwd-prefix --exec stow
+
 ---
 
 If you're looking for Vim configuration scripts, you should instead take
