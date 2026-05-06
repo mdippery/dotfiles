@@ -96,7 +96,6 @@
 	last-log = log --pretty=format:%s%n%n%b -n 1
 	latest-tag = describe --abbrev=0
 	log-me = "!f() { git log --author=$(git config user.email) $@; }; f"
-	nuke = !sh -c 'git reset --hard HEAD~$1' -
 	on = rev-parse --abbrev-ref HEAD
 	oops = "!f() { git commit --fixup=$(git last); }; f"
 	push-name = !sh -c 'git remote get-url --push $(git push-remote) | cut -d / -f 2 | cut -d . -f 1'
