@@ -4,6 +4,9 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias rpmbuild='rpmbuild -v -bb --clean'
 
-hash gitk 2>/dev/null && alias gitx='gitk'
+alias pbc='pbcopy'
+alias pbp='pbpaste'
+
+command -v gitk &>/dev/null && alias gitx='gitk'
 
 unalias top
