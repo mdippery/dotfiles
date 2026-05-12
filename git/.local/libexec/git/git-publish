@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euo pipefail
+
+remote_host=${1:-git@git.mipadi.net}
+remote_name=${2:-mpd}
+project=$(basename $(pwd))
+
+remote="${remote_host}:${project}.git"
+
+ssh $remote_host "mkdir ${project}.git && cd ${project}.git && git --bare init"
+git remote add $remote_name $remote
+git push -u $remote_name HEAD
