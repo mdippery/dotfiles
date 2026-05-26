@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-import sys
-
 # Prints the bash utf8 representation of a character
 #
 # In straight bash, this would be:
@@ -13,7 +11,53 @@ import sys
 #
 # but I think this Python version is easier to read.
 
-ch = sys.argv[1]
-bn = ch.encode("utf-8")
-bs = "".join(oct(b).replace("0o", "\\") for b in bn)
-print(bs)
+import argparse
+import sys
+import unicodedata
+
+
+def single_character(s):
+    if len(s) > 1:
+        raise ValueError("character must be a single character")
+    return s
+
+
+DESCRIPTION = """\
+Prints the bytes that make up a UTF-8 character in a form that is used by bash.
+Optionally shows the Unicode name of the character as well.
+"""
+
+parser = argparse.ArgumentParser(
+    prog="utf8",
+    description=DESCRIPTION,
+)
+parser.add_argument(
+    "-b", "--bash",
+    action="store_true",
+    # No way to turn this off but I'm not sure of the UX here.
+    default=True,
+    help="display the bash representation of the character",
+)
+parser.add_argument(
+    "-u", "--unicode",
+    action="store_true",
+    default=False,
+    help="display the Unicode name of the character",
+)
+parser.add_argument(
+    "character",
+    type=single_character,
+    help="the character",
+)
+
+args = parser.parse_args()
+
+ch = args.character
+
+if args.unicode:
+    print(unicodedata.name(ch))
+
+if args.bash:
+    bn = ch.encode("utf-8")
+    bs = "".join(oct(b).replace("0o", "\\") for b in bn)
+    print(bs)
