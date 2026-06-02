@@ -22,6 +22,7 @@
       "Bash(uv run mypy:*)",
       "Bash(xargs grep:*)",
       "Bash(xargs ls:*)",
+      "Bash(xargs -I {} basename {})",
       "Bash(yarn fix:*)",
       "Bash(yarn run jest:*)",
       "Bash(yarn vitest *)"
