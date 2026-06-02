@@ -1,8 +1,4 @@
 {
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/status.bash"
-  },
   "permissions": {
     "allow": [
       "Bash(find:*)",
@@ -27,6 +23,13 @@
       "Bash(yarn run jest:*)",
       "Bash(yarn vitest *)"
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/status.bash"
+  },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "spinnerVerbs": {
     "mode": "append",
