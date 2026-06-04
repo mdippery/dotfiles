@@ -2,6 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(find:*)",
+      "Bash(git stash *)",
       "Bash(grep:*)",
       "Bash(ls:*)",
       "Bash(npm run fix:*)",
