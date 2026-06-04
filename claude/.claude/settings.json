@@ -2,6 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(find:*)",
+      "Bash(git --no-pager diff --stat)",
       "Bash(git stash *)",
       "Bash(grep:*)",
       "Bash(ls:*)",
