@@ -42,6 +42,11 @@ if command -v just &>/dev/null && ! complete -p just &>/dev/null; then
   eval "$(just --completions=bash)"
 fi
 
+if command -v terraform &>/dev/null; then
+  complete -C $(which terraform) terraform
+  complete -C $(which terraform) tf
+fi
+
 unset brew
 unset brew_completion
 unset bash_completion_d
