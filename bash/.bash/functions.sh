@@ -15,7 +15,7 @@ function claude_job {
   jobs \
     | grep claude \
     | grep -v 'wd:' \
-    | egrep -o '^\[\d+\][+-]' \
+    | egrep -o '^\[\d+\][+-]?' \
     | tr -d -C [:digit:]
 }
 
