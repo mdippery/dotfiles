@@ -62,12 +62,13 @@ export PYTHON_HISTORY="${XDG_STATE_HOME}/python/history.py3"
 [ -x /usr/libexec/java_home ] && \
   export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
 
+[ -r "${DOTBASH_PLAT}/environment.sh" ] && source "${DOTBASH_PLAT}/environment.sh"
+[ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
+
 mkdir -p "$TF_PLUGIN_CACHE_DIR"
+mkdir -p "$TOX_WORKDIR_CACHE"
 mkdir -p $(dirname "$PSQL_HISTORY")
 mkdir -p $(dirname "$PYTHON_HISTORY")
 mkdir -p "$XDG_STATE_HOME/ruby"
-
-[ -r "${DOTBASH_PLAT}/environment.sh" ] && source "${DOTBASH_PLAT}/environment.sh"
-[ -r "${DOTBASH}/environment.user.sh" ] && source "${DOTBASH}/environment.user.sh"
 
 # vim: set ft=bash :
