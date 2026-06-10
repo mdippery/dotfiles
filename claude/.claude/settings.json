@@ -71,5 +71,6 @@
       "Zzzzzzzzzzzzzzzz"
     ]
   },
-  "model": "opus[1m]"
+  "model": "opus[1m]",
+  "theme": "dark"
 }
