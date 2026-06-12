@@ -9,11 +9,11 @@ reset=$(tput sgr0)
 
 sep=" • "
 
-# cwd=$(basename $(echo "$input" | jq -r .workspace.current_dir))
-project_dir=$(basename $(echo "$input" | jq -r .workspace.project_dir))
-model=$(echo "$input" | jq -r .model.display_name)
-usage=$(echo "$input" | jq -r .rate_limits.five_hour.used_percentage)
-cost=$(printf "$%.2f" $(echo "$input" | jq -r .cost.total_cost_usd))
+# cwd=$(basename $(jq -r .workspace.current_dir <<<"$input"))
+project_dir=$(basename $(jq -r .workspace.project_dir <<<"$input"))
+model=$(jq -r .model.display_name <<<"$input")
+usage=$(jq -r .rate_limits.five_hour.used_percentage <<<"$input")
+cost=$(printf "$%.2f" $(jq -r .cost.total_cost_usd <<<"$input"))
 branch=$(git branch --show-current)
 
 # Project directory and Git branch
