@@ -6,6 +6,7 @@
       "Bash(git stash *)",
       "Bash(grep:*)",
       "Bash(ls:*)",
+      "Bash(npm ls *)",
       "Bash(npm run fix:*)",
       "Bash(npm run lint:*)",
       "Bash(npm run type-check:*)",
