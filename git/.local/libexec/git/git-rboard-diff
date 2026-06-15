@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -o pipefail
-
-git diff --no-prefix $* \
-  | sed -e 's/^+++ .*/&    (working copy)/' \
-        -e "s@^--- \(.*\)@&    /$(pwd)/\1#head@" \
-        -e 's/^diff --git [^[:space:]]*/Index:/' \
-        -e 's/^index.*/===================================================================/'
