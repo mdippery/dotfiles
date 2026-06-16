@@ -2,6 +2,7 @@
 
 input=$(cat)
 
+green=$(tput setaf 2)
 yellow=$(tput setaf 3)
 blue=$(tput setaf 4)
 teal=$(tput setaf 6)
@@ -15,11 +16,18 @@ model=$(jq -r .model.display_name <<<"$input")
 usage=$(jq -r .rate_limits.five_hour.used_percentage <<<"$input")
 cost=$(printf "$%.2f" $(jq -r .cost.total_cost_usd <<<"$input"))
 branch=$(git branch --show-current)
+worktree=$(jq -r .workspace.git_worktree <<<"$input")
 
 # Project directory and Git branch
 echo -n "📂 $project_dir"
 echo -n "$sep"
 echo -n "${yellow} $branch${reset}"
+
+# Git worktree, if used
+if [[ -n "$worktree" && "$worktree" != null ]]; then
+  echo -n "$sep"
+  echo -n "${green}🌳 $worktree${reset}"
+fi
 
 # Quota and model
 if [ $(tput cols) -gt 100 ]; then echo -n "$sep"; else echo; fi
