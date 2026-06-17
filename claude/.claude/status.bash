@@ -18,15 +18,16 @@ cost=$(printf "$%.2f" $(jq -r .cost.total_cost_usd <<<"$input"))
 branch=$(git branch --show-current)
 worktree=$(jq -r .workspace.git_worktree <<<"$input")
 
-# Project directory and Git branch
+# Project directory
 echo -n "📂 $project_dir"
-echo -n "$sep"
-echo -n "${yellow} $branch${reset}"
 
-# Git worktree, if used
+# Git branch or Git worktree
 if [[ -n "$worktree" && "$worktree" != null ]]; then
   echo -n "$sep"
   echo -n "${green}🌳 $worktree${reset}"
+else
+  echo -n "$sep"
+  echo -n "${yellow} $branch${reset}"
 fi
 
 # Quota and model
