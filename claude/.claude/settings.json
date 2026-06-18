@@ -27,12 +27,14 @@
       "Bash(yarn vitest *)"
     ]
   },
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/status.bash"
   },
   "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true
   },
   "spinnerVerbs": {
     "mode": "append",
@@ -72,6 +74,5 @@
       "Zzzzzzzzzzzzzzzz"
     ]
   },
-  "model": "opus[1m]",
   "theme": "dark"
 }
