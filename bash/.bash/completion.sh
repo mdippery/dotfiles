@@ -35,6 +35,11 @@ command -v aws_completer &>/dev/null && complete -C aws_completer aws
 command -v ngrok &>/dev/null && eval "$(ngrok completion)"
 command -v stack &>/dev/null && eval "$(stack --bash-completion-script stack)"
 
+if command -v terraform &>/dev/null; then
+  complete -C $(which terraform) terraform
+  complete -C $(which terraform) tf
+fi
+
 # Could also be done for fd in case I install it via Cargo, too, but
 # fd takes --gen-completions.
 # rg does not offer a way to generate completions from the command line.
@@ -42,9 +47,9 @@ if command -v just &>/dev/null && ! complete -p just &>/dev/null; then
   eval "$(just --completions=bash)"
 fi
 
-if command -v terraform &>/dev/null; then
-  complete -C $(which terraform) terraform
-  complete -C $(which terraform) tf
+# Homebrew zmx comes with its own completion file
+if command -v zmx &>/dev/null && ! complete -p xmz &>/dev/null; then
+  eval "$(zmx completions bash)"
 fi
 
 unset brew
