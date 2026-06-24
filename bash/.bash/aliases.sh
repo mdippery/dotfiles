@@ -59,7 +59,7 @@ alias vundle='vim +PluginInstall +qall'
 alias w='which'
 
 command -v jq &>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
-command -v uuid &>/dev/null || alias uuid='/usr/bin/uuidgen'
+command -v uuid &>/dev/null || alias uuid='/usr/bin/uuidgen | tr [:upper:] [:lower:]'
 
 [ -r "${DOTBASH_PLAT}/aliases.sh" ] && source "${DOTBASH_PLAT}/aliases.sh"
 [ -r "${DOTBASH}/aliases.user.sh" ] && source "${DOTBASH}/aliases.user.sh"
