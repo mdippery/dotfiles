@@ -1,10 +1,13 @@
 {
   "permissions": {
     "allow": [
+      "Bash(break)",
+      "Bash(echo \"EXIT: $?\")",
       "Bash(find:*)",
       "Bash(git --no-pager diff --stat)",
       "Bash(git stash *)",
       "Bash(grep:*)",
+      "Bash(jobs -l)",
       "Bash(ls:*)",
       "Bash(npm ls *)",
       "Bash(npm run fix:*)",
@@ -24,6 +27,7 @@
       "Bash(xargs -I {} basename {})",
       "Bash(yarn fix:*)",
       "Bash(yarn run jest:*)",
+      "Bash(yarn tsc *)",
       "Bash(yarn vitest *)"
     ]
   },
