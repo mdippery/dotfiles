@@ -22,6 +22,7 @@ alias i='dirs -v'
 alias inode='stat -f %i'
 alias j='jobs'
 alias javap='javap -cp build:$(sbt_classes)'
+alias lc='tr [:upper:] [:lower:]'
 alias ll='ls -lh'
 alias ls='ls -FG'
 alias lynx='lynx -accept_all_cookies'
@@ -53,13 +54,14 @@ alias tf='terraform'
 alias tg='terragrunt'
 alias top='top -o cpu'
 alias tree='tree --gitignore --prune'
+alias uc='tr [:lower:] [:upper:]'
 alias venv='pyvenv'
 alias vv='source .bundle/bin/activate'
 alias vundle='vim +PluginInstall +qall'
 alias w='which'
 
 command -v jq &>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
-command -v uuid &>/dev/null || alias uuid='/usr/bin/uuidgen | tr [:upper:] [:lower:]'
+command -v uuid &>/dev/null || alias uuid='/usr/bin/uuidgen | lc'
 
 [ -r "${DOTBASH_PLAT}/aliases.sh" ] && source "${DOTBASH_PLAT}/aliases.sh"
 [ -r "${DOTBASH}/aliases.user.sh" ] && source "${DOTBASH}/aliases.user.sh"
