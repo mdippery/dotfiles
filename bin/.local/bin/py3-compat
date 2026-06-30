@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eou pipefail
+set -euo pipefail
 
 if [[ $SHELL_USE_COLOR != '0' ]]; then
   GREEN="$(tput setaf 2)"
