@@ -28,7 +28,7 @@ function dotenv {
 
 # Loads the Claude job for the current directory into the foreground
 function fgc {
-  fg $(claude_job)
+  fg %$(claude_job)
 }
 
 # A nicer man with colorized text
