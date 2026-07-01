@@ -62,8 +62,11 @@ alias w='which'
 alias wrap='fold -w $(tput cols) -s'
 
 command -v jq &>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
-command -v lorem-ipsum &>/dev/null && alias lorem='lorem-ipsum'
 command -v uuid &>/dev/null || alias uuid='/usr/bin/uuidgen | lc'
+
+if command -v lorem-ipsum &>/dev/null && ! command -v lorem &>/dev/null; then
+  alias lorem='lorem-ipsum'
+fi
 
 [ -r "${DOTBASH_PLAT}/aliases.sh" ] && source "${DOTBASH_PLAT}/aliases.sh"
 [ -r "${DOTBASH}/aliases.user.sh" ] && source "${DOTBASH}/aliases.user.sh"
