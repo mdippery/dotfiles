@@ -59,6 +59,7 @@ alias venv='pyvenv'
 alias vv='source .bundle/bin/activate'
 alias vundle='vim +PluginInstall +qall'
 alias w='which'
+alias wrap='fold -w $(tput cols) -s'
 
 command -v jq &>/dev/null && alias json="jq -C '.'" || alias json='python -mjson.tool'
 command -v uuid &>/dev/null || alias uuid='/usr/bin/uuidgen | lc'
