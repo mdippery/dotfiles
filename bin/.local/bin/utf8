@@ -45,6 +45,12 @@ parser.add_argument(
     help="display the Unicode name of the character",
 )
 parser.add_argument(
+    "-v", "--verbose",
+    action="store_true",
+    default=False,
+    help="verbose output",
+)
+parser.add_argument(
     "character",
     type=single_character,
     help="the character",
@@ -55,9 +61,13 @@ args = parser.parse_args()
 ch = args.character
 
 if args.unicode:
+    if args.verbose:
+        print("Unicode Name:", end="\t")
     print(unicodedata.name(ch))
 
 if args.bash:
+    if args.verbose:
+        print("Bash:", end="\t\t")
     bn = ch.encode("utf-8")
     bs = "".join(oct(b).replace("0o", "\\") for b in bn)
     print(bs)
