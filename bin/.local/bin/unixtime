@@ -12,9 +12,15 @@ parser.add_argument(
     action="store_true",
     help="convert a Unix millisecond timestamp into seconds, if detected",
 )
-parser.add_argument("timestamp", help="Unix epoch timestamp", type=int)
+parser.add_argument(
+    "timestamp",
+    help="Unix epoch timestamp",
+    type=int,
+    nargs="?",
+)
 args = parser.parse_args()
-timestamp = args.timestamp
+
+timestamp = args.timestamp or int(sys.stdin.read().strip())
 
 if len(str(timestamp)) >= 13:
     print(
