@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# I might need to update some configure flags and Homebrew dependencies;
+# see <https://docs.ruby-lang.org/en/master/contributing/building_ruby_md.html>
+# for the latest build info. Script still seems to work for now.
+
 set -euo pipefail
 
 if [[ $# < 1 ]]; then
