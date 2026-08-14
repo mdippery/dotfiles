@@ -59,6 +59,7 @@ brew_installed() {
 
 macvim=''
 docker=''
+duckdb=''
 x11bin=''
 whichbin=''
 gettext=''
@@ -66,6 +67,7 @@ libpq=''
 homebrew=$(brew_home)/bin
 
 test -n "$(find ~/.docker/bin -type f -maxdepth 1)" && docker="${HOME}/.docker/bin"
+test -x "${HOME}/.duckdb/cli/latest/duckdb" && duckdb="${HOME}/.duckdb/cli/latest"
 test -d /Applications/MacVim.app/Contents/bin && macvim=/Applications/MacVim.app/Contents/bin
 test -d /opt/X11/bin && x11bin=/opt/X11/bin
 
@@ -81,6 +83,7 @@ $XDG_BIN_HOME
 $XDG_LIBEXEC_HOME/git
 $macvim
 $docker
+$duckdb
 $x11bin
 $whichbin
 $gettext
