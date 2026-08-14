@@ -57,9 +57,9 @@ brew_installed() {
   test -e $(brew_prefix $1)
 }
 
+duckdb=''
 macvim=''
 docker=''
-duckdb=''
 x11bin=''
 whichbin=''
 gettext=''
@@ -81,9 +81,9 @@ $(brew_installed libpq) && libpq=$(brew_prefix libpq)/bin
 cat <<EOS | tr '\n' ':' | sed 's/:$//' | tr -s :
 $XDG_BIN_HOME
 $XDG_LIBEXEC_HOME/git
+$duckdb
 $macvim
 $docker
-$duckdb
 $x11bin
 $whichbin
 $gettext
