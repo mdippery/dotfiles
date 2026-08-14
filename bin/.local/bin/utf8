@@ -34,7 +34,6 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     "-b", "--bash",
     action="store_true",
-    # No way to turn this off but I'm not sure of the UX here.
     default=False,
     help="display the bash representation of the character",
 )
