@@ -1,0 +1,10 @@
+#!/usr/bin/env python
+
+import configparser
+from pathlib import Path
+
+
+path = Path.home() / ".aws" / "credentials"
+config = configparser.ConfigParser()
+config.read(path)
+print("\n".join(sorted(config.sections())))
