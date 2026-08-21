@@ -10,3 +10,5 @@ Follow standard Git commit style when writing Git commit messages:
   - Do not use conventional commit prefixes -- ever (they're obnoxious).
   - Subject lines should be written in the imperative mood.
   - Never end the subject line with a period.
+
+Be brief when writing a commit message: a paragraph or two will suffice.
