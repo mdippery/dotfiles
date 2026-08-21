@@ -1,5 +1,6 @@
 {
   "permissions": {
+    "defaultMode": "manual",
     "allow": [
       "Bash(break)",
       "Bash(echo \"EXIT: $?\")",
